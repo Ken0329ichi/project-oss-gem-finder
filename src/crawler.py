@@ -8,6 +8,7 @@ from schema import OpenSSOTDataset, RepositorySchema, RepoMeta, RepoMetrics, Rep
 DATA_DIR = "data"
 ETAGS_PATH = os.path.join(DATA_DIR, "etags.json")
 DATA_PATH = os.path.join(DATA_DIR, "data.json")
+TARGETS_PATH = "targets.txt"
 
 # 【単一責任】GitHubとのREST通信とETag（安全装置）の管理に徹するクラス
 class GitHubClient:
@@ -81,12 +82,20 @@ class BaseTargetScraper:
         raise NotImplementedError
 
 class CuratedTargetScraper(BaseTargetScraper):
-    def __init__(self, targets: List[str] = None):
-        if targets is None:
-            # デフォルトのテスト用ターゲット
-            self.targets = ["fastapi/fastapi", "tailwindlabs/tailwindcss"]
-        else:
-            self.targets = targets
+    def __init__(self):
+        self.targets = self._load_targets()
+
+    def _load_targets(self) -> List[str]:
+        if os.path.exists(TARGETS_PATH):
+            try:
+                with open(TARGETS_PATH, "r", encoding="utf-8") as f:
+                    # 空行や、# で始まるコメント行を除外してリスト化
+                    return [line.strip() for line in f if line.strip() and not line.strip().startswith("#")]
+            except Exception as e:
+                print(f"Warning: Failed to load targets.txt: {e}")
+        
+        # ファイルがない場合のデフォルトフォールバック
+        return ["fastapi/fastapi", "tailwindlabs/tailwindcss"]
 
     def get_targets(self) -> List[str]:
         return self.targets
@@ -103,16 +112,12 @@ def main():
 
     client = GitHubClient(token)
     
-    # ターゲットリスト
-    # テストとして、一部存在しないダミーリポジトリも含める
-    target_list = ["fastapi/fastapi", "tailwindlabs/tailwindcss"]
-    
+    scraper = CuratedTargetScraper()
+    targets = scraper.get_targets()
+
     # クレンジング検証用に環境変数で切り替え可能にする
     if os.environ.get("TEST_CLEANSING") == "true":
-        target_list.append("nonexistent-user-12345/nonexistent-repo")
-
-    scraper = CuratedTargetScraper(target_list)
-    targets = scraper.get_targets()
+        targets.append("nonexistent-user-12345/nonexistent-repo")
 
     # 1. 前回の data.json（既存データ）をロードしてメモリに保持
     old_data_map = {}
