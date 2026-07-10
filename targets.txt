@@ -1,0 +1,3 @@
+# クロール対象のGitHubリポジトリ一覧 (行頭が # のものは無視されます)
+fastapi/fastapi
+tailwindlabs/tailwindcss
