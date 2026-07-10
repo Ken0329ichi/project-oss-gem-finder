@@ -4,3 +4,6 @@ __pycache__/
 
 # Local environment variables
 .env
+
+# VS Code Workspace
+*.code-workspace
