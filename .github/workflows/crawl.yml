@@ -25,6 +25,8 @@ jobs:
       # 1. コードをチェックアウト
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       # 2. Pythonのセットアップ
       - name: Set up Python
