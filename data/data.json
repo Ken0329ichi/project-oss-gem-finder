@@ -5,7 +5,7 @@
     "source_url": "https://github.com/ken0329/crawler",
     "license": "CC-BY-4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "updated_at": "2026-07-10T07:32:09.344683Z"
+    "updated_at": "2026-07-10T08:21:34.507028Z"
   },
   "repositories": [
     {
@@ -18,8 +18,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 100304,
-        "forks": 9576,
+        "stargazers": 100306,
+        "forks": 9577,
         "open_issues": 99
       },
       "activity": {
@@ -59,8 +59,8 @@
         "primary_language": "TypeScript"
       },
       "metrics": {
-        "stargazers": 95893,
-        "forks": 5435,
+        "stargazers": 95922,
+        "forks": 5477,
         "open_issues": 59
       },
       "activity": {
