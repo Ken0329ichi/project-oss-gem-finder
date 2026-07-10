@@ -6,6 +6,6 @@ services:
     volumes:
       - ../../src:/app/src
       - ../../data:/app/data
-    environment:
-      - GH_TOKEN=${GH_TOKEN}
-      - TEST_CLEANSING=${TEST_CLEANSING}
+      - ../../targets.txt:/app/targets.txt
+    env_file:
+      - ../../.env

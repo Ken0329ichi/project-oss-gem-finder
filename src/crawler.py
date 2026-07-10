@@ -17,10 +17,17 @@ class GitHubClient:
             base_url="https://api.github.com",
             headers={
                 "Authorization": f"Bearer {token}",
-                "Accept": "application/vnd.github.v3+json"
+                "Accept": "application/vnd.github.v3+json",
+                "X-GitHub-Api-Version": "2022-11-28"
             }
         )
         self.etags = self._load_etags()
+        self.rate_remaining = 5000
+
+    def _update_rate_limit(self, headers):
+        remaining = headers.get("X-RateLimit-Remaining")
+        if remaining is not None:
+            self.rate_remaining = int(remaining)
 
     def _load_etags(self) -> Dict[str, str]:
         if os.path.exists(ETAGS_PATH):
@@ -51,6 +58,7 @@ class GitHubClient:
 
         try:
             response = self.client.get(f"/repos/{repo_name}", headers=headers)
+            self._update_rate_limit(response.headers)
         except Exception as e:
             print(f"Connection Error for {repo_name}: {e}")
             return None
@@ -136,6 +144,11 @@ def main():
 
     # 2. 収集ループの実行
     for repo_name in targets:
+        if client.rate_remaining < 100:
+            print(f"\n[SafetyBrake] API残り枠が危険域（残り {client.rate_remaining}）に達したため、処理を一時中断し、残りは次回に持ち越します。")
+            has_updates = True
+            break
+
         result = client.fetch_repository(repo_name)
         
         if result == "304":

@@ -1,0 +1,51 @@
+name: Auto Discover Targets
+
+on:
+  schedule:
+    - cron: '0 18 * * *' # 毎日日本時間 午前3時（UTC 18:00 - クローラー起動の1時間前）に実行
+  workflow_dispatch:     # 手動実行用トリガー
+
+permissions:
+  contents: write        # targets.txt を自動プッシュするための書き込み権限
+
+concurrency:
+  group: "discovery"
+  cancel-in-progress: false
+
+jobs:
+  discover-targets:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 常に最新コミットをチェックアウトし自動プッシュ時のコンフリクトを防止
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # 2. Python環境のセットアップ
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. 依存パッケージのインストール
+      - name: Install dependencies
+        run: |
+          pip install requests httpx pydantic
+
+      # 4. 探索スクリプトの実行 (APIレート制限を考慮した固定PATの流し込み)
+      - name: Run Discovery Scraper
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          python src/discovery.py
+
+      # 5. targets.txt に変更（新規追加）があれば自動コミット＆プッシュ
+      - name: Commit and Push New Targets
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add targets.txt
+          # 差分がある場合のみコミットし、[skip ci] で無限起動を防止
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-discover new targets [skip ci]" && git push)
