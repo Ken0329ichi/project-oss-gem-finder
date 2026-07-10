@@ -1,0 +1,11 @@
+services:
+  crawler:
+    build:
+      context: ../../
+      dockerfile: docker/crawler/Dockerfile.local
+    volumes:
+      - ../../src:/app/src
+      - ../../data:/app/data
+    environment:
+      - GH_TOKEN=${GH_TOKEN}
+      - TEST_CLEANSING=${TEST_CLEANSING}

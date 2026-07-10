@@ -1,0 +1,15 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Create directories for source and data (will be bind-mounted during development)
+RUN mkdir src data
+
+# Set Python path to easily import src module
+ENV PYTHONPATH=/app/src
+
+CMD ["python", "src/crawler.py"]

@@ -1,0 +1,81 @@
+{
+  "dataset_properties": {
+    "title": "OpenSSOT GitHub Archive",
+    "publisher": "ken0329",
+    "source_url": "https://github.com/ken0329/crawler",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "updated_at": "2026-07-10T06:24:29.706537Z"
+  },
+  "repositories": [
+    {
+      "id": "160919119",
+      "meta": {
+        "name": "fastapi/fastapi",
+        "owner": "fastapi",
+        "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+        "license": "MIT",
+        "primary_language": "Python"
+      },
+      "metrics": {
+        "stargazers": 100302,
+        "forks": 9576,
+        "open_issues": 99
+      },
+      "activity": {
+        "last_committed_at": "2026-07-09T21:17:43Z",
+        "last_pushed_at": "2026-07-09T21:17:43Z"
+      },
+      "search_keywords": [
+        "api",
+        "async",
+        "asyncio",
+        "fastapi",
+        "framework",
+        "json",
+        "json-schema",
+        "openapi",
+        "openapi3",
+        "pydantic",
+        "python",
+        "python-types",
+        "python3",
+        "redoc",
+        "rest",
+        "starlette",
+        "swagger",
+        "swagger-ui",
+        "uvicorn",
+        "web"
+      ]
+    },
+    {
+      "id": "106017343",
+      "meta": {
+        "name": "tailwindlabs/tailwindcss",
+        "owner": "tailwindlabs",
+        "description": "A utility-first CSS framework for rapid UI development.",
+        "license": "MIT",
+        "primary_language": "TypeScript"
+      },
+      "metrics": {
+        "stargazers": 95853,
+        "forks": 5374,
+        "open_issues": 59
+      },
+      "activity": {
+        "last_committed_at": "2026-07-09T21:11:42Z",
+        "last_pushed_at": "2026-07-09T21:11:42Z"
+      },
+      "search_keywords": [
+        "css",
+        "css-framework",
+        "functional-css",
+        "postcss",
+        "responsive",
+        "tailwindcss",
+        "utility-classes"
+      ]
+    }
+  ]
+}

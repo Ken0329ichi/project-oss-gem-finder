@@ -1,0 +1,61 @@
+name: Crawl and Update Dataset
+
+on:
+  schedule:
+    - cron: '0 19 * * *' # 毎日日本時間 午前4時（UTC 19:00）に実行
+  workflow_dispatch:     # 手動実行用トリガー
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'data/**'        # データの自動プッシュによる無限ループを完全防止
+
+permissions:
+  contents: write        # リポジトリへのプッシュ権限を付与
+
+concurrency:
+  group: "crawler"
+  cancel-in-progress: false
+
+jobs:
+  run-crawler-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. コードをチェックアウト
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Pythonのセットアップ
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. 依存ライブラリのインストール
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. クローラーの実行 (トークンを自動で付与)
+      - name: Run Crawler
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python src/crawler.py
+
+      # 5. 更新されたデータがあれば自動でコミット&プッシュ
+      - name: Commit and Push Updated Data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/data.json data/etags.json
+          
+          # 変更がある場合のみコミットしてプッシュ ([skip ci]を付与して無限ループ防止)
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes in dataset."
+          else
+            git commit -m "chore: auto-update dataset and etags [skip ci]"
+            git push
+          fi
