@@ -127,6 +127,7 @@ def main():
             print(f"Warning: Failed to load previous data.json: {e}")
 
     new_repositories = []
+    has_updates = False
 
     # 2. 収集ループの実行
     for repo_name in targets:
@@ -147,6 +148,7 @@ def main():
         elif result == "404":
             # 削除・非公開化：今回のリストからも過去マップからも除外（クレンジング）
             print(f"[Cleanup] Removed {repo_name} from active dataset.")
+            has_updates = True
             
         elif isinstance(result, dict):
             # 新規・更新あり：APIから得た生データをPydanticで検証して成形
@@ -184,6 +186,7 @@ def main():
 
                 new_repositories.append(repo_obj.model_dump())
                 print(f"  -> {repo_name} のスキーマ検証に成功し、データを追加しました。")
+                has_updates = True
             except Exception as e:
                 print(f"Schema Validation Error for {repo_name}: {e}")
                 # バリデーションエラー時は安全のため古いデータを残す
@@ -201,14 +204,17 @@ def main():
         repositories=new_repositories
     )
 
-    with open(DATA_PATH, "w", encoding="utf-8") as f:
-        # Pydantic v2 の model_dump_json を使用
-        f.write(data_payload.model_dump_json(indent=2))
-    print(f"\n[Success] {DATA_PATH} に {len(new_repositories)} 件のデータを保存しました。")
+    if has_updates or not os.path.exists(DATA_PATH):
+        with open(DATA_PATH, "w", encoding="utf-8") as f:
+            # Pydantic v2 の model_dump_json を使用
+            f.write(data_payload.model_dump_json(indent=2))
+        print(f"\n[Success] {DATA_PATH} に {len(new_repositories)} 件のデータを保存しました。")
 
-    # 4. スタンプ帳（ETagの記憶）の保存
-    client.save_etags()
-    print(f"[Success] {ETAGS_PATH} を更新しました。")
+        # 4. スタンプ帳（ETagの記憶）の保存
+        client.save_etags()
+        print(f"[Success] {ETAGS_PATH} を更新しました。")
+    else:
+        print("\n[Skip] データに更新がないため、ファイルの保存とコミットをスキップします。")
 
 if __name__ == "__main__":
     main()
