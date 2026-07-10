@@ -43,7 +43,7 @@ jobs:
       # 4. クローラーの実行 (トークンを自動で付与)
       - name: Run Crawler
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           python src/crawler.py
 

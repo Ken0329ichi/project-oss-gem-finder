@@ -46,6 +46,7 @@ class GitHubClient:
         saved_etag = self.etags.get(repo_name)
         if saved_etag:
             headers["If-None-Match"] = saved_etag
+            print(f"[Debug] {repo_name} - Sending If-None-Match: {saved_etag}")
 
         try:
             response = self.client.get(f"/repos/{repo_name}", headers=headers)
