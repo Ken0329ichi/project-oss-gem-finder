@@ -5,7 +5,7 @@
     "source_url": "https://github.com/ken0329/crawler",
     "license": "CC-BY-4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "updated_at": "2026-07-10T20:16:29.490557Z"
+    "updated_at": "2026-07-11T20:01:02.361134Z"
   },
   "repositories": [
     {
@@ -18,9 +18,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 100327,
-        "forks": 9581,
-        "open_issues": 98
+        "stargazers": 100369,
+        "forks": 9589,
+        "open_issues": 100
       },
       "activity": {
         "last_committed_at": "2026-07-10T17:54:44Z",
@@ -59,8 +59,8 @@
         "primary_language": "TypeScript"
       },
       "metrics": {
-        "stargazers": 95896,
-        "forks": 5480,
+        "stargazers": 95927,
+        "forks": 5489,
         "open_issues": 59
       },
       "activity": {
@@ -174,7 +174,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4204,
+        "stargazers": 4206,
         "forks": 911,
         "open_issues": 270
       },
@@ -204,11 +204,11 @@
       "metrics": {
         "stargazers": 3554,
         "forks": 240,
-        "open_issues": 1
+        "open_issues": 2
       },
       "activity": {
-        "last_committed_at": "2026-06-04T14:59:44Z",
-        "last_pushed_at": "2026-06-04T14:59:44Z"
+        "last_committed_at": "2026-07-10T21:20:42Z",
+        "last_pushed_at": "2026-07-10T21:20:42Z"
       },
       "search_keywords": [
         "api",
@@ -271,7 +271,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2902,
+        "stargazers": 2904,
         "forks": 254,
         "open_issues": 2
       },
@@ -297,7 +297,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2573,
+        "stargazers": 2575,
         "forks": 301,
         "open_issues": 10
       },
@@ -443,7 +443,7 @@
       },
       "metrics": {
         "stargazers": 1542,
-        "forks": 418,
+        "forks": 417,
         "open_issues": 14
       },
       "activity": {
@@ -503,7 +503,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1415,
+        "stargazers": 1416,
         "forks": 161,
         "open_issues": 8
       },
@@ -567,7 +567,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1236,
+        "stargazers": 1237,
         "forks": 301,
         "open_issues": 14
       },
@@ -598,13 +598,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 16320,
+        "stargazers": 16321,
         "forks": 660,
-        "open_issues": 363
+        "open_issues": 361
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:35:49Z",
-        "last_pushed_at": "2026-07-10T16:35:49Z"
+        "last_committed_at": "2026-07-11T00:09:57Z",
+        "last_pushed_at": "2026-07-11T00:09:57Z"
       },
       "search_keywords": [
         "android",
@@ -657,9 +657,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 6736,
-        "forks": 5597,
-        "open_issues": 1773
+        "stargazers": 6737,
+        "forks": 5600,
+        "open_issues": 1771
       },
       "activity": {
         "last_committed_at": "2026-07-10T15:41:33Z",
@@ -726,7 +726,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3911,
+        "stargazers": 3913,
         "forks": 294,
         "open_issues": 48
       },
@@ -757,7 +757,7 @@
       },
       "metrics": {
         "stargazers": 3421,
-        "forks": 137,
+        "forks": 138,
         "open_issues": 75
       },
       "activity": {
@@ -851,7 +851,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2673,
+        "stargazers": 2674,
         "forks": 203,
         "open_issues": 108
       },
@@ -902,13 +902,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 141480,
-        "forks": 23508,
+        "stargazers": 141539,
+        "forks": 23527,
         "open_issues": 418
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:58:46Z",
-        "last_pushed_at": "2026-07-10T18:58:46Z"
+        "last_committed_at": "2026-07-11T08:34:17Z",
+        "last_pushed_at": "2026-07-11T08:34:17Z"
       },
       "search_keywords": [
         "agents",
@@ -943,13 +943,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 50770,
-        "forks": 7726,
-        "open_issues": 517
+        "stargazers": 50785,
+        "forks": 7731,
+        "open_issues": 528
       },
       "activity": {
-        "last_committed_at": "2026-07-10T15:08:14Z",
-        "last_pushed_at": "2026-07-10T15:08:14Z"
+        "last_committed_at": "2026-07-11T01:31:58Z",
+        "last_pushed_at": "2026-07-11T01:31:58Z"
       },
       "search_keywords": [
         "agents",
@@ -974,13 +974,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 36986,
-        "forks": 6206,
+        "stargazers": 37053,
+        "forks": 6218,
         "open_issues": 616
       },
       "activity": {
-        "last_committed_at": "2026-07-10T14:21:37Z",
-        "last_pushed_at": "2026-07-10T14:21:37Z"
+        "last_committed_at": "2026-07-10T22:58:04Z",
+        "last_pushed_at": "2026-07-10T22:58:04Z"
       },
       "search_keywords": [
         "agents",
@@ -1013,13 +1013,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 36560,
+        "stargazers": 36571,
         "forks": 1251,
-        "open_issues": 302
+        "open_issues": 300
       },
       "activity": {
-        "last_committed_at": "2026-06-30T06:53:30Z",
-        "last_pushed_at": "2026-06-30T06:53:30Z"
+        "last_committed_at": "2026-07-11T06:02:34Z",
+        "last_pushed_at": "2026-07-11T06:02:34Z"
       },
       "search_keywords": [
         "cli",
@@ -1040,13 +1040,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 27797,
-        "forks": 4292,
-        "open_issues": 66
+        "stargazers": 27816,
+        "forks": 4296,
+        "open_issues": 64
       },
       "activity": {
-        "last_committed_at": "2026-07-10T12:05:45Z",
-        "last_pushed_at": "2026-07-10T12:05:45Z"
+        "last_committed_at": "2026-07-11T01:28:01Z",
+        "last_pushed_at": "2026-07-11T01:28:01Z"
       },
       "search_keywords": [
         "agents",
@@ -1068,8 +1068,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 27080,
-        "forks": 4104,
+        "stargazers": 27084,
+        "forks": 4106,
         "open_issues": 1
       },
       "activity": {
@@ -1095,13 +1095,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 8370,
-        "forks": 1299,
-        "open_issues": 47
+        "stargazers": 8388,
+        "forks": 1301,
+        "open_issues": 49
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:17:35Z",
-        "last_pushed_at": "2026-07-10T18:17:35Z"
+        "last_committed_at": "2026-07-11T17:13:10Z",
+        "last_pushed_at": "2026-07-11T17:13:10Z"
       },
       "search_keywords": [
         "agents",
@@ -1190,7 +1190,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4177,
+        "stargazers": 4179,
         "forks": 378,
         "open_issues": 65
       },
@@ -1297,7 +1297,7 @@
       },
       "metrics": {
         "stargazers": 2460,
-        "forks": 276,
+        "forks": 275,
         "open_issues": 1
       },
       "activity": {
@@ -1358,7 +1358,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2065,
+        "stargazers": 2067,
         "forks": 319,
         "open_issues": 116
       },
@@ -1504,7 +1504,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1437,
+        "stargazers": 1439,
         "forks": 233,
         "open_issues": 20
       },
@@ -1590,13 +1590,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 28642,
-        "forks": 1746,
-        "open_issues": 295
+        "stargazers": 28645,
+        "forks": 1745,
+        "open_issues": 301
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:13:21Z",
-        "last_pushed_at": "2026-07-10T20:13:21Z"
+        "last_committed_at": "2026-07-11T02:49:05Z",
+        "last_pushed_at": "2026-07-11T02:49:05Z"
       },
       "search_keywords": [
         "dashboard",
@@ -1622,8 +1622,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 21857,
-        "forks": 2242,
+        "stargazers": 21856,
+        "forks": 2241,
         "open_issues": 25
       },
       "activity": {
@@ -1663,13 +1663,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 7026,
-        "forks": 1211,
-        "open_issues": 327
+        "stargazers": 7027,
+        "forks": 1212,
+        "open_issues": 329
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:58:08Z",
-        "last_pushed_at": "2026-07-10T18:58:08Z"
+        "last_committed_at": "2026-07-10T22:34:36Z",
+        "last_pushed_at": "2026-07-10T22:34:36Z"
       },
       "search_keywords": [
         "ai",
@@ -1770,7 +1770,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4412,
+        "stargazers": 4413,
         "forks": 390,
         "open_issues": 22
       },
@@ -1810,7 +1810,7 @@
       },
       "metrics": {
         "stargazers": 3856,
-        "forks": 395,
+        "forks": 396,
         "open_issues": 46
       },
       "activity": {
@@ -1885,8 +1885,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3313,
-        "forks": 461,
+        "stargazers": 3314,
+        "forks": 462,
         "open_issues": 30
       },
       "activity": {
@@ -1983,9 +1983,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1617,
+        "stargazers": 1618,
         "forks": 176,
-        "open_issues": 9
+        "open_issues": 8
       },
       "activity": {
         "last_committed_at": "2026-07-10T10:27:20Z",
@@ -2053,11 +2053,11 @@
       "metrics": {
         "stargazers": 1051,
         "forks": 179,
-        "open_issues": 189
+        "open_issues": 190
       },
       "activity": {
-        "last_committed_at": "2026-06-12T15:29:07Z",
-        "last_pushed_at": "2026-06-12T15:29:07Z"
+        "last_committed_at": "2026-07-11T19:26:56Z",
+        "last_pushed_at": "2026-07-11T19:26:56Z"
       },
       "search_keywords": [
         "ape",
@@ -2085,8 +2085,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 23759,
-        "forks": 2443,
+        "stargazers": 23763,
+        "forks": 2444,
         "open_issues": 290
       },
       "activity": {
@@ -2114,8 +2114,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 19442,
-        "forks": 2812,
+        "stargazers": 19445,
+        "forks": 2813,
         "open_issues": 427
       },
       "activity": {
@@ -2148,12 +2148,12 @@
       },
       "metrics": {
         "stargazers": 8026,
-        "forks": 818,
-        "open_issues": 5
+        "forks": 820,
+        "open_issues": 4
       },
       "activity": {
-        "last_committed_at": "2026-07-05T13:02:12Z",
-        "last_pushed_at": "2026-07-05T13:02:12Z"
+        "last_committed_at": "2026-07-10T22:22:56Z",
+        "last_pushed_at": "2026-07-10T22:22:56Z"
       },
       "search_keywords": [
         "analysis",
@@ -2237,8 +2237,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4346,
-        "forks": 687,
+        "stargazers": 4349,
+        "forks": 686,
         "open_issues": 23
       },
       "activity": {
@@ -2278,7 +2278,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4123,
+        "stargazers": 4124,
         "forks": 400,
         "open_issues": 1
       },
@@ -2332,8 +2332,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2990,
-        "forks": 310,
+        "stargazers": 2991,
+        "forks": 311,
         "open_issues": 0
       },
       "activity": {
@@ -2373,7 +2373,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2650,
+        "stargazers": 2651,
         "forks": 523,
         "open_issues": 59
       },
@@ -2405,9 +2405,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2576,
-        "forks": 261,
-        "open_issues": 296
+        "stargazers": 2579,
+        "forks": 262,
+        "open_issues": 297
       },
       "activity": {
         "last_committed_at": "2026-07-08T08:14:27Z",
@@ -2522,7 +2522,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1664,
+        "stargazers": 1667,
         "forks": 125,
         "open_issues": 17
       },
@@ -2702,7 +2702,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 14111,
+        "stargazers": 14110,
         "forks": 449,
         "open_issues": 948
       },
@@ -2730,7 +2730,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 9790,
+        "stargazers": 9797,
         "forks": 710,
         "open_issues": 8
       },
@@ -2758,7 +2758,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 6591,
+        "stargazers": 6592,
         "forks": 736,
         "open_issues": 507
       },
@@ -2797,7 +2797,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5303,
+        "stargazers": 5302,
         "forks": 542,
         "open_issues": 35
       },
@@ -2838,7 +2838,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4040,
+        "stargazers": 4039,
         "forks": 759,
         "open_issues": 170
       },
@@ -2896,8 +2896,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2830,
-        "forks": 125,
+        "stargazers": 2831,
+        "forks": 126,
         "open_issues": 41
       },
       "activity": {
@@ -2965,7 +2965,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2583,
+        "stargazers": 2585,
         "forks": 471,
         "open_issues": 434
       },
@@ -3031,7 +3031,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2101,
+        "stargazers": 2100,
         "forks": 93,
         "open_issues": 252
       },
@@ -3099,9 +3099,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1596,
+        "stargazers": 1598,
         "forks": 218,
-        "open_issues": 37
+        "open_issues": 39
       },
       "activity": {
         "last_committed_at": "2026-07-10T18:23:50Z",
@@ -3164,13 +3164,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 86321,
-        "forks": 10100,
-        "open_issues": 308
+        "stargazers": 86377,
+        "forks": 10112,
+        "open_issues": 309
       },
       "activity": {
-        "last_committed_at": "2026-07-10T06:24:03Z",
-        "last_pushed_at": "2026-07-10T06:24:03Z"
+        "last_committed_at": "2026-07-11T05:56:28Z",
+        "last_pushed_at": "2026-07-11T05:56:28Z"
       },
       "search_keywords": [
         "cli",
@@ -3201,9 +3201,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 54415,
-        "forks": 4487,
-        "open_issues": 141
+        "stargazers": 54884,
+        "forks": 4522,
+        "open_issues": 144
       },
       "activity": {
         "last_committed_at": "2026-07-10T15:45:18Z",
@@ -3239,7 +3239,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 41533,
+        "stargazers": 41537,
         "forks": 1918,
         "open_issues": 146
       },
@@ -3270,13 +3270,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 35222,
-        "forks": 2672,
-        "open_issues": 49
+        "stargazers": 35262,
+        "forks": 2676,
+        "open_issues": 34
       },
       "activity": {
-        "last_committed_at": "2026-07-09T19:28:48Z",
-        "last_pushed_at": "2026-07-09T19:28:48Z"
+        "last_committed_at": "2026-07-11T16:15:26Z",
+        "last_pushed_at": "2026-07-11T16:15:26Z"
       },
       "search_keywords": [
         "cli",
@@ -3311,7 +3311,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 19732,
+        "stargazers": 19740,
         "forks": 937,
         "open_issues": 49
       },
@@ -3340,13 +3340,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 15371,
-        "forks": 2057,
+        "stargazers": 15376,
+        "forks": 2056,
         "open_issues": 712
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:08:23Z",
-        "last_pushed_at": "2026-07-10T20:08:23Z"
+        "last_committed_at": "2026-07-11T16:46:44Z",
+        "last_pushed_at": "2026-07-11T16:46:44Z"
       },
       "search_keywords": [
         "cli",
@@ -3367,13 +3367,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 12873,
-        "forks": 575,
-        "open_issues": 91
+        "stargazers": 12877,
+        "forks": 576,
+        "open_issues": 63
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:39:07Z",
-        "last_pushed_at": "2026-07-10T18:39:07Z"
+        "last_committed_at": "2026-07-11T19:43:02Z",
+        "last_pushed_at": "2026-07-11T19:43:02Z"
       },
       "search_keywords": [
         "cli",
@@ -3394,9 +3394,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 12177,
-        "forks": 976,
-        "open_issues": 114
+        "stargazers": 12176,
+        "forks": 978,
+        "open_issues": 115
       },
       "activity": {
         "last_committed_at": "2026-07-02T06:03:01Z",
@@ -3506,7 +3506,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 7861,
+        "stargazers": 7869,
         "forks": 798,
         "open_issues": 31
       },
@@ -3546,7 +3546,7 @@
       "metrics": {
         "stargazers": 7198,
         "forks": 429,
-        "open_issues": 420
+        "open_issues": 419
       },
       "activity": {
         "last_committed_at": "2026-07-08T02:01:14Z",
@@ -3695,7 +3695,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5729,
+        "stargazers": 5747,
         "forks": 304,
         "open_issues": 16
       },
@@ -3732,11 +3732,11 @@
       "metrics": {
         "stargazers": 5025,
         "forks": 206,
-        "open_issues": 0
+        "open_issues": 1
       },
       "activity": {
-        "last_committed_at": "2026-07-05T11:52:39Z",
-        "last_pushed_at": "2026-07-05T11:52:39Z"
+        "last_committed_at": "2026-07-11T16:03:35Z",
+        "last_pushed_at": "2026-07-11T16:03:35Z"
       },
       "search_keywords": [
         "cli",
@@ -3763,7 +3763,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4605,
+        "stargazers": 4609,
         "forks": 213,
         "open_issues": 66
       },
@@ -3790,13 +3790,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4538,
+        "stargazers": 4539,
         "forks": 243,
         "open_issues": 135
       },
       "activity": {
-        "last_committed_at": "2026-07-05T23:25:03Z",
-        "last_pushed_at": "2026-07-05T23:25:03Z"
+        "last_committed_at": "2026-07-11T15:07:09Z",
+        "last_pushed_at": "2026-07-11T15:07:09Z"
       },
       "search_keywords": [
         "cli",
@@ -3821,13 +3821,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4353,
+        "stargazers": 4355,
         "forks": 395,
-        "open_issues": 6
+        "open_issues": 10
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:10:33Z",
-        "last_pushed_at": "2026-07-10T20:10:33Z"
+        "last_committed_at": "2026-07-11T19:57:46Z",
+        "last_pushed_at": "2026-07-11T19:57:46Z"
       },
       "search_keywords": [
         "agent",
@@ -3858,9 +3858,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4362,
-        "forks": 564,
-        "open_issues": 0
+        "stargazers": 4387,
+        "forks": 568,
+        "open_issues": 1
       },
       "activity": {
         "last_committed_at": "2026-07-10T12:58:39Z",
@@ -3927,7 +3927,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3641,
+        "stargazers": 3656,
         "forks": 310,
         "open_issues": 3
       },
@@ -4027,7 +4027,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3514,
+        "stargazers": 3516,
         "forks": 177,
         "open_issues": 17
       },
@@ -4068,13 +4068,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3450,
+        "stargazers": 3451,
         "forks": 221,
         "open_issues": 7
       },
       "activity": {
-        "last_committed_at": "2026-07-10T05:29:27Z",
-        "last_pushed_at": "2026-07-10T05:29:27Z"
+        "last_committed_at": "2026-07-11T13:31:18Z",
+        "last_pushed_at": "2026-07-11T13:31:18Z"
       },
       "search_keywords": [
         "api",
@@ -4255,7 +4255,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2665,
+        "stargazers": 2666,
         "forks": 62,
         "open_issues": 11
       },
@@ -4290,7 +4290,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2623,
+        "stargazers": 2622,
         "forks": 386,
         "open_issues": 22
       },
@@ -4320,8 +4320,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2537,
-        "forks": 256,
+        "stargazers": 2538,
+        "forks": 257,
         "open_issues": 141
       },
       "activity": {
@@ -4345,7 +4345,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2288,
+        "stargazers": 2291,
         "forks": 164,
         "open_issues": 2
       },
@@ -4399,7 +4399,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2118,
+        "stargazers": 2119,
         "forks": 207,
         "open_issues": 62
       },
@@ -4440,7 +4440,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2072,
+        "stargazers": 2073,
         "forks": 192,
         "open_issues": 93
       },
@@ -4499,7 +4499,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1996,
+        "stargazers": 1997,
         "forks": 229,
         "open_issues": 110
       },
@@ -4560,7 +4560,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1906,
+        "stargazers": 1907,
         "forks": 103,
         "open_issues": 22
       },
@@ -4593,8 +4593,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1897,
-        "forks": 122,
+        "stargazers": 1899,
+        "forks": 123,
         "open_issues": 4
       },
       "activity": {
@@ -4653,7 +4653,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1841,
+        "stargazers": 1842,
         "forks": 150,
         "open_issues": 27
       },
@@ -4720,7 +4720,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1649,
+        "stargazers": 1651,
         "forks": 66,
         "open_issues": 19
       },
@@ -4781,7 +4781,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1564,
+        "stargazers": 1566,
         "forks": 62,
         "open_issues": 3
       },
@@ -4876,7 +4876,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1487,
+        "stargazers": 1495,
         "forks": 337,
         "open_issues": 2
       },
@@ -4907,7 +4907,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1392,
+        "stargazers": 1394,
         "forks": 53,
         "open_issues": 25
       },
@@ -4936,7 +4936,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1361,
+        "stargazers": 1363,
         "forks": 107,
         "open_issues": 2
       },
@@ -4974,7 +4974,7 @@
       },
       "metrics": {
         "stargazers": 1350,
-        "forks": 92,
+        "forks": 91,
         "open_issues": 53
       },
       "activity": {
@@ -5051,7 +5051,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1271,
+        "stargazers": 1272,
         "forks": 115,
         "open_issues": 43
       },
@@ -5112,8 +5112,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1249,
-        "forks": 56,
+        "stargazers": 1251,
+        "forks": 57,
         "open_issues": 13
       },
       "activity": {
@@ -5141,7 +5141,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1229,
+        "stargazers": 1231,
         "forks": 69,
         "open_issues": 3
       },
@@ -5184,11 +5184,11 @@
       "metrics": {
         "stargazers": 1193,
         "forks": 122,
-        "open_issues": 123
+        "open_issues": 131
       },
       "activity": {
-        "last_committed_at": "2026-07-05T23:23:55Z",
-        "last_pushed_at": "2026-07-05T23:23:55Z"
+        "last_committed_at": "2026-07-11T19:04:33Z",
+        "last_pushed_at": "2026-07-11T19:04:33Z"
       },
       "search_keywords": [
         "api",
@@ -5263,13 +5263,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1122,
+        "stargazers": 1124,
         "forks": 106,
-        "open_issues": 115
+        "open_issues": 108
       },
       "activity": {
-        "last_committed_at": "2026-06-26T14:14:43Z",
-        "last_pushed_at": "2026-06-26T14:14:43Z"
+        "last_committed_at": "2026-07-11T01:44:31Z",
+        "last_pushed_at": "2026-07-11T01:44:31Z"
       },
       "search_keywords": [
         "batch",
@@ -5349,7 +5349,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1011,
+        "stargazers": 1012,
         "forks": 30,
         "open_issues": 5
       },
@@ -5383,9 +5383,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 47254,
-        "forks": 4715,
-        "open_issues": 1725
+        "stargazers": 47294,
+        "forks": 4721,
+        "open_issues": 1729
       },
       "activity": {
         "last_committed_at": "2026-05-22T14:02:20Z",
@@ -5417,8 +5417,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 12132,
-        "forks": 254,
+        "stargazers": 12134,
+        "forks": 256,
         "open_issues": 74
       },
       "activity": {
@@ -5450,13 +5450,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3931,
+        "stargazers": 3946,
         "forks": 359,
         "open_issues": 3
       },
       "activity": {
-        "last_committed_at": "2026-07-07T09:37:21Z",
-        "last_pushed_at": "2026-07-07T09:37:21Z"
+        "last_committed_at": "2026-07-11T08:13:16Z",
+        "last_pushed_at": "2026-07-11T08:13:16Z"
       },
       "search_keywords": [
         "ai",
@@ -5491,13 +5491,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3855,
+        "stargazers": 3856,
         "forks": 414,
-        "open_issues": 25
+        "open_issues": 26
       },
       "activity": {
-        "last_committed_at": "2026-07-10T00:01:18Z",
-        "last_pushed_at": "2026-07-10T00:01:18Z"
+        "last_committed_at": "2026-07-11T14:54:52Z",
+        "last_pushed_at": "2026-07-11T14:54:52Z"
       },
       "search_keywords": [
         "a2a",
@@ -5524,7 +5524,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3129,
+        "stargazers": 3131,
         "forks": 211,
         "open_issues": 56
       },
@@ -5564,7 +5564,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3001,
+        "stargazers": 3004,
         "forks": 494,
         "open_issues": 167
       },
@@ -5604,8 +5604,8 @@
         "open_issues": 22
       },
       "activity": {
-        "last_committed_at": "2026-07-03T17:30:53Z",
-        "last_pushed_at": "2026-07-03T17:30:53Z"
+        "last_committed_at": "2026-07-11T17:52:40Z",
+        "last_pushed_at": "2026-07-11T17:52:40Z"
       },
       "search_keywords": [
         "cli",
@@ -5627,7 +5627,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2952,
+        "stargazers": 2951,
         "forks": 158,
         "open_issues": 22
       },
@@ -5653,13 +5653,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2115,
+        "stargazers": 2116,
         "forks": 156,
-        "open_issues": 107
+        "open_issues": 109
       },
       "activity": {
-        "last_committed_at": "2026-07-09T22:06:48Z",
-        "last_pushed_at": "2026-07-09T22:06:48Z"
+        "last_committed_at": "2026-07-11T19:29:08Z",
+        "last_pushed_at": "2026-07-11T19:29:08Z"
       },
       "search_keywords": [
         "cli",
@@ -5845,9 +5845,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1300,
-        "forks": 93,
-        "open_issues": 5
+        "stargazers": 1301,
+        "forks": 94,
+        "open_issues": 7
       },
       "activity": {
         "last_committed_at": "2026-02-12T14:54:27Z",
@@ -5869,8 +5869,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1323,
-        "forks": 170,
+        "stargazers": 1373,
+        "forks": 171,
         "open_issues": 0
       },
       "activity": {
@@ -5910,7 +5910,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1200,
+        "stargazers": 1201,
         "forks": 45,
         "open_issues": 19
       },
@@ -5936,7 +5936,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 25045,
+        "stargazers": 25043,
         "forks": 6576,
         "open_issues": 451
       },
@@ -5966,8 +5966,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 19024,
-        "forks": 6206,
+        "stargazers": 19032,
+        "forks": 6207,
         "open_issues": 74
       },
       "activity": {
@@ -5995,9 +5995,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 11590,
-        "forks": 945,
-        "open_issues": 5
+        "stargazers": 11591,
+        "forks": 946,
+        "open_issues": 6
       },
       "activity": {
         "last_committed_at": "2026-07-03T22:06:36Z",
@@ -6035,9 +6035,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 6388,
-        "forks": 777,
-        "open_issues": 11
+        "stargazers": 6397,
+        "forks": 778,
+        "open_issues": 15
       },
       "activity": {
         "last_committed_at": "2026-07-10T16:35:12Z",
@@ -6062,7 +6062,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3594,
+        "stargazers": 3596,
         "forks": 456,
         "open_issues": 101
       },
@@ -6088,7 +6088,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2080,
+        "stargazers": 2087,
         "forks": 250,
         "open_issues": 5
       },
@@ -6115,7 +6115,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2056,
+        "stargazers": 2058,
         "forks": 307,
         "open_issues": 1
       },
@@ -6194,7 +6194,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1581,
+        "stargazers": 1582,
         "forks": 152,
         "open_issues": 22
       },
@@ -6257,7 +6257,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1229,
+        "stargazers": 1233,
         "forks": 111,
         "open_issues": 23
       },
@@ -6285,8 +6285,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 21234,
-        "forks": 2440,
+        "stargazers": 21235,
+        "forks": 2439,
         "open_issues": 101
       },
       "activity": {
@@ -6342,7 +6342,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4816,
+        "stargazers": 4817,
         "forks": 463,
         "open_issues": 63
       },
@@ -6377,13 +6377,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4073,
+        "stargazers": 4076,
         "forks": 745,
-        "open_issues": 1060
+        "open_issues": 1062
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:09:39Z",
-        "last_pushed_at": "2026-07-10T19:09:39Z"
+        "last_committed_at": "2026-07-11T08:53:52Z",
+        "last_pushed_at": "2026-07-11T08:53:52Z"
       },
       "search_keywords": [
         "agents",
@@ -6420,11 +6420,11 @@
       "metrics": {
         "stargazers": 3039,
         "forks": 1463,
-        "open_issues": 63
+        "open_issues": 67
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:37:19Z",
-        "last_pushed_at": "2026-07-10T19:37:19Z"
+        "last_committed_at": "2026-07-11T01:16:46Z",
+        "last_pushed_at": "2026-07-11T01:16:46Z"
       },
       "search_keywords": [
         "bigquery",
@@ -6448,7 +6448,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 2547,
+        "stargazers": 2548,
         "forks": 386,
         "open_issues": 110
       },
@@ -6517,8 +6517,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 1325,
-        "forks": 160,
+        "stargazers": 1326,
+        "forks": 159,
         "open_issues": 31
       },
       "activity": {
@@ -6544,9 +6544,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 67067,
-        "forks": 6729,
-        "open_issues": 32
+        "stargazers": 67070,
+        "forks": 6731,
+        "open_issues": 33
       },
       "activity": {
         "last_committed_at": "2026-01-22T04:26:00Z",
@@ -6578,7 +6578,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 56571,
+        "stargazers": 56574,
         "forks": 13696,
         "open_issues": 831
       },
@@ -6603,13 +6603,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 47758,
-        "forks": 4444,
-        "open_issues": 95
+        "stargazers": 47814,
+        "forks": 4463,
+        "open_issues": 93
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:08:35Z",
-        "last_pushed_at": "2026-07-10T16:08:35Z"
+        "last_committed_at": "2026-07-10T23:44:48Z",
+        "last_pushed_at": "2026-07-10T23:44:48Z"
       },
       "search_keywords": [
         "classification",
@@ -6643,8 +6643,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 46057,
-        "forks": 7334,
+        "stargazers": 46109,
+        "forks": 7343,
         "open_issues": 463
       },
       "activity": {
@@ -6682,8 +6682,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 37851,
-        "forks": 6306,
+        "stargazers": 37971,
+        "forks": 6339,
         "open_issues": 96
       },
       "activity": {
@@ -6724,8 +6724,8 @@
       },
       "metrics": {
         "stargazers": 33736,
-        "forks": 4689,
-        "open_issues": 220
+        "forks": 4688,
+        "open_issues": 221
       },
       "activity": {
         "last_committed_at": "2026-05-19T06:48:57Z",
@@ -6761,9 +6761,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 32019,
-        "forks": 5352,
-        "open_issues": 74
+        "stargazers": 32108,
+        "forks": 5372,
+        "open_issues": 75
       },
       "activity": {
         "last_committed_at": "2023-10-15T06:05:06Z",
@@ -6789,7 +6789,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 23095,
+        "stargazers": 23098,
         "forks": 3135,
         "open_issues": 10
       },
@@ -6855,7 +6855,7 @@
       },
       "metrics": {
         "stargazers": 21826,
-        "forks": 3325,
+        "forks": 3324,
         "open_issues": 177
       },
       "activity": {
@@ -6892,9 +6892,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 17976,
-        "forks": 2072,
-        "open_issues": 86
+        "stargazers": 17979,
+        "forks": 2075,
+        "open_issues": 89
       },
       "activity": {
         "last_committed_at": "2026-07-10T13:33:28Z",
@@ -6932,7 +6932,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 16479,
+        "stargazers": 16481,
         "forks": 1304,
         "open_issues": 159
       },
@@ -7004,8 +7004,8 @@
       },
       "metrics": {
         "stargazers": 14738,
-        "forks": 2452,
-        "open_issues": 311
+        "forks": 2453,
+        "open_issues": 312
       },
       "activity": {
         "last_committed_at": "2024-07-30T01:38:33Z",
@@ -7038,7 +7038,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 14690,
+        "stargazers": 14692,
         "forks": 2533,
         "open_issues": 39
       },
@@ -7062,7 +7062,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 14476,
+        "stargazers": 14483,
         "forks": 1354,
         "open_issues": 23
       },
@@ -7089,7 +7089,7 @@
       },
       "metrics": {
         "stargazers": 14359,
-        "forks": 1855,
+        "forks": 1856,
         "open_issues": 415
       },
       "activity": {
@@ -7130,7 +7130,7 @@
       },
       "metrics": {
         "stargazers": 14340,
-        "forks": 3839,
+        "forks": 3838,
         "open_issues": 24
       },
       "activity": {
@@ -7211,7 +7211,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 13553,
+        "stargazers": 13558,
         "forks": 2162,
         "open_issues": 85
       },
@@ -7246,13 +7246,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 13237,
-        "forks": 1191,
+        "stargazers": 13277,
+        "forks": 1197,
         "open_issues": 53
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:18:44Z",
-        "last_pushed_at": "2026-07-10T16:18:44Z"
+        "last_committed_at": "2026-07-11T09:27:23Z",
+        "last_pushed_at": "2026-07-11T09:27:23Z"
       },
       "search_keywords": [
         "ai-research",
@@ -7387,13 +7387,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 11172,
+        "stargazers": 11175,
         "forks": 884,
-        "open_issues": 900
+        "open_issues": 898
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:05:13Z",
-        "last_pushed_at": "2026-07-10T20:05:13Z"
+        "last_committed_at": "2026-07-11T06:44:41Z",
+        "last_pushed_at": "2026-07-11T06:44:41Z"
       },
       "search_keywords": [
         "ai",
@@ -7427,9 +7427,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 10997,
+        "stargazers": 11004,
         "forks": 1753,
-        "open_issues": 10
+        "open_issues": 11
       },
       "activity": {
         "last_committed_at": "2026-05-07T06:48:35Z",
@@ -7453,9 +7453,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 10697,
-        "forks": 1828,
-        "open_issues": 394
+        "stargazers": 10698,
+        "forks": 1829,
+        "open_issues": 395
       },
       "activity": {
         "last_committed_at": "2026-04-14T21:16:25Z",
@@ -7486,7 +7486,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 10370,
+        "stargazers": 10371,
         "forks": 4255,
         "open_issues": 85
       },
@@ -7517,7 +7517,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 10269,
+        "stargazers": 10272,
         "forks": 622,
         "open_issues": 113
       },
@@ -7558,8 +7558,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 9938,
-        "forks": 2639,
+        "stargazers": 9936,
+        "forks": 2638,
         "open_issues": 33
       },
       "activity": {
@@ -7698,9 +7698,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 8476,
-        "forks": 2789,
-        "open_issues": 118
+        "stargazers": 8478,
+        "forks": 2791,
+        "open_issues": 119
       },
       "activity": {
         "last_committed_at": "2024-08-17T12:31:20Z",
@@ -7730,9 +7730,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 8312,
-        "forks": 882,
-        "open_issues": 47
+        "stargazers": 8313,
+        "forks": 881,
+        "open_issues": 48
       },
       "activity": {
         "last_committed_at": "2026-07-09T22:52:31Z",
@@ -7756,13 +7756,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 8207,
-        "forks": 1042,
-        "open_issues": 188
+        "stargazers": 8208,
+        "forks": 1043,
+        "open_issues": 192
       },
       "activity": {
-        "last_committed_at": "2026-07-10T14:21:53Z",
-        "last_pushed_at": "2026-07-10T14:21:53Z"
+        "last_committed_at": "2026-07-11T13:30:51Z",
+        "last_pushed_at": "2026-07-11T13:30:51Z"
       },
       "search_keywords": [
         "bayesian-networks",
@@ -7842,8 +7842,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 7731,
-        "forks": 908,
+        "stargazers": 7734,
+        "forks": 909,
         "open_issues": 470
       },
       "activity": {
@@ -7873,7 +7873,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 7694,
+        "stargazers": 7693,
         "forks": 1456,
         "open_issues": 8
       },
@@ -7901,7 +7901,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 7562,
+        "stargazers": 7566,
         "forks": 772,
         "open_issues": 0
       },
@@ -7934,7 +7934,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 7510,
+        "stargazers": 7511,
         "forks": 937,
         "open_issues": 180
       },
@@ -7970,7 +7970,7 @@
       },
       "metrics": {
         "stargazers": 7179,
-        "forks": 958,
+        "forks": 957,
         "open_issues": 46
       },
       "activity": {
@@ -7995,7 +7995,7 @@
       },
       "metrics": {
         "stargazers": 7110,
-        "forks": 1347,
+        "forks": 1348,
         "open_issues": 65
       },
       "activity": {
@@ -8020,7 +8020,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 7021,
+        "stargazers": 7022,
         "forks": 507,
         "open_issues": 15
       },
@@ -8156,7 +8156,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 6149,
+        "stargazers": 6150,
         "forks": 1229,
         "open_issues": 20
       },
@@ -8181,9 +8181,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 6092,
-        "forks": 1320,
-        "open_issues": 18
+        "stargazers": 6094,
+        "forks": 1321,
+        "open_issues": 19
       },
       "activity": {
         "last_committed_at": "2025-12-12T07:01:28Z",
@@ -8278,7 +8278,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5397,
+        "stargazers": 5396,
         "forks": 759,
         "open_issues": 6
       },
@@ -8319,8 +8319,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5324,
-        "forks": 915,
+        "stargazers": 5328,
+        "forks": 916,
         "open_issues": 30
       },
       "activity": {
@@ -8353,7 +8353,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5221,
+        "stargazers": 5222,
         "forks": 1723,
         "open_issues": 381
       },
@@ -8383,8 +8383,8 @@
       },
       "metrics": {
         "stargazers": 5138,
-        "forks": 872,
-        "open_issues": 140
+        "forks": 873,
+        "open_issues": 141
       },
       "activity": {
         "last_committed_at": "2024-03-21T14:27:34Z",
@@ -8407,13 +8407,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5057,
-        "forks": 1677,
-        "open_issues": 244
+        "stargazers": 5064,
+        "forks": 1680,
+        "open_issues": 246
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:13:40Z",
-        "last_pushed_at": "2026-07-10T20:13:40Z"
+        "last_committed_at": "2026-07-11T19:57:19Z",
+        "last_pushed_at": "2026-07-11T19:57:19Z"
       },
       "search_keywords": [
         "ai",
@@ -8439,7 +8439,7 @@
       },
       "metrics": {
         "stargazers": 4944,
-        "forks": 872,
+        "forks": 873,
         "open_issues": 772
       },
       "activity": {
@@ -8476,9 +8476,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4862,
-        "forks": 1207,
-        "open_issues": 163
+        "stargazers": 4863,
+        "forks": 1208,
+        "open_issues": 164
       },
       "activity": {
         "last_committed_at": "2026-01-09T05:23:24Z",
@@ -8508,8 +8508,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4853,
-        "forks": 1713,
+        "stargazers": 4855,
+        "forks": 1715,
         "open_issues": 5
       },
       "activity": {
@@ -8643,7 +8643,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4366,
+        "stargazers": 4367,
         "forks": 392,
         "open_issues": 107
       },
@@ -8748,8 +8748,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4218,
-        "forks": 998,
+        "stargazers": 4219,
+        "forks": 999,
         "open_issues": 23
       },
       "activity": {
@@ -8787,7 +8787,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4051,
+        "stargazers": 4053,
         "forks": 348,
         "open_issues": 21
       },
@@ -8820,7 +8820,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4038,
+        "stargazers": 4041,
         "forks": 429,
         "open_issues": 5
       },
@@ -8848,7 +8848,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3812,
+        "stargazers": 3813,
         "forks": 367,
         "open_issues": 25
       },
@@ -8872,7 +8872,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3802,
+        "stargazers": 3801,
         "forks": 630,
         "open_issues": 97
       },
@@ -8925,9 +8925,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3776,
-        "forks": 339,
-        "open_issues": 92
+        "stargazers": 3778,
+        "forks": 340,
+        "open_issues": 94
       },
       "activity": {
         "last_committed_at": "2026-07-09T18:09:23Z",
@@ -8955,8 +8955,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3691,
-        "forks": 351,
+        "stargazers": 3693,
+        "forks": 352,
         "open_issues": 87
       },
       "activity": {
@@ -9013,7 +9013,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3586,
+        "stargazers": 3585,
         "forks": 760,
         "open_issues": 96
       },
@@ -9132,7 +9132,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3526,
+        "stargazers": 3527,
         "forks": 286,
         "open_issues": 21
       },
@@ -9161,11 +9161,11 @@
       "metrics": {
         "stargazers": 3488,
         "forks": 467,
-        "open_issues": 297
+        "open_issues": 299
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:31:25Z",
-        "last_pushed_at": "2026-07-10T18:31:25Z"
+        "last_committed_at": "2026-07-11T18:19:10Z",
+        "last_pushed_at": "2026-07-11T18:19:10Z"
       },
       "search_keywords": [
         "ai",
@@ -9193,8 +9193,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3464,
-        "forks": 459,
+        "stargazers": 3465,
+        "forks": 460,
         "open_issues": 14
       },
       "activity": {
@@ -9223,7 +9223,7 @@
       },
       "metrics": {
         "stargazers": 3445,
-        "forks": 212,
+        "forks": 213,
         "open_issues": 26
       },
       "activity": {
@@ -9248,7 +9248,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3443,
+        "stargazers": 3444,
         "forks": 451,
         "open_issues": 66
       },
@@ -9277,13 +9277,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3434,
+        "stargazers": 3435,
         "forks": 309,
-        "open_issues": 102
+        "open_issues": 104
       },
       "activity": {
-        "last_committed_at": "2026-07-10T17:36:46Z",
-        "last_pushed_at": "2026-07-10T17:36:46Z"
+        "last_committed_at": "2026-07-11T01:04:48Z",
+        "last_pushed_at": "2026-07-11T01:04:48Z"
       },
       "search_keywords": [
         "agent-evaluation",
@@ -9343,7 +9343,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3334,
+        "stargazers": 3336,
         "forks": 367,
         "open_issues": 0
       },
@@ -9487,8 +9487,8 @@
         "open_issues": 10
       },
       "activity": {
-        "last_committed_at": "2026-07-09T05:36:55Z",
-        "last_pushed_at": "2026-07-09T05:36:55Z"
+        "last_committed_at": "2026-07-10T23:34:51Z",
+        "last_pushed_at": "2026-07-10T23:34:51Z"
       },
       "search_keywords": [
         "deployment",
@@ -9544,7 +9544,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3124,
+        "stargazers": 3125,
         "forks": 726,
         "open_issues": 24
       },
@@ -9661,7 +9661,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3017,
+        "stargazers": 3016,
         "forks": 552,
         "open_issues": 14
       },
@@ -9701,13 +9701,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 162454,
-        "forks": 33857,
-        "open_issues": 2475
+        "stargazers": 162501,
+        "forks": 33866,
+        "open_issues": 2478
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:14:26Z",
-        "last_pushed_at": "2026-07-10T20:14:26Z"
+        "last_committed_at": "2026-07-11T19:00:13Z",
+        "last_pushed_at": "2026-07-11T19:00:13Z"
       },
       "search_keywords": [
         "audio",
@@ -9741,9 +9741,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 78798,
-        "forks": 12296,
-        "open_issues": 130
+        "stargazers": 78815,
+        "forks": 12298,
+        "open_issues": 129
       },
       "activity": {
         "last_committed_at": "2024-07-30T09:32:19Z",
@@ -9770,9 +9770,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 64187,
+        "stargazers": 64191,
         "forks": 19752,
-        "open_issues": 231
+        "open_issues": 224
       },
       "activity": {
         "last_committed_at": "2026-07-07T17:53:38Z",
@@ -9799,13 +9799,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 46091,
-        "forks": 17376,
-        "open_issues": 1686
+        "stargazers": 46093,
+        "forks": 17379,
+        "open_issues": 1694
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:23:02Z",
-        "last_pushed_at": "2026-07-10T18:23:02Z"
+        "last_committed_at": "2026-07-11T14:09:34Z",
+        "last_pushed_at": "2026-07-11T14:09:34Z"
       },
       "search_keywords": [
         "airflow",
@@ -9840,13 +9840,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 45198,
-        "forks": 4310,
-        "open_issues": 1288
+        "stargazers": 45203,
+        "forks": 4312,
+        "open_issues": 1293
       },
       "activity": {
-        "last_committed_at": "2026-07-10T17:40:20Z",
-        "last_pushed_at": "2026-07-10T17:40:20Z"
+        "last_committed_at": "2026-07-11T16:34:47Z",
+        "last_pushed_at": "2026-07-11T16:34:47Z"
       },
       "search_keywords": [
         "data-analysis",
@@ -9869,13 +9869,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 43188,
-        "forks": 7783,
-        "open_issues": 3468
+        "stargazers": 43210,
+        "forks": 7784,
+        "open_issues": 3461
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:03:13Z",
-        "last_pushed_at": "2026-07-10T20:03:13Z"
+        "last_committed_at": "2026-07-11T19:28:39Z",
+        "last_pushed_at": "2026-07-11T19:28:39Z"
       },
       "search_keywords": [
         "data-science",
@@ -9910,13 +9910,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 43114,
-        "forks": 3546,
+        "stargazers": 43118,
+        "forks": 3547,
         "open_issues": 229
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:14:42Z",
-        "last_pushed_at": "2026-07-10T16:14:42Z"
+        "last_committed_at": "2026-07-11T04:22:18Z",
+        "last_pushed_at": "2026-07-11T04:22:18Z"
       },
       "search_keywords": [
         "data-analysis",
@@ -9945,13 +9945,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 42680,
-        "forks": 4882,
-        "open_issues": 1301
+        "stargazers": 42682,
+        "forks": 4884,
+        "open_issues": 1298
       },
       "activity": {
-        "last_committed_at": "2026-07-09T23:56:39Z",
-        "last_pushed_at": "2026-07-09T23:56:39Z"
+        "last_committed_at": "2026-07-11T17:01:47Z",
+        "last_pushed_at": "2026-07-11T17:01:47Z"
       },
       "search_keywords": [
         "billion-parameters",
@@ -9979,7 +9979,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 37393,
+        "stargazers": 37392,
         "forks": 3277,
         "open_issues": 298
       },
@@ -10010,8 +10010,8 @@
       },
       "metrics": {
         "stargazers": 31232,
-        "forks": 3757,
-        "open_issues": 1045
+        "forks": 3756,
+        "open_issues": 1049
       },
       "activity": {
         "last_committed_at": "2026-07-10T11:42:59Z",
@@ -10037,8 +10037,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 29730,
-        "forks": 3585,
+        "stargazers": 29732,
+        "forks": 3586,
         "open_issues": 528
       },
       "activity": {
@@ -10073,13 +10073,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 26969,
-        "forks": 5979,
-        "open_issues": 2042
+        "stargazers": 26982,
+        "forks": 5985,
+        "open_issues": 2044
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:56:51Z",
-        "last_pushed_at": "2026-07-10T18:56:51Z"
+        "last_committed_at": "2026-07-10T23:57:44Z",
+        "last_pushed_at": "2026-07-10T23:57:44Z"
       },
       "search_keywords": [
         "agentops",
@@ -10112,13 +10112,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 21790,
-        "forks": 1169,
-        "open_issues": 613
+        "stargazers": 21798,
+        "forks": 1171,
+        "open_issues": 618
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:13:01Z",
-        "last_pushed_at": "2026-07-10T20:13:01Z"
+        "last_committed_at": "2026-07-10T22:18:52Z",
+        "last_pushed_at": "2026-07-10T22:18:52Z"
       },
       "search_keywords": [
         "artificial-intelligence",
@@ -10146,9 +10146,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 21703,
-        "forks": 3289,
-        "open_issues": 1163
+        "stargazers": 21709,
+        "forks": 3292,
+        "open_issues": 1168
       },
       "activity": {
         "last_committed_at": "2026-07-09T13:39:18Z",
@@ -10224,13 +10224,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 21130,
-        "forks": 3960,
+        "stargazers": 21132,
+        "forks": 3961,
         "open_issues": 269
       },
       "activity": {
-        "last_committed_at": "2026-07-10T17:47:00Z",
-        "last_pushed_at": "2026-07-10T17:47:00Z"
+        "last_committed_at": "2026-07-11T13:07:43Z",
+        "last_pushed_at": "2026-07-11T13:07:43Z"
       },
       "search_keywords": [
         "ai",
@@ -10284,7 +10284,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 15738,
+        "stargazers": 15740,
         "forks": 1312,
         "open_issues": 188
       },
@@ -10314,7 +10314,7 @@
       "metrics": {
         "stargazers": 14669,
         "forks": 3022,
-        "open_issues": 263
+        "open_issues": 264
       },
       "activity": {
         "last_committed_at": "2026-07-08T02:35:12Z",
@@ -10338,13 +10338,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 13563,
+        "stargazers": 13570,
         "forks": 3917,
         "open_issues": 201
       },
       "activity": {
-        "last_committed_at": "2026-07-10T06:24:17Z",
-        "last_pushed_at": "2026-07-10T06:24:17Z"
+        "last_committed_at": "2026-07-11T06:54:13Z",
+        "last_pushed_at": "2026-07-11T06:54:13Z"
       },
       "search_keywords": [
         "compiler",
@@ -10372,8 +10372,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 11786,
-        "forks": 1647,
+        "stargazers": 11791,
+        "forks": 1648,
         "open_issues": 946
       },
       "activity": {
@@ -10403,7 +10403,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 11733,
+        "stargazers": 11734,
         "forks": 1218,
         "open_issues": 1
       },
@@ -10444,9 +10444,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 11568,
-        "forks": 906,
-        "open_issues": 109
+        "stargazers": 11572,
+        "forks": 907,
+        "open_issues": 110
       },
       "activity": {
         "last_committed_at": "2026-01-13T17:39:04Z",
@@ -10485,13 +10485,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 11273,
-        "forks": 1198,
-        "open_issues": 72
+        "stargazers": 11271,
+        "forks": 1199,
+        "open_issues": 73
       },
       "activity": {
-        "last_committed_at": "2026-07-10T11:06:38Z",
-        "last_pushed_at": "2026-07-10T11:06:38Z"
+        "last_committed_at": "2026-07-10T23:36:29Z",
+        "last_pushed_at": "2026-07-10T23:36:29Z"
       },
       "search_keywords": [
         "artificial-intelligence",
@@ -10588,13 +10588,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 10280,
+        "stargazers": 10285,
         "forks": 1130,
-        "open_issues": 343
+        "open_issues": 338
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:07:05Z",
-        "last_pushed_at": "2026-07-10T20:07:05Z"
+        "last_committed_at": "2026-07-11T06:43:59Z",
+        "last_pushed_at": "2026-07-11T06:43:59Z"
       },
       "search_keywords": [
         "cloud-computing",
@@ -10630,7 +10630,7 @@
       "metrics": {
         "stargazers": 10164,
         "forks": 1306,
-        "open_issues": 466
+        "open_issues": 470
       },
       "activity": {
         "last_committed_at": "2026-06-29T22:37:58Z",
@@ -10695,8 +10695,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 9459,
-        "forks": 1016,
+        "stargazers": 9461,
+        "forks": 1017,
         "open_issues": 220
       },
       "activity": {
@@ -10723,13 +10723,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 9420,
+        "stargazers": 9422,
         "forks": 846,
-        "open_issues": 47
+        "open_issues": 50
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:18:44Z",
-        "last_pushed_at": "2026-07-10T16:18:44Z"
+        "last_committed_at": "2026-07-11T16:10:51Z",
+        "last_pushed_at": "2026-07-11T16:10:51Z"
       },
       "search_keywords": [
         "artificial-intelligence",
@@ -10793,8 +10793,8 @@
       },
       "metrics": {
         "stargazers": 9321,
-        "forks": 1394,
-        "open_issues": 159
+        "forks": 1395,
+        "open_issues": 160
       },
       "activity": {
         "last_committed_at": "2025-11-25T02:26:35Z",
@@ -10852,7 +10852,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 9019,
+        "stargazers": 9021,
         "forks": 957,
         "open_issues": 7
       },
@@ -10881,7 +10881,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 8769,
+        "stargazers": 8768,
         "forks": 977,
         "open_issues": 616
       },
@@ -10922,7 +10922,7 @@
       "metrics": {
         "stargazers": 8712,
         "forks": 983,
-        "open_issues": 180
+        "open_issues": 183
       },
       "activity": {
         "last_committed_at": "2026-07-06T16:57:49Z",
@@ -10956,9 +10956,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 8458,
-        "forks": 1068,
-        "open_issues": 98
+        "stargazers": 8471,
+        "forks": 1070,
+        "open_issues": 99
       },
       "activity": {
         "last_committed_at": "2026-07-08T21:33:30Z",
@@ -10985,7 +10985,7 @@
       },
       "metrics": {
         "stargazers": 8307,
-        "forks": 820,
+        "forks": 821,
         "open_issues": 125
       },
       "activity": {
@@ -11039,7 +11039,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 8116,
+        "stargazers": 8117,
         "forks": 886,
         "open_issues": 22
       },
@@ -11103,8 +11103,8 @@
       },
       "metrics": {
         "stargazers": 6985,
-        "forks": 1171,
-        "open_issues": 55
+        "forks": 1172,
+        "open_issues": 56
       },
       "activity": {
         "last_committed_at": "2025-08-06T07:11:40Z",
@@ -11143,9 +11143,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 6931,
-        "forks": 961,
-        "open_issues": 67
+        "stargazers": 6934,
+        "forks": 960,
+        "open_issues": 66
       },
       "activity": {
         "last_committed_at": "2026-07-10T14:54:53Z",
@@ -11182,7 +11182,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 6767,
+        "stargazers": 6770,
         "forks": 782,
         "open_issues": 565
       },
@@ -11272,13 +11272,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 6187,
-        "forks": 400,
+        "stargazers": 6190,
+        "forks": 401,
         "open_issues": 465
       },
       "activity": {
-        "last_committed_at": "2026-07-09T21:13:20Z",
-        "last_pushed_at": "2026-07-09T21:13:20Z"
+        "last_committed_at": "2026-07-10T20:59:37Z",
+        "last_pushed_at": "2026-07-10T20:59:37Z"
       },
       "search_keywords": [
         "ai",
@@ -11335,7 +11335,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5987,
+        "stargazers": 5988,
         "forks": 859,
         "open_issues": 18
       },
@@ -11366,8 +11366,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5992,
-        "forks": 839,
+        "stargazers": 6070,
+        "forks": 853,
         "open_issues": 97
       },
       "activity": {
@@ -11430,13 +11430,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5688,
-        "forks": 585,
-        "open_issues": 118
+        "stargazers": 5689,
+        "forks": 587,
+        "open_issues": 120
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:31:17Z",
-        "last_pushed_at": "2026-07-10T19:31:17Z"
+        "last_committed_at": "2026-07-11T09:19:52Z",
+        "last_pushed_at": "2026-07-11T09:19:52Z"
       },
       "search_keywords": [
         "agent-framework",
@@ -11465,8 +11465,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5593,
-        "forks": 670,
+        "stargazers": 5596,
+        "forks": 671,
         "open_issues": 31
       },
       "activity": {
@@ -11528,13 +11528,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5479,
+        "stargazers": 5480,
         "forks": 634,
-        "open_issues": 141
+        "open_issues": 143
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:45:16Z",
-        "last_pushed_at": "2026-07-10T19:45:16Z"
+        "last_committed_at": "2026-07-11T05:53:27Z",
+        "last_pushed_at": "2026-07-11T05:53:27Z"
       },
       "search_keywords": [
         "agentops",
@@ -11569,7 +11569,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5277,
+        "stargazers": 5278,
         "forks": 474,
         "open_issues": 53
       },
@@ -11601,12 +11601,12 @@
       },
       "metrics": {
         "stargazers": 5225,
-        "forks": 645,
-        "open_issues": 851
+        "forks": 646,
+        "open_issues": 853
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:11:57Z",
-        "last_pushed_at": "2026-07-10T19:11:57Z"
+        "last_committed_at": "2026-07-11T05:21:56Z",
+        "last_pushed_at": "2026-07-11T05:21:56Z"
       },
       "search_keywords": [
         "cuda",
@@ -11689,9 +11689,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 5030,
-        "forks": 492,
-        "open_issues": 27
+        "stargazers": 5033,
+        "forks": 493,
+        "open_issues": 28
       },
       "activity": {
         "last_committed_at": "2026-06-29T21:50:48Z",
@@ -11728,12 +11728,12 @@
       },
       "metrics": {
         "stargazers": 5016,
-        "forks": 230,
-        "open_issues": 174
+        "forks": 231,
+        "open_issues": 177
       },
       "activity": {
-        "last_committed_at": "2026-07-02T10:57:46Z",
-        "last_pushed_at": "2026-07-02T10:57:46Z"
+        "last_committed_at": "2026-07-10T22:57:17Z",
+        "last_pushed_at": "2026-07-10T22:57:17Z"
       },
       "search_keywords": [
         "ecommerce",
@@ -11752,9 +11752,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4835,
+        "stargazers": 4836,
         "forks": 372,
-        "open_issues": 139
+        "open_issues": 138
       },
       "activity": {
         "last_committed_at": "2026-07-10T19:11:00Z",
@@ -11829,7 +11829,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4698,
+        "stargazers": 4697,
         "forks": 445,
         "open_issues": 54
       },
@@ -11883,7 +11883,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4620,
+        "stargazers": 4621,
         "forks": 362,
         "open_issues": 60
       },
@@ -11924,7 +11924,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4581,
+        "stargazers": 4583,
         "forks": 626,
         "open_issues": 3
       },
@@ -11952,7 +11952,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4577,
+        "stargazers": 4579,
         "forks": 1593,
         "open_issues": 689
       },
@@ -11981,8 +11981,8 @@
       },
       "metrics": {
         "stargazers": 4396,
-        "forks": 570,
-        "open_issues": 117
+        "forks": 571,
+        "open_issues": 118
       },
       "activity": {
         "last_committed_at": "2025-02-19T20:59:35Z",
@@ -12011,8 +12011,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4198,
-        "forks": 497,
+        "stargazers": 4197,
+        "forks": 498,
         "open_issues": 20
       },
       "activity": {
@@ -12054,11 +12054,11 @@
       "metrics": {
         "stargazers": 4169,
         "forks": 2030,
-        "open_issues": 418
+        "open_issues": 419
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:07:48Z",
-        "last_pushed_at": "2026-07-10T20:07:48Z"
+        "last_committed_at": "2026-07-11T11:09:23Z",
+        "last_pushed_at": "2026-07-11T11:09:23Z"
       },
       "search_keywords": [
         "data-science",
@@ -12105,7 +12105,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 4052,
+        "stargazers": 4051,
         "forks": 210,
         "open_issues": 62
       },
@@ -12174,7 +12174,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3971,
+        "stargazers": 3972,
         "forks": 504,
         "open_issues": 67
       },
@@ -12211,7 +12211,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3845,
+        "stargazers": 3846,
         "forks": 939,
         "open_issues": 16
       },
@@ -12241,8 +12241,8 @@
       },
       "metrics": {
         "stargazers": 3742,
-        "forks": 1089,
-        "open_issues": 192
+        "forks": 1090,
+        "open_issues": 193
       },
       "activity": {
         "last_committed_at": "2026-07-10T04:20:12Z",
@@ -12269,7 +12269,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3684,
+        "stargazers": 3696,
         "forks": 300,
         "open_issues": 9
       },
@@ -12327,7 +12327,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3610,
+        "stargazers": 3615,
         "forks": 337,
         "open_issues": 145
       },
@@ -12430,13 +12430,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3422,
-        "forks": 769,
+        "stargazers": 3423,
+        "forks": 770,
         "open_issues": 299
       },
       "activity": {
-        "last_committed_at": "2026-07-10T17:07:13Z",
-        "last_pushed_at": "2026-07-10T17:07:13Z"
+        "last_committed_at": "2026-07-10T22:41:19Z",
+        "last_pushed_at": "2026-07-10T22:41:19Z"
       },
       "search_keywords": [
         "cuda",
@@ -12502,12 +12502,12 @@
       },
       "metrics": {
         "stargazers": 3291,
-        "forks": 828,
-        "open_issues": 400
+        "forks": 830,
+        "open_issues": 402
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:14:08Z",
-        "last_pushed_at": "2026-07-10T20:14:08Z"
+        "last_committed_at": "2026-07-11T05:54:37Z",
+        "last_pushed_at": "2026-07-11T05:54:37Z"
       },
       "search_keywords": [
         "autograd",
@@ -12541,7 +12541,7 @@
       },
       "metrics": {
         "stargazers": 3255,
-        "forks": 298,
+        "forks": 299,
         "open_issues": 108
       },
       "activity": {
@@ -12637,9 +12637,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3060,
-        "forks": 441,
-        "open_issues": 326
+        "stargazers": 3061,
+        "forks": 442,
+        "open_issues": 327
       },
       "activity": {
         "last_committed_at": "2024-04-10T12:25:23Z",
@@ -12707,13 +12707,13 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 3034,
-        "forks": 719,
-        "open_issues": 75
+        "stargazers": 3038,
+        "forks": 722,
+        "open_issues": 80
       },
       "activity": {
-        "last_committed_at": "2026-07-10T17:08:37Z",
-        "last_pushed_at": "2026-07-10T17:08:37Z"
+        "last_committed_at": "2026-07-11T17:40:49Z",
+        "last_pushed_at": "2026-07-11T17:40:49Z"
       },
       "search_keywords": [
         "deep-learning",
@@ -12817,11 +12817,11 @@
       "metrics": {
         "stargazers": 39939,
         "forks": 2002,
-        "open_issues": 44
+        "open_issues": 43
       },
       "activity": {
-        "last_committed_at": "2026-07-10T14:11:02Z",
-        "last_pushed_at": "2026-07-10T14:11:02Z"
+        "last_committed_at": "2026-07-11T18:58:09Z",
+        "last_pushed_at": "2026-07-11T18:58:09Z"
       },
       "search_keywords": [
         "express",
@@ -12851,9 +12851,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 39855,
-        "forks": 4155,
-        "open_issues": 509
+        "stargazers": 39860,
+        "forks": 4154,
+        "open_issues": 510
       },
       "activity": {
         "last_committed_at": "2026-06-25T07:21:11Z",
@@ -12877,9 +12877,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 32510,
-        "forks": 2332,
-        "open_issues": 33
+        "stargazers": 32511,
+        "forks": 2333,
+        "open_issues": 34
       },
       "activity": {
         "last_committed_at": "2026-07-08T19:35:17Z",
@@ -12911,7 +12911,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 19512,
+        "stargazers": 19511,
         "forks": 1411,
         "open_issues": 158
       },
@@ -12940,13 +12940,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 16346,
-        "forks": 1574,
+        "stargazers": 16353,
+        "forks": 1575,
         "open_issues": 226
       },
       "activity": {
-        "last_committed_at": "2026-04-26T10:13:25Z",
-        "last_pushed_at": "2026-04-26T10:13:25Z"
+        "last_committed_at": "2026-07-11T13:01:31Z",
+        "last_pushed_at": "2026-07-11T13:01:31Z"
       },
       "search_keywords": [
         "fuzzer",
@@ -12965,7 +12965,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 11962,
+        "stargazers": 11963,
         "forks": 869,
         "open_issues": 119
       },
@@ -13074,7 +13074,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 4997,
+        "stargazers": 4998,
         "forks": 174,
         "open_issues": 115
       },
@@ -13103,9 +13103,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 4773,
+        "stargazers": 4779,
         "forks": 268,
-        "open_issues": 43
+        "open_issues": 42
       },
       "activity": {
         "last_committed_at": "2026-07-05T11:03:43Z",
@@ -13135,11 +13135,11 @@
       "metrics": {
         "stargazers": 4229,
         "forks": 273,
-        "open_issues": 114
+        "open_issues": 113
       },
       "activity": {
-        "last_committed_at": "2026-06-29T13:29:13Z",
-        "last_pushed_at": "2026-06-29T13:29:13Z"
+        "last_committed_at": "2026-07-11T15:46:43Z",
+        "last_pushed_at": "2026-07-11T15:46:43Z"
       },
       "search_keywords": [
         "api",
@@ -13196,7 +13196,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2943,
+        "stargazers": 2944,
         "forks": 150,
         "open_issues": 2
       },
@@ -13236,7 +13236,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2850,
+        "stargazers": 2852,
         "forks": 270,
         "open_issues": 41
       },
@@ -13330,7 +13330,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1848,
+        "stargazers": 1849,
         "forks": 74,
         "open_issues": 11
       },
@@ -13452,13 +13452,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 13882,
-        "forks": 1594,
-        "open_issues": 23
+        "stargazers": 13883,
+        "forks": 1593,
+        "open_issues": 22
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:02:45Z",
-        "last_pushed_at": "2026-07-10T18:02:45Z"
+        "last_committed_at": "2026-07-10T21:27:19Z",
+        "last_pushed_at": "2026-07-10T21:27:19Z"
       },
       "search_keywords": [
         "dns",
@@ -13508,8 +13508,8 @@
       },
       "metrics": {
         "stargazers": 1273,
-        "forks": 62,
-        "open_issues": 30
+        "forks": 64,
+        "open_issues": 31
       },
       "activity": {
         "last_committed_at": "2026-06-05T10:06:52Z",
@@ -13539,8 +13539,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 88886,
-        "forks": 8650,
+        "stargazers": 88895,
+        "forks": 8652,
         "open_issues": 720
       },
       "activity": {
@@ -13567,8 +13567,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 43659,
-        "forks": 1259,
+        "stargazers": 43681,
+        "forks": 1260,
         "open_issues": 190
       },
       "activity": {
@@ -13596,13 +13596,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 33173,
+        "stargazers": 33170,
         "forks": 4312,
-        "open_issues": 276
+        "open_issues": 273
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:06:40Z",
-        "last_pushed_at": "2026-07-10T19:06:40Z"
+        "last_committed_at": "2026-07-11T05:10:10Z",
+        "last_pushed_at": "2026-07-11T05:10:10Z"
       },
       "search_keywords": [
         "ai-native",
@@ -13638,7 +13638,7 @@
       },
       "metrics": {
         "stargazers": 25781,
-        "forks": 4166,
+        "forks": 4165,
         "open_issues": 83
       },
       "activity": {
@@ -13673,7 +13673,7 @@
       },
       "metrics": {
         "stargazers": 13212,
-        "forks": 1722,
+        "forks": 1723,
         "open_issues": 221
       },
       "activity": {
@@ -13704,7 +13704,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 7597,
+        "stargazers": 7598,
         "forks": 345,
         "open_issues": 77
       },
@@ -13931,8 +13931,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 25370,
-        "forks": 1853,
+        "stargazers": 25372,
+        "forks": 1852,
         "open_issues": 224
       },
       "activity": {
@@ -13960,8 +13960,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 21192,
-        "forks": 1756,
+        "stargazers": 21181,
+        "forks": 1755,
         "open_issues": 104
       },
       "activity": {
@@ -14066,11 +14066,11 @@
       "metrics": {
         "stargazers": 2271,
         "forks": 237,
-        "open_issues": 14
+        "open_issues": 15
       },
       "activity": {
-        "last_committed_at": "2026-07-03T11:42:32Z",
-        "last_pushed_at": "2026-07-03T11:42:32Z"
+        "last_committed_at": "2026-07-10T21:36:37Z",
+        "last_pushed_at": "2026-07-10T21:36:37Z"
       },
       "search_keywords": [
         "ddd",
@@ -14092,13 +14092,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 17618,
+        "stargazers": 17619,
         "forks": 793,
         "open_issues": 74
       },
       "activity": {
-        "last_committed_at": "2026-07-08T19:17:41Z",
-        "last_pushed_at": "2026-07-08T19:17:41Z"
+        "last_committed_at": "2026-07-11T16:21:49Z",
+        "last_pushed_at": "2026-07-11T16:21:49Z"
       },
       "search_keywords": [
         "consensus",
@@ -14123,7 +14123,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 14638,
+        "stargazers": 14640,
         "forks": 1540,
         "open_issues": 84
       },
@@ -14147,7 +14147,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 10135,
+        "stargazers": 10136,
         "forks": 1307,
         "open_issues": 37
       },
@@ -14176,8 +14176,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 10028,
-        "forks": 396,
+        "stargazers": 10029,
+        "forks": 397,
         "open_issues": 117
       },
       "activity": {
@@ -14211,7 +14211,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 9684,
+        "stargazers": 9685,
         "forks": 618,
         "open_issues": 166
       },
@@ -14244,8 +14244,8 @@
         "open_issues": 118
       },
       "activity": {
-        "last_committed_at": "2026-07-10T17:41:44Z",
-        "last_pushed_at": "2026-07-10T17:41:44Z"
+        "last_committed_at": "2026-07-11T14:12:20Z",
+        "last_pushed_at": "2026-07-11T14:12:20Z"
       },
       "search_keywords": [
         "authentication",
@@ -14279,7 +14279,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 6985,
+        "stargazers": 6987,
         "forks": 354,
         "open_issues": 41
       },
@@ -14317,7 +14317,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 4859,
+        "stargazers": 4860,
         "forks": 304,
         "open_issues": 32
       },
@@ -14343,13 +14343,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 4560,
+        "stargazers": 4565,
         "forks": 311,
-        "open_issues": 147
+        "open_issues": 145
       },
       "activity": {
-        "last_committed_at": "2026-07-10T00:47:38Z",
-        "last_pushed_at": "2026-07-10T00:47:38Z"
+        "last_committed_at": "2026-07-11T05:26:11Z",
+        "last_pushed_at": "2026-07-11T05:26:11Z"
       },
       "search_keywords": [
         "ai",
@@ -14477,12 +14477,12 @@
       },
       "metrics": {
         "stargazers": 2535,
-        "forks": 40,
-        "open_issues": 74
+        "forks": 39,
+        "open_issues": 75
       },
       "activity": {
-        "last_committed_at": "2026-07-09T08:09:39Z",
-        "last_pushed_at": "2026-07-09T08:09:39Z"
+        "last_committed_at": "2026-07-10T22:59:55Z",
+        "last_pushed_at": "2026-07-10T22:59:55Z"
       },
       "search_keywords": [
         "azure-sql-edge",
@@ -14545,7 +14545,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2096,
+        "stargazers": 2097,
         "forks": 143,
         "open_issues": 64
       },
@@ -14600,13 +14600,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1743,
-        "forks": 109,
-        "open_issues": 39
+        "stargazers": 1742,
+        "forks": 110,
+        "open_issues": 37
       },
       "activity": {
-        "last_committed_at": "2026-07-09T08:33:47Z",
-        "last_pushed_at": "2026-07-09T08:33:47Z"
+        "last_committed_at": "2026-07-11T00:01:30Z",
+        "last_pushed_at": "2026-07-11T00:01:30Z"
       },
       "search_keywords": [
         "database",
@@ -14633,7 +14633,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1718,
+        "stargazers": 1717,
         "forks": 140,
         "open_issues": 3
       },
@@ -14749,7 +14749,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1473,
+        "stargazers": 1474,
         "forks": 94,
         "open_issues": 5
       },
@@ -15012,9 +15012,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 51968,
-        "forks": 10411,
-        "open_issues": 277
+        "stargazers": 51974,
+        "forks": 10414,
+        "open_issues": 280
       },
       "activity": {
         "last_committed_at": "2026-07-10T18:24:11Z",
@@ -15043,13 +15043,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 40269,
-        "forks": 6224,
-        "open_issues": 6472
+        "stargazers": 40280,
+        "forks": 6226,
+        "open_issues": 6475
       },
       "activity": {
-        "last_committed_at": "2026-07-10T10:38:25Z",
-        "last_pushed_at": "2026-07-10T10:38:25Z"
+        "last_committed_at": "2026-07-10T22:45:38Z",
+        "last_pushed_at": "2026-07-10T22:45:38Z"
       },
       "search_keywords": [
         "agent",
@@ -15083,13 +15083,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 23825,
-        "forks": 827,
-        "open_issues": 587
+        "stargazers": 23832,
+        "forks": 828,
+        "open_issues": 589
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:59:54Z",
-        "last_pushed_at": "2026-07-10T19:59:54Z"
+        "last_committed_at": "2026-07-10T21:51:12Z",
+        "last_pushed_at": "2026-07-10T21:51:12Z"
       },
       "search_keywords": [
         "agent-memory",
@@ -15124,7 +15124,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 21734,
+        "stargazers": 21740,
         "forks": 1596,
         "open_issues": 84
       },
@@ -15150,7 +15150,7 @@
       },
       "metrics": {
         "stargazers": 17307,
-        "forks": 1686,
+        "forks": 1687,
         "open_issues": 765
       },
       "activity": {
@@ -15183,13 +15183,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 15922,
+        "stargazers": 15933,
         "forks": 1634,
-        "open_issues": 233
+        "open_issues": 232
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:20:05Z",
-        "last_pushed_at": "2026-07-10T19:20:05Z"
+        "last_committed_at": "2026-07-10T22:26:40Z",
+        "last_pushed_at": "2026-07-10T22:26:40Z"
       },
       "search_keywords": [
         "agent",
@@ -15224,13 +15224,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 15699,
+        "stargazers": 15700,
         "forks": 1297,
         "open_issues": 65
       },
       "activity": {
-        "last_committed_at": "2026-07-10T02:40:35Z",
-        "last_pushed_at": "2026-07-10T02:40:35Z"
+        "last_committed_at": "2026-07-11T13:56:48Z",
+        "last_pushed_at": "2026-07-11T13:56:48Z"
       },
       "search_keywords": [
         "database",
@@ -15252,7 +15252,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 10996,
+        "stargazers": 10997,
         "forks": 480,
         "open_issues": 446
       },
@@ -15285,13 +15285,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 8956,
-        "forks": 720,
+        "stargazers": 8959,
+        "forks": 721,
         "open_issues": 385
       },
       "activity": {
-        "last_committed_at": "2026-07-10T13:20:32Z",
-        "last_pushed_at": "2026-07-10T13:20:32Z"
+        "last_committed_at": "2026-07-11T01:01:15Z",
+        "last_pushed_at": "2026-07-11T01:01:15Z"
       },
       "search_keywords": [
         "automated-failover",
@@ -15327,7 +15327,7 @@
       },
       "metrics": {
         "stargazers": 8765,
-        "forks": 1318,
+        "forks": 1319,
         "open_issues": 77
       },
       "activity": {
@@ -15359,8 +15359,8 @@
       },
       "metrics": {
         "stargazers": 8535,
-        "forks": 934,
-        "open_issues": 14
+        "forks": 933,
+        "open_issues": 18
       },
       "activity": {
         "last_committed_at": "2026-07-10T17:18:56Z",
@@ -15385,7 +15385,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 7641,
+        "stargazers": 7642,
         "forks": 452,
         "open_issues": 7
       },
@@ -15425,13 +15425,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 6853,
-        "forks": 404,
-        "open_issues": 145
+        "stargazers": 6854,
+        "forks": 403,
+        "open_issues": 143
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:08:33Z",
-        "last_pushed_at": "2026-07-10T20:08:33Z"
+        "last_committed_at": "2026-07-10T20:35:50Z",
+        "last_pushed_at": "2026-07-10T20:35:50Z"
       },
       "search_keywords": [
         "abac",
@@ -15465,12 +15465,12 @@
       },
       "metrics": {
         "stargazers": 4923,
-        "forks": 220,
+        "forks": 221,
         "open_issues": 21
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:48:42Z",
-        "last_pushed_at": "2026-07-10T19:48:42Z"
+        "last_committed_at": "2026-07-11T09:54:39Z",
+        "last_pushed_at": "2026-07-11T09:54:39Z"
       },
       "search_keywords": [
         "anthropic",
@@ -15534,7 +15534,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 4429,
+        "stargazers": 4430,
         "forks": 676,
         "open_issues": 167
       },
@@ -15714,8 +15714,8 @@
         "open_issues": 142
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:40:08Z",
-        "last_pushed_at": "2026-07-10T16:40:08Z"
+        "last_committed_at": "2026-07-11T16:45:42Z",
+        "last_pushed_at": "2026-07-11T16:45:42Z"
       },
       "search_keywords": [
         "analytics-database",
@@ -15741,8 +15741,8 @@
         "open_issues": 22
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:20:28Z",
-        "last_pushed_at": "2026-07-10T18:20:28Z"
+        "last_committed_at": "2026-07-11T17:37:39Z",
+        "last_pushed_at": "2026-07-11T17:37:39Z"
       },
       "search_keywords": [
         "cloud-native",
@@ -15882,12 +15882,12 @@
       },
       "metrics": {
         "stargazers": 2644,
-        "forks": 265,
+        "forks": 266,
         "open_issues": 61
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:55:44Z",
-        "last_pushed_at": "2026-07-10T19:55:44Z"
+        "last_committed_at": "2026-07-10T22:43:38Z",
+        "last_pushed_at": "2026-07-10T22:43:38Z"
       },
       "search_keywords": [
         "database",
@@ -15975,7 +15975,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2441,
+        "stargazers": 2442,
         "forks": 111,
         "open_issues": 75
       },
@@ -16039,7 +16039,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2252,
+        "stargazers": 2253,
         "forks": 188,
         "open_issues": 17
       },
@@ -16097,11 +16097,11 @@
       "metrics": {
         "stargazers": 1858,
         "forks": 303,
-        "open_issues": 730
+        "open_issues": 768
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:48:18Z",
-        "last_pushed_at": "2026-07-10T19:48:18Z"
+        "last_committed_at": "2026-07-11T16:04:40Z",
+        "last_pushed_at": "2026-07-11T16:04:40Z"
       },
       "search_keywords": [
         "agents",
@@ -16290,9 +16290,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1406,
+        "stargazers": 1407,
         "forks": 237,
-        "open_issues": 142
+        "open_issues": 143
       },
       "activity": {
         "last_committed_at": "2026-07-10T13:23:09Z",
@@ -16409,7 +16409,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1236,
+        "stargazers": 1237,
         "forks": 98,
         "open_issues": 37
       },
@@ -16467,9 +16467,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 81622,
+        "stargazers": 81642,
         "forks": 2810,
-        "open_issues": 326
+        "open_issues": 325
       },
       "activity": {
         "last_committed_at": "2026-07-10T12:49:59Z",
@@ -16498,13 +16498,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 80242,
-        "forks": 2910,
+        "stargazers": 80272,
+        "forks": 2911,
         "open_issues": 997
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:00:50Z",
-        "last_pushed_at": "2026-07-10T20:00:50Z"
+        "last_committed_at": "2026-07-10T20:44:04Z",
+        "last_pushed_at": "2026-07-10T20:44:04Z"
       },
       "search_keywords": [
         "cli",
@@ -16522,8 +16522,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 54307,
-        "forks": 1988,
+        "stargazers": 54312,
+        "forks": 1989,
         "open_issues": 208
       },
       "activity": {
@@ -16549,9 +16549,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 45212,
-        "forks": 8684,
-        "open_issues": 1014
+        "stargazers": 45233,
+        "forks": 8688,
+        "open_issues": 1016
       },
       "activity": {
         "last_committed_at": "2026-07-10T18:36:07Z",
@@ -16574,7 +16574,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 28082,
+        "stargazers": 28088,
         "forks": 2145,
         "open_issues": 427
       },
@@ -16615,13 +16615,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 26614,
-        "forks": 1666,
-        "open_issues": 1102
+        "stargazers": 26678,
+        "forks": 1673,
+        "open_issues": 1115
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:46:04Z",
-        "last_pushed_at": "2026-07-10T16:46:04Z"
+        "last_committed_at": "2026-07-11T15:26:01Z",
+        "last_pushed_at": "2026-07-11T15:26:01Z"
       },
       "search_keywords": [
         "agent",
@@ -16652,8 +16652,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 26281,
-        "forks": 721,
+        "stargazers": 26291,
+        "forks": 722,
         "open_issues": 213
       },
       "activity": {
@@ -16677,13 +16677,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 25446,
+        "stargazers": 25450,
         "forks": 927,
         "open_issues": 147
       },
       "activity": {
-        "last_committed_at": "2026-07-09T13:19:59Z",
-        "last_pushed_at": "2026-07-09T13:19:59Z"
+        "last_committed_at": "2026-07-11T01:13:28Z",
+        "last_pushed_at": "2026-07-11T01:13:28Z"
       },
       "search_keywords": [
         "asdf-vm",
@@ -16715,8 +16715,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 24162,
-        "forks": 1792,
+        "stargazers": 24166,
+        "forks": 1791,
         "open_issues": 75
       },
       "activity": {
@@ -16743,7 +16743,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 20528,
+        "stargazers": 20532,
         "forks": 485,
         "open_issues": 23
       },
@@ -16768,8 +16768,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 20316,
-        "forks": 440,
+        "stargazers": 20322,
+        "forks": 441,
         "open_issues": 162
       },
       "activity": {
@@ -16797,9 +16797,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 18640,
-        "forks": 657,
-        "open_issues": 200
+        "stargazers": 18667,
+        "forks": 662,
+        "open_issues": 201
       },
       "activity": {
         "last_committed_at": "2026-07-09T17:01:18Z",
@@ -16829,8 +16829,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 17147,
-        "forks": 1152,
+        "stargazers": 17154,
+        "forks": 1153,
         "open_issues": 16
       },
       "activity": {
@@ -16857,8 +16857,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 15667,
-        "forks": 792,
+        "stargazers": 15672,
+        "forks": 793,
         "open_issues": 283
       },
       "activity": {
@@ -16893,8 +16893,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 15513,
-        "forks": 1158,
+        "stargazers": 15517,
+        "forks": 1161,
         "open_issues": 58
       },
       "activity": {
@@ -16930,7 +16930,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 14475,
+        "stargazers": 14477,
         "forks": 331,
         "open_issues": 50
       },
@@ -16953,8 +16953,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 12037,
-        "forks": 415,
+        "stargazers": 12038,
+        "forks": 416,
         "open_issues": 86
       },
       "activity": {
@@ -16986,8 +16986,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 11533,
-        "forks": 371,
+        "stargazers": 11542,
+        "forks": 373,
         "open_issues": 128
       },
       "activity": {
@@ -17014,7 +17014,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 10476,
+        "stargazers": 10475,
         "forks": 545,
         "open_issues": 12
       },
@@ -17040,13 +17040,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 10148,
+        "stargazers": 10153,
         "forks": 1082,
         "open_issues": 8
       },
       "activity": {
-        "last_committed_at": "2026-07-09T16:24:38Z",
-        "last_pushed_at": "2026-07-09T16:24:38Z"
+        "last_committed_at": "2026-07-10T20:51:26Z",
+        "last_pushed_at": "2026-07-10T20:51:26Z"
       },
       "search_keywords": [
         "bugbounty",
@@ -17073,11 +17073,11 @@
       "metrics": {
         "stargazers": 9704,
         "forks": 1211,
-        "open_issues": 223
+        "open_issues": 224
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:08:27Z",
-        "last_pushed_at": "2026-07-10T20:08:27Z"
+        "last_committed_at": "2026-07-11T13:24:27Z",
+        "last_pushed_at": "2026-07-11T13:24:27Z"
       },
       "search_keywords": [
         "aws",
@@ -17098,13 +17098,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 9585,
+        "stargazers": 9594,
         "forks": 825,
         "open_issues": 24
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:50:35Z",
-        "last_pushed_at": "2026-07-10T19:50:35Z"
+        "last_committed_at": "2026-07-10T21:08:25Z",
+        "last_pushed_at": "2026-07-10T21:08:25Z"
       },
       "search_keywords": [
         "apple",
@@ -17136,7 +17136,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 9440,
+        "stargazers": 9442,
         "forks": 491,
         "open_issues": 140
       },
@@ -17170,7 +17170,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 8976,
+        "stargazers": 8975,
         "forks": 833,
         "open_issues": 0
       },
@@ -17200,7 +17200,7 @@
       },
       "metrics": {
         "stargazers": 8652,
-        "forks": 432,
+        "forks": 433,
         "open_issues": 224
       },
       "activity": {
@@ -17225,7 +17225,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 8524,
+        "stargazers": 8523,
         "forks": 321,
         "open_issues": 26
       },
@@ -17259,9 +17259,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 8001,
+        "stargazers": 8002,
         "forks": 169,
-        "open_issues": 20
+        "open_issues": 21
       },
       "activity": {
         "last_committed_at": "2026-06-27T15:04:42Z",
@@ -17300,7 +17300,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 7133,
+        "stargazers": 7132,
         "forks": 158,
         "open_issues": 11
       },
@@ -17412,7 +17412,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 5800,
+        "stargazers": 5805,
         "forks": 212,
         "open_issues": 56
       },
@@ -17476,8 +17476,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 5707,
-        "forks": 436,
+        "stargazers": 5711,
+        "forks": 434,
         "open_issues": 4
       },
       "activity": {
@@ -17510,7 +17510,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 5484,
+        "stargazers": 5485,
         "forks": 376,
         "open_issues": 114
       },
@@ -17537,13 +17537,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 5018,
+        "stargazers": 5024,
         "forks": 440,
         "open_issues": 2
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:15:19Z",
-        "last_pushed_at": "2026-07-10T20:15:19Z"
+        "last_committed_at": "2026-07-11T14:33:56Z",
+        "last_pushed_at": "2026-07-11T14:33:56Z"
       },
       "search_keywords": [
         "app-store-connect",
@@ -17613,7 +17613,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 4487,
+        "stargazers": 4489,
         "forks": 192,
         "open_issues": 37
       },
@@ -17700,7 +17700,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 4107,
+        "stargazers": 4108,
         "forks": 340,
         "open_issues": 189
       },
@@ -17763,7 +17763,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3985,
+        "stargazers": 3986,
         "forks": 232,
         "open_issues": 110
       },
@@ -17792,9 +17792,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3915,
-        "forks": 426,
-        "open_issues": 192
+        "stargazers": 3930,
+        "forks": 428,
+        "open_issues": 200
       },
       "activity": {
         "last_committed_at": "2026-07-09T06:34:18Z",
@@ -17819,8 +17819,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3729,
-        "forks": 213,
+        "stargazers": 3730,
+        "forks": 212,
         "open_issues": 21
       },
       "activity": {
@@ -17847,7 +17847,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3688,
+        "stargazers": 3690,
         "forks": 114,
         "open_issues": 25
       },
@@ -17901,8 +17901,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3589,
-        "forks": 301,
+        "stargazers": 3590,
+        "forks": 302,
         "open_issues": 145
       },
       "activity": {
@@ -17981,13 +17981,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3340,
+        "stargazers": 3344,
         "forks": 140,
-        "open_issues": 51
+        "open_issues": 52
       },
       "activity": {
-        "last_committed_at": "2026-07-10T07:34:08Z",
-        "last_pushed_at": "2026-07-10T07:34:08Z"
+        "last_committed_at": "2026-07-11T17:52:41Z",
+        "last_pushed_at": "2026-07-11T17:52:41Z"
       },
       "search_keywords": [
         "cli",
@@ -18011,13 +18011,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3172,
+        "stargazers": 3173,
         "forks": 216,
-        "open_issues": 40
+        "open_issues": 30
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:13:47Z",
-        "last_pushed_at": "2026-07-10T19:13:47Z"
+        "last_committed_at": "2026-07-11T16:49:45Z",
+        "last_pushed_at": "2026-07-11T16:49:45Z"
       },
       "search_keywords": [
         "boltdb",
@@ -18047,13 +18047,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3160,
+        "stargazers": 3161,
         "forks": 87,
-        "open_issues": 11
+        "open_issues": 12
       },
       "activity": {
-        "last_committed_at": "2026-07-10T05:59:39Z",
-        "last_pushed_at": "2026-07-10T05:59:39Z"
+        "last_committed_at": "2026-07-11T07:48:42Z",
+        "last_pushed_at": "2026-07-11T07:48:42Z"
       },
       "search_keywords": [
         "cli",
@@ -18108,7 +18108,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3012,
+        "stargazers": 3013,
         "forks": 273,
         "open_issues": 13
       },
@@ -18170,7 +18170,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2800,
+        "stargazers": 2801,
         "forks": 320,
         "open_issues": 2
       },
@@ -18225,13 +18225,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2631,
+        "stargazers": 2634,
         "forks": 316,
         "open_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:06:42Z",
-        "last_pushed_at": "2026-07-10T16:06:42Z"
+        "last_committed_at": "2026-07-11T05:19:02Z",
+        "last_pushed_at": "2026-07-11T05:19:02Z"
       },
       "search_keywords": [
         "cli",
@@ -18249,8 +18249,8 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2392,
-        "forks": 146,
+        "stargazers": 2396,
+        "forks": 148,
         "open_issues": 23
       },
       "activity": {
@@ -18290,7 +18290,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2274,
+        "stargazers": 2278,
         "forks": 38,
         "open_issues": 13
       },
@@ -18388,7 +18388,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2187,
+        "stargazers": 2188,
         "forks": 83,
         "open_issues": 14
       },
@@ -18451,7 +18451,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2079,
+        "stargazers": 2078,
         "forks": 63,
         "open_issues": 7
       },
@@ -18524,8 +18524,8 @@
         "open_issues": 1
       },
       "activity": {
-        "last_committed_at": "2026-07-10T13:40:25Z",
-        "last_pushed_at": "2026-07-10T13:40:25Z"
+        "last_committed_at": "2026-07-11T14:55:08Z",
+        "last_pushed_at": "2026-07-11T14:55:08Z"
       },
       "search_keywords": [
         "cli",
@@ -18552,13 +18552,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1977,
+        "stargazers": 1981,
         "forks": 45,
-        "open_issues": 26
+        "open_issues": 25
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:58:01Z",
-        "last_pushed_at": "2026-07-10T19:58:01Z"
+        "last_committed_at": "2026-07-11T05:45:05Z",
+        "last_pushed_at": "2026-07-11T05:45:05Z"
       },
       "search_keywords": [
         "cli",
@@ -18614,13 +18614,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1883,
+        "stargazers": 1886,
         "forks": 129,
         "open_issues": 95
       },
       "activity": {
-        "last_committed_at": "2026-07-09T20:45:38Z",
-        "last_pushed_at": "2026-07-09T20:45:38Z"
+        "last_committed_at": "2026-07-11T19:52:17Z",
+        "last_pushed_at": "2026-07-11T19:52:17Z"
       },
       "search_keywords": [
         "bash",
@@ -18652,7 +18652,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1784,
+        "stargazers": 1783,
         "forks": 171,
         "open_issues": 34
       },
@@ -18720,7 +18720,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1744,
+        "stargazers": 1746,
         "forks": 92,
         "open_issues": 55
       },
@@ -18761,7 +18761,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1738,
+        "stargazers": 1740,
         "forks": 105,
         "open_issues": 26
       },
@@ -18972,7 +18972,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1552,
+        "stargazers": 1551,
         "forks": 70,
         "open_issues": 0
       },
@@ -19177,7 +19177,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1352,
+        "stargazers": 1353,
         "forks": 136,
         "open_issues": 116
       },
@@ -19206,7 +19206,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1335,
+        "stargazers": 1336,
         "forks": 48,
         "open_issues": 11
       },
@@ -19247,7 +19247,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1329,
+        "stargazers": 1331,
         "forks": 100,
         "open_issues": 1
       },
@@ -19438,13 +19438,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1226,
+        "stargazers": 1228,
         "forks": 69,
         "open_issues": 88
       },
       "activity": {
-        "last_committed_at": "2026-06-27T14:14:32Z",
-        "last_pushed_at": "2026-06-27T14:14:32Z"
+        "last_committed_at": "2026-07-10T22:00:43Z",
+        "last_pushed_at": "2026-07-10T22:00:43Z"
       },
       "search_keywords": [
         "cli",
@@ -19489,7 +19489,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1213,
+        "stargazers": 1217,
         "forks": 31,
         "open_issues": 9
       },
@@ -19530,13 +19530,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 44243,
-        "forks": 3165,
+        "stargazers": 44256,
+        "forks": 3166,
         "open_issues": 386
       },
       "activity": {
-        "last_committed_at": "2026-04-25T23:07:41Z",
-        "last_pushed_at": "2026-04-25T23:07:41Z"
+        "last_committed_at": "2026-07-11T00:43:07Z",
+        "last_pushed_at": "2026-07-11T00:43:07Z"
       },
       "search_keywords": [
         "cli",
@@ -19567,7 +19567,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 18198,
+        "stargazers": 18201,
         "forks": 568,
         "open_issues": 1
       },
@@ -19600,7 +19600,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 8710,
+        "stargazers": 8709,
         "forks": 618,
         "open_issues": 142
       },
@@ -19628,9 +19628,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 7509,
-        "forks": 706,
-        "open_issues": 167
+        "stargazers": 7511,
+        "forks": 707,
+        "open_issues": 168
       },
       "activity": {
         "last_committed_at": "2026-07-03T06:51:38Z",
@@ -19715,9 +19715,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 5956,
-        "forks": 2155,
-        "open_issues": 794
+        "stargazers": 5957,
+        "forks": 2160,
+        "open_issues": 796
       },
       "activity": {
         "last_committed_at": "2026-07-10T17:47:41Z",
@@ -19738,7 +19738,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 5085,
+        "stargazers": 5086,
         "forks": 412,
         "open_issues": 69
       },
@@ -19809,7 +19809,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 4515,
+        "stargazers": 4514,
         "forks": 151,
         "open_issues": 20
       },
@@ -19880,9 +19880,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3923,
+        "stargazers": 3925,
         "forks": 156,
-        "open_issues": 76
+        "open_issues": 77
       },
       "activity": {
         "last_committed_at": "2026-06-29T14:43:52Z",
@@ -19919,7 +19919,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3768,
+        "stargazers": 3776,
         "forks": 144,
         "open_issues": 63
       },
@@ -19949,7 +19949,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 3412,
+        "stargazers": 3417,
         "forks": 183,
         "open_issues": 22
       },
@@ -20086,7 +20086,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2528,
+        "stargazers": 2527,
         "forks": 130,
         "open_issues": 20
       },
@@ -20117,7 +20117,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2030,
+        "stargazers": 2032,
         "forks": 208,
         "open_issues": 3
       },
@@ -20147,11 +20147,11 @@
       "metrics": {
         "stargazers": 1920,
         "forks": 988,
-        "open_issues": 75
+        "open_issues": 79
       },
       "activity": {
-        "last_committed_at": "2026-07-07T18:23:42Z",
-        "last_pushed_at": "2026-07-07T18:23:42Z"
+        "last_committed_at": "2026-07-10T20:48:35Z",
+        "last_pushed_at": "2026-07-10T20:48:35Z"
       },
       "search_keywords": [
         "cf-cli",
@@ -20234,7 +20234,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1864,
+        "stargazers": 1865,
         "forks": 158,
         "open_issues": 157
       },
@@ -20384,7 +20384,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1340,
+        "stargazers": 1341,
         "forks": 54,
         "open_issues": 31
       },
@@ -20423,12 +20423,12 @@
       },
       "metrics": {
         "stargazers": 1330,
-        "forks": 170,
-        "open_issues": 289
+        "forks": 171,
+        "open_issues": 280
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:08:00Z",
-        "last_pushed_at": "2026-07-10T20:08:00Z"
+        "last_committed_at": "2026-07-11T19:49:44Z",
+        "last_pushed_at": "2026-07-11T19:49:44Z"
       },
       "search_keywords": [
         "automation",
@@ -20494,7 +20494,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1215,
+        "stargazers": 1216,
         "forks": 90,
         "open_issues": 55
       },
@@ -20569,7 +20569,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1205,
+        "stargazers": 1207,
         "forks": 172,
         "open_issues": 41
       },
@@ -20630,11 +20630,11 @@
       "metrics": {
         "stargazers": 1111,
         "forks": 73,
-        "open_issues": 40
+        "open_issues": 38
       },
       "activity": {
-        "last_committed_at": "2026-07-10T12:13:22Z",
-        "last_pushed_at": "2026-07-10T12:13:22Z"
+        "last_committed_at": "2026-07-11T12:04:50Z",
+        "last_pushed_at": "2026-07-11T12:04:50Z"
       },
       "search_keywords": [
         "automation",
@@ -20685,7 +20685,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1067,
+        "stargazers": 1068,
         "forks": 131,
         "open_issues": 130
       },
@@ -20748,13 +20748,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1064,
+        "stargazers": 1063,
         "forks": 103,
-        "open_issues": 12
+        "open_issues": 13
       },
       "activity": {
-        "last_committed_at": "2026-07-03T22:23:55Z",
-        "last_pushed_at": "2026-07-03T22:23:55Z"
+        "last_committed_at": "2026-07-10T20:58:57Z",
+        "last_pushed_at": "2026-07-10T20:58:57Z"
       },
       "search_keywords": [
         "apache-kafka",
@@ -20813,8 +20813,8 @@
         "open_issues": 47
       },
       "activity": {
-        "last_committed_at": "2026-07-10T08:16:06Z",
-        "last_pushed_at": "2026-07-10T08:16:06Z"
+        "last_committed_at": "2026-07-11T08:07:50Z",
+        "last_pushed_at": "2026-07-11T08:07:50Z"
       },
       "search_keywords": [
         "alibaba",
@@ -20898,7 +20898,7 @@
       },
       "metrics": {
         "stargazers": 3522,
-        "forks": 567,
+        "forks": 568,
         "open_issues": 0
       },
       "activity": {
@@ -20962,7 +20962,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2182,
+        "stargazers": 2184,
         "forks": 373,
         "open_issues": 3
       },
@@ -21093,7 +21093,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 4709,
+        "stargazers": 4710,
         "forks": 324,
         "open_issues": 5
       },
@@ -21198,8 +21198,8 @@
         "open_issues": 2
       },
       "activity": {
-        "last_committed_at": "2026-05-02T20:15:15Z",
-        "last_pushed_at": "2026-05-02T20:15:15Z"
+        "last_committed_at": "2026-07-10T22:23:51Z",
+        "last_pushed_at": "2026-07-10T22:23:51Z"
       },
       "search_keywords": [
         "algorithms",
@@ -21246,7 +21246,7 @@
       },
       "metrics": {
         "stargazers": 16820,
-        "forks": 3566,
+        "forks": 3567,
         "open_issues": 1450
       },
       "activity": {
@@ -21289,8 +21289,8 @@
         "open_issues": 119
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:22:58Z",
-        "last_pushed_at": "2026-07-10T16:22:58Z"
+        "last_committed_at": "2026-07-11T13:50:40Z",
+        "last_pushed_at": "2026-07-11T13:50:40Z"
       },
       "search_keywords": [
         "collaborative-filtering",
@@ -21310,7 +21310,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 9439,
+        "stargazers": 9440,
         "forks": 694,
         "open_issues": 79
       },
@@ -21361,13 +21361,13 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 7133,
-        "forks": 845,
-        "open_issues": 203
+        "stargazers": 7134,
+        "forks": 844,
+        "open_issues": 205
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:05:02Z",
-        "last_pushed_at": "2026-07-10T20:05:02Z"
+        "last_committed_at": "2026-07-11T02:18:54Z",
+        "last_pushed_at": "2026-07-11T02:18:54Z"
       },
       "search_keywords": [
         "agentic",
@@ -21439,9 +21439,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 5756,
+        "stargazers": 5760,
         "forks": 1444,
-        "open_issues": 709
+        "open_issues": 710
       },
       "activity": {
         "last_committed_at": "2026-07-10T12:27:12Z",
@@ -21470,9 +21470,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 5673,
+        "stargazers": 5674,
         "forks": 1566,
-        "open_issues": 573
+        "open_issues": 555
       },
       "activity": {
         "last_committed_at": "2026-07-10T19:53:04Z",
@@ -21512,7 +21512,7 @@
       },
       "metrics": {
         "stargazers": 5186,
-        "forks": 703,
+        "forks": 704,
         "open_issues": 251
       },
       "activity": {
@@ -21574,9 +21574,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2579,
-        "forks": 793,
-        "open_issues": 702
+        "stargazers": 2580,
+        "forks": 792,
+        "open_issues": 704
       },
       "activity": {
         "last_committed_at": "2026-07-10T18:41:15Z",
@@ -21600,9 +21600,9 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 2134,
+        "stargazers": 2136,
         "forks": 983,
-        "open_issues": 145
+        "open_issues": 144
       },
       "activity": {
         "last_committed_at": "2026-07-10T10:02:33Z",
@@ -21638,11 +21638,11 @@
       "metrics": {
         "stargazers": 1479,
         "forks": 78,
-        "open_issues": 4
+        "open_issues": 3
       },
       "activity": {
-        "last_committed_at": "2026-07-10T05:24:48Z",
-        "last_pushed_at": "2026-07-10T05:24:48Z"
+        "last_committed_at": "2026-07-11T11:20:15Z",
+        "last_pushed_at": "2026-07-11T11:20:15Z"
       },
       "search_keywords": [
         "go",
@@ -21662,7 +21662,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1190,
+        "stargazers": 1189,
         "forks": 221,
         "open_issues": 0
       },
@@ -21726,9 +21726,9 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 21064,
-        "forks": 874,
-        "open_issues": 127
+        "stargazers": 21067,
+        "forks": 875,
+        "open_issues": 128
       },
       "activity": {
         "last_committed_at": "2026-07-10T18:12:01Z",
@@ -21755,13 +21755,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 12805,
+        "stargazers": 12806,
         "forks": 824,
-        "open_issues": 209
+        "open_issues": 210
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:55:39Z",
-        "last_pushed_at": "2026-07-10T18:55:39Z"
+        "last_committed_at": "2026-07-11T10:50:54Z",
+        "last_pushed_at": "2026-07-11T10:50:54Z"
       },
       "search_keywords": [
         "build-tool",
@@ -21791,7 +21791,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 7915,
+        "stargazers": 7918,
         "forks": 625,
         "open_issues": 44
       },
@@ -21820,8 +21820,8 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 7535,
-        "forks": 292,
+        "stargazers": 7536,
+        "forks": 293,
         "open_issues": 26
       },
       "activity": {
@@ -21848,7 +21848,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 2731,
+        "stargazers": 2732,
         "forks": 112,
         "open_issues": 34
       },
@@ -21889,8 +21889,8 @@
         "open_issues": 142
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:10:07Z",
-        "last_pushed_at": "2026-07-10T16:10:07Z"
+        "last_committed_at": "2026-07-10T22:34:46Z",
+        "last_pushed_at": "2026-07-10T22:34:46Z"
       },
       "search_keywords": [
         "database",
@@ -21914,13 +21914,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 2078,
+        "stargazers": 2081,
         "forks": 90,
-        "open_issues": 73
+        "open_issues": 74
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:51:46Z",
-        "last_pushed_at": "2026-07-10T16:51:46Z"
+        "last_committed_at": "2026-07-11T18:33:42Z",
+        "last_pushed_at": "2026-07-11T18:33:42Z"
       },
       "search_keywords": [
         "http",
@@ -21970,7 +21970,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 1746,
+        "stargazers": 1747,
         "forks": 30,
         "open_issues": 11
       },
@@ -22041,8 +22041,8 @@
         "open_issues": 8
       },
       "activity": {
-        "last_committed_at": "2026-07-02T00:57:15Z",
-        "last_pushed_at": "2026-07-02T00:57:15Z"
+        "last_committed_at": "2026-07-11T05:31:50Z",
+        "last_pushed_at": "2026-07-11T05:31:50Z"
       },
       "search_keywords": [
         "asynchronous",
@@ -22062,7 +22062,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 1127,
+        "stargazers": 1126,
         "forks": 75,
         "open_issues": 13
       },
@@ -22157,13 +22157,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 36674,
-        "forks": 1718,
-        "open_issues": 708
+        "stargazers": 36676,
+        "forks": 1720,
+        "open_issues": 707
       },
       "activity": {
-        "last_committed_at": "2026-07-08T00:02:35Z",
-        "last_pushed_at": "2026-07-08T00:02:35Z"
+        "last_committed_at": "2026-07-11T10:14:30Z",
+        "last_pushed_at": "2026-07-11T10:14:30Z"
       },
       "search_keywords": [
         "android",
@@ -22225,13 +22225,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 25366,
-        "forks": 1192,
-        "open_issues": 488
+        "stargazers": 25385,
+        "forks": 1201,
+        "open_issues": 490
       },
       "activity": {
-        "last_committed_at": "2026-07-10T15:38:51Z",
-        "last_pushed_at": "2026-07-10T15:38:51Z"
+        "last_committed_at": "2026-07-10T23:58:23Z",
+        "last_pushed_at": "2026-07-10T23:58:23Z"
       },
       "search_keywords": [
         "css",
@@ -22255,13 +22255,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 24719,
-        "forks": 1874,
-        "open_issues": 196
+        "stargazers": 24732,
+        "forks": 1875,
+        "open_issues": 190
       },
       "activity": {
-        "last_committed_at": "2026-07-10T18:06:36Z",
-        "last_pushed_at": "2026-07-10T18:06:36Z"
+        "last_committed_at": "2026-07-11T10:27:36Z",
+        "last_pushed_at": "2026-07-11T10:27:36Z"
       },
       "search_keywords": [
         "actix",
@@ -22314,7 +22314,7 @@
       },
       "metrics": {
         "stargazers": 4421,
-        "forks": 351,
+        "forks": 352,
         "open_issues": 193
       },
       "activity": {
@@ -22344,13 +22344,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 4393,
+        "stargazers": 4394,
         "forks": 271,
-        "open_issues": 28
+        "open_issues": 29
       },
       "activity": {
-        "last_committed_at": "2026-07-10T09:53:59Z",
-        "last_pushed_at": "2026-07-10T09:53:59Z"
+        "last_committed_at": "2026-07-11T14:32:30Z",
+        "last_pushed_at": "2026-07-11T14:32:30Z"
       },
       "search_keywords": [
         "async",
@@ -22478,7 +22478,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 1404,
+        "stargazers": 1405,
         "forks": 65,
         "open_issues": 47
       },
@@ -22561,13 +22561,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 1018,
+        "stargazers": 1019,
         "forks": 50,
         "open_issues": 81
       },
       "activity": {
-        "last_committed_at": "2026-07-07T06:33:10Z",
-        "last_pushed_at": "2026-07-07T06:33:10Z"
+        "last_committed_at": "2026-07-11T14:08:08Z",
+        "last_pushed_at": "2026-07-11T14:08:08Z"
       },
       "search_keywords": [
         "api",
@@ -22589,8 +22589,8 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 10351,
-        "forks": 747,
+        "stargazers": 10352,
+        "forks": 748,
         "open_issues": 232
       },
       "activity": {
@@ -22653,13 +22653,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 2202,
-        "forks": 109,
-        "open_issues": 58
+        "stargazers": 2206,
+        "forks": 110,
+        "open_issues": 57
       },
       "activity": {
-        "last_committed_at": "2026-07-10T17:20:31Z",
-        "last_pushed_at": "2026-07-10T17:20:31Z"
+        "last_committed_at": "2026-07-11T11:08:39Z",
+        "last_pushed_at": "2026-07-11T11:08:39Z"
       },
       "search_keywords": [
         "application",
@@ -22716,13 +22716,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 1215,
-        "forks": 298,
+        "stargazers": 1220,
+        "forks": 300,
         "open_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:08:33Z",
-        "last_pushed_at": "2026-07-10T20:08:33Z"
+        "last_committed_at": "2026-07-11T00:44:31Z",
+        "last_pushed_at": "2026-07-11T00:44:31Z"
       },
       "search_keywords": [
         "ai-agents",
@@ -22748,8 +22748,8 @@
         "open_issues": 45
       },
       "activity": {
-        "last_committed_at": "2026-07-09T02:56:11Z",
-        "last_pushed_at": "2026-07-09T02:56:11Z"
+        "last_committed_at": "2026-07-11T03:54:09Z",
+        "last_pushed_at": "2026-07-11T03:54:09Z"
       },
       "search_keywords": [
         "framework",
@@ -22771,12 +22771,12 @@
       },
       "metrics": {
         "stargazers": 10482,
-        "forks": 2570,
-        "open_issues": 403
+        "forks": 2572,
+        "open_issues": 411
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:44:09Z",
-        "last_pushed_at": "2026-07-10T19:44:09Z"
+        "last_committed_at": "2026-07-11T16:54:37Z",
+        "last_pushed_at": "2026-07-11T16:54:37Z"
       },
       "search_keywords": [
         "alloy",
@@ -22811,13 +22811,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 22734,
+        "stargazers": 22746,
         "forks": 1147,
-        "open_issues": 765
+        "open_issues": 767
       },
       "activity": {
-        "last_committed_at": "2026-07-10T20:03:05Z",
-        "last_pushed_at": "2026-07-10T20:03:05Z"
+        "last_committed_at": "2026-07-11T01:40:58Z",
+        "last_pushed_at": "2026-07-11T01:40:58Z"
       },
       "search_keywords": [
         "database",
@@ -22825,6 +22825,30 @@
         "sql",
         "sqlite3",
         "webassembly"
+      ]
+    },
+    {
+      "id": "517198710",
+      "meta": {
+        "name": "vlcn-io/cr-sqlite",
+        "owner": "vlcn-io",
+        "description": "Convergent, Replicated SQLite. Multi-writer and CRDT support for SQLite",
+        "license": "MIT",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 3737,
+        "forks": 118,
+        "open_issues": 54
+      },
+      "activity": {
+        "last_committed_at": "2024-10-25T16:19:36Z",
+        "last_pushed_at": "2024-10-25T16:19:36Z"
+      },
+      "search_keywords": [
+        "crdt",
+        "database",
+        "sqlite"
       ]
     },
     {
@@ -22837,7 +22861,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 3505,
+        "stargazers": 3506,
         "forks": 96,
         "open_issues": 11
       },
@@ -22856,6 +22880,32 @@
         "memory-database",
         "rust",
         "sql"
+      ]
+    },
+    {
+      "id": "376203069",
+      "meta": {
+        "name": "TaKO8Ki/gobang",
+        "owner": "TaKO8Ki",
+        "description": "A cross-platform TUI database management tool written in Rust",
+        "license": "MIT",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 3305,
+        "forks": 101,
+        "open_issues": 57
+      },
+      "activity": {
+        "last_committed_at": "2023-11-10T08:10:28Z",
+        "last_pushed_at": "2023-11-10T08:10:28Z"
+      },
+      "search_keywords": [
+        "database",
+        "rust",
+        "sql",
+        "terminal",
+        "tui"
       ]
     },
     {
@@ -22883,6 +22933,36 @@
         "python",
         "rust",
         "sql"
+      ]
+    },
+    {
+      "id": "1058375060",
+      "meta": {
+        "name": "nubskr/walrus",
+        "owner": "nubskr",
+        "description": "🦭 Distributed log streaming engine built from first principles",
+        "license": "MIT",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1900,
+        "forks": 72,
+        "open_issues": 7
+      },
+      "activity": {
+        "last_committed_at": "2026-05-13T11:28:13Z",
+        "last_pushed_at": "2026-05-13T11:28:13Z"
+      },
+      "search_keywords": [
+        "apache-kafka",
+        "database",
+        "kafka",
+        "nats",
+        "redpanda",
+        "rust",
+        "storage-engine",
+        "stream-processing",
+        "streams"
       ]
     },
     {
@@ -22914,6 +22994,56 @@
       ]
     },
     {
+      "id": "493614164",
+      "meta": {
+        "name": "teodevgroup/teo",
+        "owner": "teodevgroup",
+        "description": "High performance ergonomic ORM for Rust.",
+        "license": "MIT",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1407,
+        "forks": 45,
+        "open_issues": 0
+      },
+      "activity": {
+        "last_committed_at": "2026-02-12T08:58:03Z",
+        "last_pushed_at": "2026-02-12T08:58:03Z"
+      },
+      "search_keywords": [
+        "database",
+        "http",
+        "orm",
+        "rust"
+      ]
+    },
+    {
+      "id": "496817075",
+      "meta": {
+        "name": "GlareDB/glaredb",
+        "owner": "GlareDB",
+        "description": "GlareDB: A light and fast SQL database for analytics",
+        "license": "MIT",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1016,
+        "forks": 54,
+        "open_issues": 129
+      },
+      "activity": {
+        "last_committed_at": "2025-11-14T14:12:39Z",
+        "last_pushed_at": "2025-11-14T14:12:39Z"
+      },
+      "search_keywords": [
+        "analytics",
+        "database",
+        "rust",
+        "sql"
+      ]
+    },
+    {
       "id": "13124802",
       "meta": {
         "name": "influxdata/influxdb",
@@ -22923,9 +23053,9 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 31616,
-        "forks": 3715,
-        "open_issues": 2141
+        "stargazers": 31626,
+        "forks": 3714,
+        "open_issues": 2140
       },
       "activity": {
         "last_committed_at": "2026-07-10T17:12:14Z",
@@ -22952,13 +23082,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 28755,
-        "forks": 2375,
-        "open_issues": 727
+        "stargazers": 28765,
+        "forks": 2377,
+        "open_issues": 730
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:29:46Z",
-        "last_pushed_at": "2026-07-10T19:29:46Z"
+        "last_committed_at": "2026-07-11T17:24:51Z",
+        "last_pushed_at": "2026-07-11T17:24:51Z"
       },
       "search_keywords": [
         "agents",
@@ -22979,7 +23109,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 22518,
+        "stargazers": 22524,
         "forks": 1019,
         "open_issues": 544
       },
@@ -23005,7 +23135,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 9782,
+        "stargazers": 9785,
         "forks": 714,
         "open_issues": 224
       },
@@ -23038,13 +23168,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 9669,
-        "forks": 953,
-        "open_issues": 869
+        "stargazers": 9739,
+        "forks": 964,
+        "open_issues": 820
       },
       "activity": {
-        "last_committed_at": "2026-07-10T17:00:47Z",
-        "last_pushed_at": "2026-07-10T17:00:47Z"
+        "last_committed_at": "2026-07-11T17:00:12Z",
+        "last_pushed_at": "2026-07-11T17:00:12Z"
       },
       "search_keywords": [
         "clickhouse",
@@ -23075,11 +23205,11 @@
       "metrics": {
         "stargazers": 9157,
         "forks": 790,
-        "open_issues": 1587
+        "open_issues": 1589
       },
       "activity": {
-        "last_committed_at": "2026-07-10T19:20:06Z",
-        "last_pushed_at": "2026-07-10T19:20:06Z"
+        "last_committed_at": "2026-07-11T16:57:42Z",
+        "last_pushed_at": "2026-07-11T16:57:42Z"
       },
       "search_keywords": [
         "apache-iceberg",
@@ -23096,6 +23226,72 @@
       ]
     },
     {
+      "id": "49401416",
+      "meta": {
+        "name": "spacejam/sled",
+        "owner": "spacejam",
+        "description": "the champagne of beta embedded databases",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 9046,
+        "forks": 427,
+        "open_issues": 171
+      },
+      "activity": {
+        "last_committed_at": "2026-04-04T14:52:13Z",
+        "last_pushed_at": "2026-04-04T14:52:13Z"
+      },
+      "search_keywords": [
+        "b-plus-tree",
+        "b-tree",
+        "concurrent",
+        "crash-testing",
+        "database",
+        "embedded-kv",
+        "formal-methods",
+        "fuzzing",
+        "high-performance",
+        "incredibly-spicy",
+        "kv",
+        "lock-free",
+        "log-structured",
+        "orm",
+        "persistence",
+        "rust",
+        "sled",
+        "tree"
+      ]
+    },
+    {
+      "id": "183929744",
+      "meta": {
+        "name": "erikgrinaker/toydb",
+        "owner": "erikgrinaker",
+        "description": "Distributed SQL database in Rust, written as an educational project",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 7261,
+        "forks": 625,
+        "open_issues": 0
+      },
+      "activity": {
+        "last_committed_at": "2026-06-14T15:09:19Z",
+        "last_pushed_at": "2026-06-14T15:09:19Z"
+      },
+      "search_keywords": [
+        "database",
+        "distributed",
+        "mvcc",
+        "raft",
+        "rust",
+        "sql"
+      ]
+    },
+    {
       "id": "480217156",
       "meta": {
         "name": "GreptimeTeam/greptimedb",
@@ -23105,13 +23301,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 6459,
-        "forks": 506,
-        "open_issues": 213
+        "stargazers": 6461,
+        "forks": 505,
+        "open_issues": 217
       },
       "activity": {
-        "last_committed_at": "2026-07-10T15:51:35Z",
-        "last_pushed_at": "2026-07-10T15:51:35Z"
+        "last_committed_at": "2026-07-11T13:51:24Z",
+        "last_pushed_at": "2026-07-11T13:51:24Z"
       },
       "search_keywords": [
         "ai-observability",
@@ -23145,7 +23341,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 5614,
+        "stargazers": 5616,
         "forks": 310,
         "open_issues": 10
       },
@@ -23172,6 +23368,35 @@
       ]
     },
     {
+      "id": "581630327",
+      "meta": {
+        "name": "skyzh/mini-lsm",
+        "owner": "skyzh",
+        "description": "A course of building an LSM-Tree storage engine (database) in a week.",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 4054,
+        "forks": 617,
+        "open_issues": 31
+      },
+      "activity": {
+        "last_committed_at": "2026-04-22T00:41:19Z",
+        "last_pushed_at": "2026-04-22T00:41:19Z"
+      },
+      "search_keywords": [
+        "database",
+        "key-value-store",
+        "kv-store",
+        "lsm",
+        "lsm-tree",
+        "rust",
+        "storage",
+        "tutorial"
+      ]
+    },
+    {
       "id": "777912773",
       "meta": {
         "name": "slatedb/slatedb",
@@ -23181,13 +23406,13 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 3197,
-        "forks": 264,
+        "stargazers": 3201,
+        "forks": 263,
         "open_issues": 191
       },
       "activity": {
-        "last_committed_at": "2026-07-10T16:30:43Z",
-        "last_pushed_at": "2026-07-10T16:30:43Z"
+        "last_committed_at": "2026-07-11T00:25:18Z",
+        "last_pushed_at": "2026-07-11T00:25:18Z"
       },
       "search_keywords": [
         "database",
@@ -23200,6 +23425,158 @@
       ]
     },
     {
+      "id": "227265548",
+      "meta": {
+        "name": "gluesql/gluesql",
+        "owner": "gluesql",
+        "description": "GlueSQL is quite sticky. It sticks to anything.",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 3085,
+        "forks": 259,
+        "open_issues": 205
+      },
+      "activity": {
+        "last_committed_at": "2026-07-02T11:25:43Z",
+        "last_pushed_at": "2026-07-02T11:25:43Z"
+      },
+      "search_keywords": [
+        "database",
+        "nosql",
+        "rust",
+        "schemaless",
+        "sql",
+        "storage",
+        "webassembly",
+        "websql"
+      ]
+    },
+    {
+      "id": "645859939",
+      "meta": {
+        "name": "orbitinghail/sqlsync",
+        "owner": "orbitinghail",
+        "description": "SQLSync is a collaborative offline-first wrapper around SQLite. It is designed to synchronize web application state between users, devices, and the edge.",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 2902,
+        "forks": 41,
+        "open_issues": 27
+      },
+      "activity": {
+        "last_committed_at": "2025-11-19T20:47:39Z",
+        "last_pushed_at": "2025-11-19T20:47:39Z"
+      },
+      "search_keywords": [
+        "collaborative",
+        "database",
+        "local-first",
+        "offline-first",
+        "relational-database",
+        "sql",
+        "sqlite",
+        "sqlsync"
+      ]
+    },
+    {
+      "id": "719588139",
+      "meta": {
+        "name": "fjall-rs/fjall",
+        "owner": "fjall-rs",
+        "description": "🗻 Log-structured, embeddable key-value storage engine written in Rust",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 2212,
+        "forks": 107,
+        "open_issues": 40
+      },
+      "activity": {
+        "last_committed_at": "2026-07-07T17:05:02Z",
+        "last_pushed_at": "2026-07-07T17:05:02Z"
+      },
+      "search_keywords": [
+        "database",
+        "embeddable",
+        "embeddable-database",
+        "embedded-database",
+        "embedded-kv",
+        "key-value-database",
+        "key-value-storage",
+        "key-value-store",
+        "kv",
+        "kv-database",
+        "kv-storage",
+        "kv-store",
+        "log-structured",
+        "log-structured-merge-tree",
+        "lsm",
+        "lsm-tree",
+        "lsmt",
+        "rust",
+        "rust-lang",
+        "storage-engine"
+      ]
+    },
+    {
+      "id": "26731785",
+      "meta": {
+        "name": "rust-rocksdb/rust-rocksdb",
+        "owner": "rust-rocksdb",
+        "description": "rust wrapper for rocksdb",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 2163,
+        "forks": 863,
+        "open_issues": 187
+      },
+      "activity": {
+        "last_committed_at": "2026-06-17T08:57:32Z",
+        "last_pushed_at": "2026-06-17T08:57:32Z"
+      },
+      "search_keywords": [
+        "database",
+        "rocksdb",
+        "rust",
+        "rust-bindings"
+      ]
+    },
+    {
+      "id": "393235957",
+      "meta": {
+        "name": "risinglightdb/risinglight",
+        "owner": "risinglightdb",
+        "description": "An educational OLAP database system.",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1835,
+        "forks": 226,
+        "open_issues": 57
+      },
+      "activity": {
+        "last_committed_at": "2025-08-10T04:37:32Z",
+        "last_pushed_at": "2025-08-10T04:37:32Z"
+      },
+      "search_keywords": [
+        "analytics",
+        "database",
+        "education",
+        "embedded-database",
+        "olap",
+        "rust",
+        "sql"
+      ]
+    },
+    {
       "id": "631619767",
       "meta": {
         "name": "superfly/corrosion",
@@ -23209,7 +23586,7 @@
         "primary_language": "Rust"
       },
       "metrics": {
-        "stargazers": 1796,
+        "stargazers": 1797,
         "forks": 81,
         "open_issues": 59
       },
@@ -23225,6 +23602,175 @@
         "rust",
         "sqlite",
         "swim"
+      ]
+    },
+    {
+      "id": "828742634",
+      "meta": {
+        "name": "tonbo-io/tonbo",
+        "owner": "tonbo-io",
+        "description": "Tonbo is an embedded database for serverless and edge runtimes.",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1576,
+        "forks": 99,
+        "open_issues": 18
+      },
+      "activity": {
+        "last_committed_at": "2026-05-29T09:26:20Z",
+        "last_pushed_at": "2026-05-29T09:26:20Z"
+      },
+      "search_keywords": [
+        "arrow",
+        "big-data",
+        "database",
+        "embedded-database",
+        "htap",
+        "lsm-tree",
+        "offline-first",
+        "parquet",
+        "rust",
+        "store-engine"
+      ]
+    },
+    {
+      "id": "517745858",
+      "meta": {
+        "name": "losfair/mvsqlite",
+        "owner": "losfair",
+        "description": "Distributed, MVCC SQLite that runs on FoundationDB.",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1561,
+        "forks": 47,
+        "open_issues": 33
+      },
+      "activity": {
+        "last_committed_at": "2026-06-25T22:28:18Z",
+        "last_pushed_at": "2026-06-25T22:28:18Z"
+      },
+      "search_keywords": [
+        "database",
+        "rust"
+      ]
+    },
+    {
+      "id": "856550745",
+      "meta": {
+        "name": "orbitinghail/graft",
+        "owner": "orbitinghail",
+        "description": "Graft is an open-source transactional storage engine optimized for lazy, partial, and strongly consistent replication—perfect for edge, offline-first, and distributed applications.",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1494,
+        "forks": 33,
+        "open_issues": 35
+      },
+      "activity": {
+        "last_committed_at": "2026-07-09T01:57:33Z",
+        "last_pushed_at": "2026-07-09T01:57:33Z"
+      },
+      "search_keywords": [
+        "database",
+        "edge",
+        "replication",
+        "sqlite",
+        "storage",
+        "storage-engine"
+      ]
+    },
+    {
+      "id": "450123586",
+      "meta": {
+        "name": "skyzh/type-exercise-in-rust",
+        "owner": "skyzh",
+        "description": "Learn Rust dark magics by implementing an expression framework in database systems",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1483,
+        "forks": 65,
+        "open_issues": 1
+      },
+      "activity": {
+        "last_committed_at": "2025-08-09T18:08:33Z",
+        "last_pushed_at": "2025-08-09T18:08:33Z"
+      },
+      "search_keywords": [
+        "database",
+        "rust",
+        "tutorial",
+        "type"
+      ]
+    },
+    {
+      "id": "285012797",
+      "meta": {
+        "name": "tensorbase/tensorbase",
+        "owner": "tensorbase",
+        "description": "TensorBase is a new big data warehousing with modern efforts.",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1460,
+        "forks": 121,
+        "open_issues": 48
+      },
+      "activity": {
+        "last_committed_at": "2022-05-10T13:04:36Z",
+        "last_pushed_at": "2022-05-10T13:04:36Z"
+      },
+      "search_keywords": [
+        "analytics",
+        "bigdata",
+        "data",
+        "data-infrastructure",
+        "data-warehouse",
+        "database",
+        "engineering",
+        "high-performance",
+        "infrastructure",
+        "modern",
+        "rust",
+        "rust-lang",
+        "warehouse"
+      ]
+    },
+    {
+      "id": "80729805",
+      "meta": {
+        "name": "exonum/exonum",
+        "owner": "exonum",
+        "description": "An extensible open-source framework for creating private/permissioned blockchain applications",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1243,
+        "forks": 245,
+        "open_issues": 44
+      },
+      "activity": {
+        "last_committed_at": "2024-02-25T19:27:29Z",
+        "last_pushed_at": "2024-02-25T19:27:29Z"
+      },
+      "search_keywords": [
+        "bitcoin",
+        "blockchain",
+        "byzantine",
+        "consensus-algorithm",
+        "cryptography",
+        "database",
+        "p2p",
+        "rust"
       ]
     },
     {
@@ -23252,6 +23798,81 @@
         "embedded-database",
         "localfirst",
         "nosql",
+        "rust"
+      ]
+    },
+    {
+      "id": "1114743664",
+      "meta": {
+        "name": "stoolap/stoolap",
+        "owner": "stoolap",
+        "description": "A Modern Embedded SQL Database written in Rust",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1188,
+        "forks": 43,
+        "open_issues": 8
+      },
+      "activity": {
+        "last_committed_at": "2026-07-08T12:08:30Z",
+        "last_pushed_at": "2026-07-08T12:08:30Z"
+      },
+      "search_keywords": [
+        "database",
+        "embedded-sql",
+        "mvcc",
+        "rust",
+        "sql"
+      ]
+    },
+    {
+      "id": "478045535",
+      "meta": {
+        "name": "cornucopia-rs/cornucopia",
+        "owner": "cornucopia-rs",
+        "description": "Generate type-checked Rust from your PostgreSQL.",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1102,
+        "forks": 71,
+        "open_issues": 28
+      },
+      "activity": {
+        "last_committed_at": "2026-06-25T23:30:48Z",
+        "last_pushed_at": "2026-06-25T23:30:48Z"
+      },
+      "search_keywords": [
+        "database",
+        "postgres",
+        "postgresql",
+        "rust",
+        "sql"
+      ]
+    },
+    {
+      "id": "349627612",
+      "meta": {
+        "name": "khonsulabs/bonsaidb",
+        "owner": "khonsulabs",
+        "description": "A developer-friendly document database that grows with you, written in Rust",
+        "license": "Apache-2.0",
+        "primary_language": "Rust"
+      },
+      "metrics": {
+        "stargazers": 1060,
+        "forks": 38,
+        "open_issues": 101
+      },
+      "activity": {
+        "last_committed_at": "2024-07-25T15:52:08Z",
+        "last_pushed_at": "2024-07-25T15:52:08Z"
+      },
+      "search_keywords": [
+        "database",
         "rust"
       ]
     }
