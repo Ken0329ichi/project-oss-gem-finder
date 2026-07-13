@@ -347,7 +347,7 @@ export default function App() {
                     <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" />
                     <YAxis type="number" dataKey="fork" name="Forks" unit="🍴" stroke="#9ca3af" />
                     <ZAxis type="category" dataKey="name" name="Repository" />
-                    <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                    {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} />}
                     <Scatter 
                       name="Repositories" 
                       data={scatterData} 
