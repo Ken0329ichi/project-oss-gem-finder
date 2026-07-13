@@ -52,24 +52,24 @@ const PieTooltip = ({ active, payload }) => {
   );
 };
 
-// Issue＆GFI積み上げバー用カスタムTooltip（ダークテーマ対応）
+// Issue＆GFI散布図用カスタムTooltip（ダークテーマ対応）
 const IssueTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
   const data = payload[0].payload;
-  const gfiPercent = data.total > 0 ? Math.round((data.gfi / data.total) * 100) : 0;
+  const gfiPercent = data.open_issues > 0 ? Math.round((data.gfi / data.open_issues) * 100) : 0;
   return (
     <div style={{
       background: 'rgba(15, 20, 30, 0.95)',
-      border: '1px solid rgba(59, 130, 246, 0.4)',
+      border: '1px solid rgba(16, 185, 129, 0.4)', // ネオングリーン枠線
       borderRadius: '8px',
       padding: '8px 14px',
       boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
     }}>
-      <p style={{ color: '#93c5fd', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>
+      <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>
         {data.name}
       </p>
       <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>
-        Total Open Issues: <strong>{data.total.toLocaleString()}</strong>
+        Total Open Issues: <strong>{data.open_issues.toLocaleString()}</strong> ⚠️
       </p>
       <p style={{ color: '#34d399', fontSize: '0.8rem', margin: '2px 0 0' }}>
         🌱 Good First Issues: <strong>{data.gfi.toLocaleString()}</strong> ({gfiPercent}%)
@@ -162,22 +162,14 @@ export default function App() {
       .slice(0, 10);
   }, [filteredRepos]);
 
-  const issueBarData = useMemo(() => {
-    return [...filteredRepos]
-      .sort((a, b) => b.metrics.open_issues - a.metrics.open_issues)
-      .slice(0, 10)
-      .map(r => {
-        const total = r.metrics.open_issues;
-        const gfi = r.metrics.good_first_issues || 0;
-        const other = Math.max(0, total - gfi);
-        return {
-          name: r.meta.name,
-          gfi,
-          other,
-          total,
-          rawRepo: r
-        };
-      });
+  const issueScatterData = useMemo(() => {
+    return filteredRepos.slice(0, 200).map(r => ({
+      name: r.meta.name,
+      open_issues: r.metrics.open_issues,
+      gfi: r.metrics.good_first_issues || 0,
+      lang: r.meta.primary_language || 'Unknown',
+      rawRepo: r
+    }));
   }, [filteredRepos]);
 
   const prScatterData = useMemo(() => {
@@ -282,7 +274,7 @@ export default function App() {
             handleScatterClick={handleScatterClick}
             setSelectedRepo={setSelectedRepo}
             prScatterData={prScatterData}
-            issueBarData={issueBarData}
+            issueScatterData={issueScatterData}
             pieData={pieData}
             showGlobal={showGlobal}
             setShowGlobal={setShowGlobal}

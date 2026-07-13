@@ -1,7 +1,7 @@
 import React from 'react';
 import GemPlotChart from './charts/GemPlotChart';
 import PrVolumeChart from './charts/PrVolumeChart';
-import OpenIssuesChart from './charts/OpenIssuesChart';
+import IssueActiveScatterChart from './charts/IssueActiveScatterChart';
 import RegionChart from './charts/RegionChart';
 import GfiLanguagesChart from './charts/GfiLanguagesChart';
 
@@ -10,7 +10,7 @@ export default function DashboardCharts({
   selectedLabel, selectedCountry, selectedLicense, selectedLang, gfiOnly,
   selectedRepo, handleScatterClick, setSelectedRepo,
   prScatterData,
-  issueBarData,
+  issueScatterData,
   pieData, showGlobal, setShowGlobal,
   barData,
   colors,
@@ -45,16 +45,18 @@ export default function DashboardCharts({
         colors={colors}
       />
 
-      {/* 積み上げ横棒グラフ: リポジトリ別のOpen Issues & GFIs */}
-      <OpenIssuesChart 
-        issueBarData={issueBarData}
+      {/* 散布図③: オープンIssue数 vs GFI数 */}
+      <IssueActiveScatterChart 
+        issueScatterData={issueScatterData}
         selectedLabel={selectedLabel}
         selectedCountry={selectedCountry}
         selectedLicense={selectedLicense}
         selectedLang={selectedLang}
         gfiOnly={gfiOnly}
-        setSelectedRepo={setSelectedRepo}
+        selectedRepo={selectedRepo}
+        handleScatterClick={handleScatterClick}
         IssueTooltip={IssueTooltip}
+        colors={colors}
       />
 
       <div className="chart-row">
