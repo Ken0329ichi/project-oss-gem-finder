@@ -276,34 +276,65 @@ export default function App() {
 
       {/* 🔍 フィルター＆検索コントロールパネル */}
       <section className="control-panel glass">
+
+        {/* コントロールパネルのセクションヘッダー */}
+        <div className="control-panel-header">
+          <div>
+            <h2 className="control-panel-title">🔍 Explore & Filter</h2>
+            <p className="control-panel-desc">
+              Search repositories by keyword, or narrow down by language, region, and license.
+              Click <strong>Rare Labels</strong> below to surface niche repositories.
+            </p>
+          </div>
+          { (searchQuery || selectedLang || selectedCountry || selectedLicense || selectedLabel) && (
+            <button className="clear-btn-top" onClick={clearFilters}>✕ Clear All Filters</button>
+          )}
+        </div>
+
         <div className="search-bar-wrapper">
+          <span className="search-icon">🔍</span>
           <input 
             type="text" 
-            placeholder="Incremental search by name, description, topics, or labels..." 
+            placeholder="Search by name, description, topics, or labels..." 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
           />
-          { (searchQuery || selectedLang || selectedCountry || selectedLicense || selectedLabel) && (
-            <button className="clear-btn" onClick={clearFilters}>Clear</button>
-          )}
         </div>
 
         <div className="filters-wrapper">
-          <select value={selectedLang} onChange={(e) => setSelectedLang(e.target.value)} className="filter-select">
-            <option value="">All Languages</option>
-            {languages.map(l => <option key={l} value={l}>{l}</option>)}
-          </select>
+          <div className="filter-group">
+            <label className="filter-label">Language</label>
+            <select value={selectedLang} onChange={(e) => setSelectedLang(e.target.value)} className="filter-select">
+              <option value="">All Languages</option>
+              {languages.map(l => <option key={l} value={l}>{l}</option>)}
+            </select>
+          </div>
 
-          <select value={selectedCountry} onChange={(e) => setSelectedCountry(e.target.value)} className="filter-select">
-            <option value="">All Regions / Countries</option>
-            {countries.map(c => <option key={c} value={c}>{c}</option>)}
-          </select>
+          <div className="filter-group">
+            <label className="filter-label">Region</label>
+            <select value={selectedCountry} onChange={(e) => setSelectedCountry(e.target.value)} className="filter-select">
+              <option value="">All Regions</option>
+              {countries.map(c => <option key={c} value={c}>{c}</option>)}
+            </select>
+          </div>
 
-          <select value={selectedLicense} onChange={(e) => setSelectedLicense(e.target.value)} className="filter-select">
-            <option value="">All Licenses</option>
-            {licenses.map(l => <option key={l} value={l}>{l}</option>)}
-          </select>
+          <div className="filter-group">
+            <label className="filter-label">License</label>
+            <div className="license-chips">
+              <button
+                className={`license-chip ${selectedLicense === '' ? 'active' : ''}`}
+                onClick={() => setSelectedLicense('')}
+              >All</button>
+              {licenses.map(l => (
+                <button
+                  key={l}
+                  className={`license-chip ${selectedLicense === l ? 'active' : ''}`}
+                  onClick={() => setSelectedLicense(selectedLicense === l ? '' : l)}
+                >{l}</button>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* 激レアタグクラウド */}
