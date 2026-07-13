@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import { cleanRegion } from '../utils/formatters';
 
 export default function useDataset() {
   const [repos, setRepos] = useState([]);
@@ -14,8 +15,9 @@ export default function useDataset() {
   const [selectedLicense, setSelectedLicense] = useState('');
   const [selectedLabel, setSelectedLabel] = useState('');
   const [gfiOnly, setGfiOnly] = useState(false);
-  const [minPrs, setMinPrs] = useState(0);          // 最小PR数
-  const [maxIssues, setMaxIssues] = useState(1000); // 最大Issue数
+  const [minPrs, setMinPrs] = useState(0);           // 最小PR数
+  const [maxIssues, setMaxIssues] = useState(1000);  // 最大Issue数
+  const [minReleases, setMinReleases] = useState(0); // 最小リリース数（将来データ対応）
 
   // 1. データセット (data.json) の非同期ロード
   useEffect(() => {
@@ -44,8 +46,10 @@ export default function useDataset() {
     return [...new Set(repos.map(r => r.meta.primary_language).filter(Boolean))].sort();
   }, [repos]);
 
+  // cleanRegion() を適用した国リスト（重複排除・ソート）
   const countries = useMemo(() => {
-    return [...new Set(repos.map(r => r.meta.detected_country).filter(Boolean))].sort();
+    const cleaned = repos.map(r => cleanRegion(r.meta.detected_country || r.meta.owner_location));
+    return [...new Set(cleaned)].filter(c => c !== 'Global 🌐').sort();
   }, [repos]);
 
   const licenses = useMemo(() => {
@@ -68,14 +72,14 @@ export default function useDataset() {
   // 3. オンメモリ検索フォールバック
   const inMemorySearch = (list, query) => {
     const q = query.toLowerCase();
-    return list.filter(r => 
+    return list.filter(r =>
       r.meta.name.toLowerCase().includes(q) ||
       (r.meta.description && r.meta.description.toLowerCase().includes(q)) ||
       (r.search_keywords || []).some(k => k.toLowerCase().includes(q))
     );
   };
 
-  // 4. Pagefind ＆ フィルター処理
+  // 4. Pagefind & フィルター処理
   useEffect(() => {
     const filterData = async () => {
       let result = [...repos];
@@ -100,8 +104,11 @@ export default function useDataset() {
       if (selectedLang) {
         result = result.filter(r => r.meta.primary_language === selectedLang);
       }
+      // cleanRegion() ベースのRegionフィルター
       if (selectedCountry) {
-        result = result.filter(r => r.meta.detected_country === selectedCountry);
+        result = result.filter(r =>
+          cleanRegion(r.meta.detected_country || r.meta.owner_location) === selectedCountry
+        );
       }
       if (selectedLicense) {
         result = result.filter(r => r.meta.license === selectedLicense);
@@ -118,12 +125,15 @@ export default function useDataset() {
       if (maxIssues < 1000) {
         result = result.filter(r => (r.metrics.open_issues || 0) <= maxIssues);
       }
+      if (minReleases > 0) {
+        result = result.filter(r => (r.metrics.total_releases || 0) >= minReleases);
+      }
 
       setFilteredRepos(result);
     };
 
     filterData();
-  }, [searchQuery, selectedLang, selectedCountry, selectedLicense, selectedLabel, gfiOnly, minPrs, maxIssues, repos]);
+  }, [searchQuery, selectedLang, selectedCountry, selectedLicense, selectedLabel, gfiOnly, minPrs, maxIssues, minReleases, repos]);
 
   const clearFilters = () => {
     setSearchQuery('');
@@ -134,6 +144,7 @@ export default function useDataset() {
     setGfiOnly(false);
     setMinPrs(0);
     setMaxIssues(1000);
+    setMinReleases(0);
   };
 
   return {
@@ -158,6 +169,8 @@ export default function useDataset() {
     setMinPrs,
     maxIssues,
     setMaxIssues,
+    minReleases,
+    setMinReleases,
     languages,
     countries,
     licenses,
