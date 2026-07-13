@@ -1,6 +1,7 @@
 import React from 'react';
-import { getLanguageIconClass } from '../utils/formatters';
+import { getLanguageIconClass, cleanRegion } from '../utils/formatters';
 import './RepositoryDetailModal.css';
+
 
 // 言語割合バー（Languages Distribution）
 function LanguagesBar({ languages }) {
@@ -72,12 +73,13 @@ export default function RepositoryDetailModal({ selectedRepo, onClose }) {
           <h2>{selectedRepo.meta.name}</h2>
           <div className="modal-badges">
             <span className="repo-lang-badge">{selectedRepo.meta.primary_language || 'Unknown'}</span>
-            <span className="repo-country-badge">{selectedRepo.meta.detected_country || 'Global 🌐'}</span>
+            <span className="repo-country-badge">{cleanRegion(selectedRepo.meta.detected_country || selectedRepo.meta.owner_location)}</span>
             {selectedRepo.meta.license && (
               <span className="repo-license-badge">⚖️ {selectedRepo.meta.license}</span>
             )}
           </div>
         </div>
+
 
         <p className="modal-desc">{selectedRepo.meta.description || 'No description available.'}</p>
 
