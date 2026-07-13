@@ -1,0 +1,66 @@
+name: Deploy Frontend to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.agent/**'
+      - 'README.md'
+  workflow_run:
+    workflows: ["Crawl and Update Dataset"]
+    types:
+      - completed
+  workflow_dispatch: # 手動デプロイ可能にするトリガー
+
+# Pagesデプロイのための書き込み権限とOIDCトークン取得権限を付与
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# デプロイジョブの衝突を防ぐため、1つのデプロイ処理のみをキューに残す
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      # 1. リポジトリをチェックアウト
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Node.js 24 をセットアップ（パッケージキャッシュ付き）
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      # 3. 依存パッケージをキャッシュから復元してクリーンインストール
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Viteビルド ＆ HTMLインデックス生成 ＆ Pagefindインデックス構築を実行
+      - name: Build and Index
+        run: npm run build
+
+      # 5. GitHub Pages 向けのインフラ初期設定
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 6. ビルド成果物 (dist) を Pages にアップロード
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      # 7. デプロイの実行
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

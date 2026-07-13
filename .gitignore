@@ -11,3 +11,10 @@ __pycache__/
 # Local ignore
 .agent/
 download_data/
+
+# Node/Vite build output and dependencies
+node_modules/
+dist/
+.eslintcache
+.vite/
+
