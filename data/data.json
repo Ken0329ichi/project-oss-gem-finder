@@ -5,7 +5,7 @@
     "source_url": "https://github.com/ken0329/crawler",
     "license": "CC-BY-4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "updated_at": "2026-07-13T00:31:03.531547Z"
+    "updated_at": "2026-07-13T00:35:33.189731Z"
   },
   "repositories": [
     {
@@ -931,9 +931,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 141603,
+        "stargazers": 141604,
         "forks": 23546,
-        "open_issues": 355
+        "open_issues": 354
       },
       "activity": {
         "last_committed_at": "2026-07-12T21:59:19Z",
@@ -1073,7 +1073,7 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 27850,
+        "stargazers": 27851,
         "forks": 4305,
         "open_issues": 26
       },
@@ -1095,7 +1095,7 @@
       ]
     },
     {
-      "id": "50617428",
+      "id": "MDEwOlJlcG9zaXRvcnk1MDYxNzQyOA==",
       "meta": {
         "name": "squidfunk/mkdocs-material",
         "owner": "squidfunk",
@@ -1104,22 +1104,22 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 27088,
+        "stargazers": 27089,
         "forks": 4108,
         "open_issues": 1
       },
       "activity": {
-        "last_committed_at": "2026-07-06T10:59:31Z",
+        "last_committed_at": "2026-07-06T10:59:25Z",
         "last_pushed_at": "2026-07-06T10:59:31Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "documentation",
-        "framework",
-        "material-design",
         "mkdocs",
-        "plugins",
-        "theme"
+        "theme",
+        "documentation",
+        "material-design",
+        "framework",
+        "plugins"
       ]
     },
     {
@@ -2472,7 +2472,7 @@
       ]
     },
     {
-      "id": "622237147",
+      "id": "R_kgDOJRaV2w",
       "meta": {
         "name": "Donkie/Spoolman",
         "owner": "Donkie",
@@ -2483,7 +2483,7 @@
       "metrics": {
         "stargazers": 2585,
         "forks": 262,
-        "open_issues": 297
+        "open_issues": 264
       },
       "activity": {
         "last_committed_at": "2026-07-08T08:14:27Z",
@@ -3255,7 +3255,7 @@
       ]
     },
     {
-      "id": "162998479",
+      "id": "MDEwOlJlcG9zaXRvcnkxNjI5OTg0Nzk=",
       "meta": {
         "name": "sherlock-project/sherlock",
         "owner": "sherlock-project",
@@ -3264,32 +3264,32 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 86455,
+        "stargazers": 86456,
         "forks": 10125,
-        "open_issues": 309
+        "open_issues": 91
       },
       "activity": {
-        "last_committed_at": "2026-07-12T06:05:16Z",
+        "last_committed_at": "2026-05-09T12:06:34Z",
         "last_pushed_at": "2026-07-12T06:05:16Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "cli",
-        "cti",
-        "cybersecurity",
-        "forensics",
-        "hacktoberfest",
-        "information-gathering",
-        "infosec",
-        "linux",
         "osint",
-        "pentesting",
-        "python",
-        "python3",
         "reconnaissance",
-        "redteam",
+        "linux",
+        "cli",
         "sherlock",
-        "tools"
+        "python3",
+        "redteam",
+        "tools",
+        "information-gathering",
+        "hacktoberfest",
+        "python",
+        "cybersecurity",
+        "cti",
+        "forensics",
+        "infosec",
+        "pentesting"
       ]
     },
     {
@@ -3302,8 +3302,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 55322,
-        "forks": 4560,
+        "stargazers": 55323,
+        "forks": 4561,
         "open_issues": 58
       },
       "activity": {
@@ -6811,8 +6811,8 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 47892,
-        "forks": 4479,
+        "stargazers": 47894,
+        "forks": 4480,
         "open_issues": 45
       },
       "activity": {
@@ -6843,7 +6843,7 @@
       ]
     },
     {
-      "id": "287463830",
+      "id": "MDEwOlJlcG9zaXRvcnkyODc0NjM4MzA=",
       "meta": {
         "name": "microsoft/qlib",
         "owner": "microsoft",
@@ -6852,9 +6852,9 @@
         "primary_language": "Python"
       },
       "metrics": {
-        "stargazers": 46159,
+        "stargazers": 46160,
         "forks": 7350,
-        "open_issues": 463
+        "open_issues": 299
       },
       "activity": {
         "last_committed_at": "2026-04-22T07:08:01Z",
@@ -6862,24 +6862,24 @@
         "funny_labels": []
       },
       "search_keywords": [
-        "algorithmic-trading",
-        "auto-quant",
-        "deep-learning",
-        "finance",
-        "fintech",
-        "investment",
+        "quantitative-finance",
         "machine-learning",
-        "paper",
+        "stock-data",
         "platform",
+        "finance",
+        "algorithmic-trading",
         "python",
+        "investment",
         "quant",
+        "quantitative-trading",
         "quant-dataset",
         "quant-models",
-        "quantitative-finance",
-        "quantitative-trading",
-        "research",
+        "auto-quant",
+        "fintech",
         "research-paper",
-        "stock-data"
+        "paper",
+        "research",
+        "deep-learning"
       ]
     },
     {
@@ -10108,11 +10108,11 @@
       "metrics": {
         "stargazers": 46099,
         "forks": 17386,
-        "open_issues": 1137
+        "open_issues": 1136
       },
       "activity": {
         "last_committed_at": "2026-07-12T21:26:03Z",
-        "last_pushed_at": "2026-07-13T00:28:02Z",
+        "last_pushed_at": "2026-07-13T00:28:56Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -12612,7 +12612,7 @@
       ]
     },
     {
-      "id": "323591830",
+      "id": "MDEwOlJlcG9zaXRvcnkzMjM1OTE4MzA=",
       "meta": {
         "name": "huggingface/huggingface_hub",
         "owner": "huggingface",
@@ -12622,23 +12622,23 @@
       },
       "metrics": {
         "stargazers": 3743,
-        "forks": 1093,
-        "open_issues": 195
+        "forks": 1094,
+        "open_issues": 168
       },
       "activity": {
-        "last_committed_at": "2026-07-10T04:20:12Z",
+        "last_committed_at": "2026-07-09T14:50:19Z",
         "last_pushed_at": "2026-07-10T04:20:12Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "deep-learning",
-        "hacktoberfest",
-        "machine-learning",
         "model-hub",
+        "machine-learning",
         "models",
         "natural-language-processing",
+        "deep-learning",
+        "pytorch",
         "pretrained-models",
-        "pytorch"
+        "hacktoberfest"
       ]
     },
     {
@@ -13093,7 +13093,7 @@
       ]
     },
     {
-      "id": "593782352",
+      "id": "R_kgDOI2RmUA",
       "meta": {
         "name": "NVIDIA/physicsnemo",
         "owner": "NVIDIA",
@@ -13103,11 +13103,11 @@
       },
       "metrics": {
         "stargazers": 3040,
-        "forks": 722,
-        "open_issues": 76
+        "forks": 723,
+        "open_issues": 16
       },
       "activity": {
-        "last_committed_at": "2026-07-12T14:42:43Z",
+        "last_committed_at": "2026-07-10T16:48:04Z",
         "last_pushed_at": "2026-07-12T14:42:43Z",
         "funny_labels": []
       },
@@ -13115,9 +13115,9 @@
         "deep-learning",
         "machine-learning",
         "nvidia-gpu",
-        "nvidia-warp",
         "physics",
-        "pytorch"
+        "pytorch",
+        "nvidia-warp"
       ]
     },
     {
@@ -13205,7 +13205,7 @@
       ]
     },
     {
-      "id": "234231371",
+      "id": "MDEwOlJlcG9zaXRvcnkyMzQyMzEzNzE=",
       "meta": {
         "name": "gofiber/fiber",
         "owner": "gofiber",
@@ -13214,31 +13214,31 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 39945,
+        "stargazers": 39946,
         "forks": 2005,
-        "open_issues": 53
+        "open_issues": 42
       },
       "activity": {
-        "last_committed_at": "2026-07-12T17:32:21Z",
+        "last_committed_at": "2026-07-12T17:13:10Z",
         "last_pushed_at": "2026-07-12T17:32:21Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "express",
-        "expressjs",
-        "fast",
-        "fiber",
-        "flexible",
-        "framework",
-        "friendly",
         "go",
         "golang",
-        "hacktoberfest",
-        "hacktoberfest2020",
-        "nodejs",
-        "performance",
+        "fiber",
+        "web",
+        "fast",
+        "flexible",
+        "friendly",
         "rest-api",
-        "web"
+        "performance",
+        "nodejs",
+        "express",
+        "framework",
+        "expressjs",
+        "hacktoberfest",
+        "hacktoberfest2020"
       ]
     },
     {
@@ -17137,7 +17137,7 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 26754,
+        "stargazers": 26756,
         "forks": 1678,
         "open_issues": 945
       },
@@ -18354,7 +18354,7 @@
       "metrics": {
         "stargazers": 3947,
         "forks": 428,
-        "open_issues": 195
+        "open_issues": 196
       },
       "activity": {
         "last_committed_at": "2026-07-12T19:02:39Z",
@@ -19773,7 +19773,7 @@
       ]
     },
     {
-      "id": "429900219",
+      "id": "R_kgDOGZ_Buw",
       "meta": {
         "name": "ekristen/aws-nuke",
         "owner": "ekristen",
@@ -19782,24 +19782,26 @@
         "primary_language": "Go"
       },
       "metrics": {
-        "stargazers": 1354,
+        "stargazers": 1355,
         "forks": 136,
-        "open_issues": 116
+        "open_issues": 99
       },
       "activity": {
-        "last_committed_at": "2026-07-08T14:49:34Z",
+        "last_committed_at": "2026-07-08T14:49:31Z",
         "last_pushed_at": "2026-07-08T14:49:34Z",
-        "funny_labels": []
+        "funny_labels": [
+          "wontfix"
+        ]
       },
       "search_keywords": [
         "aws",
         "cli",
-        "cosign",
-        "github-actions",
         "goreleaser",
-        "libnuke",
+        "github-actions",
+        "cosign",
         "mkdocs",
-        "mkdocs-material"
+        "mkdocs-material",
+        "libnuke"
       ]
     },
     {
