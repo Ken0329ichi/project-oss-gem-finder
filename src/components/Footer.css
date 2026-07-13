@@ -1,0 +1,64 @@
+/* 🌊 Cyber Dark Footer */
+.app-footer {
+  margin-top: 6rem;
+  padding: 1.5rem 1rem; /* パディングを控えめに */
+  border-top: 1px solid rgba(255, 255, 255, 0.04); /* グローをなくして極めて薄いグレーに */
+  font-size: 0.75rem; /* フォントサイズを下げて存在感を控えめに */
+  color: #4b5563; /* 目立たないダークグレーに変更 */
+  background: transparent; /* 背景を透明にし、接地感と溶け込みを重視 */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* さりげなく整列 */
+}
+
+.footer-license-link {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-license-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.footer-divider {
+  color: #374151;
+  font-weight: 300;
+  user-select: none;
+}
+
+.footer-publisher strong {
+  color: #9ca3af; /* 強調をマイルドに */
+  font-weight: 600;
+}
+
+.footer-timestamp {
+  font-family: 'Outfit', monospace;
+  color: #4b5563; /* 青いグロー背景と枠線は廃止し、マイルドな文字のみに */
+}
+
+/* スマホ表示向けの調整（フッターの中央揃え） */
+@media (max-width: 768px) {
+  .footer-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .footer-divider {
+    display: none; /* スマホの縦並び時はスラッシュを非表示にする */
+  }
+}

@@ -28,6 +28,7 @@ class RepoMetrics(BaseModel):
     forks: int
     open_issues: int
     good_first_issues: int = 0
+    open_pull_requests: int = 0  # 追加
 
 # 4. 各リポジトリの生存確認アクティビティ
 class RepoActivity(BaseModel):

@@ -71,8 +71,8 @@ def main():
 
     # 2. 収集ループの実行
     for idx, repo_name in enumerate(targets):
-        # 安全ブレーキ：RESTクライアントのAPI残り枠が危険域に達したら離脱
-        if rest_client.rate_remaining < 100:
+        # 安全ブレーキ：RESTクライアントのAPI残り枠が危険域に達したら離脱 (500未満で離脱に変更)
+        if rest_client.rate_remaining < 500:
             print(f"\n[SafetyBrake] API残り枠が危険域（残り {rest_client.rate_remaining}）に達したため、処理を一時中断し、残りは次回に持ち越します。")
             safety_brake_triggered = True
             has_updates = True
@@ -163,6 +163,11 @@ def main():
                     if deep_result.get("goodFirstIssues"):
                         good_first_issues = deep_result["goodFirstIssues"].get("totalCount", 0)
 
+                    # オープンPR数の抽出
+                    open_pull_requests = 0
+                    if deep_result.get("openPullRequests"):
+                        open_pull_requests = deep_result["openPullRequests"].get("totalCount", 0)
+
                     # GraphQLのレスポンスデータをPydanticスキーマにマッピング
                     lic = deep_result.get("licenseInfo")
                     lang = deep_result.get("primaryLanguage")
@@ -183,7 +188,8 @@ def main():
                         stargazers=deep_result["stargazerCount"],
                         forks=deep_result["forkCount"],
                         open_issues=deep_result["issues"]["totalCount"],
-                        good_first_issues=good_first_issues
+                        good_first_issues=good_first_issues,
+                        open_pull_requests=open_pull_requests
                     )
 
                     activity = RepoActivity(

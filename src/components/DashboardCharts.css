@@ -1,0 +1,170 @@
+/* 📊 Charts styling */
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chart-box {
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.chart-box h3 {
+  font-family: 'Outfit', sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.chart-sub {
+  color: var(--text-mute);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.chart-wrapper {
+  width: 100%;
+}
+
+.chart-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.chart-box.half-width {
+  flex: 1;
+  min-width: 340px;
+}
+
+/* 📊 Interactive Scatter Chart Selector & Header */
+.chart-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.scale-selector-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-mute);
+}
+
+.scale-select {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  background: rgba(8, 11, 17, 0.7);
+  border: 1px solid var(--border-default);
+  color: var(--text-main);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.scale-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* 🌐 Global Toggle Button (PieChart) */
+.toggle-global-btn {
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-default);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-mute);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.toggle-global-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.toggle-global-btn.active {
+  border-color: #f59e0b;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+/* Loader styling */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 1.5rem;
+}
+
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.05);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #ef4444;
+  font-size: 1.2rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* モバイル時のチャート配置のレスポンシブ微調整 */
+@media (max-width: 768px) {
+  .chart-row {
+    flex-direction: column;
+  }
+}
+
+/* 📈 Empty chart placeholder */
+.chart-empty-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(8, 11, 17, 0.25);
+  color: var(--text-mute);
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.chart-empty-placeholder .empty-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.6;
+}
+
+.chart-empty-placeholder .empty-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.chart-empty-placeholder .empty-subtext {
+  font-size: 0.8rem;
+  color: var(--text-mute);
+  opacity: 0.7;
+}
