@@ -7,3 +7,7 @@ __pycache__/
 
 # VS Code Workspace
 *.code-workspace
+
+# Local ignore
+.agent/
+download_data/
