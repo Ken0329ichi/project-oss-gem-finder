@@ -28,7 +28,7 @@ function main() {
 
     // Pagefindが解釈するメタデータと、React展開用のJSON構造をHTMLとして埋め込む
     const html = `<!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title data-pagefind-meta="title">${repo.meta.name}</title>

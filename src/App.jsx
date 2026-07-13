@@ -146,7 +146,7 @@ export default function App() {
     });
     return Object.entries(counts)
       .map(([name, value]) => ({ name, value }))
-      .sort((a, b) => b[value] - a[value])
+      .sort((a, b) => b.value - a.value)
       .slice(0, 6); // 上位6カ国
   }, [filteredRepos]);
 
@@ -155,8 +155,8 @@ export default function App() {
     const langIssues = {};
     filteredRepos.forEach(r => {
       const lang = r.meta.primary_language || 'Other';
-      languesCount = r.metrics.good_first_issues || 0;
-      langIssues[lang] = (langIssues[lang] || 0) + languesCount;
+      const languagesCount = r.metrics.good_first_issues || 0;
+      langIssues[lang] = (langIssues[lang] || 0) + languagesCount;
     });
     return Object.entries(langIssues)
       .map(([name, value]) => ({ name, value }))
@@ -177,7 +177,7 @@ export default function App() {
     return (
       <div className="loader-container">
         <div className="loader"></div>
-        <p>📊 OSS Gem Finder: データベースを構築中...</p>
+        <p>📊 OSS Gem Finder: Building database...</p>
       </div>
     );
   }
@@ -185,7 +185,7 @@ export default function App() {
   if (error) {
     return (
       <div className="error-container">
-        <p>⚠️ エラーが発生しました: {error}</p>
+        <p>⚠️ Error occurred: {error}</p>
       </div>
     );
   }
@@ -196,7 +196,7 @@ export default function App() {
       <header className="app-header">
         <div className="header-content">
           <h1>🚀 OSS Gem Finder</h1>
-          <p>スター数に埋もれた「隠れた名作・本物の実用原石」を客観的データから発掘する</p>
+          <p>Discover hidden gems and highly practical repositories overshadowed by star counts using objective metrics.</p>
         </div>
         
         {/* タブ切り替え */}
@@ -205,13 +205,13 @@ export default function App() {
             className={`tab-btn ${activeTab === 'list' ? 'active' : ''}`}
             onClick={() => setActiveTab('list')}
           >
-            📋 リポジトリ一覧 ({filteredRepos.length})
+            📋 Repository List ({filteredRepos.length})
           </button>
           <button 
             className={`tab-btn ${activeTab === 'charts' ? 'active' : ''}`}
             onClick={() => setActiveTab('charts')}
           >
-            📊 統計ダッシュボード
+            📊 Statistics Dashboard
           </button>
         </div>
       </header>
@@ -221,36 +221,36 @@ export default function App() {
         <div className="search-bar-wrapper">
           <input 
             type="text" 
-            placeholder="リポジトリ名、説明、キーワードから爆速インクリメンタル検索..." 
+            placeholder="Incremental search by name, description, topics, or labels..." 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
           />
           { (searchQuery || selectedLang || selectedCountry || selectedLicense || selectedLabel) && (
-            <button className="clear-btn" onClick={clearFilters}>クリア</button>
+            <button className="clear-btn" onClick={clearFilters}>Clear</button>
           )}
         </div>
 
         <div className="filters-wrapper">
           <select value={selectedLang} onChange={(e) => setSelectedLang(e.target.value)} className="filter-select">
-            <option value="">すべての言語</option>
+            <option value="">All Languages</option>
             {languages.map(l => <option key={l} value={l}>{l}</option>)}
           </select>
 
           <select value={selectedCountry} onChange={(e) => setSelectedCountry(e.target.value)} className="filter-select">
-            <option value="">すべての国・地域</option>
+            <option value="">All Regions / Countries</option>
             {countries.map(c => <option key={c} value={c}>{c}</option>)}
           </select>
 
           <select value={selectedLicense} onChange={(e) => setSelectedLicense(e.target.value)} className="filter-select">
-            <option value="">すべてのライセンス</option>
+            <option value="">All Licenses</option>
             {licenses.map(l => <option key={l} value={l}>{l}</option>)}
           </select>
         </div>
 
         {/* 激レアタグクラウド */}
         <div className="rare-tags-container">
-          <span className="tags-title">激レアラベル 🍂:</span>
+          <span className="tags-title">Rare Labels 🍂:</span>
           <div className="tags-wrapper">
             {rareLabels.map(label => (
               <button 
@@ -281,7 +281,7 @@ export default function App() {
                     <span className="repo-country-badge">{repo.meta.detected_country || 'Global 🌐'}</span>
                   </div>
                   <h3>{repo.meta.name}</h3>
-                  <p className="repo-desc">{repo.meta.description || '説明はありません。'}</p>
+                  <p className="repo-desc">{repo.meta.description || 'No description available.'}</p>
                   
                   {/* 主要メトリクス */}
                   <div className="repo-metrics-summary">
@@ -295,7 +295,7 @@ export default function App() {
               ))
             ) : (
               <div className="no-results glass">
-                <p>🔍 条件に合致するリポジトリ（原石）は見つかりませんでした。</p>
+                <p>🔍 No repositories found matching the criteria.</p>
               </div>
             )}
           </div>
@@ -304,8 +304,8 @@ export default function App() {
           <div className="charts-container">
             {/* 散布図: スター数 vs フォーク数 */}
             <div className="chart-box glass">
-              <h3>📊 スター数 vs フォーク数の分布（原石プロット）</h3>
-              <p className="chart-sub">左上に位置するリポジトリほど、「スター数の割にフォーク率が異常に高い」超実用的な原石です。</p>
+              <h3>📊 Stargazers vs Forks Distribution (Gem Plot)</h3>
+              <p className="chart-sub">Repositories in the upper-left represent highly practical gems with outstanding fork rates relative to their stargazers.</p>
               <div className="chart-wrapper">
                 <ResponsiveContainer width="100%" height={350}>
                   <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
@@ -326,7 +326,7 @@ export default function App() {
             <div className="chart-row">
               {/* ドーナツグラフ: 国別シェア */}
               <div className="chart-box half-width glass">
-                <h3>🍩 国別リポジトリ分布</h3>
+                <h3>🍩 Region Distribution</h3>
                 <div className="chart-wrapper">
                   <ResponsiveContainer width="100%" height={260}>
                     <PieChart>
@@ -352,7 +352,7 @@ export default function App() {
 
               {/* バーチャート: 言語別の初心者歓迎Issue数 */}
               <div className="chart-box half-width glass">
-                <h3>🌱 初心者向けIssue (GFI) 数（言語別Top10）</h3>
+                <h3>🌱 Good First Issues Count (Top 10 Languages)</h3>
                 <div className="chart-wrapper">
                   <ResponsiveContainer width="100%" height={260}>
                     <BarChart data={barData}>
@@ -390,20 +390,20 @@ export default function App() {
               </div>
             </div>
 
-            <p className="modal-desc">{selectedRepo.meta.description || '説明はありません。'}</p>
+            <p className="modal-desc">{selectedRepo.meta.description || 'No description available.'}</p>
 
             {/* 数値メトリクス */}
             <div className="modal-metrics-grid">
               <div className="metric-tile glass">
-                <span className="tile-label">⭐ スター数</span>
+                <span className="tile-label">⭐ Stargazers</span>
                 <span className="tile-val">{selectedRepo.metrics.stargazers.toLocaleString()}</span>
               </div>
               <div className="metric-tile glass">
-                <span className="tile-label">🍴 フォーク数</span>
+                <span className="tile-label">🍴 Forks</span>
                 <span className="tile-val">{selectedRepo.metrics.forks.toLocaleString()}</span>
               </div>
               <div className="metric-tile glass">
-                <span className="tile-label">⚠️ オープンIssue</span>
+                <span className="tile-label">⚠️ Open Issues</span>
                 <span className="tile-val">{selectedRepo.metrics.open_issues.toLocaleString()}</span>
               </div>
               <div className="metric-tile glass">
@@ -415,7 +415,7 @@ export default function App() {
             {/* 生ラベル一覧 */}
             {selectedRepo.activity.labels && selectedRepo.activity.labels.length > 0 && (
               <div className="modal-section">
-                <h4>🏷️ 登録中の生ラベル:</h4>
+                <h4>🏷️ Active Raw Labels:</h4>
                 <div className="modal-tags">
                   {selectedRepo.activity.labels.map(l => (
                     <span key={l} className="modal-tag">{l}</span>
@@ -427,7 +427,7 @@ export default function App() {
             {/* 探索キーワード */}
             {selectedRepo.search_keywords && selectedRepo.search_keywords.length > 0 && (
               <div className="modal-section">
-                <h4>🔑 トピック・検索キーワード:</h4>
+                <h4>🔑 Topics & Keywords:</h4>
                 <div className="modal-tags">
                   {selectedRepo.search_keywords.map(k => (
                     <span key={k} className="modal-topic">{k}</span>
@@ -444,7 +444,7 @@ export default function App() {
                 rel="noopener noreferrer" 
                 className="btn-primary"
               >
-                🐱 GitHubで見る
+                🐱 View on GitHub
               </a>
               {selectedRepo.meta.homepage_url && (
                 <a 
@@ -453,14 +453,14 @@ export default function App() {
                   rel="noopener noreferrer" 
                   className="btn-secondary"
                 >
-                  🌐 公式サイト
+                  🌐 Visit Website
                 </a>
               )}
             </div>
 
             <div className="modal-footer">
-              <span>最終コミット: {selectedRepo.activity.last_committed_at ? new Date(selectedRepo.activity.last_committed_at).toLocaleDateString() : '不明'}</span>
-              <span>最終プッシュ: {selectedRepo.activity.last_pushed_at ? new Date(selectedRepo.activity.last_pushed_at).toLocaleDateString() : '不明'}</span>
+              <span>Last Commit: {selectedRepo.activity.last_committed_at ? new Date(selectedRepo.activity.last_committed_at).toLocaleDateString() : 'Unknown'}</span>
+              <span>Last Push: {selectedRepo.activity.last_pushed_at ? new Date(selectedRepo.activity.last_pushed_at).toLocaleDateString() : 'Unknown'}</span>
             </div>
           </div>
         </div>
