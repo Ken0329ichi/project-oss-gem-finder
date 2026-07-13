@@ -35,6 +35,10 @@ export default function RepositoryDetailModal({ selectedRepo, onClose }) {
             <span className="tile-val">{selectedRepo.metrics.forks.toLocaleString()}</span>
           </div>
           <div className="metric-tile glass">
+            <span className="tile-label">🚀 Open PRs</span>
+            <span className="tile-val">{(selectedRepo.metrics.open_pull_requests || 0).toLocaleString()}</span>
+          </div>
+          <div className="metric-tile glass">
             <span className="tile-label">⚠️ Open Issues</span>
             <span className="tile-val">{selectedRepo.metrics.open_issues.toLocaleString()}</span>
           </div>

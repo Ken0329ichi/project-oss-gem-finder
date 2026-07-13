@@ -112,6 +112,8 @@ export default function App() {
     selectedLicense, setSelectedLicense, licenses,
     selectedLabel, setSelectedLabel, rareLabels,
     gfiOnly, setGfiOnly,
+    minPrs, setMinPrs,
+    maxIssues, setMaxIssues,
     clearFilters
   } = useDataset();
 
@@ -259,6 +261,10 @@ export default function App() {
         rareLabels={rareLabels}
         gfiOnly={gfiOnly}
         setGfiOnly={setGfiOnly}
+        minPrs={minPrs}
+        setMinPrs={setMinPrs}
+        maxIssues={maxIssues}
+        setMaxIssues={setMaxIssues}
         clearFilters={clearFilters}
       />
 

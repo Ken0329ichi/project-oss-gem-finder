@@ -8,9 +8,11 @@ export default function ControlPanel({
   selectedLicense, setSelectedLicense, licenses,
   selectedLabel, setSelectedLabel, rareLabels,
   gfiOnly, setGfiOnly,
+  minPrs, setMinPrs,
+  maxIssues, setMaxIssues,
   clearFilters
 }) {
-  const hasActiveFilters = searchQuery || selectedLang || selectedCountry || selectedLicense || selectedLabel || gfiOnly;
+  const hasActiveFilters = searchQuery || selectedLang || selectedCountry || selectedLicense || selectedLabel || gfiOnly || minPrs > 0 || maxIssues < 1000;
 
   return (
     <section className="control-panel glass">
@@ -85,6 +87,40 @@ export default function ControlPanel({
               onClick={() => setGfiOnly(!gfiOnly)}
             >🌱 Has GFI</button>
           </div>
+        </div>
+      </div>
+
+      {/* 🚀 活動量しきい値スライダー */}
+      <div className="slider-filters-container">
+        <div className="filter-group">
+          <div className="slider-label-row">
+            <label className="filter-label">Min Open PRs (🚀):</label>
+            <span className="slider-value-indicator">{minPrs === 0 ? 'Any' : `${minPrs}+`}</span>
+          </div>
+          <input 
+            type="range" 
+            min="0" 
+            max="30" 
+            value={minPrs} 
+            onChange={(e) => setMinPrs(Number(e.target.value))}
+            className="filter-range-slider primary-track"
+          />
+        </div>
+
+        <div className="filter-group">
+          <div className="slider-label-row">
+            <label className="filter-label">Max Open Issues (⚠️):</label>
+            <span className="slider-value-indicator-purple">{maxIssues === 1000 ? 'Any' : `${maxIssues}-`}</span>
+          </div>
+          <input 
+            type="range" 
+            min="0" 
+            max="1000" 
+            step="50"
+            value={maxIssues} 
+            onChange={(e) => setMaxIssues(Number(e.target.value))}
+            className="filter-range-slider purple-track"
+          />
         </div>
       </div>
 

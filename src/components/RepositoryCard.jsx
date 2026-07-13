@@ -17,6 +17,8 @@ export default function RepositoryCard({ repo, onClick }) {
       <div className="repo-metrics-summary">
         <span>⭐ {repo.metrics.stargazers.toLocaleString()}</span>
         <span>🍴 {repo.metrics.forks.toLocaleString()}</span>
+        <span>⚠️ {repo.metrics.open_issues.toLocaleString()}</span>
+        <span>🚀 {(repo.metrics.open_pull_requests || 0).toLocaleString()}</span>
         {repo.metrics.good_first_issues > 0 && (
           <span className="gfi-badge">🌱 GFI: {repo.metrics.good_first_issues}</span>
         )}

@@ -14,6 +14,8 @@ export default function useDataset() {
   const [selectedLicense, setSelectedLicense] = useState('');
   const [selectedLabel, setSelectedLabel] = useState('');
   const [gfiOnly, setGfiOnly] = useState(false);
+  const [minPrs, setMinPrs] = useState(0);          // 最小PR数
+  const [maxIssues, setMaxIssues] = useState(1000); // 最大Issue数
 
   // 1. データセット (data.json) の非同期ロード
   useEffect(() => {
@@ -110,12 +112,18 @@ export default function useDataset() {
       if (gfiOnly) {
         result = result.filter(r => (r.metrics.good_first_issues || 0) > 0);
       }
+      if (minPrs > 0) {
+        result = result.filter(r => (r.metrics.open_pull_requests || 0) >= minPrs);
+      }
+      if (maxIssues < 1000) {
+        result = result.filter(r => (r.metrics.open_issues || 0) <= maxIssues);
+      }
 
       setFilteredRepos(result);
     };
 
     filterData();
-  }, [searchQuery, selectedLang, selectedCountry, selectedLicense, selectedLabel, gfiOnly, repos]);
+  }, [searchQuery, selectedLang, selectedCountry, selectedLicense, selectedLabel, gfiOnly, minPrs, maxIssues, repos]);
 
   const clearFilters = () => {
     setSearchQuery('');
@@ -124,6 +132,8 @@ export default function useDataset() {
     setSelectedLicense('');
     setSelectedLabel('');
     setGfiOnly(false);
+    setMinPrs(0);
+    setMaxIssues(1000);
   };
 
   return {
@@ -144,6 +154,10 @@ export default function useDataset() {
     setSelectedLabel,
     gfiOnly,
     setGfiOnly,
+    minPrs,
+    setMinPrs,
+    maxIssues,
+    setMaxIssues,
     languages,
     countries,
     licenses,

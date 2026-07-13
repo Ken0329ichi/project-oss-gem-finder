@@ -224,3 +224,61 @@
   color: #fff;
   box-shadow: var(--glow-purple);
 }
+
+/* 🎛️ Slider styling */
+.slider-filters-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-value-indicator {
+  font-family: 'Outfit', monospace;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.slider-value-indicator-purple {
+  font-family: 'Outfit', monospace;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.filter-range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #111827;
+  outline: none;
+  cursor: pointer;
+  margin-top: 0.25rem;
+}
+
+.filter-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: var(--glow-green);
+  transition: transform 0.1s ease;
+}
+
+.filter-range-slider.purple-track::-webkit-slider-thumb {
+  background: var(--secondary);
+  box-shadow: var(--glow-purple);
+}
+
+.filter-range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
