@@ -63,6 +63,7 @@ export default function App() {
   const [selectedCountry, setSelectedCountry] = useState('');
   const [selectedLicense, setSelectedLicense] = useState('');
   const [selectedLabel, setSelectedLabel] = useState('');
+  const [gfiOnly, setGfiOnly] = useState(false); // GFI保持リポジトリのみ表示
 
   // UI状態
   const [activeTab, setActiveTab] = useState('charts'); // 'list' or 'charts'
@@ -154,12 +155,15 @@ export default function App() {
       if (selectedLabel) {
         result = result.filter(r => (r.activity.labels || r.activity.funny_labels || []).includes(selectedLabel));
       }
+      if (gfiOnly) {
+        result = result.filter(r => (r.metrics.good_first_issues || 0) > 0);
+      }
 
       setFilteredRepos(result);
     };
 
     filterData();
-  }, [searchQuery, selectedLang, selectedCountry, selectedLicense, selectedLabel, repos]);
+  }, [searchQuery, selectedLang, selectedCountry, selectedLicense, selectedLabel, gfiOnly, repos]);
 
   const inMemorySearch = (list, query) => {
     const q = query.toLowerCase();
@@ -229,6 +233,7 @@ export default function App() {
     setSelectedCountry('');
     setSelectedLicense('');
     setSelectedLabel('');
+    setGfiOnly(false);
   };
 
   if (loading) {
@@ -286,7 +291,7 @@ export default function App() {
               Click <strong>Rare Labels</strong> below to surface niche repositories.
             </p>
           </div>
-          { (searchQuery || selectedLang || selectedCountry || selectedLicense || selectedLabel) && (
+          { (searchQuery || selectedLang || selectedCountry || selectedLicense || selectedLabel || gfiOnly) && (
             <button className="clear-btn-top" onClick={clearFilters}>✕ Clear All Filters</button>
           )}
         </div>
@@ -333,6 +338,20 @@ export default function App() {
                   onClick={() => setSelectedLicense(selectedLicense === l ? '' : l)}
                 >{l}</button>
               ))}
+            </div>
+          </div>
+
+          <div className="filter-group">
+            <label className="filter-label">Good First Issues</label>
+            <div className="license-chips">
+              <button
+                className={`license-chip gfi-chip ${!gfiOnly ? 'active' : ''}`}
+                onClick={() => setGfiOnly(false)}
+              >All</button>
+              <button
+                className={`license-chip gfi-chip ${gfiOnly ? 'active' : ''}`}
+                onClick={() => setGfiOnly(!gfiOnly)}
+              >🌱 Has GFI</button>
             </div>
           </div>
         </div>

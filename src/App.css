@@ -243,6 +243,14 @@
   font-weight: 700;
 }
 
+/* GFI専用チップ: アクティブ時は鮮やかなグリーンで強調 */
+.license-chip.gfi-chip.active {
+  border-color: #34d399;
+  background: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.2);
+}
+
 .filter-select {
   flex: 1;
   min-width: 180px;
