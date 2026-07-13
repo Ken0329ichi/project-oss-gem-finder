@@ -69,7 +69,7 @@ export default function PrVolumeChart({
                 <YAxis type="number" dataKey="pr" name="Open PRs" unit="🚀" stroke="#9ca3af" />
                 
                 {/* 🎈 3次元バブルチャート用のZ軸：サイズを貢献者数 (contributors) にマッピング */}
-                <ZAxis type="number" dataKey="contributors" range={[4, 28]} name="Contributors" />
+                <ZAxis type="number" dataKey="contributors" range={[8, 38]} name="Contributors" />
                 
                 {/* 動的中央値による四象限破線境界線 */}
                 <ReferenceLine x={medianStars} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
@@ -82,6 +82,10 @@ export default function PrVolumeChart({
                   fill="#38bdf8"
                   onClick={handleScatterClick}
                   style={{ cursor: 'pointer' }}
+                  fillOpacity={0.8}  /* ガラス玉のような透明感 */
+                  stroke="#ffffff"   /* 境界線を白にして立体化 */
+                  strokeWidth={0.8}
+                  strokeOpacity={0.5}
                 >
                   {prScatterData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />

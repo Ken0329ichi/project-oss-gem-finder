@@ -172,10 +172,10 @@
 /* 🎨 四象限マトリクス用の背景二つ名ラベル */
 .quadrant-labels-overlay {
   position: absolute;
-  top: 50px;
-  left: 60px;
-  right: 40px;
-  bottom: 60px;
+  top: 45px;
+  left: 80px;  /* 軸ラベルと重なるのを防ぐために右へシフト */
+  right: 50px;
+  bottom: 75px; /* X軸のラベルと重なるのを防ぐために上へシフト */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -184,12 +184,16 @@
 
 .q-label {
   font-family: 'Outfit', sans-serif;
-  font-size: 11px;
-  color: rgba(156, 163, 175, 0.22); /* うっすら浮かび上がるように設定 */
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(226, 232, 240, 0.65); /* 明るいスレート色に変更し、不透明度を大幅に引き上げ */
   text-transform: lowercase;
   pointer-events: none;
   display: flex;
+  /* ネオンパープルの妖しい発光（テキストシャドウ） */
+  text-shadow: 0 0 8px rgba(139, 92, 246, 0.6), 0 0 15px rgba(139, 92, 246, 0.2);
 }
+
 
 .q-gems {
   align-items: flex-start;

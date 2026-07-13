@@ -172,14 +172,12 @@ export default function GemPlotChart({
         ) : (
           <>
             {/* 四象限マトリクスの背景二つ名ラベル */}
-            {viewMode === 'dot' && (
-              <div className="quadrant-labels-overlay" style={{ pointerEvents: 'none' }}>
-                <span className="q-label q-gems">gems (low-star / active) 💎</span>
-                <span className="q-label q-monsters">monsters (high-star / active)</span>
-                <span className="q-label q-incubators">incubators (emerging)</span>
-                <span className="q-label q-classics">classics / emerging</span>
-              </div>
-            )}
+            <div className="quadrant-labels-overlay" style={{ pointerEvents: 'none' }}>
+              <span className="q-label q-gems">gems (low-star / active) 💎</span>
+              <span className="q-label q-monsters">monsters (high-star / active)</span>
+              <span className="q-label q-incubators">incubators (emerging)</span>
+              <span className="q-label q-classics">classics / emerging</span>
+            </div>
 
             <ResponsiveContainer width="100%" height={350}>
               <ScatterChart
@@ -188,15 +186,12 @@ export default function GemPlotChart({
               >
                 <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" domain={['dataMin - 100', 'auto']} />
                 <YAxis type="number" dataKey="fork" name="Forks" unit="🍴" stroke="#9ca3af" />
-                <ZAxis type="number" dataKey="count" range={[180, 180]} />
+                <ZAxis type="number" dataKey="count" range={[950, 950]} />
                 
                 {/* 動的中央値による四象限破線境界線 */}
-                {viewMode === 'dot' && (
-                  <>
-                    <ReferenceLine x={medianStars} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
-                    <ReferenceLine y={medianForks} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
-                  </>
-                )}
+                <ReferenceLine x={medianStars} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
+                <ReferenceLine y={medianForks} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
+
 
                 {!selectedRepo && (
                   <Tooltip 
