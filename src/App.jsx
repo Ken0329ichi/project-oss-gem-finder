@@ -9,6 +9,48 @@ import './App.css';
 // チャート用の配色パレット（サイバーネオン調）
 const COLORS = ['#10B981', '#3B82F6', '#8B5CF6', '#EC4899', '#F59E0B', '#EF4444', '#6B7280'];
 
+// GFIバーチャート用カスタムTooltip（ダークテーマ対応）
+const GfiTooltip = ({ active, payload }) => {
+  if (!active || !payload || !payload.length) return null;
+  return (
+    <div style={{
+      background: 'rgba(15, 20, 30, 0.95)',
+      border: '1px solid rgba(139, 92, 246, 0.4)',
+      borderRadius: '8px',
+      padding: '8px 14px',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
+    }}>
+      <p style={{ color: '#c4b5fd', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>
+        {payload[0].payload.name}
+      </p>
+      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '2px 0 0' }}>
+        🌱 GFI Count: <strong>{payload[0].value.toLocaleString()}</strong>
+      </p>
+    </div>
+  );
+};
+
+// PieChart用カスタムTooltip（ダークテーマ対応）
+const PieTooltip = ({ active, payload }) => {
+  if (!active || !payload || !payload.length) return null;
+  return (
+    <div style={{
+      background: 'rgba(15, 20, 30, 0.95)',
+      border: '1px solid rgba(16, 185, 129, 0.4)',
+      borderRadius: '8px',
+      padding: '8px 14px',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
+    }}>
+      <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>
+        {payload[0].name}
+      </p>
+      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '2px 0 0' }}>
+        Repositories: <strong>{payload[0].value.toLocaleString()}</strong>
+      </p>
+    </div>
+  );
+};
+
 export default function App() {
   const [repos, setRepos] = useState([]);
   const [filteredRepos, setFilteredRepos] = useState([]);
@@ -373,7 +415,10 @@ export default function App() {
               {/* ドーナツグラフ: 国別シェア */}
               <div className="chart-box half-width glass">
                 <div className="chart-box-header">
-                  <h3>🍩 Region Distribution</h3>
+                  <div>
+                    <h3>🍩 Region Distribution</h3>
+                    <p className="chart-sub">Top 6 most represented regions. Toggle to hide Global (undetected) entries.</p>
+                  </div>
                   <button
                     className={`toggle-global-btn ${showGlobal ? '' : 'active'}`}
                     onClick={() => setShowGlobal(v => !v)}
@@ -398,7 +443,7 @@ export default function App() {
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
-                      <Tooltip />
+                      <Tooltip content={<PieTooltip />} />
                       <Legend />
                     </PieChart>
                   </ResponsiveContainer>
@@ -408,12 +453,13 @@ export default function App() {
               {/* バーチャート: 言語別の初心者歓迎Issue数 */}
               <div className="chart-box half-width glass">
                 <h3>🌱 Good First Issues Count (Top 10 Languages)</h3>
+                <p className="chart-sub">Total GFI count per language across all filtered repositories. Top 10 languages shown.</p>
                 <div className="chart-wrapper">
-                  <ResponsiveContainer width="100%" height={260}>
-                    <BarChart data={barData}>
+                  <ResponsiveContainer width="100%" height={240}>
+                    <BarChart data={barData} margin={{ top: 5, right: 10, bottom: 5, left: 0 }}>
                       <XAxis dataKey="name" stroke="#9ca3af" interval={0} tick={{ fontSize: 10 }} />
-                      <YAxis stroke="#9ca3af" />
-                      <Tooltip />
+                      <YAxis stroke="#9ca3af" tick={{ fontSize: 10 }} />
+                      <Tooltip content={<GfiTooltip />} />
                       <Bar dataKey="value" fill="#8B5CF6">
                         {barData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
