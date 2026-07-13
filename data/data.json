@@ -5,7 +5,7 @@
     "source_url": "https://github.com/ken0329/crawler",
     "license": "CC-BY-4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "updated_at": "2026-07-13T04:15:28.808555Z"
+    "updated_at": "2026-07-13T04:42:09.136316Z"
   },
   "repositories": [
     {
@@ -21,7 +21,7 @@
         "homepage_url": "https://fastapi.tiangolo.com/"
       },
       "metrics": {
-        "stargazers": 100416,
+        "stargazers": 100417,
         "forks": 9597,
         "open_issues": 1,
         "good_first_issues": 0
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "id": "59720190",
+      "id": "MDEwOlJlcG9zaXRvcnk1OTcyMDE5MA==",
       "meta": {
         "name": "sanic-org/sanic",
         "owner": "sanic-org",
@@ -96,30 +96,30 @@
         "license": "MIT",
         "primary_language": "Python",
         "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "detected_country": "Global 🌐",
+        "homepage_url": "https://sanic.dev"
       },
       "metrics": {
-        "stargazers": 18630,
+        "stargazers": 18629,
         "forks": 1588,
-        "open_issues": 134,
-        "good_first_issues": 0
+        "open_issues": 100,
+        "good_first_issues": 6
       },
       "activity": {
-        "last_committed_at": "2026-07-12T07:17:35Z",
+        "last_committed_at": "2026-05-31T19:29:09Z",
         "last_pushed_at": "2026-07-12T07:17:35Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "api-server",
-        "asgi",
-        "asyncio",
-        "framework",
         "python",
-        "sanic",
+        "framework",
+        "asyncio",
+        "api-server",
         "web",
+        "web-server",
         "web-framework",
-        "web-server"
+        "asgi",
+        "sanic"
       ]
     },
     {
@@ -169,7 +169,7 @@
       },
       "metrics": {
         "stargazers": 4207,
-        "forks": 912,
+        "forks": 913,
         "open_issues": 263,
         "good_first_issues": 0
       },
@@ -922,7 +922,7 @@
         "homepage_url": "https://developers.llamaindex.ai"
       },
       "metrics": {
-        "stargazers": 50805,
+        "stargazers": 50806,
         "forks": 7740,
         "open_issues": 200,
         "good_first_issues": 0
@@ -958,7 +958,7 @@
         "homepage_url": "https://docs.langchain.com/oss/python/langgraph/"
       },
       "metrics": {
-        "stargazers": 37125,
+        "stargazers": 37126,
         "forks": 6236,
         "open_issues": 385,
         "good_first_issues": 12
@@ -1063,12 +1063,12 @@
         "license": "MIT",
         "primary_language": "Python",
         "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "detected_country": "Global 🌐",
+        "homepage_url": "https://squidfunk.github.io/mkdocs-material/"
       },
       "metrics": {
         "stargazers": 27089,
-        "forks": 4108,
+        "forks": 4110,
         "open_issues": 1,
         "good_first_issues": 0
       },
@@ -2775,7 +2775,7 @@
       ]
     },
     {
-      "id": "606433492",
+      "id": "R_kgDOJCVw1A",
       "meta": {
         "name": "chdb-io/chdb",
         "owner": "chdb-io",
@@ -2783,31 +2783,31 @@
         "license": "Apache-2.0",
         "primary_language": "Python",
         "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "detected_country": "Global 🌐",
+        "homepage_url": "https://clickhouse.com/chdb"
       },
       "metrics": {
         "stargazers": 2830,
         "forks": 126,
-        "open_issues": 41,
-        "good_first_issues": 0
+        "open_issues": 36,
+        "good_first_issues": 6
       },
       "activity": {
-        "last_committed_at": "2026-07-10T05:26:19Z",
-        "last_pushed_at": "2026-07-10T05:26:19Z",
+        "last_committed_at": "2026-07-13T04:32:03Z",
+        "last_pushed_at": "2026-07-13T04:32:03Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "chdb",
-        "clickhouse",
-        "clickhouse-database",
-        "clickhouse-server",
         "data-science",
         "database",
         "embedded-database",
         "olap",
         "python",
-        "sql"
+        "sql",
+        "chdb",
+        "clickhouse",
+        "clickhouse-database",
+        "clickhouse-server"
       ]
     },
     {
@@ -3094,8 +3094,8 @@
         "homepage_url": null
       },
       "metrics": {
-        "stargazers": 55410,
-        "forks": 4571,
+        "stargazers": 55420,
+        "forks": 4572,
         "open_issues": 59,
         "good_first_issues": 0
       },
@@ -3173,7 +3173,7 @@
         "homepage_url": "https://maigret.app"
       },
       "metrics": {
-        "stargazers": 35303,
+        "stargazers": 35304,
         "forks": 2687,
         "open_issues": 27,
         "good_first_issues": 1
@@ -3250,13 +3250,13 @@
         "primary_language": "Python",
         "owner_location": null,
         "detected_country": "Global 🌐",
-        "homepage_url": null
+        "homepage_url": "http://beets.io/"
       },
       "metrics": {
-        "stargazers": 15379,
+        "stargazers": 15380,
         "forks": 2057,
         "open_issues": 635,
-        "good_first_issues": 0
+        "good_first_issues": 15
       },
       "activity": {
         "last_committed_at": "2026-07-13T00:24:49Z",
@@ -3776,8 +3776,8 @@
         "homepage_url": "https://wenyuchiou.github.io/awesome-agentic-ai-zh/"
       },
       "metrics": {
-        "stargazers": 4426,
-        "forks": 572,
+        "stargazers": 4427,
+        "forks": 573,
         "open_issues": 0,
         "good_first_issues": 0
       },
@@ -4810,7 +4810,7 @@
         "homepage_url": "https://can4hou6joeng4.github.io/boss-agent-cli/"
       },
       "metrics": {
-        "stargazers": 1366,
+        "stargazers": 1367,
         "forks": 107,
         "open_issues": 1,
         "good_first_issues": 0
@@ -5409,7 +5409,7 @@
         "homepage_url": "https://raiw.cc"
       },
       "metrics": {
-        "stargazers": 3978,
+        "stargazers": 3979,
         "forks": 364,
         "open_issues": 3,
         "good_first_issues": 1
@@ -6479,7 +6479,7 @@
         "homepage_url": "https://supervision.roboflow.com"
       },
       "metrics": {
-        "stargazers": 47915,
+        "stargazers": 47916,
         "forks": 4480,
         "open_issues": 45,
         "good_first_issues": 0
@@ -6568,8 +6568,8 @@
         "homepage_url": "https://aiengineeringfromscratch.com"
       },
       "metrics": {
-        "stargazers": 38112,
-        "forks": 6370,
+        "stargazers": 38113,
+        "forks": 6369,
         "open_issues": 33,
         "good_first_issues": 1
       },
@@ -7064,7 +7064,7 @@
         "homepage_url": null
       },
       "metrics": {
-        "stargazers": 13322,
+        "stargazers": 13323,
         "forks": 1202,
         "open_issues": 45,
         "good_first_issues": 0
@@ -7632,8 +7632,8 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 7580,
-        "forks": 776,
+        "stargazers": 7581,
+        "forks": 778,
         "open_issues": 0,
         "good_first_issues": 0
       },
@@ -9085,7 +9085,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-13T03:46:33Z",
-        "last_pushed_at": "2026-07-13T04:04:46Z",
+        "last_pushed_at": "2026-07-13T04:14:58Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -9244,7 +9244,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-12T21:20:39Z",
-        "last_pushed_at": "2026-07-12T23:48:32Z",
+        "last_pushed_at": "2026-07-13T04:13:28Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -9323,7 +9323,7 @@
         "homepage_url": "https://www.deepspeed.ai/"
       },
       "metrics": {
-        "stargazers": 42692,
+        "stargazers": 42693,
         "forks": 4883,
         "open_issues": 1163,
         "good_first_issues": 0
@@ -9436,7 +9436,7 @@
         "homepage_url": "https://mlflow.org"
       },
       "metrics": {
-        "stargazers": 26994,
+        "stargazers": 26995,
         "forks": 5988,
         "open_issues": 1450,
         "good_first_issues": 78
@@ -9937,7 +9937,7 @@
       ]
     },
     {
-      "id": "199509705",
+      "id": "MDEwOlJlcG9zaXRvcnkxOTk1MDk3MDU=",
       "meta": {
         "name": "autogluon/autogluon",
         "owner": "autogluon",
@@ -9945,14 +9945,14 @@
         "license": "Apache-2.0",
         "primary_language": "Python",
         "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "detected_country": "Global 🌐",
+        "homepage_url": "https://auto.gluon.ai/"
       },
       "metrics": {
-        "stargazers": 10526,
+        "stargazers": 10527,
         "forks": 1171,
-        "open_issues": 402,
-        "good_first_issues": 0
+        "open_issues": 374,
+        "good_first_issues": 12
       },
       "activity": {
         "last_committed_at": "2026-07-06T22:04:43Z",
@@ -9960,26 +9960,26 @@
         "funny_labels": []
       },
       "search_keywords": [
-        "autogluon",
-        "automated-machine-learning",
         "automl",
-        "computer-vision",
+        "machine-learning",
         "data-science",
         "deep-learning",
         "ensemble-learning",
-        "forecasting",
-        "gluon",
-        "hyperparameter-optimization",
-        "machine-learning",
+        "computer-vision",
         "natural-language-processing",
-        "object-detection",
-        "python",
-        "pytorch",
-        "scikit-learn",
         "structured-data",
+        "object-detection",
+        "gluon",
+        "transfer-learning",
+        "pytorch",
+        "automated-machine-learning",
+        "scikit-learn",
+        "autogluon",
         "tabular-data",
+        "hyperparameter-optimization",
         "time-series",
-        "transfer-learning"
+        "forecasting",
+        "python"
       ]
     },
     {
@@ -10105,36 +10105,36 @@
       ]
     },
     {
-      "id": "148657183",
+      "id": "MDEwOlJlcG9zaXRvcnkxNDg2NTcxODM=",
       "meta": {
         "name": "unit8co/darts",
         "owner": "unit8co",
         "description": "A python library for user-friendly forecasting and anomaly detection on time series.",
         "license": "Apache-2.0",
         "primary_language": "Python",
-        "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "owner_location": "Switzerland",
+        "detected_country": "Switzerland 🇨🇭",
+        "homepage_url": "https://unit8co.github.io/darts/"
       },
       "metrics": {
-        "stargazers": 9463,
+        "stargazers": 9464,
         "forks": 1018,
-        "open_issues": 220,
-        "good_first_issues": 0
+        "open_issues": 194,
+        "good_first_issues": 20
       },
       "activity": {
-        "last_committed_at": "2026-07-10T13:03:09Z",
+        "last_committed_at": "2026-07-09T17:16:58Z",
         "last_pushed_at": "2026-07-10T13:03:09Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "anomaly-detection",
-        "data-science",
-        "deep-learning",
+        "python",
+        "time-series",
         "forecasting",
         "machine-learning",
-        "python",
-        "time-series"
+        "deep-learning",
+        "anomaly-detection",
+        "data-science"
       ]
     },
     {
@@ -10157,7 +10157,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-13T01:58:42Z",
-        "last_pushed_at": "2026-07-13T01:58:42Z",
+        "last_pushed_at": "2026-07-13T04:17:37Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -10418,7 +10418,7 @@
         "homepage_url": "https://rfdetr.roboflow.com"
       },
       "metrics": {
-        "stargazers": 8488,
+        "stargazers": 8490,
         "forks": 1079,
         "open_issues": 77,
         "good_first_issues": 1
@@ -10553,7 +10553,7 @@
         "homepage_url": "https://feast.dev"
       },
       "metrics": {
-        "stargazers": 7128,
+        "stargazers": 7129,
         "forks": 1364,
         "open_issues": 213,
         "good_first_issues": 14
@@ -11083,38 +11083,38 @@
       ]
     },
     {
-      "id": "488142653",
+      "id": "R_kgDOHRh3PQ",
       "meta": {
         "name": "spotify/basic-pitch",
         "owner": "spotify",
         "description": "A lightweight yet powerful audio-to-MIDI converter with pitch bend detection",
         "license": "Apache-2.0",
         "primary_language": "Python",
-        "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "owner_location": "Stockholm, Sweden",
+        "detected_country": "Sweden 🇸🇪",
+        "homepage_url": "https://basicpitch.io"
       },
       "metrics": {
-        "stargazers": 5282,
+        "stargazers": 5281,
         "forks": 475,
-        "open_issues": 53,
+        "open_issues": 42,
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2025-11-13T14:40:46Z",
+        "last_committed_at": "2025-11-13T14:40:45Z",
         "last_pushed_at": "2025-11-13T14:40:46Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "audio",
         "lightweight",
         "machine-learning",
         "midi",
         "music",
         "pitch-detection",
         "polyphonic",
-        "python",
         "transcription",
+        "audio",
+        "python",
         "typescript"
       ]
     },
@@ -11980,12 +11980,12 @@
         "description": "A library for accelerating Transformer models on NVIDIA GPUs, including using 8-bit and 4-bit floating point (FP8 and FP4) precision on Hopper, Ada and Blackwell GPUs, to provide better performance with lower memory utilization in both training and inference.",
         "license": "Apache-2.0",
         "primary_language": "Python",
-        "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "owner_location": "2788 San Tomas Expressway, Santa Clara, CA, 95051",
+        "detected_country": "2788 San Tomas Expressway, Santa Clara, CA, 95051",
+        "homepage_url": "https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/index.html"
       },
       "metrics": {
-        "stargazers": 3425,
+        "stargazers": 3426,
         "forks": 771,
         "open_issues": 154,
         "good_first_issues": 0
@@ -12245,7 +12245,7 @@
         "homepage_url": "https://gofiber.io"
       },
       "metrics": {
-        "stargazers": 39948,
+        "stargazers": 39947,
         "forks": 2005,
         "open_issues": 42,
         "good_first_issues": 0
@@ -12955,7 +12955,7 @@
         "homepage_url": "https://gin-gonic.com/"
       },
       "metrics": {
-        "stargazers": 88909,
+        "stargazers": 88910,
         "forks": 8650,
         "open_issues": 601,
         "good_first_issues": 0
@@ -12988,7 +12988,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 43708,
+        "stargazers": 43709,
         "forks": 1260,
         "open_issues": 105,
         "good_first_issues": 0
@@ -13640,7 +13640,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-13T04:08:53Z",
-        "last_pushed_at": "2026-07-13T04:08:56Z",
+        "last_pushed_at": "2026-07-13T04:10:27Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -14464,25 +14464,25 @@
       ]
     },
     {
-      "id": "41349039",
+      "id": "MDEwOlJlcG9zaXRvcnk0MTM0OTAzOQ==",
       "meta": {
         "name": "dgraph-io/dgraph",
         "owner": "dgraph-io",
         "description": "high-performance graph database for real-time use cases",
         "license": "Apache-2.0",
         "primary_language": "Go",
-        "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "owner_location": "United States of America",
+        "detected_country": "United States 🇺🇸",
+        "homepage_url": "https://dgraph.io"
       },
       "metrics": {
-        "stargazers": 21741,
+        "stargazers": 21740,
         "forks": 1596,
-        "open_issues": 84,
+        "open_issues": 36,
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-12T22:46:36Z",
+        "last_committed_at": "2026-07-09T00:23:00Z",
         "last_pushed_at": "2026-07-12T22:46:36Z",
         "funny_labels": []
       },
@@ -14506,7 +14506,7 @@
         "homepage_url": "https://victoriametrics.com/"
       },
       "metrics": {
-        "stargazers": 17317,
+        "stargazers": 17318,
         "forks": 1687,
         "open_issues": 662,
         "good_first_issues": 35
@@ -14552,7 +14552,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-10T22:21:29Z",
-        "last_pushed_at": "2026-07-13T03:58:48Z",
+        "last_pushed_at": "2026-07-13T04:17:15Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -15088,46 +15088,46 @@
       ]
     },
     {
-      "id": "177420214",
+      "id": "MDEwOlJlcG9zaXRvcnkxNzc0MjAyMTQ=",
       "meta": {
         "name": "dosco/graphjin",
         "owner": "dosco",
         "description": "One governed graph for AI agents — GraphQL + MCP over your databases, files, APIs, and code",
         "license": "Apache-2.0",
         "primary_language": "Go",
-        "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "owner_location": "San Francisco",
+        "detected_country": "United States 🇺🇸",
+        "homepage_url": "https://graphjin.com"
       },
       "metrics": {
-        "stargazers": 3083,
+        "stargazers": 3082,
         "forks": 186,
         "open_issues": 22,
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-12T04:51:39Z",
+        "last_committed_at": "2026-07-12T04:51:38Z",
         "last_pushed_at": "2026-07-12T04:51:39Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "agentic-ai",
-        "ai-agents",
-        "cloud-native",
-        "cockroachdb",
-        "database",
         "graphql",
-        "llm",
-        "mariadb",
-        "mcp",
-        "mongodb",
-        "mssql",
-        "mysql",
-        "oracle",
         "postgresql",
         "sql",
+        "cloud-native",
+        "database",
+        "mysql",
+        "yugabyte",
+        "cockroachdb",
+        "mariadb",
+        "mongodb",
+        "mssql",
+        "oracle",
         "sqlite",
-        "yugabyte"
+        "agentic-ai",
+        "ai-agents",
+        "llm",
+        "mcp"
       ]
     },
     {
@@ -15357,7 +15357,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-10T16:49:38Z",
-        "last_pushed_at": "2026-07-10T16:49:39Z",
+        "last_pushed_at": "2026-07-13T04:35:27Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -15492,7 +15492,7 @@
       "metrics": {
         "stargazers": 1858,
         "forks": 303,
-        "open_issues": 676,
+        "open_issues": 677,
         "good_first_issues": 1
       },
       "activity": {
@@ -15914,8 +15914,8 @@
         "homepage_url": "https://cli.github.com"
       },
       "metrics": {
-        "stargazers": 45255,
-        "forks": 8697,
+        "stargazers": 45256,
+        "forks": 8699,
         "open_issues": 967,
         "good_first_issues": 2
       },
@@ -15996,8 +15996,8 @@
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-12T20:35:37Z",
-        "last_pushed_at": "2026-07-12T20:39:02Z",
+        "last_committed_at": "2026-07-13T04:28:46Z",
+        "last_pushed_at": "2026-07-13T04:28:46Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -16032,7 +16032,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 26312,
+        "stargazers": 26313,
         "forks": 722,
         "open_issues": 153,
         "good_first_issues": 0
@@ -16093,7 +16093,7 @@
       ]
     },
     {
-      "id": "11393110",
+      "id": "MDEwOlJlcG9zaXRvcnkxMTM5MzExMA==",
       "meta": {
         "name": "urfave/cli",
         "owner": "urfave",
@@ -16101,14 +16101,14 @@
         "license": "MIT",
         "primary_language": "Go",
         "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "detected_country": "Global 🌐",
+        "homepage_url": "https://cli.urfave.org"
       },
       "metrics": {
-        "stargazers": 24169,
+        "stargazers": 24168,
         "forks": 1792,
-        "open_issues": 75,
-        "good_first_issues": 0
+        "open_issues": 51,
+        "good_first_issues": 7
       },
       "activity": {
         "last_committed_at": "2026-07-03T16:58:01Z",
@@ -16116,13 +16116,13 @@
         "funny_labels": []
       },
       "search_keywords": [
-        "cli",
+        "golang-library",
         "command-line",
         "go",
-        "golang-library",
+        "yaml",
+        "cli",
         "json",
-        "toml",
-        "yaml"
+        "toml"
       ]
     },
     {
@@ -16202,7 +16202,7 @@
         "homepage_url": "https://superfile.dev"
       },
       "metrics": {
-        "stargazers": 18701,
+        "stargazers": 18702,
         "forks": 667,
         "open_issues": 171,
         "good_first_issues": 9
@@ -16260,44 +16260,44 @@
       ]
     },
     {
-      "id": "43225113",
+      "id": "MDEwOlJlcG9zaXRvcnk0MzIyNTExMw==",
       "meta": {
         "name": "mikefarah/yq",
         "owner": "mikefarah",
         "description": "yq is a portable command-line YAML, JSON, XML, CSV, TOML, HCL  and properties processor",
         "license": "MIT",
         "primary_language": "Go",
-        "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "owner_location": "Melbourne, Australia",
+        "detected_country": "Australia 🇦🇺",
+        "homepage_url": "https://mikefarah.gitbook.io/yq/"
       },
       "metrics": {
-        "stargazers": 15676,
+        "stargazers": 15677,
         "forks": 794,
-        "open_issues": 283,
-        "good_first_issues": 0
+        "open_issues": 243,
+        "good_first_issues": 4
       },
       "activity": {
-        "last_committed_at": "2026-07-09T03:52:59Z",
+        "last_committed_at": "2026-06-29T06:54:05Z",
         "last_pushed_at": "2026-07-09T03:52:59Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "bash",
-        "cli",
-        "csv",
-        "devops-tools",
-        "golang",
-        "hcl",
-        "json",
-        "portable",
-        "properties",
-        "splat",
-        "terraform",
-        "toml",
-        "xml",
+        "yaml-processor",
         "yaml",
-        "yaml-processor"
+        "cli",
+        "golang",
+        "splat",
+        "devops-tools",
+        "portable",
+        "bash",
+        "xml",
+        "json",
+        "csv",
+        "properties",
+        "toml",
+        "hcl",
+        "terraform"
       ]
     },
     {
@@ -19022,7 +19022,7 @@
       ]
     },
     {
-      "id": "729446906",
+      "id": "R_kgDOK3p5-g",
       "meta": {
         "name": "version-fox/vfox",
         "owner": "version-fox",
@@ -19030,39 +19030,39 @@
         "license": "Apache-2.0",
         "primary_language": "Go",
         "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "detected_country": "Global 🌐",
+        "homepage_url": "https://vfox.dev"
       },
       "metrics": {
         "stargazers": 3926,
-        "forks": 156,
-        "open_issues": 77,
-        "good_first_issues": 0
+        "forks": 157,
+        "open_issues": 71,
+        "good_first_issues": 3
       },
       "activity": {
-        "last_committed_at": "2026-06-29T14:43:52Z",
+        "last_committed_at": "2026-06-01T03:19:33Z",
         "last_pushed_at": "2026-06-29T14:43:52Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "asdf",
-        "bash",
-        "cli",
-        "cmd",
         "cross-platform",
-        "development-tools",
-        "golang",
-        "linux",
-        "lua",
-        "macos",
-        "nodejs",
         "plugin-manager",
-        "powershell",
-        "sdk",
-        "tools",
         "version-manager",
+        "linux",
+        "macos",
         "windows",
-        "zsh"
+        "bash",
+        "cmd",
+        "golang",
+        "lua",
+        "powershell",
+        "zsh",
+        "asdf",
+        "cli",
+        "development-tools",
+        "nodejs",
+        "sdk",
+        "tools"
       ]
     },
     {
@@ -19308,7 +19308,7 @@
       ]
     },
     {
-      "id": "208908993",
+      "id": "MDEwOlJlcG9zaXRvcnkyMDg5MDg5OTM=",
       "meta": {
         "name": "kptdev/kpt",
         "owner": "kptdev",
@@ -19316,39 +19316,39 @@
         "license": "Apache-2.0",
         "primary_language": "Go",
         "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "detected_country": "Global 🌐",
+        "homepage_url": "https://kpt.dev"
       },
       "metrics": {
-        "stargazers": 1883,
+        "stargazers": 1884,
         "forks": 259,
-        "open_issues": 389,
-        "good_first_issues": 0
+        "open_issues": 378,
+        "good_first_issues": 38
       },
       "activity": {
-        "last_committed_at": "2026-07-09T15:22:48Z",
+        "last_committed_at": "2026-07-09T15:22:47Z",
         "last_pushed_at": "2026-07-09T15:22:48Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "cli",
-        "config-as-data",
-        "configuration-management",
-        "containers",
-        "customization",
-        "deployment",
-        "gitops",
-        "kpt",
         "krm",
-        "kubectl",
+        "kpt",
+        "configuration-management",
+        "gitops",
         "kubernetes",
+        "kubectl",
         "kustomize",
-        "openapi",
-        "packaging-tool",
-        "policy-as-code",
+        "containers",
         "schema",
-        "shift-left",
-        "validation"
+        "openapi",
+        "cli",
+        "deployment",
+        "packaging-tool",
+        "customization",
+        "validation",
+        "policy-as-code",
+        "config-as-data",
+        "shift-left"
       ]
     },
     {
@@ -19619,7 +19619,7 @@
       ]
     },
     {
-      "id": "688387854",
+      "id": "R_kgDOKQf3Dg",
       "meta": {
         "name": "gowebly/gowebly",
         "owner": "gowebly",
@@ -19627,41 +19627,41 @@
         "license": "Apache-2.0",
         "primary_language": "Go",
         "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "detected_country": "Global 🌐",
+        "homepage_url": "https://gowebly.org"
       },
       "metrics": {
-        "stargazers": 1214,
+        "stargazers": 1215,
         "forks": 47,
-        "open_issues": 6,
-        "good_first_issues": 0
+        "open_issues": 5,
+        "good_first_issues": 4
       },
       "activity": {
-        "last_committed_at": "2026-04-18T09:31:27Z",
+        "last_committed_at": "2026-04-18T09:29:32Z",
         "last_pushed_at": "2026-04-18T09:31:27Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "alpinejs",
-        "bootstrap",
         "cli",
-        "css",
         "go",
-        "go-cli",
-        "go-web-application",
         "golang",
         "golang-application",
-        "golang-cli",
-        "golang-tools",
-        "gowebly",
         "htmx",
-        "htmx-template",
         "tailwindcss",
-        "templ",
-        "unocss",
+        "webapp",
+        "css",
+        "golang-tools",
+        "htmx-template",
+        "go-cli",
+        "go-web-application",
+        "golang-cli",
+        "gowebly",
         "web-application",
         "web-development",
-        "webapp"
+        "bootstrap",
+        "alpinejs",
+        "unocss",
+        "templ"
       ]
     },
     {
@@ -20170,33 +20170,33 @@
       ]
     },
     {
-      "id": "218876111",
+      "id": "MDEwOlJlcG9zaXRvcnkyMTg4NzYxMTE=",
       "meta": {
         "name": "owenthereal/upterm",
         "owner": "owenthereal",
         "description": "Instant Terminal Sharing",
         "license": "Apache-2.0",
         "primary_language": "Go",
-        "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "owner_location": "Vancouver, BC",
+        "detected_country": "Canada 🇨🇦",
+        "homepage_url": "https://upterm.dev"
       },
       "metrics": {
         "stargazers": 1253,
         "forks": 80,
-        "open_issues": 50,
+        "open_issues": 43,
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-06T18:53:01Z",
-        "last_pushed_at": "2026-07-06T18:53:01Z",
+        "last_committed_at": "2026-07-13T04:33:24Z",
+        "last_pushed_at": "2026-07-13T04:34:59Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "golang",
+        "terminal",
         "sharing",
         "ssh",
-        "terminal",
+        "golang",
         "tools",
         "upterm"
       ]
@@ -20406,7 +20406,7 @@
         "homepage_url": "https://gorse.io"
       },
       "metrics": {
-        "stargazers": 9751,
+        "stargazers": 9752,
         "forks": 909,
         "open_issues": 100,
         "good_first_issues": 1
@@ -21284,8 +21284,8 @@
         "homepage_url": "https://dioxuslabs.com"
       },
       "metrics": {
-        "stargazers": 36694,
-        "forks": 1719,
+        "stargazers": 36695,
+        "forks": 1718,
         "open_issues": 628,
         "good_first_issues": 11
       },
@@ -21311,7 +21311,7 @@
       ]
     },
     {
-      "id": "114466145",
+      "id": "MDEwOlJlcG9zaXRvcnkxMTQ0NjYxNDU=",
       "meta": {
         "name": "yewstack/yew",
         "owner": "yewstack",
@@ -21319,34 +21319,34 @@
         "license": "Apache-2.0",
         "primary_language": "Rust",
         "owner_location": null,
-        "detected_country": null,
-        "homepage_url": null
+        "detected_country": "Global 🌐",
+        "homepage_url": "https://yew.rs"
       },
       "metrics": {
-        "stargazers": 32720,
+        "stargazers": 32721,
         "forks": 1455,
-        "open_issues": 119,
+        "open_issues": 81,
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-10T03:20:24Z",
+        "last_committed_at": "2026-06-17T11:02:01Z",
         "last_pushed_at": "2026-07-10T03:20:24Z",
         "funny_labels": []
       },
       "search_keywords": [
-        "asmjs",
-        "concurrency",
-        "elm",
-        "emscripten",
-        "gui",
-        "hacktoberfest",
-        "jsx",
-        "multithreading",
         "rust",
-        "wasm",
         "web",
+        "gui",
+        "jsx",
+        "elm",
         "web-framework",
-        "webworkers"
+        "wasm",
+        "asmjs",
+        "emscripten",
+        "concurrency",
+        "multithreading",
+        "webworkers",
+        "hacktoberfest"
       ]
     },
     {
@@ -21362,14 +21362,14 @@
         "homepage_url": "https://biomejs.dev"
       },
       "metrics": {
-        "stargazers": 25400,
+        "stargazers": 25401,
         "forks": 1206,
         "open_issues": 388,
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-13T04:06:04Z",
-        "last_pushed_at": "2026-07-13T04:09:19Z",
+        "last_committed_at": "2026-07-13T04:33:07Z",
+        "last_pushed_at": "2026-07-13T04:36:34Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -22375,8 +22375,8 @@
         "homepage_url": "https://dbxio.com"
       },
       "metrics": {
-        "stargazers": 9828,
-        "forks": 978,
+        "stargazers": 9836,
+        "forks": 979,
         "open_issues": 779,
         "good_first_issues": 2
       },
@@ -22534,8 +22534,8 @@
         "good_first_issues": 24
       },
       "activity": {
-        "last_committed_at": "2026-07-13T02:46:33Z",
-        "last_pushed_at": "2026-07-13T03:56:59Z",
+        "last_committed_at": "2026-07-13T03:56:34Z",
+        "last_pushed_at": "2026-07-13T04:28:45Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -23140,7 +23140,7 @@
         "homepage_url": "https://APILayer.com/?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo"
       },
       "metrics": {
-        "stargazers": 449445,
+        "stargazers": 449451,
         "forks": 49392,
         "open_issues": 19,
         "good_first_issues": 1
@@ -23179,7 +23179,7 @@
         "homepage_url": null
       },
       "metrics": {
-        "stargazers": 273059,
+        "stargazers": 273061,
         "forks": 35229,
         "open_issues": 150,
         "good_first_issues": 9
@@ -23253,14 +23253,14 @@
         "homepage_url": "https://hermes-agent.nousresearch.com"
       },
       "metrics": {
-        "stargazers": 213824,
-        "forks": 39648,
-        "open_issues": 8734,
+        "stargazers": 213830,
+        "forks": 39650,
+        "open_issues": 8735,
         "good_first_issues": 0
       },
       "activity": {
         "last_committed_at": "2026-07-13T03:17:50Z",
-        "last_pushed_at": "2026-07-13T03:54:30Z",
+        "last_pushed_at": "2026-07-13T04:28:46Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -23295,7 +23295,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 165184,
+        "stargazers": 165187,
         "forks": 11786,
         "open_issues": 377,
         "good_first_issues": 3
@@ -23360,8 +23360,8 @@
         "homepage_url": "https://github.github.com/spec-kit/"
       },
       "metrics": {
-        "stargazers": 120060,
-        "forks": 10657,
+        "stargazers": 120066,
+        "forks": 10658,
         "open_issues": 210,
         "good_first_issues": 1
       },
@@ -23393,7 +23393,7 @@
         "homepage_url": "https://www.theunwindai.com"
       },
       "metrics": {
-        "stargazers": 118756,
+        "stargazers": 118771,
         "forks": 17653,
         "open_issues": 1,
         "good_first_issues": 0
@@ -23423,8 +23423,8 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 104826,
-        "forks": 12771,
+        "stargazers": 104827,
+        "forks": 12772,
         "open_issues": 0,
         "good_first_issues": 0
       },
@@ -23448,7 +23448,7 @@
         "homepage_url": "https://www.uupm.cc/"
       },
       "metrics": {
-        "stargazers": 104819,
+        "stargazers": 104821,
         "forks": 11105,
         "open_issues": 60,
         "good_first_issues": 1
@@ -23494,7 +23494,7 @@
       },
       "metrics": {
         "stargazers": 104441,
-        "forks": 11509,
+        "forks": 11510,
         "open_issues": 80,
         "good_first_issues": 0
       },
@@ -23551,8 +23551,8 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 96982,
-        "forks": 14321,
+        "stargazers": 96984,
+        "forks": 14322,
         "open_issues": 29,
         "good_first_issues": 0
       },
@@ -23584,7 +23584,7 @@
         "homepage_url": "https://arxiv.org/pdf/2412.20138"
       },
       "metrics": {
-        "stargazers": 92648,
+        "stargazers": 92651,
         "forks": 17921,
         "open_issues": 147,
         "good_first_issues": 0
@@ -23615,14 +23615,14 @@
         "homepage_url": "https://www.home-assistant.io"
       },
       "metrics": {
-        "stargazers": 89147,
-        "forks": 38089,
-        "open_issues": 2510,
+        "stargazers": 89156,
+        "forks": 38088,
+        "open_issues": 2511,
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-12T22:51:27Z",
-        "last_pushed_at": "2026-07-12T22:51:27Z",
+        "last_committed_at": "2026-07-13T04:30:33Z",
+        "last_pushed_at": "2026-07-13T04:30:33Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -23649,7 +23649,7 @@
         "homepage_url": null
       },
       "metrics": {
-        "stargazers": 88400,
+        "stargazers": 88402,
         "forks": 7372,
         "open_issues": 468,
         "good_first_issues": 1
@@ -23679,14 +23679,14 @@
         "homepage_url": "https://vllm.ai"
       },
       "metrics": {
-        "stargazers": 86090,
+        "stargazers": 86091,
         "forks": 19326,
         "open_issues": 1975,
         "good_first_issues": 46
       },
       "activity": {
-        "last_committed_at": "2026-07-13T03:59:20Z",
-        "last_pushed_at": "2026-07-13T03:59:21Z",
+        "last_committed_at": "2026-07-13T04:37:23Z",
+        "last_pushed_at": "2026-07-13T04:37:23Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -23725,7 +23725,7 @@
         "homepage_url": "https://www.paddleocr.com"
       },
       "metrics": {
-        "stargazers": 85324,
+        "stargazers": 85326,
         "forks": 11010,
         "open_issues": 158,
         "good_first_issues": 0
@@ -23764,8 +23764,8 @@
         "homepage_url": "https://www.graphify.com"
       },
       "metrics": {
-        "stargazers": 83426,
-        "forks": 8231,
+        "stargazers": 83446,
+        "forks": 8232,
         "open_issues": 219,
         "good_first_issues": 0
       },
@@ -23883,7 +23883,7 @@
         "homepage_url": "https://deerflow.tech"
       },
       "metrics": {
-        "stargazers": 76867,
+        "stargazers": 76868,
         "forks": 10447,
         "open_issues": 580,
         "good_first_issues": 13
@@ -23952,7 +23952,7 @@
         "homepage_url": "https://llamafactory.readthedocs.io"
       },
       "metrics": {
-        "stargazers": 73210,
+        "stargazers": 73211,
         "forks": 8947,
         "open_issues": 978,
         "good_first_issues": 3
@@ -23998,8 +23998,8 @@
         "homepage_url": "https://crawl4ai.com"
       },
       "metrics": {
-        "stargazers": 72474,
-        "forks": 7428,
+        "stargazers": 72475,
+        "forks": 7430,
         "open_issues": 20,
         "good_first_issues": 0
       },
@@ -24023,7 +24023,7 @@
         "homepage_url": "https://learn.shareai.run"
       },
       "metrics": {
-        "stargazers": 70790,
+        "stargazers": 70793,
         "forks": 11525,
         "open_issues": 30,
         "good_first_issues": 1
@@ -24059,7 +24059,7 @@
         "homepage_url": "https://atoms.dev/"
       },
       "metrics": {
-        "stargazers": 69331,
+        "stargazers": 69330,
         "forks": 8840,
         "open_issues": 22,
         "good_first_issues": 0
@@ -24090,14 +24090,14 @@
         "homepage_url": "https://unsloth.ai/docs"
       },
       "metrics": {
-        "stargazers": 68070,
+        "stargazers": 68071,
         "forks": 6127,
         "open_issues": 799,
         "good_first_issues": 33
       },
       "activity": {
-        "last_committed_at": "2026-07-13T01:19:33Z",
-        "last_pushed_at": "2026-07-13T04:10:42Z",
+        "last_committed_at": "2026-07-13T04:23:14Z",
+        "last_pushed_at": "2026-07-13T04:35:33Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -24136,7 +24136,7 @@
       },
       "metrics": {
         "stargazers": 63090,
-        "forks": 11155,
+        "forks": 11156,
         "open_issues": 86,
         "good_first_issues": 1
       },
@@ -24164,7 +24164,7 @@
         "homepage_url": "https://docling-project.github.io/docling"
       },
       "metrics": {
-        "stargazers": 63046,
+        "stargazers": 63047,
         "forks": 4446,
         "open_issues": 872,
         "good_first_issues": 13
@@ -24205,8 +24205,8 @@
         "homepage_url": null
       },
       "metrics": {
-        "stargazers": 61464,
-        "forks": 10867,
+        "stargazers": 61468,
+        "forks": 10868,
         "open_issues": 47,
         "good_first_issues": 0
       },
@@ -24230,7 +24230,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 61102,
+        "stargazers": 61103,
         "forks": 10511,
         "open_issues": 247,
         "good_first_issues": 0
@@ -24287,14 +24287,14 @@
         "homepage_url": "https://headroom-docs.vercel.app/docs"
       },
       "metrics": {
-        "stargazers": 58784,
-        "forks": 4350,
+        "stargazers": 58789,
+        "forks": 4349,
         "open_issues": 270,
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-12T23:46:13Z",
-        "last_pushed_at": "2026-07-13T03:46:00Z",
+        "last_committed_at": "2026-07-13T04:35:09Z",
+        "last_pushed_at": "2026-07-13T04:35:09Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -24340,7 +24340,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-06T09:20:32Z",
-        "last_pushed_at": "2026-07-10T12:11:19Z",
+        "last_pushed_at": "2026-07-13T04:16:50Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -24387,7 +24387,7 @@
         "homepage_url": "http://mempalaceofficial.com/"
       },
       "metrics": {
-        "stargazers": 57267,
+        "stargazers": 57268,
         "forks": 7394,
         "open_issues": 273,
         "good_first_issues": 0
@@ -24419,8 +24419,8 @@
         "homepage_url": "https://dsa.zhulinsen.tech"
       },
       "metrics": {
-        "stargazers": 56918,
-        "forks": 48962,
+        "stargazers": 56922,
+        "forks": 48966,
         "open_issues": 48,
         "good_first_issues": 0
       },
@@ -24452,7 +24452,7 @@
         "homepage_url": "https://rich.readthedocs.io/en/latest/"
       },
       "metrics": {
-        "stargazers": 56849,
+        "stargazers": 56848,
         "forks": 2231,
         "open_issues": 225,
         "good_first_issues": 0
@@ -24544,7 +24544,7 @@
         "homepage_url": "https://crewai.com"
       },
       "metrics": {
-        "stargazers": 55399,
+        "stargazers": 55401,
         "forks": 7815,
         "open_issues": 88,
         "good_first_issues": 0
@@ -24611,7 +24611,7 @@
         "homepage_url": "https://awesome-go.com"
       },
       "metrics": {
-        "stargazers": 177996,
+        "stargazers": 177997,
         "forks": 13415,
         "open_issues": 16,
         "good_first_issues": 1
@@ -24643,7 +24643,7 @@
         "homepage_url": "https://ollama.com"
       },
       "metrics": {
-        "stargazers": 176007,
+        "stargazers": 176008,
         "forks": 16957,
         "open_issues": 2315,
         "good_first_issues": 4
@@ -24714,7 +24714,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 107967,
+        "stargazers": 107966,
         "forks": 15123,
         "open_issues": 44,
         "good_first_issues": 0
@@ -24783,9 +24783,9 @@
         "homepage_url": "https://ragflow.io"
       },
       "metrics": {
-        "stargazers": 84899,
+        "stargazers": 84900,
         "forks": 9911,
-        "open_issues": 1974,
+        "open_issues": 1975,
         "good_first_issues": 0
       },
       "activity": {
@@ -24953,7 +24953,7 @@
         "homepage_url": "https://traefik.io"
       },
       "metrics": {
-        "stargazers": 63967,
+        "stargazers": 63966,
         "forks": 6076,
         "open_issues": 683,
         "good_first_issues": 0
@@ -24993,7 +24993,7 @@
         "homepage_url": "https://usememos.com"
       },
       "metrics": {
-        "stargazers": 61500,
+        "stargazers": 61501,
         "forks": 4555,
         "open_issues": 9,
         "good_first_issues": 0
@@ -25032,7 +25032,7 @@
         "homepage_url": "https://pocketbase.io"
       },
       "metrics": {
-        "stargazers": 59557,
+        "stargazers": 59559,
         "forks": 3503,
         "open_issues": 18,
         "good_first_issues": 0
@@ -25115,7 +25115,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-12T17:14:09Z",
-        "last_pushed_at": "2026-07-13T03:50:32Z",
+        "last_pushed_at": "2026-07-13T04:31:20Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -25216,7 +25216,7 @@
         "homepage_url": "https://localai.io"
       },
       "metrics": {
-        "stargazers": 47511,
+        "stargazers": 47512,
         "forks": 4230,
         "open_issues": 132,
         "good_first_issues": 0
@@ -25299,7 +25299,7 @@
       "metrics": {
         "stargazers": 45204,
         "forks": 4119,
-        "open_issues": 766,
+        "open_issues": 767,
         "good_first_issues": 40
       },
       "activity": {
@@ -25341,7 +25341,7 @@
         "homepage_url": "https://danielmiessler.com/p/fabric-origin-story"
       },
       "metrics": {
-        "stargazers": 43027,
+        "stargazers": 43028,
         "forks": 4202,
         "open_issues": 35,
         "good_first_issues": 0
@@ -25372,8 +25372,8 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 40988,
-        "forks": 6654,
+        "stargazers": 41005,
+        "forks": 6655,
         "open_issues": 54,
         "good_first_issues": 0
       },
@@ -25593,8 +25593,8 @@
         "homepage_url": "https://casaos.zimaspace.com"
       },
       "metrics": {
-        "stargazers": 36521,
-        "forks": 2118,
+        "stargazers": 36524,
+        "forks": 2119,
         "open_issues": 806,
         "good_first_issues": 2
       },
@@ -25877,7 +25877,7 @@
         "homepage_url": "https://seaweedfs.com"
       },
       "metrics": {
-        "stargazers": 33457,
+        "stargazers": 33458,
         "forks": 2902,
         "open_issues": 664,
         "good_first_issues": 2
@@ -25920,7 +25920,7 @@
         "homepage_url": "https://podman.io"
       },
       "metrics": {
-        "stargazers": 32279,
+        "stargazers": 32278,
         "forks": 3191,
         "open_issues": 941,
         "good_first_issues": 36
@@ -25983,7 +25983,7 @@
         "homepage_url": "https://ntfy.sh"
       },
       "metrics": {
-        "stargazers": 31786,
+        "stargazers": 31787,
         "forks": 1397,
         "open_issues": 303,
         "good_first_issues": 0
@@ -26016,7 +26016,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 31502,
+        "stargazers": 31501,
         "forks": 3312,
         "open_issues": 529,
         "good_first_issues": 5
@@ -26213,7 +26213,7 @@
         "homepage_url": "https://docs.projectdiscovery.io/tools/nuclei"
       },
       "metrics": {
-        "stargazers": 29765,
+        "stargazers": 29766,
         "forks": 3719,
         "open_issues": 79,
         "good_first_issues": 0
@@ -26397,7 +26397,7 @@
       },
       "metrics": {
         "stargazers": 194741,
-        "forks": 109726,
+        "forks": 109725,
         "open_issues": 12,
         "good_first_issues": 0
       },
@@ -26421,7 +26421,7 @@
         "homepage_url": "https://ccswitch.io"
       },
       "metrics": {
-        "stargazers": 116409,
+        "stargazers": 116418,
         "forks": 7805,
         "open_issues": 1402,
         "good_first_issues": 3
@@ -26496,9 +26496,9 @@
         "homepage_url": "https://tauri.app"
       },
       "metrics": {
-        "stargazers": 108979,
+        "stargazers": 108980,
         "forks": 3787,
-        "open_issues": 1292,
+        "open_issues": 1291,
         "good_first_issues": 18
       },
       "activity": {
@@ -26559,9 +26559,9 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 97445,
-        "forks": 14519,
-        "open_issues": 8852,
+        "stargazers": 97450,
+        "forks": 14516,
+        "open_issues": 8854,
         "good_first_issues": 0
       },
       "activity": {
@@ -26584,7 +26584,7 @@
         "homepage_url": "https://docs.astral.sh/uv"
       },
       "metrics": {
-        "stargazers": 87383,
+        "stargazers": 87386,
         "forks": 3316,
         "open_issues": 2357,
         "good_first_issues": 62
@@ -26614,8 +26614,8 @@
         "homepage_url": "https://Cognitum.One/RuView"
       },
       "metrics": {
-        "stargazers": 80287,
-        "forks": 10814,
+        "stargazers": 80290,
+        "forks": 10815,
         "open_issues": 48,
         "good_first_issues": 0
       },
@@ -26705,7 +26705,7 @@
         "homepage_url": "https://www.rtk-ai.app"
       },
       "metrics": {
-        "stargazers": 70599,
+        "stargazers": 70606,
         "forks": 4389,
         "open_issues": 781,
         "good_first_issues": 525
@@ -26909,7 +26909,7 @@
         "homepage_url": "https://typst.app"
       },
       "metrics": {
-        "stargazers": 54877,
+        "stargazers": 54878,
         "forks": 1645,
         "open_issues": 1191,
         "good_first_issues": 7
@@ -26940,7 +26940,7 @@
       },
       "metrics": {
         "stargazers": 51128,
-        "forks": 5685,
+        "forks": 5684,
         "open_issues": 199,
         "good_first_issues": 0
       },
@@ -26970,13 +26970,13 @@
       },
       "metrics": {
         "stargazers": 48547,
-        "forks": 2233,
+        "forks": 2234,
         "open_issues": 1676,
         "good_first_issues": 25
       },
       "activity": {
         "last_committed_at": "2026-07-12T16:39:00Z",
-        "last_pushed_at": "2026-07-13T04:10:36Z",
+        "last_pushed_at": "2026-07-13T04:32:09Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -27038,7 +27038,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 43723,
+        "stargazers": 43724,
         "forks": 1091,
         "open_issues": 126,
         "good_first_issues": 11
@@ -27190,7 +27190,7 @@
       },
       "metrics": {
         "stargazers": 40094,
-        "forks": 1889,
+        "forks": 1888,
         "open_issues": 56,
         "good_first_issues": 9
       },
@@ -27263,7 +27263,7 @@
         "homepage_url": "https://codewhale.net/"
       },
       "metrics": {
-        "stargazers": 39722,
+        "stargazers": 39723,
         "forks": 3424,
         "open_issues": 288,
         "good_first_issues": 0
@@ -27360,7 +27360,7 @@
         "homepage_url": "https://agent-browser.dev"
       },
       "metrics": {
-        "stargazers": 38343,
+        "stargazers": 38344,
         "forks": 2480,
         "open_issues": 294,
         "good_first_issues": 0
@@ -27536,7 +27536,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-13T02:52:16Z",
-        "last_pushed_at": "2026-07-13T03:29:57Z",
+        "last_pushed_at": "2026-07-13T04:29:09Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -27646,7 +27646,7 @@
         "homepage_url": "https://tokio.rs"
       },
       "metrics": {
-        "stargazers": 32521,
+        "stargazers": 32522,
         "forks": 3158,
         "open_issues": 325,
         "good_first_issues": 0
@@ -27675,7 +27675,7 @@
         "homepage_url": "https://www.zeroclawlabs.ai/"
       },
       "metrics": {
-        "stargazers": 32239,
+        "stargazers": 32238,
         "forks": 4804,
         "open_issues": 323,
         "good_first_issues": 5
@@ -27738,7 +27738,7 @@
         "homepage_url": "https://dandavison.github.io/delta/"
       },
       "metrics": {
-        "stargazers": 31414,
+        "stargazers": 31415,
         "forks": 547,
         "open_issues": 302,
         "good_first_issues": 1
@@ -27839,7 +27839,7 @@
         "homepage_url": "https://mise.en.dev"
       },
       "metrics": {
-        "stargazers": 30683,
+        "stargazers": 30682,
         "forks": 1269,
         "open_issues": 0,
         "good_first_issues": 0
@@ -27896,7 +27896,7 @@
         "homepage_url": "https://jj-vcs.dev"
       },
       "metrics": {
-        "stargazers": 30294,
+        "stargazers": 30295,
         "forks": 1125,
         "open_issues": 801,
         "good_first_issues": 11
@@ -27921,7 +27921,7 @@
         "homepage_url": "https://rustfs.com/download/"
       },
       "metrics": {
-        "stargazers": 29752,
+        "stargazers": 29753,
         "forks": 1304,
         "open_issues": 48,
         "good_first_issues": 1
@@ -27959,8 +27959,8 @@
         "homepage_url": "https://developers.google.com/workspace"
       },
       "metrics": {
-        "stargazers": 29640,
-        "forks": 1721,
+        "stargazers": 29641,
+        "forks": 1722,
         "open_issues": 111,
         "good_first_issues": 0
       },
@@ -28001,7 +28001,7 @@
         "homepage_url": "https://www.egui.rs/"
       },
       "metrics": {
-        "stargazers": 29623,
+        "stargazers": 29624,
         "forks": 2064,
         "open_issues": 927,
         "good_first_issues": 14
@@ -28285,8 +28285,8 @@
         "homepage_url": "https://handy.computer"
       },
       "metrics": {
-        "stargazers": 26371,
-        "forks": 2277,
+        "stargazers": 26372,
+        "forks": 2276,
         "open_issues": 90,
         "good_first_issues": 0
       },
@@ -28379,7 +28379,7 @@
         "homepage_url": "https://difftastic.wilfred.me.uk/"
       },
       "metrics": {
-        "stargazers": 25630,
+        "stargazers": 25631,
         "forks": 495,
         "open_issues": 247,
         "good_first_issues": 2
@@ -28469,7 +28469,7 @@
         "homepage_url": "https://meetily.ai"
       },
       "metrics": {
-        "stargazers": 23673,
+        "stargazers": 23682,
         "forks": 2490,
         "open_issues": 187,
         "good_first_issues": 0
@@ -28515,7 +28515,7 @@
         "homepage_url": "https://ghostty.org"
       },
       "metrics": {
-        "stargazers": 58057,
+        "stargazers": 58060,
         "forks": 3063,
         "open_issues": 152,
         "good_first_issues": 0
@@ -28624,7 +28624,7 @@
         "homepage_url": "https://native-sdk.dev"
       },
       "metrics": {
-        "stargazers": 5979,
+        "stargazers": 5989,
         "forks": 244,
         "open_issues": 28,
         "good_first_issues": 0
@@ -28682,7 +28682,7 @@
         "homepage_url": "https://zml.ai"
       },
       "metrics": {
-        "stargazers": 3853,
+        "stargazers": 3854,
         "forks": 168,
         "open_issues": 20,
         "good_first_issues": 0
@@ -28852,7 +28852,7 @@
         "homepage_url": "https://flow-control.dev"
       },
       "metrics": {
-        "stargazers": 2102,
+        "stargazers": 2103,
         "forks": 113,
         "open_issues": 67,
         "good_first_issues": 4
@@ -31796,7 +31796,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-13T04:09:56Z",
-        "last_pushed_at": "2026-07-13T04:10:06Z",
+        "last_pushed_at": "2026-07-13T04:16:43Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -31857,7 +31857,7 @@
         "homepage_url": "https://electronjs.org"
       },
       "metrics": {
-        "stargazers": 121984,
+        "stargazers": 121985,
         "forks": 17298,
         "open_issues": 750,
         "good_first_issues": 0
@@ -31892,8 +31892,8 @@
         "homepage_url": "https://llama.app"
       },
       "metrics": {
-        "stargazers": 120185,
-        "forks": 20520,
+        "stargazers": 120187,
+        "forks": 20517,
         "open_issues": 665,
         "good_first_issues": 38
       },
@@ -31919,7 +31919,7 @@
         "homepage_url": "https://godotengine.org"
       },
       "metrics": {
-        "stargazers": 114011,
+        "stargazers": 114012,
         "forks": 25979,
         "open_issues": 13394,
         "good_first_issues": 6
@@ -32079,7 +32079,7 @@
         "homepage_url": "https://tesseract-ocr.github.io/"
       },
       "metrics": {
-        "stargazers": 75275,
+        "stargazers": 75276,
         "forks": 10690,
         "open_issues": 433,
         "good_first_issues": 7
@@ -32230,14 +32230,14 @@
         "homepage_url": "https://clickhouse.com"
       },
       "metrics": {
-        "stargazers": 48604,
+        "stargazers": 48605,
         "forks": 8642,
         "open_issues": 4762,
         "good_first_issues": 54
       },
       "activity": {
-        "last_committed_at": "2026-07-13T03:55:48Z",
-        "last_pushed_at": "2026-07-13T04:12:09Z",
+        "last_committed_at": "2026-07-13T03:56:21Z",
+        "last_pushed_at": "2026-07-13T04:35:26Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -32273,14 +32273,14 @@
         "homepage_url": "https://grpc.io"
       },
       "metrics": {
-        "stargazers": 45207,
+        "stargazers": 45206,
         "forks": 11329,
         "open_issues": 683,
         "good_first_issues": 0
       },
       "activity": {
         "last_committed_at": "2026-07-12T00:56:26Z",
-        "last_pushed_at": "2026-07-12T08:00:21Z",
+        "last_pushed_at": "2026-07-13T04:36:52Z",
         "funny_labels": []
       },
       "search_keywords": []
@@ -32354,8 +32354,8 @@
         "homepage_url": "https://ai.google.dev/edge/mediapipe"
       },
       "metrics": {
-        "stargazers": 36082,
-        "forks": 6055,
+        "stargazers": 36083,
+        "forks": 6056,
         "open_issues": 381,
         "good_first_issues": 0
       },
@@ -32439,7 +32439,7 @@
         "homepage_url": null
       },
       "metrics": {
-        "stargazers": 33455,
+        "stargazers": 33456,
         "forks": 1075,
         "open_issues": 445,
         "good_first_issues": 3
@@ -32464,7 +32464,7 @@
         "homepage_url": "https://wsl.dev/"
       },
       "metrics": {
-        "stargazers": 33077,
+        "stargazers": 33078,
         "forks": 1777,
         "open_issues": 893,
         "good_first_issues": 0
@@ -32655,7 +32655,7 @@
         "homepage_url": "https://xgboost.readthedocs.io/"
       },
       "metrics": {
-        "stargazers": 28557,
+        "stargazers": 28558,
         "forks": 8878,
         "open_issues": 400,
         "good_first_issues": 3
@@ -33109,8 +33109,8 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 145567,
-        "forks": 13434,
+        "stargazers": 145570,
+        "forks": 13435,
         "open_issues": 2766,
         "good_first_issues": 1
       },
@@ -33150,7 +33150,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-11T23:23:09Z",
-        "last_pushed_at": "2026-07-13T04:01:53Z",
+        "last_pushed_at": "2026-07-13T04:38:40Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -33181,7 +33181,7 @@
         "homepage_url": "https://deusdata.github.io/codebase-memory-mcp/"
       },
       "metrics": {
-        "stargazers": 30695,
+        "stargazers": 30703,
         "forks": 2453,
         "open_issues": 167,
         "good_first_issues": 0
@@ -33381,7 +33381,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 23690,
+        "stargazers": 23691,
         "forks": 829,
         "open_issues": 43,
         "good_first_issues": 4
@@ -33670,7 +33670,7 @@
         "homepage_url": "https://docs.zephyrproject.org"
       },
       "metrics": {
-        "stargazers": 15880,
+        "stargazers": 15881,
         "forks": 9553,
         "open_issues": 2201,
         "good_first_issues": 11
@@ -33709,7 +33709,7 @@
       },
       "metrics": {
         "stargazers": 15377,
-        "forks": 1750,
+        "forks": 1751,
         "open_issues": 262,
         "good_first_issues": 0
       },
@@ -33819,7 +33819,7 @@
         "homepage_url": "https://postgrest.org"
       },
       "metrics": {
-        "stargazers": 27433,
+        "stargazers": 27434,
         "forks": 1216,
         "open_issues": 333,
         "good_first_issues": 1
@@ -34056,7 +34056,7 @@
         "homepage_url": "https://cardano.org"
       },
       "metrics": {
-        "stargazers": 3184,
+        "stargazers": 3183,
         "forks": 757,
         "open_issues": 53,
         "good_first_issues": 0
@@ -35377,7 +35377,7 @@
         "homepage_url": "http://day8.github.io/re-frame/"
       },
       "metrics": {
-        "stargazers": 5541,
+        "stargazers": 5542,
         "forks": 711,
         "open_issues": 18,
         "good_first_issues": 0
@@ -35934,7 +35934,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-13T01:21:37Z",
-        "last_pushed_at": "2026-07-13T03:22:23Z",
+        "last_pushed_at": "2026-07-13T04:24:43Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -35980,7 +35980,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-12T23:06:38Z",
-        "last_pushed_at": "2026-07-13T03:47:13Z",
+        "last_pushed_at": "2026-07-13T04:32:22Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -37745,7 +37745,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-11T18:37:30Z",
-        "last_pushed_at": "2026-07-13T01:32:11Z",
+        "last_pushed_at": "2026-07-13T04:38:47Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -38564,8 +38564,8 @@
         "good_first_issues": 1
       },
       "activity": {
-        "last_committed_at": "2026-07-13T04:10:07Z",
-        "last_pushed_at": "2026-07-13T04:10:09Z",
+        "last_committed_at": "2026-07-13T04:38:31Z",
+        "last_pushed_at": "2026-07-13T04:38:32Z",
         "funny_labels": []
       },
       "search_keywords": []
@@ -38655,7 +38655,7 @@
       },
       "activity": {
         "last_committed_at": "2026-07-13T03:50:09Z",
-        "last_pushed_at": "2026-07-13T03:50:12Z",
+        "last_pushed_at": "2026-07-13T04:18:29Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -38990,8 +38990,8 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 253164,
-        "forks": 22612,
+        "stargazers": 253176,
+        "forks": 22613,
         "open_issues": 152,
         "good_first_issues": 0
       },
@@ -39065,8 +39065,8 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 167112,
-        "forks": 14401,
+        "stargazers": 167130,
+        "forks": 14402,
         "open_issues": 145,
         "good_first_issues": 0
       },
@@ -39090,8 +39090,8 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 130853,
-        "forks": 21472,
+        "stargazers": 130864,
+        "forks": 21473,
         "open_issues": 48,
         "good_first_issues": 0
       },
@@ -39633,7 +39633,7 @@
       },
       "metrics": {
         "stargazers": 22909,
-        "forks": 3287,
+        "forks": 3288,
         "open_issues": 34,
         "good_first_issues": 0
       },
@@ -39671,7 +39671,7 @@
       },
       "metrics": {
         "stargazers": 21790,
-        "forks": 28808,
+        "forks": 28810,
         "open_issues": 1,
         "good_first_issues": 0
       },
@@ -39830,7 +39830,7 @@
       "metrics": {
         "stargazers": 18564,
         "forks": 2026,
-        "open_issues": 99,
+        "open_issues": 98,
         "good_first_issues": 0
       },
       "activity": {
@@ -39928,7 +39928,7 @@
         "homepage_url": "https://ao.aiolaola.com/experts"
       },
       "metrics": {
-        "stargazers": 17186,
+        "stargazers": 17187,
         "forks": 2923,
         "open_issues": 1,
         "good_first_issues": 0
@@ -40284,7 +40284,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 14194,
+        "stargazers": 14195,
         "forks": 1127,
         "open_issues": 3,
         "good_first_issues": 0
@@ -40327,7 +40327,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 14052,
+        "stargazers": 14053,
         "forks": 1571,
         "open_issues": 10,
         "good_first_issues": 0
@@ -40550,7 +40550,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 11357,
+        "stargazers": 11356,
         "forks": 805,
         "open_issues": 0,
         "good_first_issues": 0
@@ -40755,7 +40755,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 18035,
+        "stargazers": 18036,
         "forks": 833,
         "open_issues": 25,
         "good_first_issues": 0
@@ -41286,7 +41286,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 6856,
+        "stargazers": 6857,
         "forks": 211,
         "open_issues": 5,
         "good_first_issues": 0
@@ -41294,9 +41294,7 @@
       "activity": {
         "last_committed_at": "2025-10-31T13:56:51Z",
         "last_pushed_at": "2025-10-31T14:02:34Z",
-        "funny_labels": [
-          "wontfix"
-        ]
+        "funny_labels": []
       },
       "search_keywords": [
         "neovim",
@@ -41553,7 +41551,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 5534,
+        "stargazers": 5535,
         "forks": 290,
         "open_issues": 157,
         "good_first_issues": 6
@@ -42374,14 +42372,14 @@
         "homepage_url": "https://code.visualstudio.com"
       },
       "metrics": {
-        "stargazers": 187481,
+        "stargazers": 187482,
         "forks": 41251,
-        "open_issues": 16960,
+        "open_issues": 16958,
         "good_first_issues": 497
       },
       "activity": {
-        "last_committed_at": "2026-07-13T00:29:03Z",
-        "last_pushed_at": "2026-07-13T03:35:26Z",
+        "last_committed_at": "2026-07-13T04:23:53Z",
+        "last_pushed_at": "2026-07-13T04:23:55Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -42405,14 +42403,14 @@
         "homepage_url": "https://opencode.ai"
       },
       "metrics": {
-        "stargazers": 185152,
-        "forks": 23117,
+        "stargazers": 185160,
+        "forks": 23116,
         "open_issues": 3586,
         "good_first_issues": 0
       },
       "activity": {
         "last_committed_at": "2026-07-12T21:13:21Z",
-        "last_pushed_at": "2026-07-13T03:57:57Z",
+        "last_pushed_at": "2026-07-13T04:40:13Z",
         "funny_labels": []
       },
       "search_keywords": []
@@ -42425,12 +42423,12 @@
         "description": "Curated coding interview preparation materials for busy software engineers",
         "license": "MIT",
         "primary_language": "TypeScript",
-        "owner_location": "Singapore",
-        "detected_country": "Singapore 🇸🇬",
+        "owner_location": null,
+        "detected_country": "Global 🌐",
         "homepage_url": "https://www.techinterviewhandbook.org"
       },
       "metrics": {
-        "stargazers": 140797,
+        "stargazers": 140798,
         "forks": 16675,
         "open_issues": 42,
         "good_first_issues": 0
@@ -42466,7 +42464,7 @@
         "homepage_url": "https://excalidraw.com"
       },
       "metrics": {
-        "stargazers": 127321,
+        "stargazers": 127322,
         "forks": 14364,
         "open_issues": 2218,
         "good_first_issues": 37
@@ -42499,9 +42497,9 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 121506,
-        "forks": 18185,
-        "open_issues": 336,
+        "stargazers": 121508,
+        "forks": 18184,
+        "open_issues": 337,
         "good_first_issues": 0
       },
       "activity": {
@@ -42524,7 +42522,7 @@
         "homepage_url": "https://ui.shadcn.com"
       },
       "metrics": {
-        "stargazers": 118948,
+        "stargazers": 118949,
         "forks": 9489,
         "open_issues": 1016,
         "good_first_issues": 0
@@ -42561,7 +42559,7 @@
         "homepage_url": "https://www.typescriptlang.org"
       },
       "metrics": {
-        "stargazers": 109877,
+        "stargazers": 109878,
         "forks": 13650,
         "open_issues": 5028,
         "good_first_issues": 910
@@ -42591,14 +42589,14 @@
         "homepage_url": "https://supabase.com"
       },
       "metrics": {
-        "stargazers": 106267,
+        "stargazers": 106265,
         "forks": 13212,
         "open_issues": 240,
         "good_first_issues": 3
       },
       "activity": {
         "last_committed_at": "2026-07-12T23:19:21Z",
-        "last_pushed_at": "2026-07-13T03:17:21Z",
+        "last_pushed_at": "2026-07-13T04:17:58Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -42770,7 +42768,7 @@
         "homepage_url": "https://playwright.dev"
       },
       "metrics": {
-        "stargazers": 92701,
+        "stargazers": 92703,
         "forks": 6083,
         "open_issues": 146,
         "good_first_issues": 0
@@ -42891,8 +42889,8 @@
         "homepage_url": "https://nextchat.club"
       },
       "metrics": {
-        "stargazers": 88454,
-        "forks": 59457,
+        "stargazers": 88453,
+        "forks": 59455,
         "open_issues": 706,
         "good_first_issues": 23
       },
@@ -43011,8 +43009,8 @@
         "homepage_url": "https://coder.com"
       },
       "metrics": {
-        "stargazers": 78379,
-        "forks": 6748,
+        "stargazers": 78380,
+        "forks": 6749,
         "open_issues": 143,
         "good_first_issues": 0
       },
@@ -43044,14 +43042,14 @@
         "homepage_url": "https://open-design.ai"
       },
       "metrics": {
-        "stargazers": 77617,
+        "stargazers": 77618,
         "forks": 8887,
-        "open_issues": 448,
+        "open_issues": 446,
         "good_first_issues": 171
       },
       "activity": {
-        "last_committed_at": "2026-07-13T03:49:33Z",
-        "last_pushed_at": "2026-07-13T04:12:13Z",
+        "last_committed_at": "2026-07-13T04:17:24Z",
+        "last_pushed_at": "2026-07-13T04:40:16Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -43130,7 +43128,7 @@
       },
       "metrics": {
         "stargazers": 73796,
-        "forks": 17875,
+        "forks": 17877,
         "open_issues": 281,
         "good_first_issues": 7
       },
@@ -43173,14 +43171,14 @@
         "homepage_url": "https://understand-anything.com/"
       },
       "metrics": {
-        "stargazers": 73652,
+        "stargazers": 73656,
         "forks": 6138,
         "open_issues": 88,
         "good_first_issues": 1
       },
       "activity": {
-        "last_committed_at": "2026-07-12T14:20:22Z",
-        "last_pushed_at": "2026-07-12T14:20:23Z",
+        "last_committed_at": "2026-07-13T04:28:34Z",
+        "last_pushed_at": "2026-07-13T04:28:34Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -43216,7 +43214,7 @@
         "homepage_url": "https://paperclip.ing"
       },
       "metrics": {
-        "stargazers": 73474,
+        "stargazers": 73477,
         "forks": 13693,
         "open_issues": 2083,
         "good_first_issues": 1
@@ -43272,7 +43270,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 70040,
+        "stargazers": 70050,
         "forks": 8633,
         "open_issues": 56,
         "good_first_issues": 0
@@ -43364,7 +43362,7 @@
         "homepage_url": "https://cline.bot"
       },
       "metrics": {
-        "stargazers": 64582,
+        "stargazers": 64581,
         "forks": 6902,
         "open_issues": 624,
         "good_first_issues": 7
@@ -43389,8 +43387,8 @@
         "homepage_url": "https://Cognitum.One"
       },
       "metrics": {
-        "stargazers": 64204,
-        "forks": 7600,
+        "stargazers": 64205,
+        "forks": 7601,
         "open_issues": 520,
         "good_first_issues": 2
       },
@@ -43435,8 +43433,8 @@
         "homepage_url": "https://opencut.app"
       },
       "metrics": {
-        "stargazers": 63859,
-        "forks": 6848,
+        "stargazers": 63879,
+        "forks": 6849,
         "open_issues": 228,
         "good_first_issues": 1
       },
@@ -43560,7 +43558,7 @@
         "homepage_url": "https://mem0.ai"
       },
       "metrics": {
-        "stargazers": 60685,
+        "stargazers": 60687,
         "forks": 7066,
         "open_issues": 168,
         "good_first_issues": 1
@@ -43600,7 +43598,7 @@
         "homepage_url": "https://openspec.dev/"
       },
       "metrics": {
-        "stargazers": 60384,
+        "stargazers": 60387,
         "forks": 4193,
         "open_issues": 313,
         "good_first_issues": 0
@@ -43636,7 +43634,7 @@
         "homepage_url": "https://colbymchenry.github.io/codegraph/"
       },
       "metrics": {
-        "stargazers": 59488,
+        "stargazers": 59490,
         "forks": 3703,
         "open_issues": 82,
         "good_first_issues": 0
@@ -43661,7 +43659,7 @@
         "homepage_url": "https://context7.com"
       },
       "metrics": {
-        "stargazers": 58997,
+        "stargazers": 58999,
         "forks": 2777,
         "open_issues": 23,
         "good_first_issues": 1
@@ -43858,7 +43856,7 @@
         "homepage_url": "https://lyswhut.github.io/lx-music-doc/"
       },
       "metrics": {
-        "stargazers": 52094,
+        "stargazers": 52096,
         "forks": 6902,
         "open_issues": 1205,
         "good_first_issues": 0
@@ -44036,7 +44034,7 @@
         "homepage_url": "https://tsch.js.org/"
       },
       "metrics": {
-        "stargazers": 48314,
+        "stargazers": 48313,
         "forks": 5271,
         "open_issues": 33193,
         "good_first_issues": 3
@@ -44066,7 +44064,7 @@
         "homepage_url": "http://pixijs.com"
       },
       "metrics": {
-        "stargazers": 47757,
+        "stargazers": 47756,
         "forks": 5042,
         "open_issues": 294,
         "good_first_issues": 1
@@ -44215,7 +44213,7 @@
         "homepage_url": "https://npmjs.org/package/chrome-devtools-mcp"
       },
       "metrics": {
-        "stargazers": 46783,
+        "stargazers": 46784,
         "forks": 3203,
         "open_issues": 67,
         "good_first_issues": 0
@@ -44504,7 +44502,7 @@
         "homepage_url": "https://react.dev"
       },
       "metrics": {
-        "stargazers": 246459,
+        "stargazers": 246458,
         "forks": 51204,
         "open_issues": 790,
         "good_first_issues": 1
@@ -44536,7 +44534,7 @@
         "homepage_url": "https://ecc.tools"
       },
       "metrics": {
-        "stargazers": 228992,
+        "stargazers": 229000,
         "forks": 35109,
         "open_issues": 26,
         "good_first_issues": 0
@@ -44570,7 +44568,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 196220,
+        "stargazers": 196221,
         "forks": 31055,
         "open_issues": 135,
         "good_first_issues": 0
@@ -44604,7 +44602,7 @@
         "homepage_url": "https://javaguide.cn"
       },
       "metrics": {
-        "stargazers": 156979,
+        "stargazers": 156980,
         "forks": 46171,
         "open_issues": 57,
         "good_first_issues": 7
@@ -44792,7 +44790,7 @@
         "homepage_url": "https://create-react-app.dev/"
       },
       "metrics": {
-        "stargazers": 103311,
+        "stargazers": 103310,
         "forks": 26966,
         "open_issues": 1858,
         "good_first_issues": 4
@@ -44823,7 +44821,7 @@
       "metrics": {
         "stargazers": 98576,
         "forks": 32579,
-        "open_issues": 1388,
+        "open_issues": 1389,
         "good_first_issues": 0
       },
       "activity": {
@@ -44886,14 +44884,14 @@
         "homepage_url": "https://uptime.kuma.pet"
       },
       "metrics": {
-        "stargazers": 89054,
+        "stargazers": 89056,
         "forks": 8115,
         "open_issues": 689,
         "good_first_issues": 33
       },
       "activity": {
         "last_committed_at": "2026-07-12T18:06:13Z",
-        "last_pushed_at": "2026-07-13T03:56:23Z",
+        "last_pushed_at": "2026-07-13T04:39:33Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -44924,7 +44922,7 @@
         "homepage_url": "https://caveman.so/"
       },
       "metrics": {
-        "stargazers": 88628,
+        "stargazers": 88634,
         "forks": 5092,
         "open_issues": 170,
         "good_first_issues": 0
@@ -44961,7 +44959,7 @@
       },
       "metrics": {
         "stargazers": 87619,
-        "forks": 5120,
+        "forks": 5121,
         "open_issues": 947,
         "good_first_issues": 0
       },
@@ -44989,8 +44987,8 @@
         "homepage_url": "https://claude-mem.ai"
       },
       "metrics": {
-        "stargazers": 86995,
-        "forks": 7519,
+        "stargazers": 86994,
+        "forks": 7520,
         "open_issues": 150,
         "good_first_issues": 0
       },
@@ -45035,8 +45033,8 @@
         "homepage_url": "https://ponytail.dev"
       },
       "metrics": {
-        "stargazers": 81485,
-        "forks": 4402,
+        "stargazers": 81499,
+        "forks": 4403,
         "open_issues": 24,
         "good_first_issues": 0
       },
@@ -45102,8 +45100,8 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 77645,
-        "forks": 8338,
+        "stargazers": 77653,
+        "forks": 8340,
         "open_issues": 47,
         "good_first_issues": 0
       },
@@ -45167,7 +45165,7 @@
         "homepage_url": "https://revealjs.com"
       },
       "metrics": {
-        "stargazers": 71916,
+        "stargazers": 71917,
         "forks": 16813,
         "open_issues": 802,
         "good_first_issues": 0
@@ -45196,8 +45194,8 @@
         "homepage_url": "https://animejs.com"
       },
       "metrics": {
-        "stargazers": 70833,
-        "forks": 4776,
+        "stargazers": 70837,
+        "forks": 4777,
         "open_issues": 96,
         "good_first_issues": 2
       },
@@ -45444,8 +45442,8 @@
         "homepage_url": "https://tasteskill.dev"
       },
       "metrics": {
-        "stargazers": 62550,
-        "forks": 4422,
+        "stargazers": 62553,
+        "forks": 4423,
         "open_issues": 22,
         "good_first_issues": 0
       },
@@ -45539,7 +45537,7 @@
       },
       "metrics": {
         "stargazers": 59813,
-        "forks": 20409,
+        "forks": 20408,
         "open_issues": 74,
         "good_first_issues": 11
       },
@@ -45565,8 +45563,8 @@
         "homepage_url": "https://career-ops.org"
       },
       "metrics": {
-        "stargazers": 59766,
-        "forks": 11873,
+        "stargazers": 59769,
+        "forks": 11872,
         "open_issues": 84,
         "good_first_issues": 16
       },
@@ -45770,7 +45768,7 @@
         "homepage_url": "https://prettier.io"
       },
       "metrics": {
-        "stargazers": 52230,
+        "stargazers": 52231,
         "forks": 4921,
         "open_issues": 1176,
         "good_first_issues": 51
@@ -45850,7 +45848,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 50959,
+        "stargazers": 50960,
         "forks": 3899,
         "open_issues": 0,
         "good_first_issues": 0
@@ -45992,8 +45990,8 @@
         "homepage_url": "https://impeccable.style"
       },
       "metrics": {
-        "stargazers": 46040,
-        "forks": 2786,
+        "stargazers": 46045,
+        "forks": 2788,
         "open_issues": 21,
         "good_first_issues": 0
       },
@@ -46276,7 +46274,7 @@
         "homepage_url": "http://tesseract.projectnaptha.com/"
       },
       "metrics": {
-        "stargazers": 38425,
+        "stargazers": 38426,
         "forks": 2370,
         "open_issues": 31,
         "good_first_issues": 0
@@ -46332,8 +46330,8 @@
         "homepage_url": "https://marketing-skills.com"
       },
       "metrics": {
-        "stargazers": 37956,
-        "forks": 6112,
+        "stargazers": 37964,
+        "forks": 6113,
         "open_issues": 21,
         "good_first_issues": 0
       },
@@ -46456,7 +46454,7 @@
         "homepage_url": "https://oneapi.justsong.cn/"
       },
       "metrics": {
-        "stargazers": 35667,
+        "stargazers": 35666,
         "forks": 6738,
         "open_issues": 925,
         "good_first_issues": 0
@@ -46561,8 +46559,8 @@
         "good_first_issues": 0
       },
       "activity": {
-        "last_committed_at": "2026-07-12T21:33:47Z",
-        "last_pushed_at": "2026-07-12T21:33:48Z",
+        "last_committed_at": "2026-07-13T04:19:37Z",
+        "last_pushed_at": "2026-07-13T04:20:18Z",
         "funny_labels": []
       },
       "search_keywords": [
@@ -47016,7 +47014,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 11694,
+        "stargazers": 11697,
         "forks": 3172,
         "open_issues": 14,
         "good_first_issues": 0
@@ -47045,7 +47043,7 @@
       },
       "metrics": {
         "stargazers": 11673,
-        "forks": 891,
+        "forks": 892,
         "open_issues": 1,
         "good_first_issues": 0
       },
@@ -49612,7 +49610,7 @@
         "homepage_url": "http://awesomeios.dev"
       },
       "metrics": {
-        "stargazers": 52732,
+        "stargazers": 52733,
         "forks": 6982,
         "open_issues": 0,
         "good_first_issues": 0
@@ -49651,7 +49649,7 @@
         "homepage_url": "https://apple.github.io/container/documentation/"
       },
       "metrics": {
-        "stargazers": 47648,
+        "stargazers": 47647,
         "forks": 1595,
         "open_issues": 284,
         "good_first_issues": 5
@@ -49676,7 +49674,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 42406,
+        "stargazers": 42407,
         "forks": 7665,
         "open_issues": 31,
         "good_first_issues": 0
@@ -49717,7 +49715,7 @@
         "homepage_url": "https://mac-stats.com"
       },
       "metrics": {
-        "stargazers": 40403,
+        "stargazers": 40404,
         "forks": 1411,
         "open_issues": 19,
         "good_first_issues": 0
@@ -49757,7 +49755,7 @@
         "homepage_url": "https://getutm.app"
       },
       "metrics": {
-        "stargazers": 34674,
+        "stargazers": 34675,
         "forks": 1754,
         "open_issues": 1052,
         "good_first_issues": 7
@@ -50064,7 +50062,7 @@
         "homepage_url": "https://codeedit.app"
       },
       "metrics": {
-        "stargazers": 22950,
+        "stargazers": 22951,
         "forks": 1179,
         "open_issues": 188,
         "good_first_issues": 17
@@ -50305,9 +50303,9 @@
         "homepage_url": "https://codex.bar"
       },
       "metrics": {
-        "stargazers": 17999,
+        "stargazers": 18001,
         "forks": 1478,
-        "open_issues": 46,
+        "open_issues": 47,
         "good_first_issues": 0
       },
       "activity": {
@@ -50838,7 +50836,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 9567,
+        "stargazers": 9568,
         "forks": 779,
         "open_issues": 72,
         "good_first_issues": 0
@@ -51012,7 +51010,7 @@
         "homepage_url": "https://www.kickstarter.com/mobile"
       },
       "metrics": {
-        "stargazers": 8670,
+        "stargazers": 8671,
         "forks": 1228,
         "open_issues": 5,
         "good_first_issues": 0
@@ -51077,8 +51075,8 @@
         "homepage_url": "https://bark.day.app"
       },
       "metrics": {
-        "stargazers": 8661,
-        "forks": 662,
+        "stargazers": 8662,
+        "forks": 663,
         "open_issues": 5,
         "good_first_issues": 0
       },
@@ -51419,7 +51417,7 @@
         "homepage_url": ""
       },
       "metrics": {
-        "stargazers": 21967,
+        "stargazers": 21968,
         "forks": 1322,
         "open_issues": 547,
         "good_first_issues": 0
