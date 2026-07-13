@@ -226,16 +226,16 @@ export default function App() {
         {/* タブ切り替え */}
         <div className="tab-buttons">
           <button 
-            className={`tab-btn ${activeTab === 'list' ? 'active' : ''}`}
-            onClick={() => setActiveTab('list')}
-          >
-            📋 Repository List ({filteredRepos.length})
-          </button>
-          <button 
             className={`tab-btn ${activeTab === 'charts' ? 'active' : ''}`}
             onClick={() => setActiveTab('charts')}
           >
             📊 Statistics Dashboard
+          </button>
+          <button 
+            className={`tab-btn ${activeTab === 'list' ? 'active' : ''}`}
+            onClick={() => setActiveTab('list')}
+          >
+            📋 Repository List ({filteredRepos.length})
           </button>
         </div>
       </header>
