@@ -184,36 +184,46 @@
 
 .q-label {
   font-family: 'Outfit', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(226, 232, 240, 0.65); /* 明るいスレート色に変更し、不透明度を大幅に引き上げ */
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-mute);
+  opacity: 0.15; /* 完全に背景へ沈める (0.15) */
   text-transform: lowercase;
   pointer-events: none;
   display: flex;
-  /* ネオンパープルの妖しい発光（テキストシャドウ） */
-  text-shadow: 0 0 8px rgba(139, 92, 246, 0.6), 0 0 15px rgba(139, 92, 246, 0.2);
+  text-shadow: 0 0 4px rgba(139, 92, 246, 0.2);
 }
-
 
 .q-gems {
   align-items: flex-start;
   justify-content: flex-start;
+  padding: 10px 0 0 10px;
 }
 
 .q-monsters {
   align-items: flex-start;
   justify-content: flex-end;
+  padding: 10px 10px 0 0;
 }
 
 .q-incubators {
   align-items: flex-end;
   justify-content: flex-start;
+  padding: 0 0 10px 10px;
 }
 
 .q-classics {
   align-items: flex-end;
   justify-content: flex-end;
+  padding: 0 10px 10px 0;
 }
+
+/* 🌌 銀河調ヒート・グロウ（光の足し算）エフェクト用ブレンドモード */
+.density-scatter-glow {
+  mix-blend-mode: plus-lighter; /* 重なるほど強く発光するブレンドモード */
+  filter: drop-shadow(0 0 4px rgba(236, 72, 153, 0.6)); /* マゼンタ光彩 */
+}
+
 
 /* 💥 View Mode トグルボタン */
 .chart-controls-row {

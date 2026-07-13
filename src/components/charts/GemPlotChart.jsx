@@ -1,20 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts';
 import { getMedian } from '../../utils/formatters';
-
-// ヒートマップセルのホバー用カスタムTooltip
-const DensityTooltip = ({ active, payload }) => {
-  if (!active || !payload || !payload.length) return null;
-  const data = payload[0].payload;
-  return (
-    <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(139, 92, 246, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-      <p style={{ color: '#c4b5fd', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>📊 Density Segment</p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars Range: <strong>{Math.round(data.starMin).toLocaleString()} 〜 {Math.round(data.starMax).toLocaleString()}</strong></p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '2px 0 0' }}>Forks Range: <strong>{Math.round(data.forkMin).toLocaleString()} 〜 {Math.round(data.forkMax).toLocaleString()}</strong></p>
-      <p style={{ color: '#ec4899', fontSize: '0.85rem', fontWeight: 700, margin: '4px 0 0' }}>📂 Repositories: {data.count} 件</p>
-    </div>
-  );
-};
 
 export default function GemPlotChart({
   scatterData,
@@ -31,96 +17,9 @@ export default function GemPlotChart({
   const [viewMode, setViewMode] = useState('dot'); // 'dot' | 'density'
   const isEmpty = scatterData.length === 0;
 
-  // 1. 動的な中央値 (Median) の計算 (ズームやフィルタに連動)
+  // 1. 動的な中央値 (Median) の計算
   const medianStars = useMemo(() => getMedian(scatterData, 'star'), [scatterData]);
   const medianForks = useMemo(() => getMedian(scatterData, 'fork'), [scatterData]);
-
-  // 2. 2次元密度ヒートマップ（2D Binning）用のバケットデータ生成
-  const densityData = useMemo(() => {
-    if (isEmpty) return [];
-
-    const stars = scatterData.map(d => d.star);
-    const forks = scatterData.map(d => d.fork);
-    const minX = Math.min(...stars);
-    const maxX = Math.max(...stars);
-    const minY = Math.min(...forks);
-    const maxY = Math.max(...forks);
-
-    const gridCount = 10;
-    const stepX = (maxX - minX) / gridCount || 1;
-    const stepY = (maxY - minY) / gridCount || 1;
-
-    // 10x10 のグリッド初期化
-    const bins = [];
-    for (let i = 0; i < gridCount; i++) {
-      for (let j = 0; j < gridCount; j++) {
-        bins.push({
-          xIndex: i,
-          yIndex: j,
-          starMin: minX + i * stepX,
-          starMax: minX + (i + 1) * stepX,
-          forkMin: minY + j * stepY,
-          forkMax: minY + (j + 1) * stepY,
-          // 中心のプロット座標
-          star: minX + (i + 0.5) * stepX,
-          fork: minY + (j + 0.5) * stepY,
-          count: 0
-        });
-      }
-    }
-
-    // データカウントの集計
-    scatterData.forEach(d => {
-      let i = Math.floor((d.star - minX) / stepX);
-      let j = Math.floor((d.fork - minY) / stepY);
-      if (i >= gridCount) i = gridCount - 1;
-      if (j >= gridCount) j = gridCount - 1;
-      if (i < 0) i = 0;
-      if (j < 0) j = 0;
-      const binIndex = i * gridCount + j;
-      if (bins[binIndex]) {
-        bins[binIndex].count += 1;
-      }
-    });
-
-    // カウントが0のバケットは除外し、密度の低い順からソートしてマッピング
-    return bins.filter(b => b.count > 0);
-  }, [scatterData, isEmpty]);
-
-  // 3. 最大・最小カウントに基づきグラデーションカラー（Color Scale）を決定するヘルパー
-  const getDensityColor = (count, maxCount) => {
-    const ratio = count / (maxCount || 1);
-    if (ratio < 0.3) {
-      // 低密度: 深海紺 (#0f172a) -> パープル (#7c3aed) のグラデーション
-      return `rgba(124, 58, 237, ${0.2 + ratio * 2})`; // ネオンパープルの半透明
-    } else if (ratio < 0.7) {
-      // 中密度: ネオンパープル (#7c3aed)
-      return '#7c3aed';
-    } else {
-      // 高密度: サイバーマゼンタ (#ec4899)
-      return '#ec4899';
-    }
-  };
-
-  const maxDensityCount = useMemo(() => {
-    if (densityData.length === 0) return 0;
-    return Math.max(...densityData.map(b => b.count));
-  }, [densityData]);
-
-  // 4. 四象限用の各エリアのバウンディング中央座標を計算してラベル表示位置にする
-  // X軸、Y軸の範囲
-  const minXVal = scatterData.length ? Math.min(...scatterData.map(d => d.star)) : 0;
-  const maxXVal = scatterData.length ? Math.max(...scatterData.map(d => d.star)) : 30000;
-  const minYVal = scatterData.length ? Math.min(...scatterData.map(d => d.fork)) : 0;
-  const maxYVal = scatterData.length ? Math.max(...scatterData.map(d => d.fork)) : 5000;
-
-  // ラベル位置（象限の四隅付近に美しく配置）
-  const labelPositions = {
-    gems: { star: minXVal + (medianStars - minXVal) * 0.15, fork: maxYVal - (maxYVal - medianForks) * 0.08, text: 'gems (low-star / active) 💎' },
-    monsters: { star: maxXVal - (maxXVal - medianStars) * 0.45, fork: maxYVal - (maxYVal - medianForks) * 0.08, text: 'monsters (high-star / active)' },
-    incubators: { star: minXVal + (medianStars - minXVal) * 0.15, fork: minYVal + (medianForks - minYVal) * 0.08, text: 'incubators (emerging)' },
-    classics: { star: maxXVal - (maxXVal - medianStars) * 0.45, fork: minYVal + (medianForks - minYVal) * 0.08, text: 'classics / emerging' }
-  };
 
   return (
     <div className="chart-box glass">
@@ -186,40 +85,52 @@ export default function GemPlotChart({
               >
                 <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" domain={['dataMin - 100', 'auto']} />
                 <YAxis type="number" dataKey="fork" name="Forks" unit="🍴" stroke="#9ca3af" />
-                <ZAxis type="number" dataKey="count" range={[950, 950]} />
                 
                 {/* 動的中央値による四象限破線境界線 */}
-                <ReferenceLine x={medianStars} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
-                <ReferenceLine y={medianForks} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
-
+                <ReferenceLine x={medianStars} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.25} />
+                <ReferenceLine y={medianForks} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.25} />
 
                 {!selectedRepo && (
                   <Tooltip 
-                    content={viewMode === 'dot' ? <GemTooltip /> : <DensityTooltip />} 
+                    content={<GemTooltip />} 
                     cursor={{ strokeDasharray: '3 3' }} 
                   />
                 )}
 
                 {viewMode === 'dot' ? (
+                  /* 1. 通常のドットプロットモード (半径3px固定、すっきりしたデザイン) */
                   <Scatter 
                     name="Repositories" 
                     data={scatterData} 
-                    fill="#10B981"
                     onClick={handleScatterClick}
                     style={{ cursor: 'pointer' }}
+                    line={false}
                   >
                     {scatterData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                      <Cell 
+                        key={`cell-${index}`} 
+                        fill={colors[index % colors.length]} 
+                        r={3} 
+                      />
                     ))}
                   </Scatter>
                 ) : (
+                  /* 2. 銀河調ヒート・グロウ（光の重ね合わせ）モード */
                   <Scatter 
-                    name="Density Grid" 
-                    data={densityData} 
-                    shape="square"
+                    name="Density Heatmap" 
+                    data={scatterData} 
+                    onClick={handleScatterClick}
+                    style={{ cursor: 'pointer' }}
+                    fill="#ec4899"           /* マゼンタ一色 */
+                    fillOpacity={0.12}        /* 超高透明度（重ね合わせ用） */
+                    className="density-scatter-glow" /* CSSブレンドモード適用 */
+                    line={false}
                   >
-                    {densityData.map((entry, index) => (
-                      <Cell key={`cell-density-${index}`} fill={getDensityColor(entry.count, maxDensityCount)} />
+                    {scatterData.map((entry, index) => (
+                      <Cell 
+                        key={`cell-density-${index}`} 
+                        r={6} /* 半径を少し広げて重ねやすくする */
+                      />
                     ))}
                   </Scatter>
                 )}

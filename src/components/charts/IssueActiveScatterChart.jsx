@@ -71,19 +71,23 @@ export default function IssueActiveScatterChart({
                 <ZAxis type="category" dataKey="name" name="Repository" />
                 
                 {/* 動的中央値による四象限破線境界線 */}
-                <ReferenceLine x={medianIssues} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
-                <ReferenceLine y={medianGfi} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
+                <ReferenceLine x={medianIssues} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.25} />
+                <ReferenceLine y={medianGfi} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.25} />
 
                 {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<IssueTooltip />} />}
                 <Scatter 
                   name="Repositories" 
                   data={issueScatterData} 
-                  fill="#10B981"
                   onClick={handleScatterClick}
                   style={{ cursor: 'pointer' }}
+                  line={false}
                 >
                   {issueScatterData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                    <Cell 
+                      key={`cell-${index}`} 
+                      fill={colors[index % colors.length]} 
+                      r={3} /* 半径3px固定 */
+                    />
                   ))}
                 </Scatter>
               </ScatterChart>
