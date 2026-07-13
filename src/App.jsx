@@ -54,9 +54,11 @@ const PrScatterTooltip = ({ active, payload }) => {
       <p style={{ color: '#38bdf8', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
       <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars: <strong>{data.star.toLocaleString()}</strong> ⭐</p>
       <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>Open PRs: <strong>{data.pr.toLocaleString()}</strong> 🚀</p>
+      <p style={{ color: '#a78bfa', fontSize: '0.8rem', margin: '2px 0 0' }}>👥 Contributors (Activity Group): <strong>{data.contributors != null && data.contributors !== 1 ? data.contributors.toLocaleString() : '—'}</strong></p>
     </div>
   );
 };
+
 
 // Gem Plot (Stars vs Forks) 用カスタムTooltip (統一デザイン)
 const GemTooltip = ({ active, payload }) => {
@@ -122,8 +124,16 @@ export default function App() {
   const prScatterData = useMemo(() => {
     let list = filteredRepos;
     if (scatterMaxStars !== Infinity) list = list.filter(r => r.metrics.stargazers < scatterMaxStars);
-    return list.slice(0, 200).map(r => ({ name: r.meta.name, star: r.metrics.stargazers, pr: r.metrics.open_pull_requests || 0, lang: r.meta.primary_language || 'Unknown', rawRepo: r }));
+    return list.slice(0, 200).map(r => ({
+      name: r.meta.name,
+      star: r.metrics.stargazers,
+      pr: r.metrics.open_pull_requests || 0,
+      contributors: r.metrics.contributors || 1, // 3次元バブルチャート用の貢献者数
+      lang: r.meta.primary_language || 'Unknown',
+      rawRepo: r
+    }));
   }, [filteredRepos, scatterMaxStars]);
+
 
   const handleScatterClick = (data) => {
     const repo = data?.payload?.rawRepo || data?.rawRepo;

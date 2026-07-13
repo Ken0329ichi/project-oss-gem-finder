@@ -1,5 +1,6 @@
-import React from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import React, { useMemo } from 'react';
+import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts';
+import { getMedian } from '../../utils/formatters';
 
 export default function PrVolumeChart({
   prScatterData,
@@ -15,6 +16,10 @@ export default function PrVolumeChart({
   colors
 }) {
   const isEmpty = prScatterData.length === 0;
+
+  // 1. 動的な中央値 (Median) の計算 (ズームやフィルタに連動)
+  const medianStars = useMemo(() => getMedian(prScatterData, 'star'), [prScatterData]);
+  const medianPrs = useMemo(() => getMedian(prScatterData, 'pr'), [prScatterData]);
 
   return (
     <div className="chart-box glass">
@@ -38,7 +43,7 @@ export default function PrVolumeChart({
           </select>
         </div>
       </div>
-      <div className="chart-wrapper">
+      <div className="chart-wrapper" style={{ position: 'relative' }}>
         {isEmpty ? (
           <div className="chart-empty-placeholder">
             <span className="empty-icon">📈</span>
@@ -46,28 +51,45 @@ export default function PrVolumeChart({
             <p className="empty-subtext">Try changing the "Zoom Scale" in the header to a larger range.</p>
           </div>
         ) : (
-          <ResponsiveContainer width="100%" height={350}>
-            <ScatterChart
-              key={`pr-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${scatterMaxStars}`}
-              margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
-            >
-              <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" domain={['dataMin - 100', 'auto']} />
-              <YAxis type="number" dataKey="pr" name="Open PRs" unit="🚀" stroke="#9ca3af" />
-              <ZAxis type="category" dataKey="name" name="Repository" />
-              {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<PrScatterTooltip />} />}
-              <Scatter 
-                name="Repositories" 
-                data={prScatterData} 
-                fill="#38bdf8"
-                onClick={handleScatterClick}
-                style={{ cursor: 'pointer' }}
+          <>
+            {/* 四象限マトリクスの背景二つ名ラベル */}
+            <div className="quadrant-labels-overlay" style={{ pointerEvents: 'none' }}>
+              <span className="q-label q-gems">gems (low-star / active) 💎</span>
+              <span className="q-label q-monsters">monsters (high-star / active)</span>
+              <span className="q-label q-incubators">incubators (emerging)</span>
+              <span className="q-label q-classics">classics / emerging</span>
+            </div>
+
+            <ResponsiveContainer width="100%" height={350}>
+              <ScatterChart
+                key={`pr-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${scatterMaxStars}`}
+                margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
               >
-                {prScatterData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-                ))}
-              </Scatter>
-            </ScatterChart>
-          </ResponsiveContainer>
+                <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" domain={['dataMin - 100', 'auto']} />
+                <YAxis type="number" dataKey="pr" name="Open PRs" unit="🚀" stroke="#9ca3af" />
+                
+                {/* 🎈 3次元バブルチャート用のZ軸：サイズを貢献者数 (contributors) にマッピング */}
+                <ZAxis type="number" dataKey="contributors" range={[4, 28]} name="Contributors" />
+                
+                {/* 動的中央値による四象限破線境界線 */}
+                <ReferenceLine x={medianStars} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
+                <ReferenceLine y={medianPrs} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
+
+                {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<PrScatterTooltip />} />}
+                <Scatter 
+                  name="Repositories" 
+                  data={prScatterData} 
+                  fill="#38bdf8"
+                  onClick={handleScatterClick}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {prScatterData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                  ))}
+                </Scatter>
+              </ScatterChart>
+            </ResponsiveContainer>
+          </>
         )}
       </div>
     </div>

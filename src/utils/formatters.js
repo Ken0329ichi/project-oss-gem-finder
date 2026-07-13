@@ -164,3 +164,21 @@ export const cleanRegion = (rawLocation) => {
   return 'Global 🌐';
 };
 
+// ===================================================
+// 📊 getMedian: 数値配列の中央値を動的に計算するヘルパー
+// ===================================================
+export const getMedian = (arr, key) => {
+  if (!arr || arr.length === 0) return 0;
+  const values = arr
+    .map(item => item[key])
+    .filter(v => typeof v === 'number' && !isNaN(v))
+    .sort((a, b) => a - b);
+  if (values.length === 0) return 0;
+  const half = Math.floor(values.length / 2);
+  if (values.length % 2 !== 0) {
+    return values[half];
+  }
+  return (values[half - 1] + values[half]) / 2;
+};
+
+

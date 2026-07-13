@@ -1,5 +1,6 @@
-import React from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import React, { useMemo } from 'react';
+import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts';
+import { getMedian } from '../../utils/formatters';
 
 export default function IssueActiveScatterChart({
   issueScatterData,
@@ -16,6 +17,10 @@ export default function IssueActiveScatterChart({
   colors
 }) {
   const isEmpty = issueScatterData.length === 0;
+
+  // 1. 動的な中央値 (Median) の計算 (ズームやフィルタに連動)
+  const medianIssues = useMemo(() => getMedian(issueScatterData, 'open_issues'), [issueScatterData]);
+  const medianGfi = useMemo(() => getMedian(issueScatterData, 'gfi'), [issueScatterData]);
 
   return (
     <div className="chart-box glass">
@@ -39,7 +44,7 @@ export default function IssueActiveScatterChart({
           </select>
         </div>
       </div>
-      <div className="chart-wrapper">
+      <div className="chart-wrapper" style={{ position: 'relative' }}>
         {isEmpty ? (
           <div className="chart-empty-placeholder">
             <span className="empty-icon">📈</span>
@@ -47,28 +52,43 @@ export default function IssueActiveScatterChart({
             <p className="empty-subtext">Try changing the "Zoom Scale" in the header to a larger range.</p>
           </div>
         ) : (
-          <ResponsiveContainer width="100%" height={350}>
-            <ScatterChart
-              key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}`}
-              margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
-            >
-              <XAxis type="number" dataKey="open_issues" name="Open Issues" unit="⚠️" stroke="#9ca3af" />
-              <YAxis type="number" dataKey="gfi" name="Good First Issues" unit="🌱" stroke="#9ca3af" />
-              <ZAxis type="category" dataKey="name" name="Repository" />
-              {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<IssueTooltip />} />}
-              <Scatter 
-                name="Repositories" 
-                data={issueScatterData} 
-                fill="#10B981"
-                onClick={handleScatterClick}
-                style={{ cursor: 'pointer' }}
+          <>
+            {/* 四象限マトリクスの背景二つ名ラベル */}
+            <div className="quadrant-labels-overlay" style={{ pointerEvents: 'none' }}>
+              <span className="q-label q-gems">gems (low-star / active) 💎</span>
+              <span className="q-label q-monsters">monsters (high-star / active)</span>
+              <span className="q-label q-incubators">incubators (emerging)</span>
+              <span className="q-label q-classics">classics / emerging</span>
+            </div>
+
+            <ResponsiveContainer width="100%" height={350}>
+              <ScatterChart
+                key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}`}
+                margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
               >
-                {issueScatterData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-                ))}
-              </Scatter>
-            </ScatterChart>
-          </ResponsiveContainer>
+                <XAxis type="number" dataKey="open_issues" name="Open Issues" unit="⚠️" stroke="#9ca3af" />
+                <YAxis type="number" dataKey="gfi" name="Good First Issues" unit="🌱" stroke="#9ca3af" />
+                <ZAxis type="category" dataKey="name" name="Repository" />
+                
+                {/* 動的中央値による四象限破線境界線 */}
+                <ReferenceLine x={medianIssues} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
+                <ReferenceLine y={medianGfi} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.35} />
+
+                {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<IssueTooltip />} />}
+                <Scatter 
+                  name="Repositories" 
+                  data={issueScatterData} 
+                  fill="#10B981"
+                  onClick={handleScatterClick}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {issueScatterData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                  ))}
+                </Scatter>
+              </ScatterChart>
+            </ResponsiveContainer>
+          </>
         )}
       </div>
     </div>

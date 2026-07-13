@@ -168,3 +168,84 @@
   color: var(--text-mute);
   opacity: 0.7;
 }
+
+/* 🎨 四象限マトリクス用の背景二つ名ラベル */
+.quadrant-labels-overlay {
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  right: 40px;
+  bottom: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  z-index: 0;
+}
+
+.q-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  color: rgba(156, 163, 175, 0.22); /* うっすら浮かび上がるように設定 */
+  text-transform: lowercase;
+  pointer-events: none;
+  display: flex;
+}
+
+.q-gems {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.q-monsters {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.q-incubators {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.q-classics {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* 💥 View Mode トグルボタン */
+.chart-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.view-mode-toggle {
+  display: flex;
+  background: rgba(8, 11, 17, 0.8);
+  border: 1px solid var(--border-default);
+  padding: 2px;
+  border-radius: 8px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  color: var(--text-mute);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  color: var(--text-main);
+}
+
+.toggle-btn.active {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--glow-green);
+}
+
