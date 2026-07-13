@@ -129,12 +129,16 @@ export default function App() {
   // 5. チャート用集計データの生成
   // チャート①: スター数 vs フォーク数の分布 (Scatter Chart)
   const scatterData = useMemo(() => {
-    return filteredRepos.slice(0, 200).map(r => ({
-      name: r.meta.name,
-      star: r.metrics.stargazers,
-      fork: r.metrics.forks,
-      lang: r.meta.primary_language || 'Unknown'
-    }));
+    // 3万スター以上の超大物OSSを除外し、原石（300〜3万スター）の分布を拡大して見やすくする
+    return filteredRepos
+      .filter(r => r.metrics.stargazers < 30000)
+      .slice(0, 200)
+      .map(r => ({
+        name: r.meta.name,
+        star: r.metrics.stargazers,
+        fork: r.metrics.forks,
+        lang: r.meta.primary_language || 'Unknown'
+      }));
   }, [filteredRepos]);
 
   // チャート②: 国別シェアの集計 (Pie Chart)
@@ -311,7 +315,7 @@ export default function App() {
               <p className="chart-sub">Repositories in the upper-left represent highly practical gems with outstanding fork rates relative to their stargazers.</p>
               <div className="chart-wrapper">
                 <ResponsiveContainer width="100%" height={350}>
-                  <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                  <ScatterChart margin={{ top: 20, right: 30, bottom: 30, left: 40 }}>
                     <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" />
                     <YAxis type="number" dataKey="fork" name="Forks" unit="🍴" stroke="#9ca3af" />
                     <ZAxis type="category" dataKey="name" name="Repository" />
@@ -359,7 +363,7 @@ export default function App() {
                 <div className="chart-wrapper">
                   <ResponsiveContainer width="100%" height={260}>
                     <BarChart data={barData}>
-                      <XAxis dataKey="name" stroke="#9ca3af" />
+                      <XAxis dataKey="name" stroke="#9ca3af" interval={0} tick={{ fontSize: 10 }} />
                       <YAxis stroke="#9ca3af" />
                       <Tooltip />
                       <Bar dataKey="value" fill="#8B5CF6">
