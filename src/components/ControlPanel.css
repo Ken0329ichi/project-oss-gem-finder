@@ -1,11 +1,8 @@
-/* 🔍 Control Panel & Filters */
-.control-panel {
-  padding: 1.5rem;
-  border-radius: 16px;
-  margin-bottom: 2rem;
-  border: 1px solid rgba(16, 185, 129, 0.15); /* グリーンネオンの微細な境界線で存在感を強調 */
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.05);
+/* 🔍 Control Panel - サイドバー内埋め込み用 */
+.control-panel-inner {
+  padding: 1rem 1.25rem;
 }
+
 
 .control-panel-header {
   display: flex;
@@ -90,18 +87,18 @@
 
 .filters-wrapper {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: flex-end;
+  gap: 0.75rem;
+  flex-direction: column;
   margin-bottom: 1rem;
 }
+
 
 .filter-group {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  flex: 1;
-  min-width: 160px;
+  width: 100%;
+  min-width: 0;
 }
 
 .filter-label {
@@ -152,21 +149,21 @@
 }
 
 .filter-select {
-  flex: 1;
-  min-width: 180px;
-  padding: 0.75rem 1rem;
+  width: 100%;
+  padding: 0.65rem 0.9rem;
   border-radius: 8px;
   background: rgba(8, 11, 17, 0.6);
   border: 1px solid var(--border-default);
   color: var(--text-main);
   cursor: pointer;
+  font-size: 0.85rem;
 }
 
 /* 🍂 Rare Tags Cloud */
 .rare-tags-container {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -174,8 +171,7 @@
 .rare-tags-header {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  min-width: 200px;
+  gap: 0.15rem;
 }
 
 .tags-title {
@@ -228,10 +224,10 @@
 /* 🎛️ Slider styling */
 .slider-filters-container {
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.25rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -277,6 +273,17 @@
 .filter-range-slider.purple-track::-webkit-slider-thumb {
   background: var(--secondary);
   box-shadow: var(--glow-purple);
+}
+
+.filter-range-slider.amber-track::-webkit-slider-thumb {
+  background: #f59e0b;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+
+.slider-value-indicator-amber {
+  font-family: 'Outfit', monospace;
+  color: #f59e0b;
+  font-weight: 700;
 }
 
 .filter-range-slider::-webkit-slider-thumb:hover {

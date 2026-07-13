@@ -48,3 +48,75 @@ export const getLanguageIconClass = (lang) => {
 
   return mapping[l] || '';
 };
+
+// ===================================================
+// 🌏 cleanRegion: カオスな所在地文字列の正規化ヘルパー
+// 優先1: 特殊カテゴリ → 優先2: 地理マッピング → 優先3: Global 🌐
+// ===================================================
+export const cleanRegion = (rawLocation) => {
+  if (!rawLocation || rawLocation === 'null' || rawLocation === 'undefined') return 'Global 🌐';
+  const l = rawLocation.toLowerCase().trim();
+  if (!l) return 'Global 🌐';
+
+  // 優先1: 特殊カテゴリ（ユーモア・テック的ジョーク）
+  const localhostKw = ['127.0.0.1', '::1', '/dev/tty', 'your computer', 'your home', 'terminal & browser'];
+  if (localhostKw.some(k => l.includes(k)) || l.startsWith('0x')) return '💻 Localhost';
+
+  const depsKw = ['node_modules', 'pkg.devdependencies', '$gopath', '9th ring', 'ctrl+shift', 'elixir-lang', '@argoproj'];
+  if (depsKw.some(k => l.includes(k))) return '📦 Depended Depths';
+
+  const cyberKw = ['cyberspace', 'the cloud', 'the internet', 'www', 'https://', 'http://', '☁️'];
+  if (cyberKw.some(k => l.includes(k))) return '☁️ Cyberspace';
+
+  const spaceKw = ['mars', 'the moon', 'the future', 'celadon city', 'gotham city', "r'lyeh", 'wildest dream', 'eigens are valued'];
+  if (spaceKw.some(k => l.includes(k))) return '🚀 Deep Space';
+
+  // 優先2: 地理マッピング（都市名・略称→国旗付き正式名称）
+  const geoMap = [
+    { flag: '🇺🇸 United States', keys: ['united states', 'u.s.a', ' usa', ',usa', 'ann arbor', 'michigan', 'bellevue', 'washington', 'berkeley', 'bethlehem', 'carrboro', 'chicago', 'colorado', 'cupertino', 'dallas', 'texas', 'denver', 'florida', 'houston', 'irvine', 'kirkland', 'los angeles', 'los gatos', 'mountain view', 'new york', 'nyc', 'pittsburgh', 'portland', 'oregon', 'redmond', 'san diego', 'san jose', 'santa monica', 'st. paul', 'stanford', 'utah', 'socal', 'san francisco', 'sfo', 'seattle', '2788 san tomas'] },
+    { flag: '🇨🇳 China', keys: ['china', ' cn,', 'prc', 'guangzhou', 'guangdong', 'hong kong', 'wuhan', 'hubei', "xi'an", '北京', '长沙', 'beijing', 'shanghai', 'shenzhen', 'chengdu'] },
+    { flag: '🇯🇵 Japan', keys: ['japan', ' jp,', ',jp', 'tokyo', 'osaka', 'kyoto'] },
+    { flag: '🇬🇧 United Kingdom', keys: ['united kingdom', 'uk,', ' uk', 'england', 'london', 'edinburgh', 'scotland', 'oxfordshire', 'cambridge', 'manchester', 'bristol'] },
+    { flag: '🇩🇪 Germany', keys: ['germany', 'deutschland', 'berlin', 'munich', 'münchen', 'hamburg', 'frankfurt', 'cologne'] },
+    { flag: '🇫🇷 France', keys: ['france', 'paris', 'lyon', 'toulouse', 'bordeaux'] },
+    { flag: '🇪🇸 Spain', keys: ['spain', 'españa', 'barcelona', 'madrid', 'galicia', 'seville', 'valencia'] },
+    { flag: '🇨🇦 Canada', keys: ['canada', 'toronto', 'vancouver', 'montreal', 'ottawa'] },
+    { flag: '🇳🇱 Netherlands', keys: ['netherlands', 'holland', 'amsterdam', 'rotterdam', 'utrecht'] },
+    { flag: '🇧🇷 Brazil', keys: ['brazil', 'brasil', 'são paulo', 'sao paulo', 'rio de janeiro', 'brasilia'] },
+    { flag: '🇮🇹 Italy', keys: ['italy', 'italia', 'rome', 'milan', 'naples', 'turin'] },
+    { flag: '🇨🇿 Czechia', keys: ['czech', 'czechia', 'brno', 'prague', 'Praha'] },
+    { flag: '🇳🇿 New Zealand', keys: ['new zealand', 'auckland', 'wellington'] },
+    { flag: '🇦🇺 Australia', keys: ['australia', 'sydney', 'melbourne', 'brisbane', 'perth'] },
+    { flag: '🇷🇺 Russia', keys: ['russia', 'moscow', 'saint petersburg', 'novosibirsk'] },
+    { flag: '🇮🇳 India', keys: ['india', 'bangalore', 'bengaluru', 'mumbai', 'delhi', 'pune', 'hyderabad', 'chennai'] },
+    { flag: '🇰🇷 South Korea', keys: ['korea', 'seoul', 'busan', 'daejeon'] },
+    { flag: '🇸🇬 Singapore', keys: ['singapore'] },
+    { flag: '🇨🇭 Switzerland', keys: ['switzerland', 'swiss', 'zurich', 'zürich', 'geneva', 'bern'] },
+    { flag: '🇸🇪 Sweden', keys: ['sweden', 'stockholm', 'gothenburg', 'malmö'] },
+    { flag: '🇵🇱 Poland', keys: ['poland', 'polska', 'warsaw', 'kraków', 'wrocław'] },
+    { flag: '🇺🇦 Ukraine', keys: ['ukraine', 'kyiv', 'kharkiv', 'odessa'] },
+    { flag: '🇵🇹 Portugal', keys: ['portugal', 'lisbon', 'porto'] },
+    { flag: '🇫🇮 Finland', keys: ['finland', 'helsinki', 'espoo'] },
+    { flag: '🇳🇴 Norway', keys: ['norway', 'oslo', 'bergen'] },
+    { flag: '🇩🇰 Denmark', keys: ['denmark', 'copenhagen', 'aarhus'] },
+    { flag: '🇦🇹 Austria', keys: ['austria', 'vienna', 'wien', 'graz'] },
+    { flag: '🇧🇪 Belgium', keys: ['belgium', 'brussels', 'ghent', 'antwerp'] },
+    { flag: '🇮🇱 Israel', keys: ['israel', 'tel aviv', 'jerusalem', 'haifa'] },
+    { flag: '🇹🇷 Turkey', keys: ['turkey', 'istanbul', 'ankara', 'izmir'] },
+    { flag: '🇧🇬 Bulgaria', keys: ['bulgaria', 'sofia', 'plovdiv'] },
+    { flag: '🇷🇴 Romania', keys: ['romania', 'bucharest', 'cluj', 'timisoara'] },
+    { flag: '🇮🇩 Indonesia', keys: ['indonesia', 'jakarta', 'bali', 'surabaya'] },
+    { flag: '🇻🇳 Vietnam', keys: ['vietnam', 'hanoi', 'ho chi minh', 'saigon'] },
+    { flag: '🇹🇼 Taiwan', keys: ['taiwan', 'taipei'] },
+    { flag: '🇲🇽 Mexico', keys: ['mexico', 'ciudad de mexico', 'guadalajara', 'monterrey'] },
+    { flag: '🇦🇷 Argentina', keys: ['argentina', 'buenos aires', 'córdoba'] },
+  ];
+
+  for (const { flag, keys } of geoMap) {
+    if (keys.some(k => l.includes(k))) return flag;
+  }
+
+  // 優先3: フォールバック
+  return 'Global 🌐';
+};
+

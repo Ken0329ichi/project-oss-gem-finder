@@ -22,72 +22,85 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* ===== 🏗️ 2カラム・ダッシュボードレイアウト ===== */
 .app-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  min-height: 100vh;
-}
-
-/* 🚀 Header styles */
-.app-header {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.app-header h1 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 3rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.05em;
-}
-
-.app-header p {
-  color: var(--text-mute);
-  font-size: 1.1rem;
-}
-
-/* 📊 Tab Buttons */
-.tab-buttons {
   display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-darker);
+}
+
+/* 右側メインコンテンツ（独立スクロール） */
+.main-content {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+
+.main-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.12);
+  border-radius: 3px;
+}
+
+/* ローディング */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.tab-btn {
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  border: 1px solid var(--border-default);
-  background: rgba(17, 24, 39, 0.6);
+  height: 100vh;
   color: var(--text-mute);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  gap: 1rem;
 }
 
-.tab-btn:hover {
-  color: var(--text-main);
-  background: rgba(255, 255, 255, 0.05);
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(16, 185, 129, 0.15);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
 }
 
-.tab-btn.active {
-  background: var(--primary);
-  color: #fff;
-  border-color: var(--primary);
-  box-shadow: var(--glow-green);
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-/* スマホ表示向けの全般調整 */
+/* エラー表示 */
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #ef4444;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* スマホ対応 */
 @media (max-width: 768px) {
   .app-container {
-    padding: 1.5rem 1rem;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
   }
-  .app-header h1 {
-    font-size: 2.2rem;
+
+  .main-content {
+    height: auto;
+    overflow-y: visible;
+    padding-top: 3.5rem; /* ハンバーガーボタン分 */
   }
 }

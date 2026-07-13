@@ -29,6 +29,8 @@ export default function RepositoryCard({ repo, onClick }) {
         <span>🍴 {repo.metrics.forks.toLocaleString()}</span>
         <span>⚠️ {repo.metrics.open_issues.toLocaleString()}</span>
         <span>🚀 {(repo.metrics.open_pull_requests || 0).toLocaleString()}</span>
+        <span>👁️ {repo.metrics.watchers != null ? repo.metrics.watchers.toLocaleString() : '—'}</span>
+        <span>📦 {repo.metrics.total_releases != null ? repo.metrics.total_releases.toLocaleString() : '—'}</span>
         {repo.metrics.good_first_issues > 0 && (
           <span className="gfi-badge">🌱 GFI: {repo.metrics.good_first_issues}</span>
         )}
@@ -36,3 +38,4 @@ export default function RepositoryCard({ repo, onClick }) {
     </div>
   );
 }
+
