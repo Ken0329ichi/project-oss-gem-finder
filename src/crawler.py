@@ -6,6 +6,8 @@ from schema import OpenSSOTDataset, RepositorySchema, RepoMeta, RepoMetrics, Rep
 from config import DATA_DIR, DATA_PATH, TARGETS_PATH
 from client import GitHubRestClient, GitHubGraphQLClient
 from funny_labels import FunnyLabelExtractor
+from country_detector import CountryDetector
+from notifier import DiscordNotifier
 
 def load_targets() -> List[str]:
     """targets.txtからクロール対象リポジトリを読み込む"""
@@ -28,6 +30,7 @@ def main():
     # REST(防衛用304判定)とGraphQL(ディープフェッチ用)のクライアントを初期化
     rest_client = GitHubRestClient(token)
     graphql_client = GitHubGraphQLClient(token)
+    notifier = DiscordNotifier()
     
     targets = load_targets()
 
@@ -44,6 +47,11 @@ def main():
 
     new_repositories = []
     has_updates = False
+    
+    # 統計情報の初期化 (Discord通知用)
+    updated_count = 0
+    removed_count = 0
+    safety_brake_triggered = False
 
     # 2. 収集ループの実行
     for repo_name in targets:
@@ -51,6 +59,7 @@ def main():
         # (GraphQLも同一のAPI上限を分け合うため、残り枠をチェック)
         if rest_client.rate_remaining < 100:
             print(f"\n[SafetyBrake] API残り枠が危険域（残り {rest_client.rate_remaining}）に達したため、処理を一時中断し、残りは次回に持ち越します。")
+            safety_brake_triggered = True
             has_updates = True
             break
 
@@ -67,6 +76,7 @@ def main():
         elif rest_result == "404":
             # 削除・非公開化：クレンジング
             print(f"[Cleanup] Removed {repo_name} from active dataset.")
+            removed_count += 1
             has_updates = True
             continue
             
@@ -86,6 +96,17 @@ def main():
                     if funny_labels:
                         print(f"  [😂 Funny Labels Found] {repo_name}: {funny_labels}")
 
+                    # 国別情報の取得と自動判定 (追加API消費ゼロ)
+                    owner_location = None
+                    if deep_result.get("owner"):
+                        owner_location = deep_result["owner"].get("location")
+                    
+                    detected_country = CountryDetector.detect(owner_location)
+                    if owner_location:
+                        print(f"  [🌍 Location Info] {repo_name}: Raw='{owner_location}' -> Detected='{detected_country}'")
+                    else:
+                        print(f"  [🌍 Location Info] {repo_name}: Location not set -> '{detected_country}'")
+
                     # GraphQLのレスポンスデータをPydanticスキーマにマッピング
                     lic = deep_result.get("licenseInfo")
                     lang = deep_result.get("primaryLanguage")
@@ -97,7 +118,9 @@ def main():
                         owner=owner,
                         description=deep_result.get("description"),
                         license=lic.get("spdxId") if lic else None,
-                        primary_language=lang.get("name") if lang else None
+                        primary_language=lang.get("name") if lang else None,
+                        owner_location=owner_location,
+                        detected_country=detected_country
                     )
 
                     metrics = RepoMetrics(
@@ -122,6 +145,7 @@ def main():
 
                     new_repositories.append(repo_obj.model_dump())
                     print(f"  -> {repo_name} のディープフェッチおよびスキーマ検証に成功しました。")
+                    updated_count += 1
                     has_updates = True
                 except Exception as e:
                     print(f"Schema Validation Error for {repo_name}: {e}")
@@ -150,6 +174,16 @@ def main():
         print(f"[Success] キャッシュETagsを更新しました。")
     else:
         print("\n[Skip] データに更新がないため、ファイルの保存とコミットをスキップします。")
+
+    # 4. Discordへの完了サマリー通知 (オプトイン)
+    final_rate = min(rest_client.rate_remaining, graphql_client.rate_remaining)
+    notifier.send_summary(
+        total_targets=len(new_repositories),
+        updated_count=updated_count,
+        removed_count=removed_count,
+        rate_remaining=final_rate,
+        safety_brake_triggered=safety_brake_triggered
+    )
 
 if __name__ == "__main__":
     main()

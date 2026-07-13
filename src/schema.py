@@ -18,6 +18,8 @@ class RepoMeta(BaseModel):
     description: Optional[str] = None
     license: Optional[str] = None
     primary_language: Optional[str] = None
+    owner_location: Optional[str] = None
+    detected_country: Optional[str] = None
 
 # 3. 各リポジトリの数値指標
 class RepoMetrics(BaseModel):

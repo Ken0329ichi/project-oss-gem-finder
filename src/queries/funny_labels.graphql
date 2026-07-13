@@ -3,6 +3,14 @@ query($owner: String!, $name: String!) {
     id
     name
     nameWithOwner
+    owner {
+      ... on User {
+        location
+      }
+      ... on Organization {
+        location
+      }
+    }
     description
     licenseInfo {
       spdxId
