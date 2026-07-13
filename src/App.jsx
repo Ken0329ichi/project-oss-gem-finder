@@ -596,7 +596,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* 積み上げ棒グラフ: リポジトリ別のOpen Issues & GFIs */}
+            {/* 積み上げ棒グラフ: リポジトリ別のOpen Issues & GFIs（横棒グラフにレイアウト変更） */}
             <div className="chart-box glass">
               <div className="chart-box-header">
                 <div>
@@ -605,19 +605,20 @@ export default function App() {
                 </div>
               </div>
               <div className="chart-wrapper">
-                <ResponsiveContainer width="100%" height={350}>
+                <ResponsiveContainer width="100%" height={400}>
                   <BarChart
                     key={`issue-bar-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}`}
                     data={issueBarData}
-                    margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
+                    layout="vertical"
+                    margin={{ top: 20, right: 30, bottom: 10, left: 110 }}
                     onClick={(data) => {
                       const repo = data?.activePayload?.[0]?.payload?.rawRepo;
                       if (repo) setSelectedRepo(repo);
                     }}
                     style={{ cursor: 'pointer' }}
                   >
-                    <XAxis dataKey="name" stroke="#9ca3af" tick={{ fontSize: 10 }} />
-                    <YAxis stroke="#9ca3af" />
+                    <XAxis type="number" stroke="#9ca3af" tick={{ fontSize: 10 }} />
+                    <YAxis type="category" dataKey="name" stroke="#9ca3af" tick={{ fontSize: 9 }} width={100} />
                     <Tooltip content={<IssueTooltip />} />
                     <Legend />
                     <Bar dataKey="gfi" name="Good First Issues" stackId="a" fill="#10B981" />
@@ -690,20 +691,26 @@ export default function App() {
         )}
       </main>
 
-      {/* サイバーダークフッター */}
+      {/* サイバーダークフッター（デザイン強化版・Serverless文言削除） */}
       <footer className="app-footer glass">
         <div className="footer-content">
-          <div className="footer-meta">
-            <span className="footer-license">
-              Dataset licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>
-            </span>
-            <span className="footer-dot">•</span>
-            <span className="footer-publisher">Publisher: <strong>ken0329</strong></span>
-            <span className="footer-dot">•</span>
-            <span className="footer-architecture">Serverless Architecture ($0/month maintenance cost)</span>
+          <div className="footer-brand">
+            <span className="footer-logo">🚀 OSS Gem Finder</span>
+            <span className="footer-desc">Discovering high-activity, low-star repositories using objective open data.</span>
           </div>
-          <div className="footer-timestamp">
-            Dataset Version: {formatUTC(updatedAt)} (Fully Automated Daily)
+          <div className="footer-meta">
+            <a 
+              href="https://creativecommons.org/licenses/by/4.0/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="footer-license-badge"
+            >
+              CC BY 4.0
+            </a>
+            <span className="footer-publisher">Publisher: <strong>ken0329</strong></span>
+            <span className="footer-timestamp">
+              Dataset Version: {formatUTC(updatedAt)} (Fully Automated Daily)
+            </span>
           </div>
         </div>
       </footer>

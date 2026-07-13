@@ -743,12 +743,15 @@
 
 /* 🌊 Cyber Dark Footer */
 .app-footer {
-  margin-top: 4rem;
-  padding: 2rem 1.5rem;
-  border-radius: 16px 16px 0 0; /* 上部だけ丸くして接地感を出す */
+  margin-top: 5rem;
+  padding: 2.5rem 2rem;
+  border-radius: 20px 20px 0 0; /* 上部だけ丸くして接地感を出す */
+  border-top: 1px solid rgba(16, 185, 129, 0.15); /* 微細なネオングロー */
   border-bottom: none; /* 下部は画面底に接地 */
   font-size: 0.85rem;
   color: var(--text-mute);
+  background: rgba(8, 11, 17, 0.95);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .footer-content {
@@ -758,35 +761,59 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footer-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.footer-desc {
+  font-size: 0.75rem;
+  color: #6b7280;
 }
 
 .footer-meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.footer-license a {
+.footer-license-badge {
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.08);
   color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.footer-license a:hover {
-  color: #34d399;
-  text-decoration: underline;
+.footer-license-badge:hover {
+  background: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
 }
 
-.footer-dot {
-  color: rgba(255, 255, 255, 0.15);
+.footer-publisher {
+  font-size: 0.8rem;
 }
 
 .footer-timestamp {
   font-family: 'Outfit', monospace;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #38bdf8; /* サイバーネオンブルー */
   background: rgba(56, 189, 248, 0.06);
   border: 1px solid rgba(56, 189, 248, 0.15);
@@ -801,13 +828,15 @@
   .footer-content {
     flex-direction: column;
     text-align: center;
-    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .footer-brand {
+    align-items: center;
   }
   .footer-meta {
     flex-direction: column;
-    gap: 0.5rem;
-  }
-  .footer-dot {
-    display: none; /* スマホではドットを非表示にして縦並びにする */
+    align-items: center;
+    gap: 0.8rem;
   }
 }
