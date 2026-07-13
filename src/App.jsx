@@ -58,6 +58,20 @@ const PrScatterTooltip = ({ active, payload }) => {
   );
 };
 
+// Gem Plot (Stars vs Forks) 用カスタムTooltip (統一デザイン)
+const GemTooltip = ({ active, payload }) => {
+  if (!active || !payload || !payload.length) return null;
+  const data = payload[0].payload;
+  return (
+    <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
+      <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
+      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars: <strong>{data.star.toLocaleString()}</strong> ⭐</p>
+      <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>Forks: <strong>{data.fork.toLocaleString()}</strong> 🍴</p>
+    </div>
+  );
+};
+
+
 export default function App() {
   const {
     filteredRepos, loading, error, updatedAt,
@@ -185,6 +199,7 @@ export default function App() {
             IssueTooltip={IssueTooltip}
             PieTooltip={PieTooltip}
             GfiTooltip={GfiTooltip}
+            GemTooltip={GemTooltip}
           />
         )}
       </main>

@@ -10,7 +10,8 @@ export default function GemPlotChart({
   selectedLang,
   selectedRepo,
   handleScatterClick,
-  colors
+  colors,
+  GemTooltip
 }) {
   const isEmpty = scatterData.length === 0;
 
@@ -52,7 +53,8 @@ export default function GemPlotChart({
               <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" domain={['dataMin - 100', 'auto']} />
               <YAxis type="number" dataKey="fork" name="Forks" unit="🍴" stroke="#9ca3af" />
               <ZAxis type="category" dataKey="name" name="Repository" />
-              {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} />}
+              {!selectedRepo && <Tooltip content={<GemTooltip />} cursor={{ strokeDasharray: '3 3' }} />}
+
               <Scatter 
                 name="Repositories" 
                 data={scatterData} 

@@ -16,7 +16,7 @@ export default function DashboardCharts({
   pieData, showGlobal, setShowGlobal,
   barData,
   colors,
-  PrScatterTooltip, IssueTooltip, PieTooltip, GfiTooltip
+  PrScatterTooltip, IssueTooltip, PieTooltip, GfiTooltip, GemTooltip
 }) {
   return (
     <div className="charts-container">
@@ -31,6 +31,7 @@ export default function DashboardCharts({
         selectedRepo={selectedRepo}
         handleScatterClick={handleScatterClick}
         colors={colors}
+        GemTooltip={GemTooltip}
       />
 
       {/* 散布図②: スター数 vs オープンPR数 */}
