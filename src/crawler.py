@@ -5,7 +5,6 @@ from datetime import datetime, timezone
 from schema import OpenSSOTDataset, RepositorySchema, RepoMeta, RepoMetrics, RepoActivity, DatasetProperties
 from config import DATA_DIR, DATA_PATH, TARGETS_PATH
 from client import GitHubRestClient, GitHubGraphQLClient
-from funny_labels import FunnyLabelExtractor
 from country_detector import CountryDetector
 from notifier import DiscordNotifier
 
@@ -24,11 +23,9 @@ def is_stale_commit(commit_date_str: Optional[str]) -> bool:
     if not commit_date_str:
         return False
     try:
-        # ISO 8601 形式の 'Z' をタイムゾーン表現に統一してパース
         dt_str = commit_date_str.replace("Z", "+00:00")
         committed_dt = datetime.fromisoformat(dt_str)
         now_utc = datetime.now(timezone.utc)
-        # 365日 * 2 ＝ 730日 以上経っているか判定
         return (now_utc - committed_dt).days > (365 * 2)
     except Exception as e:
         print(f"Warning: Failed to parse commit date '{commit_date_str}': {e}")
@@ -79,7 +76,6 @@ def main():
             print(f"\n[SafetyBrake] API残り枠が危険域（残り {rest_client.rate_remaining}）に達したため、処理を一時中断し、残りは次回に持ち越します。")
             safety_brake_triggered = True
             has_updates = True
-            # 残りの未処理ターゲットをそのまま active_targets に追加して引き継ぐ
             active_targets.extend(targets[idx:])
             break
 
@@ -93,10 +89,11 @@ def main():
                 cached_commit = cached_repo.get("activity", {}).get("last_committed_at")
                 
                 if is_stale_commit(cached_commit):
-                    # 2年以上無活動なら、データセットおよび targets.txt から排除
                     print(f"[Metabolism] Removed stale repository {repo_name} (No commits since {cached_commit})")
                     stale_removed_count += 1
                     has_updates = True
+                    if repo_name in rest_client.etags:
+                        del rest_client.etags[repo_name]
                 else:
                     new_repositories.append(cached_repo)
                     active_targets.append(repo_name)
@@ -127,12 +124,25 @@ def main():
                         print(f"[Metabolism] Removed stale repository {repo_name} (No commits since {commit_date})")
                         stale_removed_count += 1
                         has_updates = True
+                        if repo_name in rest_client.etags:
+                            del rest_client.etags[repo_name]
                         continue
 
-                    # 面白ラベルの抽出
-                    funny_labels = FunnyLabelExtractor.extract(deep_result)
-                    if funny_labels:
-                        print(f"  [😂 Funny Labels Found] {repo_name}: {funny_labels}")
+                    # 最新のオープンIssueから生ラベルを抽出し、重複排除（一意化）かつソートして保存
+                    extracted_labels = []
+                    latest_issues = deep_result.get("latestIssues", {})
+                    if latest_issues and latest_issues.get("nodes"):
+                        for issue_node in latest_issues["nodes"]:
+                            labels_data = issue_node.get("labels", {})
+                            if labels_data and labels_data.get("nodes"):
+                                for label_node in labels_data["nodes"]:
+                                    label_name = label_node.get("name")
+                                    if label_name:
+                                        extracted_labels.append(label_name)
+                    
+                    labels = sorted(list(set(extracted_labels)))
+                    if labels:
+                        print(f"  [🏷️ Labels Found] {repo_name}: {labels}")
 
                     # 国別情報の取得と自動判定 (追加API消費ゼロ)
                     owner_location = None
@@ -145,7 +155,7 @@ def main():
                     else:
                         print(f"  [🌍 Location Info] {repo_name}: Location not set -> '{detected_country}'")
 
-                    # ホームページURLの抽出
+                    # ホームページURL of 抽出
                     homepage_url = deep_result.get("homepageUrl")
 
                     # 初心者向けIssue数の抽出
@@ -179,7 +189,7 @@ def main():
                     activity = RepoActivity(
                         last_pushed_at=deep_result.get("pushedAt"),
                         last_committed_at=commit_date,
-                        funny_labels=funny_labels
+                        labels=labels
                     )
 
                     repo_obj = RepositorySchema(

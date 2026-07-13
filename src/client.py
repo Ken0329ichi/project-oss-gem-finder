@@ -84,7 +84,7 @@ class GitHubGraphQLClient(BaseGitHubClient):
 
     def _load_query(self) -> str:
         # queries/funny_labels.graphql からクエリ文字列を読み込む
-        query_path = os.path.join(os.path.dirname(__file__), "queries", "funny_labels.graphql")
+        query_path = os.path.join(os.path.dirname(__file__), "queries", "detail.graphql")
         try:
             with open(query_path, "r", encoding="utf-8") as f:
                 return f.read()
