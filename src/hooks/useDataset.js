@@ -49,8 +49,9 @@ export default function useDataset() {
   // cleanRegion() を適用した国リスト（重複排除・ソート）
   const countries = useMemo(() => {
     const cleaned = repos.map(r => cleanRegion(r.meta.detected_country || r.meta.owner_location));
-    return [...new Set(cleaned)].filter(c => c !== 'Global 🌐').sort();
+    return [...new Set(cleaned)].sort(); // Global 🌐 も除外せずにそのまま含めてソート
   }, [repos]);
+
 
   const licenses = useMemo(() => {
     return [...new Set(repos.map(r => r.meta.license).filter(Boolean))].sort();

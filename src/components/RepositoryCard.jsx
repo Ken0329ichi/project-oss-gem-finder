@@ -1,5 +1,5 @@
 import React from 'react';
-import { getLanguageIconClass } from '../utils/formatters';
+import { getLanguageIconClass, cleanRegion } from '../utils/formatters';
 
 export default function RepositoryCard({ repo, onClick }) {
   const iconClass = getLanguageIconClass(repo.meta.primary_language);
@@ -18,8 +18,9 @@ export default function RepositoryCard({ repo, onClick }) {
 
       <div className="card-header">
         <span className="repo-lang-badge">{repo.meta.primary_language || 'Unknown'}</span>
-        <span className="repo-country-badge">{repo.meta.detected_country || 'Global 🌐'}</span>
+        <span className="repo-country-badge">{cleanRegion(repo.meta.detected_country || repo.meta.owner_location)}</span>
       </div>
+
       <h3>{repo.meta.name}</h3>
       <p className="repo-desc">{repo.meta.description || 'No description available.'}</p>
       

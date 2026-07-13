@@ -138,8 +138,9 @@
 }
 
 .metric-tile-new .tile-label {
-  color: #92400e;
+  color: #f59e0b; /* 明るいアンバーにして視認性を向上 */
 }
+
 
 /* スマホ表示向け */
 @media (max-width: 480px) {
