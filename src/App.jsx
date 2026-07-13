@@ -23,7 +23,7 @@ export default function App() {
   const [selectedLabel, setSelectedLabel] = useState('');
 
   // UI状態
-  const [activeTab, setActiveTab] = useState('list'); // 'list' or 'charts'
+  const [activeTab, setActiveTab] = useState('charts'); // 'list' or 'charts'
   const [selectedRepo, setSelectedRepo] = useState(null); // 詳細モーダル用
 
   // 1. データセット (data.json) の非同期ロード
