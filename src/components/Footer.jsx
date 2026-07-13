@@ -1,0 +1,29 @@
+import React from 'react';
+import { formatUTC } from '../utils/formatters';
+
+export default function Footer({ updatedAt }) {
+  return (
+    <footer className="app-footer glass">
+      <div className="footer-content">
+        <div className="footer-brand">
+          <span className="footer-logo">🚀 OSS Gem Finder</span>
+          <span className="footer-desc">Discovering high-activity, low-star repositories using objective open data.</span>
+        </div>
+        <div className="footer-meta">
+          <a 
+            href="https://creativecommons.org/licenses/by/4.0/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="footer-license-badge"
+          >
+            CC BY 4.0
+          </a>
+          <span className="footer-publisher">Publisher: <strong>ken0329</strong></span>
+          <span className="footer-timestamp">
+            Dataset Version: {formatUTC(updatedAt)} (Fully Automated Daily)
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+}
