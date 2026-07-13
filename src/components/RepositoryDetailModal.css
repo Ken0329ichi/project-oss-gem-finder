@@ -16,6 +16,7 @@
 
 .modal-content {
   position: relative;
+  overflow: hidden; /* 背景アイコンのはみ出しを切り取る */
   width: 100%;
   max-width: 680px;
   padding: 2.5rem;
@@ -25,6 +26,26 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 50px rgba(0,0,0,0.6);
   animation: slideIn 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.modal-bg-icon-wrapper {
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.modal-bg-icon {
+  font-size: 15rem; /* モーダル用はさらに巨大表示 */
+  color: var(--text-main);
+  opacity: 0.08; /* さりげなく見えつつ邪魔しない適度な濃度 */
+}
+
+/* 文字コンテンツがアイコンの上に乗るように z-index を調整 */
+.close-modal-btn, .modal-header, .modal-desc, .modal-metrics-grid, .modal-section, .modal-links, .modal-footer {
+  position: relative;
+  z-index: 1;
 }
 
 .close-modal-btn {
