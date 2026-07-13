@@ -58,7 +58,51 @@ export const cleanRegion = (rawLocation) => {
   const l = rawLocation.toLowerCase().trim();
   if (!l) return 'Global 🌐';
 
+  // 2文字のISO国コードに対する完全一致（最優先）
+  const countryCodes = {
+    'us': '🇺🇸 United States',
+    'cn': '🇨🇳 China',
+    'jp': '🇯🇵 Japan',
+    'gb': '🇬🇧 United Kingdom',
+    'uk': '🇬🇧 United Kingdom',
+    'de': '🇩🇪 Germany',
+    'fr': '🇫🇷 France',
+    'es': '🇪🇸 Spain',
+    'ca': '🇨🇦 Canada',
+    'nl': '🇳🇱 Netherlands',
+    'br': '🇧🇷 Brazil',
+    'it': '🇮🇹 Italy',
+    'cz': '🇨🇿 Czechia',
+    'nz': '🇳🇿 New Zealand',
+    'au': '🇦🇺 Australia',
+    'ru': '🇷🇺 Russia',
+    'in': '🇮🇳 India',
+    'kr': '🇰🇷 South Korea',
+    'sg': '🇸🇬 Singapore',
+    'ch': '🇨🇭 Switzerland',
+    'se': '🇸🇪 Sweden',
+    'pl': '🇵🇱 Poland',
+    'ua': '🇺🇦 Ukraine',
+    'pt': '🇵🇹 Portugal',
+    'fi': '🇫🇮 Finland',
+    'no': '🇳🇴 Norway',
+    'dk': '🇩🇰 Denmark',
+    'at': '🇦🇹 Austria',
+    'be': '🇧🇪 Belgium',
+    'il': '🇮🇱 Israel',
+    'tr': '🇹🇷 Turkey',
+    'bg': '🇧🇬 Bulgaria',
+    'ro': '🇷🇴 Romania',
+    'id': '🇮🇩 Indonesia',
+    'vn': '🇻🇳 Vietnam',
+    'tw': '🇹🇼 Taiwan',
+    'mx': '🇲🇽 Mexico',
+    'ar': '🇦🇷 Argentina'
+  };
+  if (countryCodes[l]) return countryCodes[l];
+
   // 優先1: 特殊カテゴリ（ユーモア・テック的ジョーク）
+
   const localhostKw = ['127.0.0.1', '::1', '/dev/tty', 'your computer', 'your home', 'terminal & browser'];
   if (localhostKw.some(k => l.includes(k)) || l.startsWith('0x')) return '💻 Localhost';
 
