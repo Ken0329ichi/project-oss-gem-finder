@@ -8,6 +8,8 @@ export default function IssueActiveScatterChart({
   selectedLicense,
   selectedLang,
   gfiOnly,
+  issueMaxCount,
+  setIssueMaxCount,
   selectedRepo,
   handleScatterClick,
   IssueTooltip,
@@ -20,11 +22,25 @@ export default function IssueActiveScatterChart({
           <h3>📊 Open Issues vs Good First Issues (GFI Active Plot)</h3>
           <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left have higher ratios of beginner-friendly tasks relative to total issues.</p>
         </div>
+        <div className="scale-selector-wrapper">
+          <label htmlFor="issue-scale-select">Zoom Scale: </label>
+          <select 
+            id="issue-scale-select"
+            value={issueMaxCount === Infinity ? 'all' : issueMaxCount}
+            onChange={(e) => setIssueMaxCount(e.target.value === 'all' ? Infinity : Number(e.target.value))}
+            className="scale-select"
+          >
+            <option value={100}>Under 100 Issues (Niche/Clean)</option>
+            <option value={500}>Under 500 Issues (Standard)</option>
+            <option value={1000}>Under 1000 Issues (Mid-Scale)</option>
+            <option value="all">All Repositories (Global)</option>
+          </select>
+        </div>
       </div>
       <div className="chart-wrapper">
         <ResponsiveContainer width="100%" height={350}>
           <ScatterChart
-            key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}`}
+            key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}`}
             margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
           >
             <XAxis type="number" dataKey="open_issues" name="Open Issues" unit="⚠️" stroke="#9ca3af" />

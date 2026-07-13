@@ -119,6 +119,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('charts'); // 'list' or 'charts'
   const [selectedRepo, setSelectedRepo] = useState(null); // 詳細モーダル用
   const [scatterMaxStars, setScatterMaxStars] = useState(30000); // 散布図のズームスケール上限
+  const [issueMaxCount, setIssueMaxCount] = useState(500); // GFI散布図のオープンIssue上限
   const [showGlobal, setShowGlobal] = useState(true); // PieChartのGlobal表示トグル
 
   // 各種グラフ用データの生成
@@ -163,24 +164,32 @@ export default function App() {
   }, [filteredRepos]);
 
   const issueScatterData = useMemo(() => {
-    return filteredRepos.slice(0, 200).map(r => ({
+    let list = filteredRepos;
+    if (issueMaxCount !== Infinity) {
+      list = list.filter(r => r.metrics.open_issues < issueMaxCount);
+    }
+    return list.slice(0, 200).map(r => ({
       name: r.meta.name,
       open_issues: r.metrics.open_issues,
       gfi: r.metrics.good_first_issues || 0,
       lang: r.meta.primary_language || 'Unknown',
       rawRepo: r
     }));
-  }, [filteredRepos]);
+  }, [filteredRepos, issueMaxCount]);
 
   const prScatterData = useMemo(() => {
-    return filteredRepos.slice(0, 200).map(r => ({
+    let list = filteredRepos;
+    if (scatterMaxStars !== Infinity) {
+      list = list.filter(r => r.metrics.stargazers < scatterMaxStars);
+    }
+    return list.slice(0, 200).map(r => ({
       name: r.meta.name,
       star: r.metrics.stargazers,
       pr: r.metrics.open_pull_requests || 0,
       lang: r.meta.primary_language || 'Unknown',
       rawRepo: r
     }));
-  }, [filteredRepos]);
+  }, [filteredRepos, scatterMaxStars]);
 
   const handleScatterClick = (data) => {
     const repo = data?.payload?.rawRepo || data?.rawRepo;
@@ -265,6 +274,8 @@ export default function App() {
             scatterData={scatterData}
             scatterMaxStars={scatterMaxStars}
             setScatterMaxStars={setScatterMaxStars}
+            issueMaxCount={issueMaxCount}
+            setIssueMaxCount={setIssueMaxCount}
             selectedLabel={selectedLabel}
             selectedCountry={selectedCountry}
             selectedLicense={selectedLicense}

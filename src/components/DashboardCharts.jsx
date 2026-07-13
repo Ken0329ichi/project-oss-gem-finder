@@ -7,6 +7,7 @@ import GfiLanguagesChart from './charts/GfiLanguagesChart';
 
 export default function DashboardCharts({
   scatterData, scatterMaxStars, setScatterMaxStars,
+  issueMaxCount, setIssueMaxCount,
   selectedLabel, selectedCountry, selectedLicense, selectedLang, gfiOnly,
   selectedRepo, handleScatterClick, setSelectedRepo,
   prScatterData,
@@ -39,6 +40,7 @@ export default function DashboardCharts({
         selectedLicense={selectedLicense}
         selectedLang={selectedLang}
         scatterMaxStars={scatterMaxStars}
+        setScatterMaxStars={setScatterMaxStars}
         selectedRepo={selectedRepo}
         handleScatterClick={handleScatterClick}
         PrScatterTooltip={PrScatterTooltip}
@@ -53,6 +55,8 @@ export default function DashboardCharts({
         selectedLicense={selectedLicense}
         selectedLang={selectedLang}
         gfiOnly={gfiOnly}
+        issueMaxCount={issueMaxCount}
+        setIssueMaxCount={setIssueMaxCount}
         selectedRepo={selectedRepo}
         handleScatterClick={handleScatterClick}
         IssueTooltip={IssueTooltip}

@@ -8,6 +8,7 @@ export default function PrVolumeChart({
   selectedLicense,
   selectedLang,
   scatterMaxStars,
+  setScatterMaxStars,
   selectedRepo,
   handleScatterClick,
   PrScatterTooltip,
@@ -19,6 +20,20 @@ export default function PrVolumeChart({
         <div>
           <h3>📊 Stargazers vs Open Pull Requests (PR Volume Plot)</h3>
           <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left have high development activity relative to stars.</p>
+        </div>
+        <div className="scale-selector-wrapper">
+          <label htmlFor="pr-scale-select">Zoom Scale: </label>
+          <select 
+            id="pr-scale-select"
+            value={scatterMaxStars === Infinity ? 'all' : scatterMaxStars}
+            onChange={(e) => setScatterMaxStars(e.target.value === 'all' ? Infinity : Number(e.target.value))}
+            className="scale-select"
+          >
+            <option value={10000}>Under 10k Stars (Niche Gems)</option>
+            <option value={30000}>Under 30k Stars (Standard Gems)</option>
+            <option value={50000}>Under 50k Stars (Mid-Scale)</option>
+            <option value="all">All Repositories (Global)</option>
+          </select>
         </div>
       </div>
       <div className="chart-wrapper">
