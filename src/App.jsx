@@ -63,7 +63,7 @@ export default function App() {
   const rareLabels = useMemo(() => {
     const countMap = {};
     repos.forEach(r => {
-      (r.activity.labels || []).forEach(l => {
+      (r.activity.labels || r.activity.funny_labels || []).forEach(l => {
         countMap[l] = (countMap[l] || 0) + 1;
       });
     });
@@ -108,7 +108,7 @@ export default function App() {
         result = result.filter(r => r.meta.license === selectedLicense);
       }
       if (selectedLabel) {
-        result = result.filter(r => (r.activity.labels || []).includes(selectedLabel));
+        result = result.filter(r => (r.activity.labels || r.activity.funny_labels || []).includes(selectedLabel));
       }
 
       setFilteredRepos(result);
@@ -250,7 +250,10 @@ export default function App() {
 
         {/* 激レアタグクラウド */}
         <div className="rare-tags-container">
-          <span className="tags-title">Rare Labels 🍂:</span>
+          <div className="rare-tags-header">
+            <span className="tags-title">Rare Labels 🍂:</span>
+            <span className="tags-subtitle">Custom descriptors collected from active issues. Click to discover niche/specific gems.</span>
+          </div>
           <div className="tags-wrapper">
             {rareLabels.map(label => (
               <button 
@@ -413,11 +416,12 @@ export default function App() {
             </div>
 
             {/* 生ラベル一覧 */}
-            {selectedRepo.activity.labels && selectedRepo.activity.labels.length > 0 && (
+            {((selectedRepo.activity.labels && selectedRepo.activity.labels.length > 0) ||
+              (selectedRepo.activity.funny_labels && selectedRepo.activity.funny_labels.length > 0)) && (
               <div className="modal-section">
                 <h4>🏷️ Active Raw Labels:</h4>
                 <div className="modal-tags">
-                  {selectedRepo.activity.labels.map(l => (
+                  {(selectedRepo.activity.labels || selectedRepo.activity.funny_labels || []).map(l => (
                     <span key={l} className="modal-tag">{l}</span>
                   ))}
                 </div>
