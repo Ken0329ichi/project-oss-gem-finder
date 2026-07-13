@@ -547,3 +547,36 @@
   from { transform: scale(0.95); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+
+/* 📊 Interactive Scatter Chart Selector & Header */
+.chart-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.scale-selector-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-mute);
+}
+
+.scale-select {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  background: rgba(8, 11, 17, 0.7);
+  border: 1px solid var(--border-default);
+  color: var(--text-main);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.scale-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}

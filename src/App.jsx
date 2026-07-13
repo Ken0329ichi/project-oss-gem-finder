@@ -25,6 +25,7 @@ export default function App() {
   // UI状態
   const [activeTab, setActiveTab] = useState('charts'); // 'list' or 'charts'
   const [selectedRepo, setSelectedRepo] = useState(null); // 詳細モーダル用
+  const [scatterMaxStars, setScatterMaxStars] = useState(30000); // 散布図のズームスケール上限
 
   // 1. データセット (data.json) の非同期ロード
   useEffect(() => {
@@ -129,17 +130,26 @@ export default function App() {
   // 5. チャート用集計データの生成
   // チャート①: スター数 vs フォーク数の分布 (Scatter Chart)
   const scatterData = useMemo(() => {
-    // 3万スター以上の超大物OSSを除外し、原石（300〜3万スター）の分布を拡大して見やすくする
-    return filteredRepos
-      .filter(r => r.metrics.stargazers < 30000)
-      .slice(0, 200)
-      .map(r => ({
-        name: r.meta.name,
-        star: r.metrics.stargazers,
-        fork: r.metrics.forks,
-        lang: r.meta.primary_language || 'Unknown'
-      }));
-  }, [filteredRepos]);
+    let list = filteredRepos;
+    if (scatterMaxStars !== Infinity) {
+      list = list.filter(r => r.metrics.stargazers < scatterMaxStars);
+    }
+    return list.slice(0, 200).map(r => ({
+      name: r.meta.name,
+      star: r.metrics.stargazers,
+      fork: r.metrics.forks,
+      lang: r.meta.primary_language || 'Unknown',
+      rawRepo: r // クリック時に詳細モーダルを直接呼び出すために元のデータを同封
+    }));
+  }, [filteredRepos, scatterMaxStars]);
+
+  // 散布図ドットクリック時の詳細ドリルダウンハンドラ
+  const handleScatterClick = (data) => {
+    const repo = data?.payload?.rawRepo || data?.rawRepo;
+    if (repo) {
+      setSelectedRepo(repo);
+    }
+  };
 
   // チャート②: 国別シェアの集計 (Pie Chart)
   const pieData = useMemo(() => {
@@ -311,8 +321,26 @@ export default function App() {
           <div className="charts-container">
             {/* 散布図: スター数 vs フォーク数 */}
             <div className="chart-box glass">
-              <h3>📊 Stargazers vs Forks Distribution (Gem Plot)</h3>
-              <p className="chart-sub">Repositories in the upper-left represent highly practical gems with outstanding fork rates relative to their stargazers.</p>
+              <div className="chart-box-header">
+                <div>
+                  <h3>📊 Stargazers vs Forks Distribution (Gem Plot)</h3>
+                  <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left are highly practical gems.</p>
+                </div>
+                <div className="scale-selector-wrapper">
+                  <label htmlFor="scale-select">Zoom Scale: </label>
+                  <select 
+                    id="scale-select"
+                    value={scatterMaxStars === Infinity ? 'all' : scatterMaxStars}
+                    onChange={(e) => setScatterMaxStars(e.target.value === 'all' ? Infinity : Number(e.target.value))}
+                    className="scale-select"
+                  >
+                    <option value={10000}>Under 10k Stars (Niche Gems)</option>
+                    <option value={30000}>Under 30k Stars (Standard Gems)</option>
+                    <option value={50000}>Under 50k Stars (Mid-Scale)</option>
+                    <option value="all">All Repositories (Global)</option>
+                  </select>
+                </div>
+              </div>
               <div className="chart-wrapper">
                 <ResponsiveContainer width="100%" height={350}>
                   <ScatterChart margin={{ top: 20, right: 30, bottom: 30, left: 40 }}>
@@ -320,7 +348,13 @@ export default function App() {
                     <YAxis type="number" dataKey="fork" name="Forks" unit="🍴" stroke="#9ca3af" />
                     <ZAxis type="category" dataKey="name" name="Repository" />
                     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                    <Scatter name="Repositories" data={scatterData} fill="#10B981">
+                    <Scatter 
+                      name="Repositories" 
+                      data={scatterData} 
+                      fill="#10B981"
+                      onClick={handleScatterClick}
+                      style={{ cursor: 'pointer' }}
+                    >
                       {scatterData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
