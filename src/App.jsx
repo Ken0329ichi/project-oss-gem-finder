@@ -359,7 +359,7 @@ export default function App() {
         {/* 激レアタグクラウド */}
         <div className="rare-tags-container">
           <div className="rare-tags-header">
-            <span className="tags-title">Rare Labels 🍂:</span>
+            <span className="tags-title">Rare Labels 🌶️:</span>
             <span className="tags-subtitle">Custom descriptors collected from active issues. Click to discover niche/specific gems.</span>
           </div>
           <div className="tags-wrapper">
