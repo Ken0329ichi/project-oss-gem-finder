@@ -343,7 +343,10 @@ export default function App() {
               </div>
               <div className="chart-wrapper">
                 <ResponsiveContainer width="100%" height={350}>
-                  <ScatterChart margin={{ top: 20, right: 30, bottom: 30, left: 40 }}>
+                  <ScatterChart
+                    key={`scatter-${selectedLabel}-${selectedCountry}-${selectedLang}-${scatterMaxStars}`}
+                    margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
+                  >
                     <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" />
                     <YAxis type="number" dataKey="fork" name="Forks" unit="🍴" stroke="#9ca3af" />
                     <ZAxis type="category" dataKey="name" name="Repository" />
