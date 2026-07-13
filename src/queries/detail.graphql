@@ -28,6 +28,10 @@ query($owner: String!, $name: String!) {
     goodFirstIssues: issues(states: OPEN, labels: ["good first issue", "help wanted"]) {
       totalCount
     }
+    # オープンPR数の取得を追加
+    openPullRequests: pullRequests(states: OPEN) {
+      totalCount
+    }
     pushedAt
     defaultBranchRef {
       target {

@@ -740,3 +740,74 @@
   font-weight: 500;
   letter-spacing: 0.02em;
 }
+
+/* 🌊 Cyber Dark Footer */
+.app-footer {
+  margin-top: 4rem;
+  padding: 2rem 1.5rem;
+  border-radius: 16px 16px 0 0; /* 上部だけ丸くして接地感を出す */
+  border-bottom: none; /* 下部は画面底に接地 */
+  font-size: 0.85rem;
+  color: var(--text-mute);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.footer-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-license a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-license a:hover {
+  color: #34d399;
+  text-decoration: underline;
+}
+
+.footer-dot {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.footer-timestamp {
+  font-family: 'Outfit', monospace;
+  font-size: 0.8rem;
+  color: #38bdf8; /* サイバーネオンブルー */
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* スマホ表示向けの調整（フッターの中央揃え） */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .footer-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-dot {
+    display: none; /* スマホではドットを非表示にして縦並びにする */
+  }
+}

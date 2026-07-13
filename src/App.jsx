@@ -51,6 +51,73 @@ const PieTooltip = ({ active, payload }) => {
   );
 };
 
+// Issue＆GFI積み上げバー用カスタムTooltip（ダークテーマ対応）
+const IssueTooltip = ({ active, payload }) => {
+  if (!active || !payload || !payload.length) return null;
+  const data = payload[0].payload;
+  const gfiPercent = data.total > 0 ? Math.round((data.gfi / data.total) * 100) : 0;
+  return (
+    <div style={{
+      background: 'rgba(15, 20, 30, 0.95)',
+      border: '1px solid rgba(59, 130, 246, 0.4)',
+      borderRadius: '8px',
+      padding: '8px 14px',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
+    }}>
+      <p style={{ color: '#93c5fd', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>
+        {data.name}
+      </p>
+      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>
+        Total Open Issues: <strong>{data.total.toLocaleString()}</strong>
+      </p>
+      <p style={{ color: '#34d399', fontSize: '0.8rem', margin: '2px 0 0' }}>
+        🌱 Good First Issues: <strong>{data.gfi.toLocaleString()}</strong> ({gfiPercent}%)
+      </p>
+    </div>
+  );
+};
+
+// PR Scatter用カスタムTooltip（ダークテーマ対応）
+const PrScatterTooltip = ({ active, payload }) => {
+  if (!active || !payload || !payload.length) return null;
+  const data = payload[0].payload;
+  return (
+    <div style={{
+      background: 'rgba(15, 20, 30, 0.95)',
+      border: '1px solid rgba(56, 189, 248, 0.4)',
+      borderRadius: '8px',
+      padding: '8px 14px',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
+    }}>
+      <p style={{ color: '#38bdf8', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>
+        {data.name}
+      </p>
+      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>
+        Stars: <strong>{data.star.toLocaleString()}</strong> ⭐
+      </p>
+      <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>
+        Open PRs: <strong>{data.pr.toLocaleString()}</strong> 🚀
+      </p>
+    </div>
+  );
+};
+
+// 世界標準UTC時刻へのフォーマットヘルパー
+const formatUTC = (isoString) => {
+  if (!isoString) return 'Unknown';
+  try {
+    const date = new Date(isoString);
+    const yyyy = date.getUTCFullYear();
+    const mm = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const dd = String(date.getUTCDate()).padStart(2, '0');
+    const hh = String(date.getUTCHours()).padStart(2, '0');
+    const min = String(date.getUTCMinutes()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd} ${hh}:${min} UTC`;
+  } catch {
+    return 'Unknown';
+  }
+};
+
 export default function App() {
   const [repos, setRepos] = useState([]);
   const [filteredRepos, setFilteredRepos] = useState([]);
@@ -70,6 +137,7 @@ export default function App() {
   const [selectedRepo, setSelectedRepo] = useState(null); // 詳細モーダル用
   const [scatterMaxStars, setScatterMaxStars] = useState(30000); // 散布図のズームスケール上限
   const [showGlobal, setShowGlobal] = useState(true); // PieChartのGlobal表示トグル
+  const [updatedAt, setUpdatedAt] = useState(''); // データセット更新日時
 
   // 1. データセット (data.json) の非同期ロード
   useEffect(() => {
@@ -82,6 +150,9 @@ export default function App() {
         const list = dataset.repositories || [];
         setRepos(list);
         setFilteredRepos(list);
+        if (dataset.dataset_properties && dataset.dataset_properties.updated_at) {
+          setUpdatedAt(dataset.dataset_properties.updated_at);
+        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -224,6 +295,36 @@ export default function App() {
       .map(([name, value]) => ({ name, value }))
       .sort((a, b) => b.value - a.value)
       .slice(0, 10); // 上位10言語
+  }, [filteredRepos]);
+
+  // チャート④: リポジトリ別のOpen Issues & GFIs (Stacked Bar Chart)
+  const issueBarData = useMemo(() => {
+    return [...filteredRepos]
+      .sort((a, b) => b.metrics.open_issues - a.metrics.open_issues)
+      .slice(0, 10)
+      .map(r => {
+        const total = r.metrics.open_issues;
+        const gfi = r.metrics.good_first_issues || 0;
+        const other = Math.max(0, total - gfi);
+        return {
+          name: r.meta.name,
+          gfi,
+          other,
+          total,
+          rawRepo: r
+        };
+      });
+  }, [filteredRepos]);
+
+  // チャート⑤: スター数 vs オープンPR数の分布 (PR Volume Plot Scatter Chart)
+  const prScatterData = useMemo(() => {
+    return filteredRepos.slice(0, 200).map(r => ({
+      name: r.meta.name,
+      star: r.metrics.stargazers,
+      pr: r.metrics.open_pull_requests || 0,
+      lang: r.meta.primary_language || 'Unknown',
+      rawRepo: r
+    }));
   }, [filteredRepos]);
 
   // フィルター初期化
@@ -461,6 +562,71 @@ export default function App() {
               </div>
             </div>
 
+            {/* 散布図: スター数 vs オープンPR数 (PR Volume Plot) */}
+            <div className="chart-box glass">
+              <div className="chart-box-header">
+                <div>
+                  <h3>📊 Stargazers vs Open Pull Requests (PR Volume Plot)</h3>
+                  <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left have high development activity relative to stars.</p>
+                </div>
+              </div>
+              <div className="chart-wrapper">
+                <ResponsiveContainer width="100%" height={350}>
+                  <ScatterChart
+                    key={`pr-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${scatterMaxStars}`}
+                    margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
+                  >
+                    <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" />
+                    <YAxis type="number" dataKey="pr" name="Open PRs" unit="🚀" stroke="#9ca3af" />
+                    <ZAxis type="category" dataKey="name" name="Repository" />
+                    {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<PrScatterTooltip />} />}
+                    <Scatter 
+                      name="Repositories" 
+                      data={prScatterData} 
+                      fill="#38bdf8"
+                      onClick={handleScatterClick}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      {prScatterData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      ))}
+                    </Scatter>
+                  </ScatterChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
+            {/* 積み上げ棒グラフ: リポジトリ別のOpen Issues & GFIs */}
+            <div className="chart-box glass">
+              <div className="chart-box-header">
+                <div>
+                  <h3>🌱 Top Repositories by Open Issues & GFIs</h3>
+                  <p className="chart-sub">Open Issues stacked with Good First Issues. Top 10 repositories shown. Connects to language, region, and license filters.</p>
+                </div>
+              </div>
+              <div className="chart-wrapper">
+                <ResponsiveContainer width="100%" height={350}>
+                  <BarChart
+                    key={`issue-bar-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}`}
+                    data={issueBarData}
+                    margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
+                    onClick={(data) => {
+                      const repo = data?.activePayload?.[0]?.payload?.rawRepo;
+                      if (repo) setSelectedRepo(repo);
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <XAxis dataKey="name" stroke="#9ca3af" tick={{ fontSize: 10 }} />
+                    <YAxis stroke="#9ca3af" />
+                    <Tooltip content={<IssueTooltip />} />
+                    <Legend />
+                    <Bar dataKey="gfi" name="Good First Issues" stackId="a" fill="#10B981" />
+                    <Bar dataKey="other" name="Other Open Issues" stackId="a" fill="#3B82F6" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
             <div className="chart-row">
               {/* ドーナツグラフ: 国別シェア */}
               <div className="chart-box half-width glass">
@@ -523,6 +689,24 @@ export default function App() {
           </div>
         )}
       </main>
+
+      {/* サイバーダークフッター */}
+      <footer className="app-footer glass">
+        <div className="footer-content">
+          <div className="footer-meta">
+            <span className="footer-license">
+              Dataset licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>
+            </span>
+            <span className="footer-dot">•</span>
+            <span className="footer-publisher">Publisher: <strong>ken0329</strong></span>
+            <span className="footer-dot">•</span>
+            <span className="footer-architecture">Serverless Architecture ($0/month maintenance cost)</span>
+          </div>
+          <div className="footer-timestamp">
+            Dataset Version: {formatUTC(updatedAt)} (Fully Automated Daily)
+          </div>
+        </div>
+      </footer>
 
       {/* 🔍 詳細モーダル (1画面完結型SPA) */}
       {selectedRepo && (

@@ -1,127 +1,43 @@
-# OSS Gem Finder — ワークスペースルール
+# 技術設計・コーディング標準ルール (OSS Gem Finder)
 
-このファイルは `g:/マイドライブ/_dev/02_project_oss_gem_finder` ワークスペース専用のルールです。
-Eveはこのルールをすべての作業で厳守してください。
-
----
-
-## 1. デプロイポリシー（最重要）
-
-- **GitHub Pages への自動デプロイは禁止**。`.github/workflows/deploy.yml` のトリガーは `workflow_dispatch`（手動実行のみ）に固定すること。
-- `main` へ push しても deploy ジョブが自動起動してはいけない。
-- 本番公開するときは Ken が GitHub Actions タブの「Run workflow」ボタンを手動で押す。
-- デプロイ前に必ず GitHub リポジトリ設定で Pages を「GitHub Actions」ソースに有効化するよう Ken に案内すること。
+このファイルは、プロジェクト開発における技術選定、コード規約、およびインフラ（Actions）の自律稼働ルールを定義したものです。
 
 ---
 
-## 2. フロントエンド開発ルール
+## 🛠️ 技術設計の原則
 
-### ローカル開発環境
-- 開発サーバー: `wsl sudo docker compose -f docker/frontend/compose.local.yml up -d`
-- アクセス URL: `http://localhost:5173/`
-- 接続できない場合は、`wsl sudo docker ps` でコンテナ状態を確認し、必要なら再起動する。
-- `wsl curl -I http://localhost:5173` で疎通を確認してからブラウザ検証に進む。
-
-### ファイル構成
-- メインロジック: `src/App.jsx`
-- スタイル: `src/App.css`（Vanilla CSS、TailwindCSS は使用しない）
-- チャートライブラリ: Recharts v2
-
-### 変更後の手順
-```
-git add src/App.jsx src/App.css
-git commit -m "feat|fix|chore: <内容>"
-git pull --rebase
-git push origin main
-```
-
----
-
-## 3. Recharts 使用上の注意点・パターン集
-
-### ツールチップ残留バグへの対処
-フィルター（selectedLabel / selectedCountry / selectedLang / scatterMaxStars）が変わったとき、
-Recharts の `<Tooltip>` は内部状態を保持し続けてツールチップが残留する。
-**対策: `<ScatterChart>` に `key` プロップを付与してフィルター変更時に強制リマウント**
-
-```jsx
-<ScatterChart
-  key={`scatter-${selectedLabel}-${selectedCountry}-${selectedLang}-${scatterMaxStars}`}
->
-```
-
-### モーダル表示中のツールチップ非表示
-モーダル（`selectedRepo`）が開いているとき、散布図のツールチップを非表示にする。
-
-```jsx
-{!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} />}
-```
-
-### ダークテーマ対応カスタム Tooltip
-Recharts デフォルトの Tooltip は白背景で暗いテーマに合わない。
-必ずカスタム Tooltip コンポーネントを定義して `content={<CustomTooltip />}` で渡す。
+- ❌ **車輪の再発明の禁止**: 独自の実装や不要な複雑さを導入せず、標準ライブラリ、デファクトスタンダード、および公式推奨のベストプラクティスを最優先で適用する。
+- ❌ **YAGNI原則の厳守**: 現時点で必要のない「将来予測による機能」は実装しない。今必要な最小限の機能だけを実装する。
+- ✅ **DRY/SOLID/KISS原則の徹底**: 構成やコードの重複を徹底的に排除し、変更に強いシンプルで保守性の高い設計を行う。
+- ✅ **API通信層の基底クラス共通化 (DRY/SOLID)**: 認証ヘッダー、例外処理、レートリミット監視（安全ブレーキ）などの基本機能は `BaseGitHubClient` などの共通親クラスに集約し、RESTとGraphQLクライアントで継承して再利用する。
+- ✅ **定数・クエリの外部モジュール化 (KISS)**: Pythonソースコード内に設定値や長大なGraphQLクエリを直書きせず、`config.py` や外部の `.graphql` ファイルに切り出し、コードを綺麗に保つ。
+- ✅ **未設定データ（null/空値）の安全なフォールバック設計**: 生データが未設定（null）の場合でも処理を落とさず、表示用データを `Global 🌐` や適切な代替テキストに安全にマッピング・フォールバックして保存する。
+- ✅ **外部連携処理（通知など）のオプトイン安全設計**: Webhook通知などの処理は、環境変数が未設定の場合は警告やエラーを出さずに処理を自動スキップする設計とし、ローカルや他者の開発動作を妨げないようにする。
+- ✅ **探索クエリの次元削減（一括取得・コード選別）**: APIの多重ループ（トピック別、ライセンス別など）はAPI消費が多いため原則廃止し、言語別等の単一ループでまとめて100件取得した後に、Pythonコード側でライセンス等の後判定フィルタをかける設計とする。
+- ✅ **事実ベースの自動新陳代謝**: 長期的運用でデータベースやターゲットリストがオワコン化（開発停止）するのを防ぐため、最終コミットが2年以上過去のリポジトリは、客観的事実に基づきクローラー実行時に自動的にデータセット、ターゲットリスト、および `data/etags.json`（ETagキャッシュ）から完全に除外（削除クレンジング）する。
+- ✅ **生ラベル（labels）の一意化・ソート保存**: 特定のキーワードによる主観フィルタは行わず、GraphQLで取得した最新Issueの全ラベルをPython側で重複排除（一意化）かつ `sorted()` でソート（Gitの順序違いによるデータ差分発生を最小限に抑制）してそのまま保存する。
+- ✅ **開発ブランチ戦略の徹底**: 大規模な構造変更を行う際は、Actions自動稼働中の `main` ブランチを保護するため、必ずフィーチャーブランチ（`feature/`）を切り、動作検証を完了させてから安全にマージ・プッシュする。
+- ✅ **フロントエンドのベースパス相対設定**: GitHub Pagesへのデプロイを考慮し、Vite の `base` 設定は必ず `'./'` (相対パス) に固定し、アセット絶対パスズレによる画面の真っ白化を防止する。
+- ✅ **SPA 404エラー防止の原則 (1画面完結)**: 静的ホスティングサーバー特有のリロード時の 404 Not Found エラーを回避するため、リポジトリ詳細などの詳細画面はルーティングによる画面遷移を避け、モーダルオーバーレイを用いて1画面で完結させる設計とする。
+- ✅ **Pagefind＋Reactのビルド結合**: ReactのSPAでもPagefindのテキスト検索・フィルタを有効にするため、ビルド時にNode.jsスクリプトで軽量なインデックスHTMLを `dist/repos/` に一時生成し、その後に `pagefind` スキャンを実行する事前ビルドパイプラインを厳守する。
+- ⚠️ **フロントエンドの現実的な開発環境選定 (WSL2-Dockerマウント対策)**: 原則としてDockerコンテナを使用するが、WindowsホストとWSL2マウント間のI/O競合によりコンテナが突然強制終了 (`Exited 255`) する問題が発生した場合は、ホスト（Windows）上で直接 `npm install` および `npm run dev` を実行して開発・検証を行うことを許容・推奨する。
+- ✅ **RechartsのTooltip残留対策の原則**: フィルターやズーム（最大スター数）などによりグラフのデータセットが更新される際、RechartsのTooltipが元の位置に残留してしまうバグを防ぐため、フィルター条件（`selectedLabel` や `gfiOnly` など）を連結した `key` prop を `<ScatterChart>` に付与し、データ更新時に強制再マウントを行うこと。
+- ✅ **詳細モーダル表示時のTooltip非表示化**: ドットクリックによる詳細モーダル起動時に、ツールチップがモーダルの上に重なって表示されるのを防ぐため、詳細データ表示ステート（`selectedRepo` 等）が有効な間は Tooltip コンポーネントを条件付きで非表示（アンマウント）にすること。
+- ✅ **GitHub Pagesデプロイの自律安全トリガー制御**: フロントエンドの自動デプロイが不要なローカル開発段階では、誤ったデプロイやGitHub Actions of 無駄な消費を防ぐため、フロントエンドデプロイワークフロー (`deploy.yml`) のトリガーを `workflow_dispatch`（手動実行）のみに制限すること。
 
 ---
 
-## 4. UI/UX 設計ルール
+## ⚙️ GitHub Actions自律稼働標準ルール
 
-### フィルター UI の選択基準
-| 選択肢の数 | 推奨 UI |
-|---|---|
-| 2〜5件程度 | トグルチップボタン（license-chip スタイル） |
-| 多数（10件以上） | セレクトボックス |
-
-- ライセンスフィルター（MIT / Apache-2.0 の2種）は **トグルチップ形式**を維持すること。
-- GFIフィルター（All / Has GFI）は **トグルチップ形式**を維持すること。
-
-### アイコン統一ルール
-- Rare Labels のアイコンは **🌶️** に統一（🍂 は使用しない）
-- Good First Issues のアイコンは **🌱** に統一
-
-### コントロールパネル
-- 必ずセクションヘッダー「🔍 Explore & Filter」と説明文を表示すること。
-- フィルターが1件でも適用中は「✕ Clear All Filters」ボタンを表示する。
-- パネル全体にグリーンネオン系の枠線（`rgba(16, 185, 129, 0.15)`）を付与して視認性を確保。
-
-### 詳細モーダル（ドリルダウン）
-- `🌶️ Rare Labels:` セクションは `Topics & Keywords` の直上に配置。
-- `activity.labels` → `activity.funny_labels` の優先順でフォールバックして取得。
-- ラベルが0件の場合はセクションごと非表示（条件付きレンダリング）。
-- バッジスタイル: アンバー系（`#f59e0b`、`border: 1px solid rgba(245,158,11,0.3)`）
-
-### Region Distribution
-- 上位6カ国に制限していることを「Top 6 most represented regions.」で明示すること。
-- `showGlobal` ステートで「Global 🌐（国籍未検出）」の表示/非表示をトグル可能にする。
-- `pieData` の `useMemo` 依存配列には `[filteredRepos, showGlobal]` を含めること。
+- **リジェクト（push失敗）の防止**:
+  - `actions/checkout` を用いる際は、必ず `with: ref: main` を指定して常にブランチ最新 of コミットから起動するようにし、Actions自動プッシュ後の非同期競合（コンフリクト）を防止する。
+- **ETagキャッシュ（304）の永続化**:
+  - Actions上の環境変数 `GH_TOKEN` には、使い捨ての `GITHUB_TOKEN` ではなく、リポジトリシークレットに登録した固定トークン（`secrets.PERSONAL_TOKEN`）を使用して流し込み、API側のキャッシュミスマッチ（常に200 OKになる現象）を防止する。
+- **不要な自動コミットの防止**:
+  - クローラー実行時にデータ更新（新規取得または404クレンジング）が1件もなかった場合は、データの書き込みそのものをスキップし、Actions上の余計な自動コミット＆プッシュ（git push）が発生しないように制御する。
+- **Node.js バージョン24への準拠**:
+  - `actions/setup-node` を使用するワークフローでは、環境の安定性とLTS互換性を担保するため、必ず `node-version: '24'` を指定する。
 
 ---
 
-## 5. データ構造のキー名
-
-`data/data.json` 内の各リポジトリオブジェクトの主要フィールド:
-
-```
-repo.meta.name               // "owner/repo" 形式
-repo.meta.description        // 説明文
-repo.meta.primary_language   // 主言語
-repo.meta.detected_country   // 国名（未検出時は null → 表示は "Global 🌐"）
-repo.meta.license            // "MIT" / "Apache-2.0"
-repo.meta.homepage_url       // 公式サイト URL（任意）
-repo.metrics.stargazers      // スター数
-repo.metrics.forks           // フォーク数
-repo.metrics.open_issues     // オープン Issue 数
-repo.metrics.good_first_issues  // GFI 数
-repo.activity.labels         // Issueラベル配列（主要フィールド）
-repo.activity.funny_labels   // 旧フィールド名（フォールバック用）
-repo.activity.last_committed_at
-repo.activity.last_pushed_at
-repo.search_keywords         // 検索キーワード配列
-```
-
----
-
-## 6. 削除・破壊的操作の禁止
-
-- `rm`, `del`, `rmdir` 等の削除コマンドは原則禁止。
-- `data/data.json` および `data/etags.json` を直接編集・削除しないこと。
-- クローラー関連のPythonスクリプト（`src/`配下）を無断で変更しないこと。
+**最終更新日**: 2026-07-13
