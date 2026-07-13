@@ -28,11 +28,11 @@ export default function RepositoryCard({ repo, onClick }) {
       <div className="repo-metrics-summary">
         <span title="Stargazers">⭐ {repo.metrics.stargazers.toLocaleString()}</span>
         <span title="Forks">🍴 {repo.metrics.forks.toLocaleString()}</span>
-        <span title="Open Issues">⚠️ {repo.metrics.open_issues.toLocaleString()}</span>
-        <span title="Open Pull Requests">🚀 {(repo.metrics.open_pull_requests || 0).toLocaleString()}</span>
         <span title="Watchers">👁️ {repo.metrics.watchers != null ? repo.metrics.watchers.toLocaleString() : '—'}</span>
-        <span title="Total Releases">📦 {repo.metrics.total_releases != null ? repo.metrics.total_releases.toLocaleString() : '—'}</span>
+        <span title="Open Issues">⚠️ {repo.metrics.open_issues.toLocaleString()}</span>
         <span title="Good First Issues">🌱 {repo.metrics.good_first_issues || 0}</span>
+        <span title="Open Pull Requests">🚀 {(repo.metrics.open_pull_requests || 0).toLocaleString()}</span>
+        <span title="Total Releases">📦 {repo.metrics.total_releases != null ? repo.metrics.total_releases.toLocaleString() : '—'}</span>
       </div>
     </div>
 

@@ -93,9 +93,9 @@ export default function RepositoryDetailModal({ selectedRepo, onClose }) {
             <span className="tile-label">🍴 Forks</span>
             <span className="tile-val">{m.forks.toLocaleString()}</span>
           </div>
-          <div className="metric-tile glass">
-            <span className="tile-label">🚀 Open PRs</span>
-            <span className="tile-val">{(m.open_pull_requests || 0).toLocaleString()}</span>
+          <div className="metric-tile glass metric-tile-new">
+            <span className="tile-label">👁️ Watching</span>
+            <span className="tile-val">{m.watchers != null ? m.watchers.toLocaleString() : '—'}</span>
           </div>
           <div className="metric-tile glass">
             <span className="tile-label">⚠️ Open Issues</span>
@@ -105,22 +105,21 @@ export default function RepositoryDetailModal({ selectedRepo, onClose }) {
             <span className="tile-label">🌱 Good First Issues</span>
             <span className="tile-val">{m.good_first_issues || 0}</span>
           </div>
-          {/* ===== 5大ファクト (新規追加 / データなしは —) ===== */}
-          <div className="metric-tile glass metric-tile-new">
-            <span className="tile-label">👁️ Watching</span>
-            <span className="tile-val">{m.watchers != null ? m.watchers.toLocaleString() : '—'}</span>
+          <div className="metric-tile glass">
+            <span className="tile-label">🚀 Open PRs</span>
+            <span className="tile-val">{(m.open_pull_requests || 0).toLocaleString()}</span>
           </div>
           <div className="metric-tile glass metric-tile-new">
             <span className="tile-label">📦 Total Releases</span>
             <span className="tile-val">{m.total_releases != null ? m.total_releases.toLocaleString() : '—'}</span>
           </div>
           <div className="metric-tile glass metric-tile-new">
-            <span className="tile-label">🏷️ Version</span>
-            <span className="tile-val tile-val-sm">{m.latest_version || '—'}</span>
-          </div>
-          <div className="metric-tile glass metric-tile-new">
             <span className="tile-label">👥 Contributors</span>
             <span className="tile-val">{m.contributors != null ? m.contributors.toLocaleString() : '—'}</span>
+          </div>
+          <div className="metric-tile glass metric-tile-new">
+            <span className="tile-label">🏷️ Version</span>
+            <span className="tile-val tile-val-sm">{m.latest_version || '—'}</span>
           </div>
         </div>
 
