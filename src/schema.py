@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
-from typing import List, Optional
+from typing import List, Optional, Dict
+
 from datetime import datetime, timezone
 
 # 1. サイトの門構え（CC BY 4.0の法的宣言とメタデータ）
@@ -21,6 +22,7 @@ class RepoMeta(BaseModel):
     owner_location: Optional[str] = None
     detected_country: Optional[str] = None
     homepage_url: Optional[str] = None
+    languages: Optional[Dict[str, int]] = None  # 追加
 
 # 3. 各リポジトリの数値指標
 class RepoMetrics(BaseModel):
@@ -28,7 +30,12 @@ class RepoMetrics(BaseModel):
     forks: int
     open_issues: int
     good_first_issues: int = 0
-    open_pull_requests: int = 0  # 追加
+    open_pull_requests: int = 0
+    watchers: Optional[int] = None        # 追加
+    total_releases: Optional[int] = None  # 追加
+    latest_version: Optional[str] = None  # 追加
+    contributors: Optional[int] = None    # 追加
+
 
 # 4. 各リポジトリの生存確認アクティビティ
 class RepoActivity(BaseModel):

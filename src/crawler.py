@@ -168,6 +168,39 @@ def main():
                     if deep_result.get("openPullRequests"):
                         open_pull_requests = deep_result["openPullRequests"].get("totalCount", 0)
 
+                    # 👁️ Watching数
+                    watchers = 0
+                    if deep_result.get("watchers"):
+                        watchers = deep_result["watchers"].get("totalCount", 0)
+
+                    # 📦 総リリース数
+                    total_releases = 0
+                    if deep_result.get("releases"):
+                        total_releases = deep_result["releases"].get("totalCount", 0)
+
+                    # 🏷️ 最新リリースバージョン
+                    latest_version = None
+                    if deep_result.get("latestRelease") and deep_result["latestRelease"].get("tagName"):
+                        latest_version = deep_result["latestRelease"]["tagName"]
+                    elif deep_result.get("releases") and deep_result["releases"].get("nodes"):
+                        nodes = deep_result["releases"]["nodes"]
+                        if nodes and nodes[0].get("tagName"):
+                            latest_version = nodes[0]["tagName"]
+
+                    # 👥 貢献者数（メンション可能な関係ユーザー数）
+                    contributors = 0
+                    if deep_result.get("mentionableUsers"):
+                        contributors = deep_result["mentionableUsers"].get("totalCount", 0)
+
+                    # 🌐 言語比率（Languages Distribution）
+                    languages_map = {}
+                    if deep_result.get("languages") and deep_result["languages"].get("edges"):
+                        for edge in deep_result["languages"]["edges"]:
+                            lang_name = edge.get("node", {}).get("name")
+                            lang_size = edge.get("size", 0)
+                            if lang_name:
+                                languages_map[lang_name] = lang_size
+
                     # GraphQLのレスポンスデータをPydanticスキーマにマッピング
                     lic = deep_result.get("licenseInfo")
                     lang = deep_result.get("primaryLanguage")
@@ -181,7 +214,8 @@ def main():
                         primary_language=lang.get("name") if lang else None,
                         owner_location=owner_location,
                         detected_country=detected_country,
-                        homepage_url=homepage_url
+                        homepage_url=homepage_url,
+                        languages=languages_map if languages_map else None
                     )
 
                     metrics = RepoMetrics(
@@ -189,7 +223,11 @@ def main():
                         forks=deep_result["forkCount"],
                         open_issues=deep_result["issues"]["totalCount"],
                         good_first_issues=good_first_issues,
-                        open_pull_requests=open_pull_requests
+                        open_pull_requests=open_pull_requests,
+                        watchers=watchers,
+                        total_releases=total_releases,
+                        latest_version=latest_version,
+                        contributors=contributors
                     )
 
                     activity = RepoActivity(

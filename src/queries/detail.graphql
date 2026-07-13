@@ -57,5 +57,33 @@ query($owner: String!, $name: String!) {
         }
       }
     }
+    # 👁️ Watching数
+    watchers {
+      totalCount
+    }
+    # 📦 総リリース数
+    releases(first: 1) {
+      totalCount
+      nodes {
+        tagName
+      }
+    }
+    # 🏷️ 最新リリースバージョン
+    latestRelease {
+      tagName
+    }
+    # 👥 貢献者数(目安としての権限保有・メンション可能ユーザー数)
+    mentionableUsers {
+      totalCount
+    }
+    # 🌐 言語比率
+    languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+      edges {
+        size
+        node {
+          name
+        }
+      }
+    }
   }
 }
