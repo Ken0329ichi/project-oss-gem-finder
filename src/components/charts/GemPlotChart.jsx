@@ -19,7 +19,7 @@ export default function GemPlotChart({
       <div className="chart-box-header">
         <div>
           <h3>📊 Stargazers vs Forks Distribution (Gem Plot)</h3>
-          <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left are highly practical gems.</p>
+          <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left are highly practical gems (target range: 300+ stars).</p>
         </div>
         <div className="scale-selector-wrapper">
           <label htmlFor="scale-select">Zoom Scale: </label>
@@ -49,7 +49,7 @@ export default function GemPlotChart({
               key={`scatter-${selectedLabel}-${selectedCountry}-${selectedLang}-${scatterMaxStars}`}
               margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
             >
-              <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" />
+              <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" domain={['dataMin - 100', 'auto']} />
               <YAxis type="number" dataKey="fork" name="Forks" unit="🍴" stroke="#9ca3af" />
               <ZAxis type="category" dataKey="name" name="Repository" />
               {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} />}

@@ -21,7 +21,7 @@ export default function PrVolumeChart({
       <div className="chart-box-header">
         <div>
           <h3>📊 Stargazers vs Open Pull Requests (PR Volume Plot)</h3>
-          <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left have high development activity relative to stars.</p>
+          <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left have high development activity relative to stars (target range: 300+ stars).</p>
         </div>
         <div className="scale-selector-wrapper">
           <label htmlFor="pr-scale-select">Zoom Scale: </label>
@@ -51,7 +51,7 @@ export default function PrVolumeChart({
               key={`pr-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${scatterMaxStars}`}
               margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
             >
-              <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" />
+              <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" domain={['dataMin - 100', 'auto']} />
               <YAxis type="number" dataKey="pr" name="Open PRs" unit="🚀" stroke="#9ca3af" />
               <ZAxis type="category" dataKey="name" name="Repository" />
               {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<PrScatterTooltip />} />}
