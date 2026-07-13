@@ -13,7 +13,14 @@ FUNNY_LABEL_KEYWORDS = {
     "design-flaw", "not-a-bug", "works-for-me", "spaghetti", "dumpster-fire"
 }
 
-# 🔎 自動探索（Discovery）の設定
-DISCOVERY_LANGUAGES = ["python", "go", "rust", "typescript", "javascript", "cpp"]
-DISCOVERY_TOPICS = ["web", "framework", "database", "cli", "tools", "machine-learning"]
-DISCOVERY_LICENSES = ["mit", "apache-2.0"]
+# 🔎 自動探索（Discovery）の設定 (ギークファースト・グローバルスコープ)
+DISCOVERY_STARS = 300
+DISCOVERY_LANGUAGES = [
+    "python", "go", "rust", "zig", "nim", "cpp", "c", 
+    "haskell", "ocaml", "clojure", "elixir", "julia", 
+    "shell", "lua", "typescript", "javascript", "ruby", 
+    "scala", "swift", "kotlin", "dart", "csharp", "java"
+]
+
+# 🛡️ 許容するオープンソースライセンス (Python側のフィルタリング用)
+ALLOWED_LICENSES = ["mit", "apache-2.0"]

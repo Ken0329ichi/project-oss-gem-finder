@@ -20,12 +20,14 @@ class RepoMeta(BaseModel):
     primary_language: Optional[str] = None
     owner_location: Optional[str] = None
     detected_country: Optional[str] = None
+    homepage_url: Optional[str] = None
 
 # 3. 各リポジトリの数値指標
 class RepoMetrics(BaseModel):
     stargazers: int
     forks: int
     open_issues: int
+    good_first_issues: int = 0
 
 # 4. 各リポジトリの生存確認アクティビティ
 class RepoActivity(BaseModel):
