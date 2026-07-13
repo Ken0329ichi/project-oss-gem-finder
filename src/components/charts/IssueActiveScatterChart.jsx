@@ -66,9 +66,10 @@ export default function IssueActiveScatterChart({
                 key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}`}
                 margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
               >
-                <XAxis type="number" dataKey="open_issues" name="Open Issues" unit="⚠️" stroke="#9ca3af" />
-                <YAxis type="number" dataKey="gfi" name="Good First Issues" unit="🌱" stroke="#9ca3af" />
+                <XAxis type="number" dataKey="open_issues" name="Open Issues" unit="⚠️" scale="log" domain={[1, 'auto']} stroke="#9ca3af" />
+                <YAxis type="number" dataKey="gfi" name="Good First Issues" unit="🌱" scale="log" domain={[1, 'auto']} stroke="#9ca3af" />
                 <ZAxis type="category" dataKey="name" name="Repository" />
+
                 
                 {/* 動的中央値による四象限破線境界線 */}
                 <ReferenceLine x={medianIssues} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.25} />

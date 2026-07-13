@@ -65,8 +65,9 @@ export default function PrVolumeChart({
                 key={`pr-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${scatterMaxStars}`}
                 margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
               >
-                <XAxis type="number" dataKey="star" name="Stars" unit="⭐" stroke="#9ca3af" domain={['dataMin - 100', 'auto']} />
-                <YAxis type="number" dataKey="pr" name="Open PRs" unit="🚀" stroke="#9ca3af" />
+                <XAxis type="number" dataKey="star" name="Stars" unit="⭐" scale="log" domain={[1, 'auto']} stroke="#9ca3af" />
+                <YAxis type="number" dataKey="pr" name="Open PRs" unit="🚀" scale="log" domain={[1, 'auto']} stroke="#9ca3af" />
+
                 
                 {/* 動的中央値による四象限破線境界線 */}
                 <ReferenceLine x={medianStars} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.25} />

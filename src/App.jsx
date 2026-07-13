@@ -100,7 +100,13 @@ export default function App() {
   const scatterData = useMemo(() => {
     let list = filteredRepos;
     if (scatterMaxStars !== Infinity) list = list.filter(r => r.metrics.stargazers < scatterMaxStars);
-    return list.slice(0, 200).map(r => ({ name: r.meta.name, star: r.metrics.stargazers, fork: r.metrics.forks, lang: r.meta.primary_language || 'Unknown', rawRepo: r }));
+    return list.slice(0, 200).map(r => ({
+      name: r.meta.name,
+      star: Math.max(1, r.metrics.stargazers),
+      fork: Math.max(1, r.metrics.forks),
+      lang: r.meta.primary_language || 'Unknown',
+      rawRepo: r
+    }));
   }, [filteredRepos, scatterMaxStars]);
 
   const pieData = useMemo(() => {
@@ -118,7 +124,13 @@ export default function App() {
   const issueScatterData = useMemo(() => {
     let list = filteredRepos;
     if (issueMaxCount !== Infinity) list = list.filter(r => r.metrics.open_issues < issueMaxCount);
-    return list.slice(0, 200).map(r => ({ name: r.meta.name, open_issues: r.metrics.open_issues, gfi: r.metrics.good_first_issues || 0, lang: r.meta.primary_language || 'Unknown', rawRepo: r }));
+    return list.slice(0, 200).map(r => ({
+      name: r.meta.name,
+      open_issues: Math.max(1, r.metrics.open_issues),
+      gfi: Math.max(1, r.metrics.good_first_issues || 0),
+      lang: r.meta.primary_language || 'Unknown',
+      rawRepo: r
+    }));
   }, [filteredRepos, issueMaxCount]);
 
   const prScatterData = useMemo(() => {
@@ -126,13 +138,14 @@ export default function App() {
     if (scatterMaxStars !== Infinity) list = list.filter(r => r.metrics.stargazers < scatterMaxStars);
     return list.slice(0, 200).map(r => ({
       name: r.meta.name,
-      star: r.metrics.stargazers,
-      pr: r.metrics.open_pull_requests || 0,
-      contributors: r.metrics.contributors || 1, // 3次元バブルチャート用の貢献者数
+      star: Math.max(1, r.metrics.stargazers),
+      pr: Math.max(1, r.metrics.open_pull_requests || 0),
+      contributors: r.metrics.contributors || 1, // 3次元用の貢献者数
       lang: r.meta.primary_language || 'Unknown',
       rawRepo: r
     }));
   }, [filteredRepos, scatterMaxStars]);
+
 
 
   const handleScatterClick = (data) => {
