@@ -26,6 +26,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('charts'); // 'list' or 'charts'
   const [selectedRepo, setSelectedRepo] = useState(null); // 詳細モーダル用
   const [scatterMaxStars, setScatterMaxStars] = useState(30000); // 散布図のズームスケール上限
+  const [showGlobal, setShowGlobal] = useState(true); // PieChartのGlobal表示トグル
 
   // 1. データセット (data.json) の非同期ロード
   useEffect(() => {
@@ -160,9 +161,10 @@ export default function App() {
     });
     return Object.entries(counts)
       .map(([name, value]) => ({ name, value }))
+      .filter(({ name }) => showGlobal || name !== 'Global 🌐') // Globalトグルで除外
       .sort((a, b) => b.value - a.value)
       .slice(0, 6); // 上位6カ国
-  }, [filteredRepos]);
+  }, [filteredRepos, showGlobal]);
 
   // チャート③: 初心者歓迎(Good First Issue)の言語別総数 (Bar Chart)
   const barData = useMemo(() => {
@@ -370,16 +372,25 @@ export default function App() {
             <div className="chart-row">
               {/* ドーナツグラフ: 国別シェア */}
               <div className="chart-box half-width glass">
-                <h3>🍩 Region Distribution</h3>
+                <div className="chart-box-header">
+                  <h3>🍩 Region Distribution</h3>
+                  <button
+                    className={`toggle-global-btn ${showGlobal ? '' : 'active'}`}
+                    onClick={() => setShowGlobal(v => !v)}
+                    title="Toggle Global repositories"
+                  >
+                    {showGlobal ? '🌐 Hide Global' : '🌐 Show Global'}
+                  </button>
+                </div>
                 <div className="chart-wrapper">
-                  <ResponsiveContainer width="100%" height={260}>
+                  <ResponsiveContainer width="100%" height={240}>
                     <PieChart>
                       <Pie
                         data={pieData}
                         cx="50%"
                         cy="50%"
-                        innerRadius={60}
-                        outerRadius={80}
+                        innerRadius={55}
+                        outerRadius={75}
                         paddingAngle={5}
                         dataKey="value"
                       >
@@ -456,18 +467,20 @@ export default function App() {
               </div>
             </div>
 
-            {/* 生ラベル一覧 */}
-            {((selectedRepo.activity.labels && selectedRepo.activity.labels.length > 0) ||
-              (selectedRepo.activity.funny_labels && selectedRepo.activity.funny_labels.length > 0)) && (
-              <div className="modal-section">
-                <h4>🏷️ Active Raw Labels:</h4>
-                <div className="modal-tags">
-                  {(selectedRepo.activity.labels || selectedRepo.activity.funny_labels || []).map(l => (
-                    <span key={l} className="modal-tag">{l}</span>
-                  ))}
+            {/* Rare Labels（IssueラベルAPI由来の客観的データ）*/}
+            {(() => {
+              const rareLabelsData = selectedRepo.activity.labels || selectedRepo.activity.funny_labels || [];
+              return rareLabelsData.length > 0 && (
+                <div className="modal-section">
+                  <h4>🌶️ Rare Labels:</h4>
+                  <div className="modal-rare-tags">
+                    {rareLabelsData.map(l => (
+                      <span key={l} className="modal-rare-tag">{l}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             {/* 探索キーワード */}
             {selectedRepo.search_keywords && selectedRepo.search_keywords.length > 0 && (

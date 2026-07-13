@@ -179,11 +179,12 @@
 
 .tags-wrapper {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
-  max-height: 80px;
+  max-height: 90px;
   overflow-y: auto;
   padding-right: 0.5rem;
+  padding-bottom: 0.5rem; /* 最下段のバッジが条線で見切れないよう内側に安全マージン */
 }
 
 .tag-chip {
@@ -579,4 +580,48 @@
 .scale-select:focus {
   outline: none;
   border-color: var(--primary);
+}
+
+/* 🌐 Global Toggle Button (PieChart) */
+.toggle-global-btn {
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-default);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-mute);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.toggle-global-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.toggle-global-btn.active {
+  border-color: #f59e0b;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+/* 🌶️ Modal Rare Labels */
+.modal-rare-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+}
+
+.modal-rare-tag {
+  padding: 0.2rem 0.65rem;
+  border-radius: 5px;
+  border: 1px solid rgba(245, 158, 11, 0.3); /* アンバートーンの枠線 */
+  background: rgba(245, 158, 11, 0.06);
+  color: #f59e0b;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
