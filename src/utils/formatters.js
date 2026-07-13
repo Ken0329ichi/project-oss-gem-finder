@@ -181,4 +181,24 @@ export const getMedian = (arr, key) => {
   return (values[half - 1] + values[half]) / 2;
 };
 
+// ===================================================
+// 📊 logTickFormatter: 対数（10^x）軸の目盛りラベルのフォーマッター
+// ===================================================
+export const logTickFormatter = (value) => {
+  if (value < 0) return '0';
+  if (value === 0) return '1';
+  // 浮動小数点の誤差を考慮し、整数値に近い場合のみラベルを出力
+  const rounded = Math.round(value * 10) / 10;
+  if (rounded % 1 === 0) {
+    const power = Math.round(rounded);
+    const val = Math.pow(10, power);
+    if (val >= 1000) {
+      return (val / 1000).toLocaleString() + 'k';
+    }
+    return val.toLocaleString();
+  }
+  return '';
+};
+
+
 

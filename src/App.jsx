@@ -35,12 +35,14 @@ const PieTooltip = ({ active, payload }) => {
 const IssueTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
   const data = payload[0].payload;
-  const gfiPercent = data.open_issues > 0 ? Math.round((data.gfi / data.open_issues) * 100) : 0;
+  const rawIssues = data.rawIssues ?? 0;
+  const rawGfi = data.rawGfi ?? 0;
+  const gfiPercent = rawIssues > 0 ? Math.round((rawGfi / rawIssues) * 100) : 0;
   return (
     <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
       <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Total Open Issues: <strong>{data.open_issues.toLocaleString()}</strong> ⚠️</p>
-      <p style={{ color: '#34d399', fontSize: '0.8rem', margin: '2px 0 0' }}>🌱 Good First Issues: <strong>{data.gfi.toLocaleString()}</strong> ({gfiPercent}%)</p>
+      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Total Open Issues: <strong>{rawIssues.toLocaleString()}</strong> ⚠️</p>
+      <p style={{ color: '#34d399', fontSize: '0.8rem', margin: '2px 0 0' }}>🌱 Good First Issues: <strong>{rawGfi.toLocaleString()}</strong> ({gfiPercent}%)</p>
     </div>
   );
 };
@@ -49,30 +51,32 @@ const IssueTooltip = ({ active, payload }) => {
 const PrScatterTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
   const data = payload[0].payload;
+  const rawStar = data.rawStar ?? 0;
+  const rawPr = data.rawPr ?? 0;
   return (
     <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(56, 189, 248, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
       <p style={{ color: '#38bdf8', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars: <strong>{data.star.toLocaleString()}</strong> ⭐</p>
-      <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>Open PRs: <strong>{data.pr.toLocaleString()}</strong> 🚀</p>
+      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars: <strong>{rawStar.toLocaleString()}</strong> ⭐</p>
+      <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>Open PRs: <strong>{rawPr.toLocaleString()}</strong> 🚀</p>
       <p style={{ color: '#a78bfa', fontSize: '0.8rem', margin: '2px 0 0' }}>👥 Contributors (Activity Group): <strong>{data.contributors != null && data.contributors !== 1 ? data.contributors.toLocaleString() : '—'}</strong></p>
     </div>
   );
 };
 
-
 // Gem Plot (Stars vs Forks) 用カスタムTooltip (統一デザイン)
 const GemTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
   const data = payload[0].payload;
+  const rawStar = data.rawStar ?? 0;
+  const rawFork = data.rawFork ?? 0;
   return (
     <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
       <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars: <strong>{data.star.toLocaleString()}</strong> ⭐</p>
-      <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>Forks: <strong>{data.fork.toLocaleString()}</strong> 🍴</p>
+      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars: <strong>{rawStar.toLocaleString()}</strong> ⭐</p>
+      <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>Forks: <strong>{rawFork.toLocaleString()}</strong> 🍴</p>
     </div>
   );
 };
-
 
 export default function App() {
   const {
@@ -96,14 +100,16 @@ export default function App() {
   const [issueMaxCount, setIssueMaxCount] = useState(500);
   const [showGlobal, setShowGlobal] = useState(true);
 
-  // グラフ用データ
+  // グラフ用データ (すべて React 側であらかじめ Math.log10 化して流す)
   const scatterData = useMemo(() => {
     let list = filteredRepos;
     if (scatterMaxStars !== Infinity) list = list.filter(r => r.metrics.stargazers < scatterMaxStars);
     return list.slice(0, 200).map(r => ({
       name: r.meta.name,
-      star: Math.max(1, r.metrics.stargazers),
-      fork: Math.max(1, r.metrics.forks),
+      star: Math.log10(Math.max(1, r.metrics.stargazers)),
+      fork: Math.log10(Math.max(1, r.metrics.forks)),
+      rawStar: r.metrics.stargazers,
+      rawFork: r.metrics.forks,
       lang: r.meta.primary_language || 'Unknown',
       rawRepo: r
     }));
@@ -126,8 +132,10 @@ export default function App() {
     if (issueMaxCount !== Infinity) list = list.filter(r => r.metrics.open_issues < issueMaxCount);
     return list.slice(0, 200).map(r => ({
       name: r.meta.name,
-      open_issues: Math.max(1, r.metrics.open_issues),
-      gfi: Math.max(1, r.metrics.good_first_issues || 0),
+      open_issues: Math.log10(Math.max(1, r.metrics.open_issues)),
+      gfi: Math.log10(Math.max(1, r.metrics.good_first_issues || 0)),
+      rawIssues: r.metrics.open_issues,
+      rawGfi: r.metrics.good_first_issues || 0,
       lang: r.meta.primary_language || 'Unknown',
       rawRepo: r
     }));
@@ -138,15 +146,15 @@ export default function App() {
     if (scatterMaxStars !== Infinity) list = list.filter(r => r.metrics.stargazers < scatterMaxStars);
     return list.slice(0, 200).map(r => ({
       name: r.meta.name,
-      star: Math.max(1, r.metrics.stargazers),
-      pr: Math.max(1, r.metrics.open_pull_requests || 0),
-      contributors: r.metrics.contributors || 1, // 3次元用の貢献者数
+      star: Math.log10(Math.max(1, r.metrics.stargazers)),
+      pr: Math.log10(Math.max(1, r.metrics.open_pull_requests || 0)),
+      rawStar: r.metrics.stargazers,
+      rawPr: r.metrics.open_pull_requests || 0,
+      contributors: r.metrics.contributors || 1,
       lang: r.meta.primary_language || 'Unknown',
       rawRepo: r
     }));
   }, [filteredRepos, scatterMaxStars]);
-
-
 
   const handleScatterClick = (data) => {
     const repo = data?.payload?.rawRepo || data?.rawRepo;

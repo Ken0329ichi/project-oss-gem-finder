@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts';
-import { getMedian } from '../../utils/formatters';
+import { getMedian, logTickFormatter } from '../../utils/formatters';
 
 // 30x30 格子集計セルのホバー用カスタムTooltip
 const BinnedDensityTooltip = ({ active, payload }) => {
@@ -31,16 +31,17 @@ export default function GemPlotChart({
   const [viewMode, setViewMode] = useState('dot'); // 'dot' | 'density'
   const isEmpty = scatterData.length === 0;
 
-  // 1. 動的な中央値 (Median) の計算
+  // 1. 対数化されたデータから正確な中央値 (Median) を算出
   const medianStars = useMemo(() => getMedian(scatterData, 'star'), [scatterData]);
   const medianForks = useMemo(() => getMedian(scatterData, 'fork'), [scatterData]);
 
-  // 2. 対数空間上での 30 x 30 格子状集計 (Binned Heatmap) の構築
+  // 2. 対数空間上での 30 x 30 格子状集計 (Binned Heatmap)
   const binnedData = useMemo(() => {
     if (isEmpty) return [];
 
-    const starsLog = scatterData.map(d => Math.log10(d.star));
-    const forksLog = scatterData.map(d => Math.log10(d.fork));
+    // すでに star と fork は Math.log10 変換されているため、そのままで集計する
+    const starsLog = scatterData.map(d => d.star);
+    const forksLog = scatterData.map(d => d.fork);
 
     const minXLog = 0; // log10(1) = 0
     const maxXLog = Math.max(...starsLog, 1);
@@ -51,7 +52,6 @@ export default function GemPlotChart({
     const stepX = (maxXLog - minXLog) / gridSize || 0.1;
     const stepY = (maxYLog - minYLog) / gridSize || 0.1;
 
-    // 900セルの二次元ビンをフラットに初期化
     const bins = [];
     for (let i = 0; i < gridSize; i++) {
       for (let j = 0; j < gridSize; j++) {
@@ -62,9 +62,9 @@ export default function GemPlotChart({
           starMax: Math.pow(10, minXLog + (i + 1) * stepX),
           forkMin: Math.pow(10, minYLog + j * stepY),
           forkMax: Math.pow(10, minYLog + (j + 1) * stepY),
-          // セル描画用の実数値座標 (対数セルの中心値)
-          star: Math.pow(10, minXLog + (i + 0.5) * stepX),
-          fork: Math.pow(10, minYLog + (j + 0.5) * stepY),
+          // 対数空間上のプロット用中心座標
+          star: minXLog + (i + 0.5) * stepX,
+          fork: minYLog + (j + 0.5) * stepY,
           count: 0
         });
       }
@@ -72,10 +72,8 @@ export default function GemPlotChart({
 
     // データのバニング集計
     scatterData.forEach(d => {
-      const xVal = Math.log10(d.star);
-      const yVal = Math.log10(d.fork);
-      let i = Math.floor((xVal - minXLog) / stepX);
-      let j = Math.floor((yVal - minYLog) / stepY);
+      let i = Math.floor((d.star - minXLog) / stepX);
+      let j = Math.floor((d.fork - minYLog) / stepY);
       if (i >= gridSize) i = gridSize - 1;
       if (j >= gridSize) j = gridSize - 1;
       if (i < 0) i = 0;
@@ -86,27 +84,37 @@ export default function GemPlotChart({
       }
     });
 
-    // カウントが 0 のビンは非表示にするため除外
     return bins.filter(b => b.count > 0);
   }, [scatterData, isEmpty]);
 
-  // カウント最大値の算出
   const maxBinCount = useMemo(() => {
     if (binnedData.length === 0) return 0;
     return Math.max(...binnedData.map(b => b.count));
   }, [binnedData]);
 
-  // 件数に基づくカラーマッピング（深海紺 ➡️ ネオンパープル ➡️ サイバーマゼンタ）
   const getBinColor = (count) => {
     const ratio = count / (maxBinCount || 1);
     if (ratio < 0.2) {
-      return 'rgba(15, 23, 42, 0.6)'; // 低密度: 深海紺・半透明
+      return 'rgba(15, 23, 42, 0.6)';
     } else if (ratio < 0.6) {
-      return '#7c3aed';               // 中密度: ネオンパープル
+      return '#7c3aed';
     } else {
-      return '#ec4899';               // 高密度: サイバーマゼンタ
+      return '#ec4899';
     }
   };
+
+  // 軸の表示ドメイン限界を計算
+  const xDomain = useMemo(() => {
+    if (isEmpty) return [0, 5];
+    const maxVal = Math.max(...scatterData.map(d => d.star));
+    return [0, Math.ceil(maxVal)];
+  }, [scatterData, isEmpty]);
+
+  const yDomain = useMemo(() => {
+    if (isEmpty) return [0, 5];
+    const maxVal = Math.max(...scatterData.map(d => d.fork));
+    return [0, Math.ceil(maxVal)];
+  }, [scatterData, isEmpty]);
 
   return (
     <div className="chart-box glass">
@@ -116,7 +124,6 @@ export default function GemPlotChart({
           <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left are highly practical gems (target range: 300+ stars).</p>
         </div>
         <div className="chart-controls-row">
-          {/* View Mode 切り替えトグルボタン */}
           <div className="view-mode-toggle">
             <button 
               className={`toggle-btn ${viewMode === 'dot' ? 'active' : ''}`}
@@ -170,12 +177,28 @@ export default function GemPlotChart({
                 key={`scatter-${selectedLabel}-${selectedCountry}-${selectedLang}-${scatterMaxStars}-${viewMode}`}
                 margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
               >
-                {/* 🚀 対数スケール (scale="log") ✕ 0回避 (domain={[1, 'auto']) */}
-                <XAxis type="number" dataKey="star" name="Stars" unit="⭐" scale="log" domain={[1, 'auto']} stroke="#9ca3af" />
-                <YAxis type="number" dataKey="fork" name="Forks" unit="🍴" scale="log" domain={[1, 'auto']} stroke="#9ca3af" />
+                {/* 🚀 標準線形軸に tickFormatter で綺麗に対数表記する（Rechartsのバグ完全回避） */}
+                <XAxis 
+                  type="number" 
+                  dataKey="star" 
+                  name="Stars" 
+                  unit="⭐" 
+                  domain={xDomain} 
+                  tickFormatter={logTickFormatter} 
+                  stroke="#9ca3af" 
+                />
+                <YAxis 
+                  type="number" 
+                  dataKey="fork" 
+                  name="Forks" 
+                  unit="🍴" 
+                  domain={yDomain} 
+                  tickFormatter={logTickFormatter} 
+                  stroke="#9ca3af" 
+                />
                 
-                {/* ヒートマップ時の格子サイズを均一にするためのZAxis */}
-                <ZAxis type="number" dataKey="count" range={viewMode === 'density' ? [120, 120] : [0, 0]} />
+                {viewMode === 'density' && <ZAxis type="number" dataKey="count" range={[120, 120]} />}
+
 
                 {/* 動的中央値による四象限破線境界線 */}
                 <ReferenceLine x={medianStars} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.25} />
@@ -189,7 +212,6 @@ export default function GemPlotChart({
                 )}
 
                 {viewMode === 'dot' ? (
-                  /* 1. 通常のドットプロットモード (半径3px固定、お団子完全排除) */
                   <Scatter 
                     name="Repositories" 
                     data={scatterData} 
@@ -206,7 +228,6 @@ export default function GemPlotChart({
                     ))}
                   </Scatter>
                 ) : (
-                  /* 2. 真の 30x30 格子状集計ヒートマップ (モザイク等高線、隙間なし) */
                   <Scatter 
                     name="Binned Heatmap" 
                     data={binnedData} 
