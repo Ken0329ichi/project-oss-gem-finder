@@ -133,3 +133,38 @@
     flex-direction: column;
   }
 }
+
+/* 📈 Empty chart placeholder */
+.chart-empty-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(8, 11, 17, 0.25);
+  color: var(--text-mute);
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.chart-empty-placeholder .empty-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.6;
+}
+
+.chart-empty-placeholder .empty-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.chart-empty-placeholder .empty-subtext {
+  font-size: 0.8rem;
+  color: var(--text-mute);
+  opacity: 0.7;
+}

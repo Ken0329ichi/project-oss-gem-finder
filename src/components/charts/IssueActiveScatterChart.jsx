@@ -15,6 +15,8 @@ export default function IssueActiveScatterChart({
   IssueTooltip,
   colors
 }) {
+  const isEmpty = issueScatterData.length === 0;
+
   return (
     <div className="chart-box glass">
       <div className="chart-box-header">
@@ -38,28 +40,36 @@ export default function IssueActiveScatterChart({
         </div>
       </div>
       <div className="chart-wrapper">
-        <ResponsiveContainer width="100%" height={350}>
-          <ScatterChart
-            key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}`}
-            margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
-          >
-            <XAxis type="number" dataKey="open_issues" name="Open Issues" unit="⚠️" stroke="#9ca3af" />
-            <YAxis type="number" dataKey="gfi" name="Good First Issues" unit="🌱" stroke="#9ca3af" />
-            <ZAxis type="category" dataKey="name" name="Repository" />
-            {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<IssueTooltip />} />}
-            <Scatter 
-              name="Repositories" 
-              data={issueScatterData} 
-              fill="#10B981"
-              onClick={handleScatterClick}
-              style={{ cursor: 'pointer' }}
+        {isEmpty ? (
+          <div className="chart-empty-placeholder">
+            <span className="empty-icon">📈</span>
+            <p className="empty-text">No repositories match the current scale/filters.</p>
+            <p className="empty-subtext">Try changing the "Zoom Scale" in the header to a larger range.</p>
+          </div>
+        ) : (
+          <ResponsiveContainer width="100%" height={350}>
+            <ScatterChart
+              key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}`}
+              margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
             >
-              {issueScatterData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-              ))}
-            </Scatter>
-          </ScatterChart>
-        </ResponsiveContainer>
+              <XAxis type="number" dataKey="open_issues" name="Open Issues" unit="⚠️" stroke="#9ca3af" />
+              <YAxis type="number" dataKey="gfi" name="Good First Issues" unit="🌱" stroke="#9ca3af" />
+              <ZAxis type="category" dataKey="name" name="Repository" />
+              {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<IssueTooltip />} />}
+              <Scatter 
+                name="Repositories" 
+                data={issueScatterData} 
+                fill="#10B981"
+                onClick={handleScatterClick}
+                style={{ cursor: 'pointer' }}
+              >
+                {issueScatterData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                ))}
+              </Scatter>
+            </ScatterChart>
+          </ResponsiveContainer>
+        )}
       </div>
     </div>
   );
