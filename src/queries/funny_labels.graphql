@@ -12,6 +12,7 @@ query($owner: String!, $name: String!) {
       }
     }
     description
+    homepageUrl
     licenseInfo {
       spdxId
     }
@@ -21,6 +22,10 @@ query($owner: String!, $name: String!) {
     stargazerCount
     forkCount
     issues(states: OPEN) {
+      totalCount
+    }
+    # 初心者向けタスクのオープン件数を一本釣り
+    goodFirstIssues: issues(states: OPEN, labels: ["good first issue", "help wanted"]) {
       totalCount
     }
     pushedAt

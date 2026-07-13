@@ -1,6 +1,6 @@
 import os
 from typing import List, Set
-from config import TARGETS_PATH, DISCOVERY_LANGUAGES, DISCOVERY_TOPICS, DISCOVERY_LICENSES
+from config import TARGETS_PATH, DISCOVERY_LANGUAGES, DISCOVERY_STARS, ALLOWED_LICENSES
 from client import BaseGitHubClient
 
 def load_existing_targets() -> Set[str]:
@@ -36,42 +36,47 @@ def save_new_targets(new_targets: List[str]):
 
 class GitHubSearchClient(BaseGitHubClient):
     def discover_repositories(self, existing: Set[str]) -> List[str]:
-        """GitHub Search APIを使用し、主要言語×トピック×ライセンスの総当たりで人気リポジトリを自動検出"""
+        """GitHub Search APIを使用し、主要言語の人気リポジトリを自動検出（トピック別ループを廃止した超効率版）"""
         discovered = []
         seen = set()
 
         print("\n--- ターゲット自動探索開始 ---")
 
         for lang in DISCOVERY_LANGUAGES:
-            for topic in DISCOVERY_TOPICS:
-                for lic in DISCOVERY_LICENSES:
-                    query = f"language:{lang} topic:{topic} license:{lic} stars:>1000"
-                    url = f"/search/repositories?q={query}&sort=stars&order=desc&per_page=100"
-                    
-                    try:
-                        response = self.client.get(url)
-                        self._update_rate_limit(response.headers)
-                        
-                        if response.status_code == 200:
-                            data = response.json()
-                            items = data.get("items", [])
-                            print(f"[Discovery] Query: '{query}' -> Found {len(items)} repositories.")
-                            
-                            for item in items:
-                                repo_name = item["full_name"]
-                                if repo_name not in existing and repo_name not in seen:
-                                    discovered.append(repo_name)
-                                    seen.add(repo_name)
-                        elif response.status_code == 403:
-                            print("[Warning] Search API rate limit hit. Stopping search loop to prevent block.")
-                            break
-                        else:
-                            print(f"[Discovery] Failed query '{query}': Status {response.status_code}")
-                    except Exception as e:
-                        print(f"Error executing query '{query}': {e}")
+            # 1リクエストで対象言語の人気リポジトリを一網打尽に取得 (最大100件)
+            query = f"language:{lang} stars:>{DISCOVERY_STARS}"
+            url = f"/search/repositories?q={query}&sort=stars&order=desc&per_page=100"
+            
+            try:
+                response = self.client.get(url)
+                self._update_rate_limit(response.headers)
                 
-                if len(discovered) >= 1000:
+                if response.status_code == 200:
+                    data = response.json()
+                    items = data.get("items", [])
+                    print(f"[Discovery] Query: '{query}' -> Found {len(items)} repositories.")
+                    
+                    for item in items:
+                        repo_name = item["full_name"]
+                        
+                        # Python側でライセンス（MIT/Apache-2.0）を安全にフィルタリング (一括選別)
+                        license_info = item.get("license")
+                        license_key = license_info.get("key") if license_info else None
+                        if license_key not in ALLOWED_LICENSES:
+                            continue
+
+                        if repo_name not in existing and repo_name not in seen:
+                            discovered.append(repo_name)
+                            seen.add(repo_name)
+                elif response.status_code == 403:
+                    print("[Warning] Search API rate limit hit. Stopping search loop to prevent block.")
                     break
+                else:
+                    print(f"[Discovery] Failed query '{query}': Status {response.status_code}")
+            except Exception as e:
+                print(f"Error executing query '{query}': {e}")
+        
+            # 1回あたりの最大追加バッファに達したらループ終了 (過度なデータ急増の防止)
             if len(discovered) >= 1000:
                 print("[Info] Target discovery buffer full (1000). Halting loop.")
                 break

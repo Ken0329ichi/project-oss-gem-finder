@@ -19,6 +19,21 @@ def load_targets() -> List[str]:
             print(f"Warning: Failed to load targets.txt: {e}")
     return ["fastapi/fastapi", "tailwindlabs/tailwindcss"]
 
+def is_stale_commit(commit_date_str: Optional[str]) -> bool:
+    """最終コミット日時が2年以上前（活動停止状態）かどうかを判定"""
+    if not commit_date_str:
+        return False
+    try:
+        # ISO 8601 形式の 'Z' をタイムゾーン表現に統一してパース
+        dt_str = commit_date_str.replace("Z", "+00:00")
+        committed_dt = datetime.fromisoformat(dt_str)
+        now_utc = datetime.now(timezone.utc)
+        # 365日 * 2 ＝ 730日 以上経っているか判定
+        return (now_utc - committed_dt).days > (365 * 2)
+    except Exception as e:
+        print(f"Warning: Failed to parse commit date '{commit_date_str}': {e}")
+    return False
+
 def main():
     token = os.environ.get("GH_TOKEN")
     if not token:
@@ -50,27 +65,42 @@ def main():
     
     # 統計情報の初期化 (Discord通知用)
     updated_count = 0
-    removed_count = 0
+    removed_count = 0        # 404/非公開によるクレンジング数
+    stale_removed_count = 0  # 2年無活動による新陳代謝パージ数
     safety_brake_triggered = False
 
+    # 新陳代謝後に生き残るアクティブなターゲットリスト
+    active_targets = []
+
     # 2. 収集ループの実行
-    for repo_name in targets:
+    for idx, repo_name in enumerate(targets):
         # 安全ブレーキ：RESTクライアントのAPI残り枠が危険域に達したら離脱
-        # (GraphQLも同一のAPI上限を分け合うため、残り枠をチェック)
         if rest_client.rate_remaining < 100:
             print(f"\n[SafetyBrake] API残り枠が危険域（残り {rest_client.rate_remaining}）に達したため、処理を一時中断し、残りは次回に持ち越します。")
             safety_brake_triggered = True
             has_updates = True
+            # 残りの未処理ターゲットをそのまま active_targets に追加して引き継ぐ
+            active_targets.extend(targets[idx:])
             break
 
         # 第1関門: REST API で ETag を用いた304条件付きリクエストを送信 (API節約の防衛)
         rest_result = rest_client.fetch_repository(repo_name)
         
         if rest_result == "304":
-            # 変更なし：前回のデータをそのまま引き継ぐ（キャリーオーバー）
+            # 変更なし：前回のデータを引き継ぐが、新陳代謝（コミット2年停止）をキャッシュでチェック
             if repo_name in old_data_map:
-                new_repositories.append(old_data_map[repo_name])
-                print(f"  -> {repo_name} のデータをキャリーオーバーしました。")
+                cached_repo = old_data_map[repo_name]
+                cached_commit = cached_repo.get("activity", {}).get("last_committed_at")
+                
+                if is_stale_commit(cached_commit):
+                    # 2年以上無活動なら、データセットおよび targets.txt から排除
+                    print(f"[Metabolism] Removed stale repository {repo_name} (No commits since {cached_commit})")
+                    stale_removed_count += 1
+                    has_updates = True
+                else:
+                    new_repositories.append(cached_repo)
+                    active_targets.append(repo_name)
+                    print(f"  -> {repo_name} のデータをキャリーオーバーしました。")
             continue
                 
         elif rest_result == "404":
@@ -91,6 +121,14 @@ def main():
             
             if isinstance(deep_result, dict):
                 try:
+                    # 最終コミット日付による新陳代謝（2年無活動パージ）
+                    commit_date = deep_result.get("defaultBranchRef", {}).get("target", {}).get("committedDate")
+                    if is_stale_commit(commit_date):
+                        print(f"[Metabolism] Removed stale repository {repo_name} (No commits since {commit_date})")
+                        stale_removed_count += 1
+                        has_updates = True
+                        continue
+
                     # 面白ラベルの抽出
                     funny_labels = FunnyLabelExtractor.extract(deep_result)
                     if funny_labels:
@@ -107,10 +145,17 @@ def main():
                     else:
                         print(f"  [🌍 Location Info] {repo_name}: Location not set -> '{detected_country}'")
 
+                    # ホームページURLの抽出
+                    homepage_url = deep_result.get("homepageUrl")
+
+                    # 初心者向けIssue数の抽出
+                    good_first_issues = 0
+                    if deep_result.get("goodFirstIssues"):
+                        good_first_issues = deep_result["goodFirstIssues"].get("totalCount", 0)
+
                     # GraphQLのレスポンスデータをPydanticスキーマにマッピング
                     lic = deep_result.get("licenseInfo")
                     lang = deep_result.get("primaryLanguage")
-                    commit_date = deep_result.get("defaultBranchRef", {}).get("target", {}).get("committedDate")
                     topics = [node["topic"]["name"] for node in deep_result.get("repositoryTopics", {}).get("nodes", [])]
 
                     meta = RepoMeta(
@@ -120,13 +165,15 @@ def main():
                         license=lic.get("spdxId") if lic else None,
                         primary_language=lang.get("name") if lang else None,
                         owner_location=owner_location,
-                        detected_country=detected_country
+                        detected_country=detected_country,
+                        homepage_url=homepage_url
                     )
 
                     metrics = RepoMetrics(
                         stargazers=deep_result["stargazerCount"],
                         forks=deep_result["forkCount"],
-                        open_issues=deep_result["issues"]["totalCount"]
+                        open_issues=deep_result["issues"]["totalCount"],
+                        good_first_issues=good_first_issues
                     )
 
                     activity = RepoActivity(
@@ -144,6 +191,7 @@ def main():
                     )
 
                     new_repositories.append(repo_obj.model_dump())
+                    active_targets.append(repo_name)
                     print(f"  -> {repo_name} のディープフェッチおよびスキーマ検証に成功しました。")
                     updated_count += 1
                     has_updates = True
@@ -152,11 +200,13 @@ def main():
                     # バリデーションエラー時は安全のため古いデータを残す
                     if repo_name in old_data_map:
                         new_repositories.append(old_data_map[repo_name])
+                        active_targets.append(repo_name)
             else:
                 # GraphQL通信失敗時はRESTの基本データでフォールバックするか、古いデータを残す
                 print(f"[Warning] GraphQL fetch failed for {repo_name}. Using cached data.")
                 if repo_name in old_data_map:
                     new_repositories.append(old_data_map[repo_name])
+                    active_targets.append(repo_name)
 
     # 3. CC BY 4.0のヘッダーとともに最終JSONを書き出し
     dataset_properties = DatasetProperties(source_url="https://github.com/ken0329/crawler")
@@ -172,6 +222,16 @@ def main():
         # RESTクライアントのETagデータを保存
         rest_client.save_etags()
         print(f"[Success] キャッシュETagsを更新しました。")
+        
+        # 新陳代謝：生きたアクティブなターゲットのみを targets.txt に書き戻し同期
+        try:
+            with open(TARGETS_PATH, "w", encoding="utf-8") as f:
+                f.write("# --- Active Repositories List (Auto-cleansed) ---\n")
+                for repo in active_targets:
+                    f.write(f"{repo}\n")
+            print(f"[Success] {TARGETS_PATH} のアクティブリストを同期更新しました (生存件数: {len(active_targets)})。")
+        except Exception as e:
+            print(f"Error updating targets.txt: {e}")
     else:
         print("\n[Skip] データに更新がないため、ファイルの保存とコミットをスキップします。")
 
@@ -181,6 +241,7 @@ def main():
         total_targets=len(new_repositories),
         updated_count=updated_count,
         removed_count=removed_count,
+        stale_removed_count=stale_removed_count,
         rate_remaining=final_rate,
         safety_brake_triggered=safety_brake_triggered
     )

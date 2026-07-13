@@ -11,6 +11,7 @@ class DiscordNotifier:
         total_targets: int,
         updated_count: int,
         removed_count: int,
+        stale_removed_count: int,
         rate_remaining: int,
         safety_brake_triggered: bool
     ):
@@ -60,6 +61,11 @@ class DiscordNotifier:
                         {
                             "name": "🧼 クレンジング数 (404/非公開)",
                             "value": f"`{removed_count}` 件",
+                            "inline": True
+                        },
+                        {
+                            "name": "🍂 新陳代謝パージ数 (2年無活動)",
+                            "value": f"`{stale_removed_count}` 件",
                             "inline": True
                         },
                         {
