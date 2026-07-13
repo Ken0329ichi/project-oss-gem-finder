@@ -1,14 +1,22 @@
 import React from 'react';
+import { getLanguageIconClass } from '../utils/formatters';
 import './RepositoryDetailModal.css';
 
 export default function RepositoryDetailModal({ selectedRepo, onClose }) {
   if (!selectedRepo) return null;
 
   const rareLabelsData = selectedRepo.activity.labels || selectedRepo.activity.funny_labels || [];
+  const iconClass = getLanguageIconClass(selectedRepo.meta.primary_language);
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content glass" onClick={(e) => e.stopPropagation()}>
+        {/* うっすら表示される言語背景アイコン */}
+        {iconClass && (
+          <div className="modal-bg-icon-wrapper">
+            <i className={`${iconClass} modal-bg-icon`}></i>
+          </div>
+        )}
         <button className="close-modal-btn" onClick={onClose}>×</button>
         
         <div className="modal-header">

@@ -1,11 +1,21 @@
 import React from 'react';
+import { getLanguageIconClass } from '../utils/formatters';
 
 export default function RepositoryCard({ repo, onClick }) {
+  const iconClass = getLanguageIconClass(repo.meta.primary_language);
+
   return (
     <div 
       className="repo-card glass"
       onClick={() => onClick(repo)}
     >
+      {/* うっすら表示される言語背景アイコン */}
+      {iconClass && (
+        <div className="card-bg-icon-wrapper">
+          <i className={`${iconClass} card-bg-icon`}></i>
+        </div>
+      )}
+
       <div className="card-header">
         <span className="repo-lang-badge">{repo.meta.primary_language || 'Unknown'}</span>
         <span className="repo-country-badge">{repo.meta.detected_country || 'Global 🌐'}</span>

@@ -13,3 +13,38 @@ export const formatUTC = (isoString) => {
     return 'Unknown';
   }
 };
+
+// 言語名から対応するDeviconクラス名へのマッピングヘルパー
+export const getLanguageIconClass = (lang) => {
+  if (!lang) return '';
+  const l = lang.toLowerCase().trim();
+  
+  const mapping = {
+    'python': 'devicon-python-plain',
+    'javascript': 'devicon-javascript-plain',
+    'typescript': 'devicon-typescript-plain',
+    'go': 'devicon-go-plain',
+    'rust': 'devicon-rust-plain',
+    'zig': 'devicon-zig-original',
+    'cpp': 'devicon-cplusplus-plain',
+    'c++': 'devicon-cplusplus-plain',
+    'c': 'devicon-c-plain',
+    'ruby': 'devicon-ruby-plain',
+    'elixir': 'devicon-elixir-plain',
+    'haskell': 'devicon-haskell-plain',
+    'julia': 'devicon-julia-plain',
+    'scala': 'devicon-scala-plain',
+    'shell': 'devicon-bash-plain',
+    'bash': 'devicon-bash-plain',
+    'lua': 'devicon-lua-plain',
+    'kotlin': 'devicon-kotlin-plain',
+    'swift': 'devicon-swift-plain',
+    'dart': 'devicon-dart-plain',
+    'csharp': 'devicon-csharp-plain',
+    'c#': 'devicon-csharp-plain',
+    'java': 'devicon-java-plain',
+    'nim': 'devicon-nim-plain'
+  };
+
+  return mapping[l] || '';
+};
