@@ -1,0 +1,226 @@
+/* 🔍 Control Panel & Filters */
+.control-panel {
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(16, 185, 129, 0.15); /* グリーンネオンの微細な境界線で存在感を強調 */
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.05);
+}
+
+.control-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.control-panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.03em;
+}
+
+.control-panel-desc {
+  font-size: 0.8rem;
+  color: var(--text-mute);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.control-panel-desc strong {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.clear-btn-top {
+  white-space: nowrap;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.06);
+  color: #f87171;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-btn-top:hover {
+  border-color: #f87171;
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.search-bar-wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.9rem 1.5rem 0.9rem 2.8rem; /* 左に検索アイコンのスペースを確保 */
+  border-radius: 12px;
+  background: rgba(8, 11, 17, 0.8);
+  border: 1px solid var(--border-default);
+  color: var(--text-main);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.filters-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 160px;
+}
+
+.filter-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ライセンスチップ（トグルボタン形式） */
+.license-chips {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.license-chip {
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-default);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-mute);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.license-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.license-chip.active {
+  border-color: var(--primary);
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* GFI専用チップ */
+.license-chip.gfi-chip.active {
+  border-color: #34d399;
+  background: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.2);
+}
+
+.filter-select {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: rgba(8, 11, 17, 0.6);
+  border: 1px solid var(--border-default);
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+/* 🍂 Rare Tags Cloud */
+.rare-tags-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rare-tags-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 200px;
+}
+
+.tags-title {
+  color: var(--text-mute);
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.tags-subtitle {
+  color: #6b7280;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.tags-wrapper {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  max-height: 90px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.tag-chip {
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-default);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-mute);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-chip:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+}
+
+.tag-chip.active {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #fff;
+  box-shadow: var(--glow-purple);
+}

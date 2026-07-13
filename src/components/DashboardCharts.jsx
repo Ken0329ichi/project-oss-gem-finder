@@ -4,6 +4,7 @@ import PrVolumeChart from './charts/PrVolumeChart';
 import IssueActiveScatterChart from './charts/IssueActiveScatterChart';
 import RegionChart from './charts/RegionChart';
 import GfiLanguagesChart from './charts/GfiLanguagesChart';
+import './DashboardCharts.css';
 
 export default function DashboardCharts({
   scatterData, scatterMaxStars, setScatterMaxStars,

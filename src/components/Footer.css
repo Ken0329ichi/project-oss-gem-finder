@@ -1,0 +1,77 @@
+/* 🌊 Cyber Dark Footer */
+.app-footer {
+  margin-top: 5rem;
+  padding: 2.5rem 2rem;
+  border-radius: 20px 20px 0 0; /* 上部だけ丸くして接地感を出す */
+  border-top: 1px solid rgba(16, 185, 129, 0.15); /* 微細なネオングロー */
+  border-bottom: none; /* 下部は画面底に接地 */
+  font-size: 0.85rem;
+  color: var(--text-mute);
+  background: rgba(8, 11, 17, 0.95);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-license-badge {
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-license-badge:hover {
+  background: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+}
+
+.footer-publisher {
+  font-size: 0.8rem;
+}
+
+.footer-timestamp {
+  font-family: 'Outfit', monospace;
+  font-size: 0.75rem;
+  color: #38bdf8; /* サイバーネオンブルー */
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* スマホ表示向けの調整（フッターの中央揃え） */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .footer-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+}

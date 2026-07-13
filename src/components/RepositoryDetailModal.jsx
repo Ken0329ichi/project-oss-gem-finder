@@ -1,4 +1,5 @@
 import React from 'react';
+import './RepositoryDetailModal.css';
 
 export default function RepositoryDetailModal({ selectedRepo, onClose }) {
   if (!selectedRepo) return null;

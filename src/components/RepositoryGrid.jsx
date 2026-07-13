@@ -1,5 +1,6 @@
 import React from 'react';
 import RepositoryCard from './RepositoryCard';
+import './RepositoryGrid.css';
 
 export default function RepositoryGrid({ filteredRepos, onCardClick }) {
   if (filteredRepos.length === 0) {

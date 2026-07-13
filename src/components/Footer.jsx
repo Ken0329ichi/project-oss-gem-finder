@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatUTC } from '../utils/formatters';
+import './Footer.css';
 
 export default function Footer({ updatedAt }) {
   return (
