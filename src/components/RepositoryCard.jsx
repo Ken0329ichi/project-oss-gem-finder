@@ -26,17 +26,16 @@ export default function RepositoryCard({ repo, onClick }) {
       
       {/* 主要メトリクス */}
       <div className="repo-metrics-summary">
-        <span>⭐ {repo.metrics.stargazers.toLocaleString()}</span>
-        <span>🍴 {repo.metrics.forks.toLocaleString()}</span>
-        <span>⚠️ {repo.metrics.open_issues.toLocaleString()}</span>
-        <span>🚀 {(repo.metrics.open_pull_requests || 0).toLocaleString()}</span>
-        <span>👁️ {repo.metrics.watchers != null ? repo.metrics.watchers.toLocaleString() : '—'}</span>
-        <span>📦 {repo.metrics.total_releases != null ? repo.metrics.total_releases.toLocaleString() : '—'}</span>
-        {repo.metrics.good_first_issues > 0 && (
-          <span className="gfi-badge">🌱 GFI: {repo.metrics.good_first_issues}</span>
-        )}
+        <span title="Stargazers">⭐ {repo.metrics.stargazers.toLocaleString()}</span>
+        <span title="Forks">🍴 {repo.metrics.forks.toLocaleString()}</span>
+        <span title="Open Issues">⚠️ {repo.metrics.open_issues.toLocaleString()}</span>
+        <span title="Open Pull Requests">🚀 {(repo.metrics.open_pull_requests || 0).toLocaleString()}</span>
+        <span title="Watchers">👁️ {repo.metrics.watchers != null ? repo.metrics.watchers.toLocaleString() : '—'}</span>
+        <span title="Total Releases">📦 {repo.metrics.total_releases != null ? repo.metrics.total_releases.toLocaleString() : '—'}</span>
+        <span title="Good First Issues">🌱 {repo.metrics.good_first_issues || 0}</span>
       </div>
     </div>
+
   );
 }
 
