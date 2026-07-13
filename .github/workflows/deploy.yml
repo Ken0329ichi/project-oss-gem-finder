@@ -1,17 +1,8 @@
 name: Deploy Frontend to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '.agent/**'
-      - 'README.md'
-  workflow_run:
-    workflows: ["Crawl and Update Dataset"]
-    types:
-      - completed
-  workflow_dispatch: # 手動デプロイ可能にするトリガー
+  workflow_dispatch: # 手動デプロイのみ（GitHub ActionsタブのRun workflowボタンで実行）
+    # ローカル検証完了後、GitHub Pages を有効化してから手動実行すること
 
 # Pagesデプロイのための書き込み権限とOIDCトークン取得権限を付与
 permissions:
