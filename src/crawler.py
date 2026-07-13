@@ -1,131 +1,35 @@
 import os
 import json
-import httpx
 from typing import Optional, Dict, List
+from datetime import datetime, timezone
 from schema import OpenSSOTDataset, RepositorySchema, RepoMeta, RepoMetrics, RepoActivity, DatasetProperties
+from config import DATA_DIR, DATA_PATH, TARGETS_PATH
+from client import GitHubRestClient, GitHubGraphQLClient
+from funny_labels import FunnyLabelExtractor
 
-# ETagとデータの保存先ディレクトリ
-DATA_DIR = "data"
-ETAGS_PATH = os.path.join(DATA_DIR, "etags.json")
-DATA_PATH = os.path.join(DATA_DIR, "data.json")
-TARGETS_PATH = "targets.txt"
-
-# 【単一責任】GitHubとのREST通信とETag（安全装置）の管理に徹するクラス
-class GitHubClient:
-    def __init__(self, token: str):
-        self.client = httpx.Client(
-            base_url="https://api.github.com",
-            headers={
-                "Authorization": f"Bearer {token}",
-                "Accept": "application/vnd.github.v3+json",
-                "X-GitHub-Api-Version": "2022-11-28"
-            }
-        )
-        self.etags = self._load_etags()
-        self.rate_remaining = 5000
-
-    def _update_rate_limit(self, headers):
-        remaining = headers.get("X-RateLimit-Remaining")
-        if remaining is not None:
-            self.rate_remaining = int(remaining)
-
-    def _load_etags(self) -> Dict[str, str]:
-        if os.path.exists(ETAGS_PATH):
-            try:
-                with open(ETAGS_PATH, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception as e:
-                print(f"Warning: Failed to load etags.json: {e}")
-        return {}
-
-    def save_etags(self):
-        os.makedirs(DATA_DIR, exist_ok=True)
-        with open(ETAGS_PATH, "w", encoding="utf-8") as f:
-            json.dump(self.etags, f, indent=2, ensure_ascii=False)
-
-    # ETagを添えて条件付きリクエストを送る関数
-    # 戻り値:
-    #   - response_json (dict): 更新あり (200 OK)
-    #   - "304": 変更なし (304 Not Modified)
-    #   - "404": リポジトリ消失・非公開化（クレンジング対象）
-    #   - None: その他のエラー
-    def fetch_repository(self, repo_name: str) -> Optional[dict]:
-        headers = {}
-        saved_etag = self.etags.get(repo_name)
-        if saved_etag:
-            headers["If-None-Match"] = saved_etag
-            print(f"[Debug] {repo_name} - Sending If-None-Match: {saved_etag}")
-
+def load_targets() -> List[str]:
+    """targets.txtからクロール対象リポジトリを読み込む"""
+    if os.path.exists(TARGETS_PATH):
         try:
-            response = self.client.get(f"/repos/{repo_name}", headers=headers)
-            self._update_rate_limit(response.headers)
+            with open(TARGETS_PATH, "r", encoding="utf-8") as f:
+                return [line.strip() for line in f if line.strip() and not line.strip().startswith("#")]
         except Exception as e:
-            print(f"Connection Error for {repo_name}: {e}")
-            return None
+            print(f"Warning: Failed to load targets.txt: {e}")
+    return ["fastapi/fastapi", "tailwindlabs/tailwindcss"]
 
-        if response.status_code == 304:
-            print(f"[-] {repo_name}: 変更なし (304 Not Modified) - スキップ")
-            return "304"
-
-        if response.status_code == 200:
-            print(f"[+] {repo_name}: 更新あり (200 OK) - データを取得")
-            new_etag = response.headers.get("ETag")
-            if new_etag:
-                self.etags[repo_name] = new_etag
-            return response.json()
-
-        if response.status_code in [403, 404]:
-            print(f"[!] {repo_name}: 存在しないか非公開化 (Status: {response.status_code}) - 削除対象")
-            # 記憶からETagを削除
-            if repo_name in self.etags:
-                del self.etags[repo_name]
-            return "404"
-        
-        print(f"[!] {repo_name}: 予期せぬステータスコード {response.status_code}")
-        return None
-
-# 【開放閉鎖】ターゲット収集用のベース抽象クラス
-class BaseTargetScraper:
-    def get_targets(self) -> List[str]:
-        raise NotImplementedError
-
-class CuratedTargetScraper(BaseTargetScraper):
-    def __init__(self):
-        self.targets = self._load_targets()
-
-    def _load_targets(self) -> List[str]:
-        if os.path.exists(TARGETS_PATH):
-            try:
-                with open(TARGETS_PATH, "r", encoding="utf-8") as f:
-                    # 空行や、# で始まるコメント行を除外してリスト化
-                    return [line.strip() for line in f if line.strip() and not line.strip().startswith("#")]
-            except Exception as e:
-                print(f"Warning: Failed to load targets.txt: {e}")
-        
-        # ファイルがない場合のデフォルトフォールバック
-        return ["fastapi/fastapi", "tailwindlabs/tailwindcss"]
-
-    def get_targets(self) -> List[str]:
-        return self.targets
-
-# 【司令塔】マージ・キャリーオーバー・クレンジングを統合制御
 def main():
     token = os.environ.get("GH_TOKEN")
     if not token:
         print("Error: GH_TOKEN is not set. Please set the environment variable GH_TOKEN.")
         return
 
-    # 保存ディレクトリの作成
     os.makedirs(DATA_DIR, exist_ok=True)
-
-    client = GitHubClient(token)
     
-    scraper = CuratedTargetScraper()
-    targets = scraper.get_targets()
-
-    # クレンジング検証用に環境変数で切り替え可能にする
-    if os.environ.get("TEST_CLEANSING") == "true":
-        targets.append("nonexistent-user-12345/nonexistent-repo")
+    # REST(防衛用304判定)とGraphQL(ディープフェッチ用)のクライアントを初期化
+    rest_client = GitHubRestClient(token)
+    graphql_client = GitHubGraphQLClient(token)
+    
+    targets = load_targets()
 
     # 1. 前回の data.json（既存データ）をロードしてメモリに保持
     old_data_map = {}
@@ -133,7 +37,6 @@ def main():
         try:
             with open(DATA_PATH, "r", encoding="utf-8") as f:
                 parsed = json.load(f)
-                # リポジトリ名をキーにしてマッピング
                 for repo in parsed.get("repositories", []):
                     old_data_map[repo["meta"]["name"]] = repo
         except Exception as e:
@@ -144,79 +47,95 @@ def main():
 
     # 2. 収集ループの実行
     for repo_name in targets:
-        if client.rate_remaining < 100:
-            print(f"\n[SafetyBrake] API残り枠が危険域（残り {client.rate_remaining}）に達したため、処理を一時中断し、残りは次回に持ち越します。")
+        # 安全ブレーキ：RESTクライアントのAPI残り枠が危険域に達したら離脱
+        # (GraphQLも同一のAPI上限を分け合うため、残り枠をチェック)
+        if rest_client.rate_remaining < 100:
+            print(f"\n[SafetyBrake] API残り枠が危険域（残り {rest_client.rate_remaining}）に達したため、処理を一時中断し、残りは次回に持ち越します。")
             has_updates = True
             break
 
-        result = client.fetch_repository(repo_name)
+        # 第1関門: REST API で ETag を用いた304条件付きリクエストを送信 (API節約の防衛)
+        rest_result = rest_client.fetch_repository(repo_name)
         
-        if result == "304":
+        if rest_result == "304":
             # 変更なし：前回のデータをそのまま引き継ぐ（キャリーオーバー）
             if repo_name in old_data_map:
                 new_repositories.append(old_data_map[repo_name])
                 print(f"  -> {repo_name} のデータをキャリーオーバーしました。")
-            else:
-                print(f"  -> Warning: {repo_name} の前回データが見つかりません。再フェッチを試みます。")
-                # 前回のデータがない場合はETagを消して再取得を促す
-                if repo_name in client.etags:
-                    del client.etags[repo_name]
-                # 今回は取得を諦め、次回取得させるか、再度APIを叩く。シンプルにするためスキップ。
+            continue
                 
-        elif result == "404":
-            # 削除・非公開化：今回のリストからも過去マップからも除外（クレンジング）
+        elif rest_result == "404":
+            # 削除・非公開化：クレンジング
             print(f"[Cleanup] Removed {repo_name} from active dataset.")
             has_updates = True
+            continue
             
-        elif isinstance(result, dict):
-            # 新規・更新あり：APIから得た生データをPydanticで検証して成形
-            try:
-                license_spdx = None
-                if result.get("license") and isinstance(result["license"], dict):
-                    license_spdx = result["license"].get("spdx_id")
+        elif isinstance(rest_result, dict):
+            # 新規または更新あり！第2関門: GraphQLを叩いて深掘りデータ(最新Issueラベル等)を一本釣りする
+            if "/" not in repo_name:
+                continue
+            owner, name = repo_name.split("/", 1)
+            
+            print(f"  -> {repo_name}: 更新検知。GraphQLでディープフェッチを実行します...")
+            deep_result = graphql_client.fetch_repository_deep(owner, name)
+            
+            if isinstance(deep_result, dict):
+                try:
+                    # 面白ラベルの抽出
+                    funny_labels = FunnyLabelExtractor.extract(deep_result)
+                    if funny_labels:
+                        print(f"  [😂 Funny Labels Found] {repo_name}: {funny_labels}")
 
-                meta = RepoMeta(
-                    name=result["full_name"],
-                    owner=result["owner"]["login"],
-                    description=result.get("description"),
-                    license=license_spdx,
-                    primary_language=result.get("language")
-                )
+                    # GraphQLのレスポンスデータをPydanticスキーマにマッピング
+                    lic = deep_result.get("licenseInfo")
+                    lang = deep_result.get("primaryLanguage")
+                    commit_date = deep_result.get("defaultBranchRef", {}).get("target", {}).get("committedDate")
+                    topics = [node["topic"]["name"] for node in deep_result.get("repositoryTopics", {}).get("nodes", [])]
 
-                metrics = RepoMetrics(
-                    stargazers=result["stargazers_count"],
-                    forks=result["forks_count"],
-                    open_issues=result["open_issues_count"]
-                )
+                    meta = RepoMeta(
+                        name=deep_result["nameWithOwner"],
+                        owner=owner,
+                        description=deep_result.get("description"),
+                        license=lic.get("spdxId") if lic else None,
+                        primary_language=lang.get("name") if lang else None
+                    )
 
-                activity = RepoActivity(
-                    last_pushed_at=result.get("pushed_at"),
-                    last_committed_at=result.get("pushed_at")
-                )
+                    metrics = RepoMetrics(
+                        stargazers=deep_result["stargazerCount"],
+                        forks=deep_result["forkCount"],
+                        open_issues=deep_result["issues"]["totalCount"]
+                    )
 
-                repo_obj = RepositorySchema(
-                    id=str(result["id"]),
-                    meta=meta,
-                    metrics=metrics,
-                    activity=activity,
-                    search_keywords=result.get("topics", [])
-                )
+                    activity = RepoActivity(
+                        last_pushed_at=deep_result.get("pushedAt"),
+                        last_committed_at=commit_date,
+                        funny_labels=funny_labels
+                    )
 
-                new_repositories.append(repo_obj.model_dump())
-                print(f"  -> {repo_name} のスキーマ検証に成功し、データを追加しました。")
-                has_updates = True
-            except Exception as e:
-                print(f"Schema Validation Error for {repo_name}: {e}")
-                # バリデーションエラー時は安全のため古いデータを残す
+                    repo_obj = RepositorySchema(
+                        id=str(deep_result["id"]),
+                        meta=meta,
+                        metrics=metrics,
+                        activity=activity,
+                        search_keywords=topics
+                    )
+
+                    new_repositories.append(repo_obj.model_dump())
+                    print(f"  -> {repo_name} のディープフェッチおよびスキーマ検証に成功しました。")
+                    has_updates = True
+                except Exception as e:
+                    print(f"Schema Validation Error for {repo_name}: {e}")
+                    # バリデーションエラー時は安全のため古いデータを残す
+                    if repo_name in old_data_map:
+                        new_repositories.append(old_data_map[repo_name])
+            else:
+                # GraphQL通信失敗時はRESTの基本データでフォールバックするか、古いデータを残す
+                print(f"[Warning] GraphQL fetch failed for {repo_name}. Using cached data.")
                 if repo_name in old_data_map:
                     new_repositories.append(old_data_map[repo_name])
-                    print(f"  -> {repo_name} のスキーマ検証に失敗したため、古いデータを引き継ぎました。")
 
     # 3. CC BY 4.0のヘッダーとともに最終JSONを書き出し
-    dataset_properties = DatasetProperties(
-        source_url="https://github.com/ken0329/crawler"
-    )
-    
+    dataset_properties = DatasetProperties(source_url="https://github.com/ken0329/crawler")
     data_payload = OpenSSOTDataset(
         dataset_properties=dataset_properties,
         repositories=new_repositories
@@ -224,13 +143,11 @@ def main():
 
     if has_updates or not os.path.exists(DATA_PATH):
         with open(DATA_PATH, "w", encoding="utf-8") as f:
-            # Pydantic v2 の model_dump_json を使用
             f.write(data_payload.model_dump_json(indent=2))
         print(f"\n[Success] {DATA_PATH} に {len(new_repositories)} 件のデータを保存しました。")
-
-        # 4. スタンプ帳（ETagの記憶）の保存
-        client.save_etags()
-        print(f"[Success] {ETAGS_PATH} を更新しました。")
+        # RESTクライアントのETagデータを保存
+        rest_client.save_etags()
+        print(f"[Success] キャッシュETagsを更新しました。")
     else:
         print("\n[Skip] データに更新がないため、ファイルの保存とコミットをスキップします。")
 

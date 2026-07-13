@@ -1,8 +1,7 @@
 import os
-import httpx
 from typing import List, Set
-
-TARGETS_PATH = "targets.txt"
+from config import TARGETS_PATH, DISCOVERY_LANGUAGES, DISCOVERY_TOPICS, DISCOVERY_LICENSES
+from client import BaseGitHubClient
 
 def load_existing_targets() -> Set[str]:
     """既存の targets.txt から有効なターゲット（コメントや空行を除く）をロード"""
@@ -35,60 +34,49 @@ def save_new_targets(new_targets: List[str]):
     except Exception as e:
         print(f"Error: Failed to save new targets: {e}")
 
-def discover_repositories(token: str, existing: Set[str]) -> List[str]:
-    """GitHub Search APIを使用し、主要言語×トピック×ライセンスの総当たりで人気リポジトリを爆速で自動検出"""
-    client = httpx.Client(
-        base_url="https://api.github.com",
-        headers={
-            "Authorization": f"Bearer {token}",
-            "Accept": "application/vnd.github.v3+json",
-            "X-GitHub-Api-Version": "2022-11-28"
-        }
-    )
+class GitHubSearchClient(BaseGitHubClient):
+    def discover_repositories(self, existing: Set[str]) -> List[str]:
+        """GitHub Search APIを使用し、主要言語×トピック×ライセンスの総当たりで人気リポジトリを自動検出"""
+        discovered = []
+        seen = set()
 
-    # 探索対象の主要言語、トピック、および許容ライセンス（APIクエリで完全絞り込み）
-    languages = ["python", "go", "rust", "typescript", "javascript", "cpp"]
-    topics = ["web", "framework", "database", "cli", "tools", "machine-learning"]
-    licenses = ["mit", "apache-2.0"]
-    
-    discovered = []
-    seen = set()
+        print("\n--- ターゲット自動探索開始 ---")
 
-    print("\n--- ターゲット自動探索開始 ---")
-
-    for lang in languages:
-        for topic in topics:
-            for lic in licenses:
-                query = f"language:{lang} topic:{topic} license:{lic} stars:>1000"
-                url = f"/search/repositories?q={query}&sort=stars&order=desc&per_page=100"
-                
-                try:
-                    response = client.get(url)
-                    if response.status_code == 200:
-                        data = response.json()
-                        items = data.get("items", [])
-                        print(f"[Discovery] Query: '{query}' -> Found {len(items)} repositories.")
+        for lang in DISCOVERY_LANGUAGES:
+            for topic in DISCOVERY_TOPICS:
+                for lic in DISCOVERY_LICENSES:
+                    query = f"language:{lang} topic:{topic} license:{lic} stars:>1000"
+                    url = f"/search/repositories?q={query}&sort=stars&order=desc&per_page=100"
+                    
+                    try:
+                        response = self.client.get(url)
+                        self._update_rate_limit(response.headers)
                         
-                        for item in items:
-                            repo_name = item["full_name"]
-                            if repo_name not in existing and repo_name not in seen:
-                                discovered.append(repo_name)
-                                seen.add(repo_name)
-                    elif response.status_code == 403:
-                        print("[Warning] Search API rate limit hit. Stopping search loop to prevent block.")
-                        break
-                    else:
-                        print(f"[Discovery] Failed query '{query}': Status {response.status_code}")
-                except Exception as e:
-                    print(f"Error executing query '{query}': {e}")
-            
+                        if response.status_code == 200:
+                            data = response.json()
+                            items = data.get("items", [])
+                            print(f"[Discovery] Query: '{query}' -> Found {len(items)} repositories.")
+                            
+                            for item in items:
+                                repo_name = item["full_name"]
+                                if repo_name not in existing and repo_name not in seen:
+                                    discovered.append(repo_name)
+                                    seen.add(repo_name)
+                        elif response.status_code == 403:
+                            print("[Warning] Search API rate limit hit. Stopping search loop to prevent block.")
+                            break
+                        else:
+                            print(f"[Discovery] Failed query '{query}': Status {response.status_code}")
+                    except Exception as e:
+                        print(f"Error executing query '{query}': {e}")
+                
+                if len(discovered) >= 1000:
+                    break
             if len(discovered) >= 1000:
+                print("[Info] Target discovery buffer full (1000). Halting loop.")
                 break
-        if len(discovered) >= 1000:
-            print("[Info] Target discovery buffer full (1000). Halting loop.")
-            break
 
-    return discovered[:1000]
+        return discovered[:1000]
 
 def main():
     token = os.environ.get("GH_TOKEN")
@@ -99,7 +87,9 @@ def main():
     existing = load_existing_targets()
     print(f"現在の targets.txt 登録数: {len(existing)}")
 
-    new_discovered = discover_repositories(token, existing)
+    # 共通クライアントを継承した探索クライアントを起動
+    search_client = GitHubSearchClient(token)
+    new_discovered = search_client.discover_repositories(existing)
     save_new_targets(new_discovered)
 
 if __name__ == "__main__":

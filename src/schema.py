@@ -29,6 +29,7 @@ class RepoMetrics(BaseModel):
 class RepoActivity(BaseModel):
     last_committed_at: Optional[datetime] = None
     last_pushed_at: Optional[datetime] = None
+    funny_labels: List[str] = Field(default_factory=list)
 
 # 5. これらを統合したリポジトリ1件分の塊
 class RepositorySchema(BaseModel):

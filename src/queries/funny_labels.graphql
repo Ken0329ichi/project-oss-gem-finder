@@ -1,0 +1,44 @@
+query($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) {
+    id
+    name
+    nameWithOwner
+    description
+    licenseInfo {
+      spdxId
+    }
+    primaryLanguage {
+      name
+    }
+    stargazerCount
+    forkCount
+    issues(states: OPEN) {
+      totalCount
+    }
+    pushedAt
+    defaultBranchRef {
+      target {
+        ... on Commit {
+          committedDate
+        }
+      }
+    }
+    repositoryTopics(first: 20) {
+      nodes {
+        topic {
+          name
+        }
+      }
+    }
+    # 最新のオープンIssue 50件からラベルを抽出
+    latestIssues: issues(first: 50, orderBy: {field: CREATED_AT, direction: DESC}) {
+      nodes {
+        labels(first: 5) {
+          nodes {
+            name
+          }
+        }
+      }
+    }
+  }
+}
