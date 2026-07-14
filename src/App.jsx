@@ -9,13 +9,30 @@ import './App.css';
 // チャート用の配色パレット（サイバーネオン調）
 const COLORS = ['#10B981', '#3B82F6', '#8B5CF6', '#EC4899', '#F59E0B', '#EF4444', '#6B7280'];
 
+// 共通インラインスタイル (ツールチップの各行を垂直にピシッと揃える flex レイアウト)
+const tooltipRowStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+  fontSize: '0.8rem',
+  color: '#e2e8f0',
+  margin: '4px 0 0 0',
+  fontFamily: "'Outfit', 'Inter', sans-serif"
+};
+
 // GFIバーチャート用カスタムTooltip
 const GfiTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
   return (
     <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(139, 92, 246, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-      <p style={{ color: '#c4b5fd', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{payload[0].payload.name}</p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '2px 0 0' }}>🌱 GFI Count: <strong>{payload[0].value.toLocaleString()}</strong></p>
+      <div style={{ ...tooltipRowStyle, color: '#c4b5fd', fontWeight: 700, margin: 0 }}>
+        <span>🏷️</span>
+        <span>{payload[0].payload.name}</span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>🌱</span>
+        <span>GFI Count: <strong>{payload[0].value.toLocaleString()}</strong></span>
+      </div>
     </div>
   );
 };
@@ -25,13 +42,19 @@ const PieTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
   return (
     <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-      <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{payload[0].name}</p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '2px 0 0' }}>Repositories: <strong>{payload[0].value.toLocaleString()}</strong></p>
+      <div style={{ ...tooltipRowStyle, color: '#6ee7b7', fontWeight: 700, margin: 0 }}>
+        <span>🌐</span>
+        <span>{payload[0].name}</span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>📂</span>
+        <span>Repositories: <strong>{payload[0].value.toLocaleString()}</strong></span>
+      </div>
     </div>
   );
 };
 
-// Issue & GFI散布図用カスタムTooltip
+// Issue & GFI散布図用カスタムTooltip (アイコンアライメント左端統一)
 const IssueTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
   const data = payload[0].payload;
@@ -40,15 +63,31 @@ const IssueTooltip = ({ active, payload }) => {
   const gfiPercent = rawIssues > 0 ? Math.round((rawGfi / rawIssues) * 100) : 0;
   return (
     <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-      <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Total Open Issues: <strong>{rawIssues.toLocaleString()}</strong> ⚠️</p>
-      <p style={{ color: '#34d399', fontSize: '0.8rem', margin: '2px 0 0' }}>🌱 Good First Issues: <strong>{rawGfi.toLocaleString()}</strong> ({gfiPercent}%)</p>
-      <p style={{ color: '#38bdf8', fontSize: '0.75rem', margin: '2px 0 0' }}>👥 Contributors: {data.contributors}</p>
+      <div style={{ ...tooltipRowStyle, color: '#6ee7b7', fontWeight: 700, margin: 0 }}>
+        <span>🚀</span>
+        <span>Name: <strong>{data.name}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>⚠️</span>
+        <span>Open Issues: <strong>{rawIssues.toLocaleString()}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>🌱</span>
+        <span>Good First Issues: <strong>{rawGfi.toLocaleString()}</strong> ({gfiPercent}%)</span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>👥</span>
+        <span>Contributors: <strong>{data.contributors}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>🏷️</span>
+        <span>Primary Language: <strong>{data.lang}</strong></span>
+      </div>
     </div>
   );
 };
 
-// PR Scatter用カスタムTooltip
+// PR Scatter用カスタムTooltip (アイコンアライメント左端統一)
 const PrScatterTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
   const data = payload[0].payload;
@@ -56,15 +95,35 @@ const PrScatterTooltip = ({ active, payload }) => {
   const rawPr = data.rawPr ?? 0;
   return (
     <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(56, 189, 248, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-      <p style={{ color: '#38bdf8', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars: <strong>{rawStar.toLocaleString()}</strong> ⭐</p>
-      <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>Open PRs: <strong>{rawPr.toLocaleString()}</strong> 🚀</p>
-      <p style={{ color: '#a78bfa', fontSize: '0.8rem', margin: '2px 0 0' }}>👥 Contributors (Activity Group): <strong>{data.contributors != null && data.contributors !== 1 ? data.contributors.toLocaleString() : '—'}</strong></p>
+      <div style={{ ...tooltipRowStyle, color: '#38bdf8', fontWeight: 700, margin: 0 }}>
+        <span>🚀</span>
+        <span>Name: <strong>{data.name}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>⭐</span>
+        <span>Stargazers: <strong>{rawStar.toLocaleString()}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>🍴</span>
+        <span>Forks: <strong>{data.rawFork != null ? data.rawFork.toLocaleString() : '—'}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>🚀</span>
+        <span>Open PRs: <strong>{rawPr.toLocaleString()}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>👥</span>
+        <span>Contributors: <strong>{data.contributors != null && data.contributors !== 1 ? data.contributors.toLocaleString() : '—'}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>🏷️</span>
+        <span>Primary Language: <strong>{data.lang}</strong></span>
+      </div>
     </div>
   );
 };
 
-// Gem Plot (Stars vs Forks) 用カスタムTooltip (統一デザイン)
+// Gem Plot (Stars vs Forks) 用カスタムTooltip (アイコンアライメント左端統一)
 const GemTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
   const data = payload[0].payload;
@@ -72,11 +131,30 @@ const GemTooltip = ({ active, payload }) => {
   const rawFork = data.rawFork ?? 0;
   return (
     <div style={{ background: 'rgba(15, 20, 30, 0.95)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '8px', padding: '8px 14px', boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-      <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
-      <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars: <strong>{rawStar.toLocaleString()}</strong> ⭐</p>
-      <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>Forks: <strong>{rawFork.toLocaleString()}</strong> 🍴</p>
-      <p style={{ color: '#a78bfa', fontSize: '0.75rem', margin: '2px 0 0' }}>👥 Contributors: {data.contributors}</p>
-      <p style={{ color: '#38bdf8', fontSize: '0.75rem', margin: '2px 0 0' }}>👁️ Watchers: {data.watchers.toLocaleString()} (Ratio: {Math.round(data.watchRatio * 100)}%)</p>
+      <div style={{ ...tooltipRowStyle, color: '#6ee7b7', fontWeight: 700, margin: 0 }}>
+        <span>🚀</span>
+        <span>Name: <strong>{data.name}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>⭐</span>
+        <span>Stargazers: <strong>{rawStar.toLocaleString()}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>🍴</span>
+        <span>Forks: <strong>{rawFork.toLocaleString()}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>👁️</span>
+        <span>Watchers: <strong>{data.watchers.toLocaleString()}</strong> ({Math.round(data.watchRatio * 100)}%)</span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>👥</span>
+        <span>Contributors: <strong>{data.contributors}</strong></span>
+      </div>
+      <div style={tooltipRowStyle}>
+        <span>🏷️</span>
+        <span>Primary Language: <strong>{data.lang}</strong></span>
+      </div>
     </div>
   );
 };
@@ -90,9 +168,6 @@ export default function App() {
     selectedLicense, setSelectedLicense, licenses,
     selectedLabel, setSelectedLabel, rareLabels,
     gfiOnly, setGfiOnly,
-    minPrs, setMinPrs,
-    maxIssues, setMaxIssues,
-    minReleases, setMinReleases,
     clearFilters
   } = useDataset();
 
@@ -103,7 +178,6 @@ export default function App() {
   const [showGlobal, setShowGlobal] = useState(true);
 
   // グラフ用データ (すべて React 側であらかじめ Math.log10 化して流す)
-  // X軸のズームフィルタは廃止され、常に全データが対数スケールに描画されます。
   const scatterData = useMemo(() => {
     return filteredRepos.slice(0, 200).map(r => {
       const star = Math.max(1, r.metrics.stargazers);
@@ -156,6 +230,7 @@ export default function App() {
       star: Math.log10(Math.max(1, r.metrics.stargazers)),
       pr: Math.log10(Math.max(1, r.metrics.open_pull_requests || 0)),
       rawStar: r.metrics.stargazers,
+      rawFork: r.metrics.forks,
       rawPr: r.metrics.open_pull_requests || 0,
       contributors: r.metrics.contributors || 1,
       lang: r.meta.primary_language || 'Unknown',
@@ -195,9 +270,6 @@ export default function App() {
         selectedLicense={selectedLicense} setSelectedLicense={setSelectedLicense} licenses={licenses}
         selectedLabel={selectedLabel} setSelectedLabel={setSelectedLabel} rareLabels={rareLabels}
         gfiOnly={gfiOnly} setGfiOnly={setGfiOnly}
-        minPrs={minPrs} setMinPrs={setMinPrs}
-        maxIssues={maxIssues} setMaxIssues={setMaxIssues}
-        minReleases={minReleases} setMinReleases={setMinReleases}
         clearFilters={clearFilters}
         activeTab={activeTab} setActiveTab={setActiveTab}
         filteredCount={filteredRepos.length}

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts';
-import { getMedian, logTickFormatter } from '../../utils/formatters';
+import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid } from 'recharts';
+import { logTickFormatter } from '../../utils/formatters';
 
 export default function IssueActiveScatterChart({
   issueScatterData,
@@ -17,10 +17,6 @@ export default function IssueActiveScatterChart({
   bubbleMode
 }) {
   const isEmpty = issueScatterData.length === 0;
-
-  // 1. 動的な中央値 (Median) の計算 (すでに Math.log10 変換されているためそのままでOK)
-  const medianIssues = useMemo(() => getMedian(issueScatterData, 'open_issues'), [issueScatterData]);
-  const medianGfi = useMemo(() => getMedian(issueScatterData, 'gfi'), [issueScatterData]);
 
   // 軸の表示ドメイン限界を計算
   const xDomain = useMemo(() => {
@@ -66,60 +62,76 @@ export default function IssueActiveScatterChart({
             <p className="empty-text">No repositories match the current scale/filters.</p>
           </div>
         ) : (
-          <>
-            <ResponsiveContainer width="100%" height={350}>
-              <ScatterChart
-                key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}-${bubbleMode}`}
-                margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
+          <ResponsiveContainer width="100%" height={380}>
+            <ScatterChart
+              key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}-${bubbleMode}`}
+              margin={{ top: 20, right: 30, bottom: 45, left: 55 }}
+            >
+              {/* 測定器風極薄グリッド格子 */}
+              <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.06} stroke="#ffffff" />
+
+              {/* 🚀 標準線形軸に tickFormatter と ticks で厳密に対数表記する（パープル自発光） */}
+              <XAxis 
+                type="number" 
+                dataKey="open_issues" 
+                name="Open Issues" 
+                unit="⚠️" 
+                domain={xDomain} 
+                ticks={xTicks}
+                tickFormatter={logTickFormatter} 
+                stroke="rgba(139, 92, 246, 0.2)" 
+                tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
+                label={{ 
+                  value: '⚠️ OPEN ISSUES / MAINTENANCE DEBT (保守負債)', 
+                  position: 'insideBottom', 
+                  offset: -25, 
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Outfit', sans-serif", textTransform: 'uppercase' } 
+                }}
+              />
+              <YAxis 
+                type="number" 
+                dataKey="gfi" 
+                name="Good First Issues" 
+                unit="🌱" 
+                domain={yDomain} 
+                ticks={yTicks}
+                tickFormatter={logTickFormatter} 
+                stroke="rgba(139, 92, 246, 0.2)" 
+                tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
+                label={{ 
+                  value: '🌱 GOOD FIRST ISSUES (貢献の間口)', 
+                  angle: -90, 
+                  position: 'insideLeft', 
+                  offset: -25, 
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Outfit', sans-serif", textTransform: 'uppercase', textAnchor: 'middle' } 
+                }}
+              />
+              <ZAxis type="category" dataKey="name" name="Repository" />
+              
+              {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<IssueTooltip />} />}
+              <Scatter 
+                name="Repositories" 
+                data={issueScatterData} 
+                onClick={handleScatterClick}
+                style={{ cursor: 'pointer' }}
+                line={false}
               >
-                {/* 🚀 標準線形軸に tickFormatter と ticks で厳密に対数表記する */}
-                <XAxis 
-                  type="number" 
-                  dataKey="open_issues" 
-                  name="Open Issues" 
-                  unit="⚠️" 
-                  domain={xDomain} 
-                  ticks={xTicks}
-                  tickFormatter={logTickFormatter} 
-                  stroke="#9ca3af" 
-                />
-                <YAxis 
-                  type="number" 
-                  dataKey="gfi" 
-                  name="Good First Issues" 
-                  unit="🌱" 
-                  domain={yDomain} 
-                  ticks={yTicks}
-                  tickFormatter={logTickFormatter} 
-                  stroke="#9ca3af" 
-                />
-                <ZAxis type="category" dataKey="name" name="Repository" />
-                
-                {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<IssueTooltip />} />}
-                <Scatter 
-                  name="Repositories" 
-                  data={issueScatterData} 
-                  onClick={handleScatterClick}
-                  style={{ cursor: 'pointer' }}
-                  line={false}
-                >
-                  {issueScatterData.map((entry, index) => {
-                    const radius = bubbleMode 
-                      ? Math.min(16, 3.5 + Math.sqrt(entry.contributors || 1) * 0.45) 
-                      : 3;
-                    return (
-                      <Cell 
-                        key={`cell-${index}`} 
-                        fill={colors[index % colors.length]} 
-                        fillOpacity={0.75}
-                        r={radius}
-                      />
-                    );
-                  })}
-                </Scatter>
-              </ScatterChart>
-            </ResponsiveContainer>
-          </>
+                {issueScatterData.map((entry, index) => {
+                  const radius = bubbleMode 
+                    ? Math.min(16, 3.5 + Math.sqrt(entry.contributors || 1) * 0.45) 
+                    : 3;
+                  return (
+                    <Cell 
+                      key={`cell-${index}`} 
+                      fill={colors[index % colors.length]} 
+                      fillOpacity={0.75}
+                      r={radius}
+                    />
+                  );
+                })}
+              </Scatter>
+            </ScatterChart>
+          </ResponsiveContainer>
         )}
       </div>
     </div>

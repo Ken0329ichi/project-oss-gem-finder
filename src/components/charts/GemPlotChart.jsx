@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts';
-import { getMedian, logTickFormatter } from '../../utils/formatters';
+import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid } from 'recharts';
+import { logTickFormatter } from '../../utils/formatters';
 
 export default function GemPlotChart({
   scatterData,
@@ -15,10 +15,6 @@ export default function GemPlotChart({
   setBubbleMode
 }) {
   const isEmpty = scatterData.length === 0;
-
-  // 1. 対数化されたデータから正確な中央値 (Median) を算出
-  const medianStars = useMemo(() => getMedian(scatterData, 'star'), [scatterData]);
-  const medianForks = useMemo(() => getMedian(scatterData, 'fork'), [scatterData]);
 
   // 軸の表示ドメイン限界を計算
   const xDomain = useMemo(() => {
@@ -73,7 +69,7 @@ export default function GemPlotChart({
           <p className="chart-sub" style={{ marginBottom: '0.25rem' }}>
             Repositories in the upper-left are highly practical gems (target range: 300+ stars).
           </p>
-          {/* ✨ Glowing dots に関する注記テキストの追加 */}
+          {/* ✨ Glowing dots に関する注記テキスト */}
           <p 
             className="glow-note"
             style={{ 
@@ -120,93 +116,96 @@ export default function GemPlotChart({
             <p className="empty-text">No repositories match the current scale/filters.</p>
           </div>
         ) : (
-          <>
-            {/* 四象限マトリクスの背景二つ名ラベル (opacity: 0.35 で背景へしっかり沈める) */}
-            <div className="quadrant-labels-overlay" style={{ pointerEvents: 'none', opacity: 0.35 }}>
-              <span className="q-label q-gems">gems (low-star / active) 💎</span>
-              <span className="q-label q-monsters">monsters (high-star / active)</span>
-              <span className="q-label q-incubators">incubators (emerging)</span>
-              <span className="q-label q-classics">classics / emerging</span>
-            </div>
+          <ResponsiveContainer width="100%" height={380}>
+            <ScatterChart
+              key={`scatter-${selectedLabel}-${selectedCountry}-${selectedLang}-${bubbleMode}`}
+              margin={{ top: 20, right: 30, bottom: 45, left: 55 }}
+            >
+              <defs>
+                {/* SVGネオングロウ用フィルターの定義 */}
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feComponentTransfer in="blur" result="boost">
+                    <feFuncA type="linear" slope="1.5" />
+                  </feComponentTransfer>
+                  <feMerge>
+                    <feMergeNode in="boost" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
 
-            <ResponsiveContainer width="100%" height={350}>
-              <ScatterChart
-                key={`scatter-${selectedLabel}-${selectedCountry}-${selectedLang}-${bubbleMode}`}
-                margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
+              {/* 測定器風極薄グリッド格子 */}
+              <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.06} stroke="#ffffff" />
+
+              {/* 🚀 標準線形軸に tickFormatter と ticks で厳密に対数表記する（自発光細線） */}
+              <XAxis 
+                type="number" 
+                dataKey="star" 
+                name="Stars" 
+                unit="⭐" 
+                domain={xDomain} 
+                ticks={xTicks}
+                tickFormatter={logTickFormatter} 
+                stroke="rgba(16, 185, 129, 0.2)" 
+                tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
+                label={{ 
+                  value: '⭐ STARGAZERS / COGNITIVE VOL (認知度)', 
+                  position: 'insideBottom', 
+                  offset: -25, 
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Outfit', sans-serif", textTransform: 'uppercase' } 
+                }}
+              />
+              <YAxis 
+                type="number" 
+                dataKey="fork" 
+                name="Forks" 
+                unit="🍴" 
+                domain={yDomain} 
+                ticks={yTicks}
+                tickFormatter={logTickFormatter} 
+                stroke="rgba(16, 185, 129, 0.2)" 
+                tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
+                label={{ 
+                  value: '🍴 FORKS / PRACTICAL DEV (現場熱量)', 
+                  angle: -90, 
+                  position: 'insideLeft', 
+                  offset: -25, 
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Outfit', sans-serif", textTransform: 'uppercase', textAnchor: 'middle' } 
+                }}
+              />
+              
+              {!selectedRepo && (
+                <Tooltip 
+                  content={<GemTooltip />} 
+                  cursor={{ strokeDasharray: '3 3' }} 
+                />
+              )}
+
+              <Scatter 
+                name="Repositories" 
+                data={scatterData} 
+                onClick={handleScatterClick}
+                style={{ cursor: 'pointer' }}
+                line={false}
               >
-                <defs>
-                  {/* SVGネオングロウ用フィルターの定義 */}
-                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feComponentTransfer in="blur" result="boost">
-                      <feFuncA type="linear" slope="1.5" />
-                    </feComponentTransfer>
-                    <feMerge>
-                      <feMergeNode in="boost" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-
-                {/* 🚀 標準線形軸に tickFormatter と ticks で厳密に対数表記する（デッドスペース排除） */}
-                <XAxis 
-                  type="number" 
-                  dataKey="star" 
-                  name="Stars" 
-                  unit="⭐" 
-                  domain={xDomain} 
-                  ticks={xTicks}
-                  tickFormatter={logTickFormatter} 
-                  stroke="#9ca3af" 
-                />
-                <YAxis 
-                  type="number" 
-                  dataKey="fork" 
-                  name="Forks" 
-                  unit="🍴" 
-                  domain={yDomain} 
-                  ticks={yTicks}
-                  tickFormatter={logTickFormatter} 
-                  stroke="#9ca3af" 
-                />
-                
-                {/* 動的中央値による四象限破線境界線 */}
-                <ReferenceLine x={medianStars} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.25} />
-                <ReferenceLine y={medianForks} stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 3" opacity={0.25} />
-
-                {!selectedRepo && (
-                  <Tooltip 
-                    content={<GemTooltip />} 
-                    cursor={{ strokeDasharray: '3 3' }} 
-                  />
-                )}
-
-                <Scatter 
-                  name="Repositories" 
-                  data={scatterData} 
-                  onClick={handleScatterClick}
-                  style={{ cursor: 'pointer' }}
-                  line={false}
-                >
-                  {scatterData.map((entry, index) => {
-                    const style = getDotStyle(entry, index);
-                    // Bubble Mode ON時は contributors数に応じて半径を 3px 〜 16px の間で平方根スケールにより動的変化
-                    // これによりチームサイズのコントラスト（3px ➡️ 最大16px）が劇的に認識しやすくなります
-                    const radius = bubbleMode 
-                      ? Math.min(16, 3.5 + Math.sqrt(entry.contributors || 1) * 0.45) 
-                      : 3;
-                    return (
-                      <Cell 
-                        key={`cell-${index}`} 
-                        r={radius} 
-                        {...style}
-                      />
-                    );
-                  })}
-                </Scatter>
-              </ScatterChart>
-            </ResponsiveContainer>
-          </>
+                {scatterData.map((entry, index) => {
+                  const style = getDotStyle(entry, index);
+                  // Bubble Mode ON時は contributors数に応じて半径を 3px 〜 16px の間で平方根スケールにより動的変化
+                  const radius = bubbleMode 
+                    ? Math.min(16, 3.5 + Math.sqrt(entry.contributors || 1) * 0.45) 
+                    : 3;
+                  return (
+                    <Cell 
+                      key={`cell-${index}`} 
+                      r={radius} 
+                      {...style}
+                    />
+                  );
+                })}
+              </Scatter>
+            </ScatterChart>
+          </ResponsiveContainer>
         )}
       </div>
     </div>
