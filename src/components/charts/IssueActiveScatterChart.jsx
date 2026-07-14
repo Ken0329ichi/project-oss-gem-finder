@@ -71,43 +71,43 @@ export default function IssueActiveScatterChart({
               <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.06} stroke="#ffffff" />
 
               {/* 🚀 標準線形軸に tickFormatter と ticks で厳密に対数表記する（パープル自発光） */}
-              <XAxis 
-                type="number" 
-                dataKey="open_issues" 
-                name="Open Issues" 
-                unit="⚠️" 
-                domain={xDomain} 
+              <XAxis
+                type="number"
+                dataKey="open_issues"
+                name="Open Issues"
+                unit="⚠️"
+                domain={xDomain}
                 ticks={xTicks}
-                tickFormatter={logTickFormatter} 
-                stroke="rgba(139, 92, 246, 0.2)" 
+                tickFormatter={logTickFormatter}
+                stroke="rgba(139, 92, 246, 0.2)"
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
-                label={{ 
-                  value: '⚠️ OPEN ISSUES / MAINTENANCE DEBT (BACKLOG)', 
-                  position: 'insideBottom', 
-                  offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase' } 
+                label={{
+                  value: '⚠️ OPEN ISSUES / MAINTENANCE DEBT (BACKLOG)',
+                  position: 'insideBottom',
+                  offset: -25,
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase' }
                 }}
               />
-              <YAxis 
-                type="number" 
-                dataKey="gfi" 
-                name="Good First Issues" 
-                unit="🌱" 
-                domain={yDomain} 
+              <YAxis
+                type="number"
+                dataKey="gfi"
+                name="Good First Issues"
+                unit="🌱"
+                domain={yDomain}
                 ticks={yTicks}
-                tickFormatter={logTickFormatter} 
-                stroke="rgba(139, 92, 246, 0.2)" 
+                tickFormatter={logTickFormatter}
+                stroke="rgba(139, 92, 246, 0.2)"
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
-                label={{ 
-                  value: '🌱 GOOD FIRST ISSUES (ACCESSIBILITY)', 
-                  angle: -90, 
-                  position: 'insideLeft', 
-                  offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase', textAnchor: 'middle' } 
+                label={{
+                  value: '🌱 GOOD FIRST ISSUES (ACCESSIBILITY)',
+                  angle: -90,
+                  position: 'insideLeft',
+                  offset: -25,
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase', textAnchor: 'middle' }
                 }}
               />
               <ZAxis type="category" dataKey="name" name="Repository" />
-              
+
               {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<IssueTooltip />} />}
               <Scatter
                 name="Repositories"
@@ -120,7 +120,7 @@ export default function IssueActiveScatterChart({
                   const dataIndex = issueScatterData.indexOf(payload);
                   const fill = colors[(dataIndex >= 0 ? dataIndex : 0) % colors.length];
                   const radius = bubbleMode
-                    ? Math.min(16, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 2.1)
+                    ? Math.min(6, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 0.22)
                     : 3;
                   return (
                     <circle

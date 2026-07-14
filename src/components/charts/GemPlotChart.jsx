@@ -194,7 +194,7 @@ export default function GemPlotChart({
                   const dataIndex = scatterData.indexOf(payload);
                   const style = getDotStyle(payload, dataIndex >= 0 ? dataIndex : 0);
                   const radius = bubbleMode
-                    ? Math.min(16, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 2.1)
+                    ? Math.min(6, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 0.22)
                     : 3;
                   return (
                     <circle

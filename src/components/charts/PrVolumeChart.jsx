@@ -69,42 +69,42 @@ export default function PrVolumeChart({
               <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.06} stroke="#ffffff" />
 
               {/* 🚀 標準線形軸に tickFormatter と ticks で厳密に対数表記する（パープル自発光） */}
-              <XAxis 
-                type="number" 
-                dataKey="star" 
-                name="Stars" 
-                unit="⭐" 
-                domain={xDomain} 
+              <XAxis
+                type="number"
+                dataKey="star"
+                name="Stars"
+                unit="⭐"
+                domain={xDomain}
                 ticks={xTicks}
-                tickFormatter={logTickFormatter} 
-                stroke="rgba(139, 92, 246, 0.2)" 
+                tickFormatter={logTickFormatter}
+                stroke="rgba(139, 92, 246, 0.2)"
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
-                label={{ 
-                  value: '⭐ STARGAZERS / COGNITIVE VOL (AWARENESS)', 
-                  position: 'insideBottom', 
-                  offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase' } 
+                label={{
+                  value: '⭐ STARGAZERS / COGNITIVE VOL (AWARENESS)',
+                  position: 'insideBottom',
+                  offset: -25,
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase' }
                 }}
               />
-              <YAxis 
-                type="number" 
-                dataKey="pr" 
-                name="Open PRs" 
-                unit="🚀" 
-                domain={yDomain} 
+              <YAxis
+                type="number"
+                dataKey="pr"
+                name="Open PRs"
+                unit="🚀"
+                domain={yDomain}
                 ticks={yTicks}
-                tickFormatter={logTickFormatter} 
-                stroke="rgba(139, 92, 246, 0.2)" 
+                tickFormatter={logTickFormatter}
+                stroke="rgba(139, 92, 246, 0.2)"
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
-                label={{ 
-                  value: '🚀 OPEN PRS / DEV CONFLICT (VELOCITY)', 
-                  angle: -90, 
-                  position: 'insideLeft', 
-                  offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase', textAnchor: 'middle' } 
+                label={{
+                  value: '🚀 OPEN PRS / DEV CONFLICT (VELOCITY)',
+                  angle: -90,
+                  position: 'insideLeft',
+                  offset: -25,
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase', textAnchor: 'middle' }
                 }}
               />
-              
+
               {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<PrScatterTooltip />} />}
               <Scatter
                 name="Repositories"
@@ -117,7 +117,7 @@ export default function PrVolumeChart({
                   const dataIndex = prScatterData.indexOf(payload);
                   const fill = colors[(dataIndex >= 0 ? dataIndex : 0) % colors.length];
                   const radius = bubbleMode
-                    ? Math.min(16, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 2.1)
+                    ? Math.min(6, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 0.22)
                     : 3;
                   return (
                     <circle
