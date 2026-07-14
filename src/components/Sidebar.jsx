@@ -11,9 +11,6 @@ export default function Sidebar({
   selectedLicense, setSelectedLicense, licenses,
   selectedLabel, setSelectedLabel, rareLabels,
   gfiOnly, setGfiOnly,
-  minPrs, setMinPrs,
-  maxIssues, setMaxIssues,
-  minReleases, setMinReleases,
   clearFilters,
   // タブ制御
   activeTab, setActiveTab,
@@ -69,7 +66,7 @@ export default function Sidebar({
           </button>
         </div>
 
-        {/* 中段: コントロールパネル（スクロール可能） */}
+        {/* 中段: コントロールパネル */}
         <div className="sidebar-control-area">
           <ControlPanel
             searchQuery={searchQuery}
@@ -88,31 +85,27 @@ export default function Sidebar({
             rareLabels={rareLabels}
             gfiOnly={gfiOnly}
             setGfiOnly={setGfiOnly}
-            minPrs={minPrs}
-            setMinPrs={setMinPrs}
-            maxIssues={maxIssues}
-            setMaxIssues={setMaxIssues}
-            minReleases={minReleases}
-            setMinReleases={setMinReleases}
             clearFilters={clearFilters}
           />
         </div>
 
-        {/* 下段: ドネーション・権利表記 */}
-        <div className="sidebar-footer">
+        {/* 💖 下段: さりげなく美しい固定フッター領域 (垂直整列) */}
+        <footer className="app-sidebar-footer">
+          <div className="footer-meta-text">
+            Dataset Version: {updatedAt ? formatUTC(updatedAt) : 'Loading...'}
+          </div>
+          <div className="footer-meta-text">
+            CC BY 4.0 / ken0329
+          </div>
           <a
             href="https://github.com/sponsors/ken0329"
             target="_blank"
             rel="noopener noreferrer"
-            className="sponsor-link-btn"
+            className="footer-sponsor-glass-btn"
           >
-            ❤️ Support on GitHub Sponsors
+            💖 Support on GitHub Sponsors
           </a>
-          <div className="footer-meta-info">
-            <p>Dataset: {updatedAt ? formatUTC(updatedAt) : 'Loading...'}</p>
-            <p>CC BY 4.0 / ken0329</p>
-          </div>
-        </div>
+        </footer>
       </aside>
     </>
   );

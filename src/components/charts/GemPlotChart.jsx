@@ -70,7 +70,23 @@ export default function GemPlotChart({
       <div className="chart-box-header">
         <div>
           <h3>📊 Stargazers vs Forks Distribution (Gem Plot)</h3>
-          <p className="chart-sub">Repositories in the upper-left are highly practical gems (target range: 300+ stars).</p>
+          <p className="chart-sub" style={{ marginBottom: '0.25rem' }}>
+            Repositories in the upper-left are highly practical gems (target range: 300+ stars).
+          </p>
+          {/* ✨ Glowing dots に関する注記テキストの追加 */}
+          <p 
+            className="glow-note"
+            style={{ 
+              fontSize: '11px', 
+              color: '#34d399', 
+              opacity: 0.6, 
+              margin: '0 0 1rem 0', 
+              fontFamily: "'Outfit', 'Inter', sans-serif",
+              letterSpacing: '0.02em'
+            }}
+          >
+            ✨ Glowing dots represent high developer interest (Watchers-to-Stars ratio).
+          </p>
         </div>
         <div className="chart-controls-row">
           {/* 👥 BUBBLE MODE (Show Team Size) トグルのグラフ直上配置 */}
@@ -160,9 +176,10 @@ export default function GemPlotChart({
                 >
                   {scatterData.map((entry, index) => {
                     const style = getDotStyle(entry, index);
-                    // Bubble Mode ON時は contributors数に応じて半径を 3px 〜 8px の間で動的変化
+                    // Bubble Mode ON時は contributors数に応じて半径を 3px 〜 16px の間で平方根スケールにより動的変化
+                    // これによりチームサイズのコントラスト（3px ➡️ 最大16px）が劇的に認識しやすくなります
                     const radius = bubbleMode 
-                      ? Math.min(8, 3 + (entry.contributors || 1) / 15) 
+                      ? Math.min(16, 3.5 + Math.sqrt(entry.contributors || 1) * 0.45) 
                       : 3;
                     return (
                       <Cell 

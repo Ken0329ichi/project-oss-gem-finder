@@ -173,76 +173,66 @@
   border-radius: 2px;
 }
 
-/* ===== 下段: フッター ===== */
-.sidebar-footer {
-  padding: 0.85rem 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  flex-shrink: 0;
-  background: rgba(8, 11, 17, 0.4);
+/* ===== 下段: さりげなく美しい固定フッター領域 ===== */
+.sidebar-control-area {
+  padding-bottom: 130px; /* 固定フッターと重なるのを防ぐための十分な余白 */
 }
 
-.sidebar-footer-meta {
+.app-sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(to top, rgba(4, 6, 10, 0.95) 0%, rgba(8, 11, 17, 0.85) 75%, rgba(8, 11, 17, 0) 100%);
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  z-index: 10;
+  pointer-events: auto;
 }
 
-.footer-version {
-  color: #4b5563;
-  font-size: 0.7rem;
-  font-family: 'Inter', monospace;
+.footer-meta-text {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 11px;
+  color: #6b7280;
+  letter-spacing: 0.05em;
+  margin: 0;
 }
 
-.footer-links-row {
+/* 💖 ガラス調 Sponsors ボタン */
+.footer-sponsor-glass-btn {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-}
-
-.footer-license-link {
-  color: #4b5563;
-  font-size: 0.7rem;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.4rem;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.05em;
+  color: #e5e7eb;
   text-decoration: none;
-  transition: color 0.2s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.footer-license-link:hover {
-  color: var(--text-mute);
-}
-
-.footer-divider {
-  color: #374151;
-  font-size: 0.7rem;
-}
-
-.footer-publisher {
-  color: #4b5563;
-  font-size: 0.7rem;
-}
-
-/* 💖 ドネーションリンク */
-.donation-link {
-  display: inline-block;
-  margin-top: 0.1rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #9ca3af;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  padding: 0.35rem 0.7rem;
-  border-radius: 6px;
-  border: 1px solid rgba(236, 72, 153, 0.2);
-  background: rgba(236, 72, 153, 0.05);
-  width: fit-content;
-}
-
-.donation-link:hover {
+.footer-sponsor-glass-btn:hover {
   color: #ec4899;
-  border-color: rgba(236, 72, 153, 0.6);
-  background: rgba(236, 72, 153, 0.1);
-  box-shadow: 0 0 12px rgba(236, 72, 153, 0.3), 0 0 24px rgba(236, 72, 153, 0.15);
+  border-color: rgba(236, 72, 153, 0.5);
+  background: rgba(236, 72, 153, 0.08);
+  box-shadow: 0 0 16px rgba(236, 72, 153, 0.45), 0 0 32px rgba(236, 72, 153, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   text-shadow: 0 0 8px rgba(236, 72, 153, 0.5);
+  transform: translateY(-1px);
 }
+
 
 /* ===== スマホ対応 ===== */
 @media (max-width: 768px) {
