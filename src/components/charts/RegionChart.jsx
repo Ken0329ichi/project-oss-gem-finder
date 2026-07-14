@@ -1,12 +1,21 @@
 import React from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+// サイバー・ネオンカラーパレット（散布図と統一）
+const CYBER_COLORS = [
+  '#ec4899', // サイバーマゼンタ
+  '#06b6d4', // ネオンシアン
+  '#8b5cf6', // エレクトリックパープル
+  '#10b981', // ネオンミント
+  '#f59e0b', // サイバーアンバー
+  '#3b82f6', // ネオンブルー
+];
+
 export default function RegionChart({
   pieData,
   showGlobal,
   setShowGlobal,
   PieTooltip,
-  colors
 }) {
   return (
     <div className="chart-box half-width glass">
@@ -36,7 +45,11 @@ export default function RegionChart({
               dataKey="value"
             >
               {pieData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                <Cell
+                  key={`cell-${index}`}
+                  fill={CYBER_COLORS[index % CYBER_COLORS.length]}
+                  opacity={0.85}
+                />
               ))}
             </Pie>
             <Tooltip content={<PieTooltip />} />

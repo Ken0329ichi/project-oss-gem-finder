@@ -82,10 +82,10 @@ export default function IssueActiveScatterChart({
                 stroke="rgba(139, 92, 246, 0.2)" 
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
                 label={{ 
-                  value: '⚠️ OPEN ISSUES / MAINTENANCE DEBT (保守負債)', 
+                  value: '⚠️ OPEN ISSUES / MAINTENANCE DEBT (BACKLOG)', 
                   position: 'insideBottom', 
                   offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Outfit', sans-serif", textTransform: 'uppercase' } 
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase' } 
                 }}
               />
               <YAxis 
@@ -99,11 +99,11 @@ export default function IssueActiveScatterChart({
                 stroke="rgba(139, 92, 246, 0.2)" 
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
                 label={{ 
-                  value: '🌱 GOOD FIRST ISSUES (貢献の間口)', 
+                  value: '🌱 GOOD FIRST ISSUES (ACCESSIBILITY)', 
                   angle: -90, 
                   position: 'insideLeft', 
                   offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Outfit', sans-serif", textTransform: 'uppercase', textAnchor: 'middle' } 
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase', textAnchor: 'middle' } 
                 }}
               />
               <ZAxis type="category" dataKey="name" name="Repository" />
