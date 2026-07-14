@@ -102,7 +102,7 @@ export default function PrVolumeChart({
                 >
                   {prScatterData.map((entry, index) => {
                     const radius = bubbleMode 
-                      ? Math.min(8, 3 + (entry.contributors || 1) / 15) 
+                      ? Math.min(16, 3.5 + Math.sqrt(entry.contributors || 1) * 0.45) 
                       : 3;
                     return (
                       <Cell 

@@ -8,12 +8,9 @@ export default function ControlPanel({
   selectedLicense, setSelectedLicense, licenses,
   selectedLabel, setSelectedLabel, rareLabels,
   gfiOnly, setGfiOnly,
-  minPrs, setMinPrs,
-  maxIssues, setMaxIssues,
-  minReleases, setMinReleases,
   clearFilters
 }) {
-  const hasActiveFilters = searchQuery || selectedLang || selectedCountry || selectedLicense || selectedLabel || gfiOnly || minPrs > 0 || maxIssues < 1000 || minReleases > 0;
+  const hasActiveFilters = searchQuery || selectedLang || selectedCountry || selectedLicense || selectedLabel || gfiOnly;
 
   return (
     <div className="control-panel-inner">
@@ -76,33 +73,6 @@ export default function ControlPanel({
             <button className={`license-chip gfi-chip ${!gfiOnly ? 'active' : ''}`} onClick={() => setGfiOnly(false)}>All</button>
             <button className={`license-chip gfi-chip ${gfiOnly ? 'active' : ''}`} onClick={() => setGfiOnly(!gfiOnly)}>🌱 Has GFI</button>
           </div>
-        </div>
-      </div>
-
-      {/* 活動量スライダー群 */}
-      <div className="slider-filters-container">
-        <div className="filter-group">
-          <div className="slider-label-row">
-            <label className="filter-label">Min Open PRs 🚀</label>
-            <span className="slider-value-indicator">{minPrs === 0 ? 'Any' : `${minPrs}+`}</span>
-          </div>
-          <input type="range" min="0" max="30" value={minPrs} onChange={(e) => setMinPrs(Number(e.target.value))} className="filter-range-slider primary-track" />
-        </div>
-
-        <div className="filter-group">
-          <div className="slider-label-row">
-            <label className="filter-label">Max Open Issues ⚠️</label>
-            <span className="slider-value-indicator-purple">{maxIssues === 1000 ? 'Any' : `≤${maxIssues}`}</span>
-          </div>
-          <input type="range" min="0" max="1000" step="50" value={maxIssues} onChange={(e) => setMaxIssues(Number(e.target.value))} className="filter-range-slider purple-track" />
-        </div>
-
-        <div className="filter-group">
-          <div className="slider-label-row">
-            <label className="filter-label">Min Releases 📦</label>
-            <span className="slider-value-indicator-amber">{minReleases === 0 ? 'Any' : `${minReleases}+`}</span>
-          </div>
-          <input type="range" min="0" max="50" value={minReleases} onChange={(e) => setMinReleases(Number(e.target.value))} className="filter-range-slider amber-track" />
         </div>
       </div>
 
