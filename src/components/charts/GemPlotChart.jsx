@@ -88,7 +88,21 @@ export default function GemPlotChart({
             ✨ Glowing dots represent high developer interest (Watchers-to-Stars ratio).
           </p>
         </div>
-        <div className="chart-controls-row">
+        <div className="chart-controls-row" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          {/* 説明ラベルテキスト */}
+          <span 
+            className="toggle-desc" 
+            style={{ 
+              fontSize: '11px', 
+              color: '#9ca3af', 
+              opacity: 0.65, 
+              fontFamily: "'Outfit', 'Inter', sans-serif",
+              letterSpacing: '0.02em',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            (Radius reflects contributors count)
+          </span>
           {/* 👥 BUBBLE MODE (Show Team Size) トグルのグラフ直上配置 */}
           <button 
             className={`toggle-btn ${bubbleMode ? 'active' : ''}`}
