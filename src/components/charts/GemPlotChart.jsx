@@ -51,9 +51,9 @@ export default function GemPlotChart({
     const baseColor = colors[index % colors.length];
     // スター数に対するウォッチ数比率 (watchRatio) に応じて輝度とネオンフィルターを動的適用
     const isGlowing = entry.watchRatio > 0.02; // 比率が2%を超える人気の原石
-    
+
     return {
-      fill: baseColor, 
+      fill: baseColor,
       filter: isGlowing ? 'url(#glow)' : undefined,
       fillOpacity: isGlowing ? 0.95 : 0.45, // 自発光対象はハッキリ明るく、他は半透明にしてノイズ引き算
       stroke: isGlowing ? baseColor : 'none',
@@ -70,13 +70,13 @@ export default function GemPlotChart({
             Repositories in the upper-left are highly practical gems (target range: 300+ stars).
           </p>
           {/* ✨ Glowing dots に関する注記テキスト */}
-          <p 
+          <p
             className="glow-note"
-            style={{ 
-              fontSize: '11px', 
-              color: '#34d399', 
-              opacity: 0.6, 
-              margin: '0 0 1rem 0', 
+            style={{
+              fontSize: '11px',
+              color: '#34d399',
+              opacity: 0.6,
+              margin: '0 0 1rem 0',
               fontFamily: "'Outfit', 'Inter', sans-serif",
               letterSpacing: '0.02em'
             }}
@@ -86,12 +86,12 @@ export default function GemPlotChart({
         </div>
         <div className="chart-controls-row" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           {/* 説明ラベルテキスト */}
-          <span 
-            className="toggle-desc" 
-            style={{ 
-              fontSize: '11px', 
-              color: '#9ca3af', 
-              opacity: 0.65, 
+          <span
+            className="toggle-desc"
+            style={{
+              fontSize: '11px',
+              color: '#9ca3af',
+              opacity: 0.65,
               fontFamily: "'Outfit', 'Inter', sans-serif",
               letterSpacing: '0.02em',
               whiteSpace: 'nowrap'
@@ -100,7 +100,7 @@ export default function GemPlotChart({
             (Radius reflects contributors count)
           </span>
           {/* 👥 BUBBLE MODE (Show Team Size) トグルのグラフ直上配置 */}
-          <button 
+          <button
             className={`toggle-btn ${bubbleMode ? 'active' : ''}`}
             onClick={() => setBubbleMode(!bubbleMode)}
             title="Toggle Bubble Mode (Radius by Contributors count)"
@@ -139,52 +139,52 @@ export default function GemPlotChart({
               <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.06} stroke="#ffffff" />
 
               {/* 🚀 標準線形軸に tickFormatter と ticks で厳密に対数表記する（自発光細線） */}
-              <XAxis 
-                type="number" 
-                dataKey="star" 
-                name="Stars" 
-                unit="⭐" 
-                domain={xDomain} 
+              <XAxis
+                type="number"
+                dataKey="star"
+                name="Stars"
+                unit="⭐"
+                domain={xDomain}
                 ticks={xTicks}
-                tickFormatter={logTickFormatter} 
-                stroke="rgba(16, 185, 129, 0.2)" 
+                tickFormatter={logTickFormatter}
+                stroke="rgba(16, 185, 129, 0.2)"
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
-                label={{ 
-                  value: '⭐ STARGAZERS / COGNITIVE VOL (AWARENESS)', 
-                  position: 'insideBottom', 
-                  offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase' } 
+                label={{
+                  value: '⭐ STARGAZERS / COGNITIVE VOL (AWARENESS)',
+                  position: 'insideBottom',
+                  offset: -25,
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase' }
                 }}
               />
-              <YAxis 
-                type="number" 
-                dataKey="fork" 
-                name="Forks" 
-                unit="🍴" 
-                domain={yDomain} 
+              <YAxis
+                type="number"
+                dataKey="fork"
+                name="Forks"
+                unit="🍴"
+                domain={yDomain}
                 ticks={yTicks}
-                tickFormatter={logTickFormatter} 
-                stroke="rgba(16, 185, 129, 0.2)" 
+                tickFormatter={logTickFormatter}
+                stroke="rgba(16, 185, 129, 0.2)"
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
-                label={{ 
-                  value: '🍴 FORKS / PRACTICAL DEV (ADOPTION)', 
-                  angle: -90, 
-                  position: 'insideLeft', 
-                  offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase', textAnchor: 'middle' } 
+                label={{
+                  value: '🍴 FORKS / PRACTICAL DEV (ADOPTION)',
+                  angle: -90,
+                  position: 'insideLeft',
+                  offset: -25,
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase', textAnchor: 'middle' }
                 }}
               />
-              
+
               {!selectedRepo && (
-                <Tooltip 
-                  content={<GemTooltip />} 
-                  cursor={{ strokeDasharray: '3 3' }} 
+                <Tooltip
+                  content={<GemTooltip />}
+                  cursor={{ strokeDasharray: '3 3' }}
                 />
               )}
 
-              <Scatter 
-                name="Repositories" 
-                data={scatterData} 
+              <Scatter
+                name="Repositories"
+                data={scatterData}
                 onClick={handleScatterClick}
                 style={{ cursor: 'pointer' }}
                 line={false}
@@ -192,13 +192,16 @@ export default function GemPlotChart({
                 {scatterData.map((entry, index) => {
                   const style = getDotStyle(entry, index);
                   // Bubble Mode ON時は contributors数に応じて半径を 3px 〜 16px の間で平方根スケールにより動的変化
-                  const radius = bubbleMode 
-                    ? Math.min(16, 3.5 + Math.sqrt(entry.contributors || 1) * 0.45) 
+                  // const radius = bubbleMode
+                  //   ? Math.min(16, 3 + Math.sqrt(entry.contributors || 1) * 0.65)
+                  //   : 3;
+                  const radius = bubbleMode
+                    ? Math.min(45, 3 + Math.sqrt(Math.max(0, (entry.contributors || 1) - 1)) * 2.1)
                     : 3;
                   return (
-                    <Cell 
-                      key={`cell-${index}`} 
-                      r={radius} 
+                    <Cell
+                      key={`cell-${index}`}
+                      r={radius}
                       {...style}
                     />
                   );
