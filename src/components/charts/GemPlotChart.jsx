@@ -189,10 +189,12 @@ export default function GemPlotChart({
                 style={{ cursor: 'pointer' }}
                 line={false}
                 shape={(props) => {
-                  const { cx, cy, payload, index } = props;
-                  const style = getDotStyle(payload, index ?? 0);
+                  const { cx, cy, payload } = props;
+                  // indexOf で参照一致検索 → index が確実に取得できる
+                  const dataIndex = scatterData.indexOf(payload);
+                  const style = getDotStyle(payload, dataIndex >= 0 ? dataIndex : 0);
                   const radius = bubbleMode
-                    ? Math.min(45, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 2.1)
+                    ? Math.min(16, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 2.1)
                     : 3;
                   return (
                     <circle

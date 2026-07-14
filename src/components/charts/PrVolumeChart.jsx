@@ -113,10 +113,11 @@ export default function PrVolumeChart({
                 style={{ cursor: 'pointer' }}
                 line={false}
                 shape={(props) => {
-                  const { cx, cy, payload, index } = props;
-                  const fill = colors[(index ?? 0) % colors.length];
+                  const { cx, cy, payload } = props;
+                  const dataIndex = prScatterData.indexOf(payload);
+                  const fill = colors[(dataIndex >= 0 ? dataIndex : 0) % colors.length];
                   const radius = bubbleMode
-                    ? Math.min(45, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 2.1)
+                    ? Math.min(16, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 2.1)
                     : 3;
                   return (
                     <circle
