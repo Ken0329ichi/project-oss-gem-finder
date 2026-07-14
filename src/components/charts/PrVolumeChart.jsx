@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid } from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { logTickFormatter } from '../../utils/formatters';
 
 export default function PrVolumeChart({
@@ -106,27 +106,30 @@ export default function PrVolumeChart({
               />
               
               {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<PrScatterTooltip />} />}
-              <Scatter 
-                name="Repositories" 
-                data={prScatterData} 
+              <Scatter
+                name="Repositories"
+                data={prScatterData}
                 onClick={handleScatterClick}
                 style={{ cursor: 'pointer' }}
                 line={false}
-              >
-                {prScatterData.map((entry, index) => {
+                shape={(props) => {
+                  const { cx, cy, payload, index } = props;
+                  const fill = colors[(index ?? 0) % colors.length];
                   const radius = bubbleMode
-                    ? Math.min(45, 3 + Math.sqrt(Math.max(0, (entry.contributors || 1) - 1)) * 2.1)
+                    ? Math.min(45, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 2.1)
                     : 3;
                   return (
-                    <Cell 
-                      key={`cell-${index}`} 
-                      fill={colors[index % colors.length]} 
-                      fillOpacity={0.75}
+                    <circle
+                      cx={cx}
+                      cy={cy}
                       r={radius}
+                      fill={fill}
+                      fillOpacity={0.75}
+                      style={{ cursor: 'pointer' }}
                     />
                   );
-                })}
-              </Scatter>
+                }}
+              />
             </ScatterChart>
           </ResponsiveContainer>
         )}
