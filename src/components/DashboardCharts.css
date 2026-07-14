@@ -31,6 +31,28 @@
   flex-wrap: wrap;
 }
 
+.chart-row-split {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.chart-row-split > .chart-box {
+  flex: 1;
+  min-width: 45%;
+}
+
+@media (max-width: 1024px) {
+  .chart-row-split > .chart-box {
+    min-width: 100%;
+  }
+}
+
+.chart-row-full {
+  width: 100%;
+}
+
 .chart-box.half-width {
   flex: 1;
   min-width: 340px;

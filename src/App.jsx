@@ -43,6 +43,7 @@ const IssueTooltip = ({ active, payload }) => {
       <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
       <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Total Open Issues: <strong>{rawIssues.toLocaleString()}</strong> ⚠️</p>
       <p style={{ color: '#34d399', fontSize: '0.8rem', margin: '2px 0 0' }}>🌱 Good First Issues: <strong>{rawGfi.toLocaleString()}</strong> ({gfiPercent}%)</p>
+      <p style={{ color: '#38bdf8', fontSize: '0.75rem', margin: '2px 0 0' }}>👥 Contributors: {data.contributors}</p>
     </div>
   );
 };
@@ -74,6 +75,8 @@ const GemTooltip = ({ active, payload }) => {
       <p style={{ color: '#6ee7b7', fontWeight: 700, fontSize: '0.85rem', margin: 0 }}>{data.name}</p>
       <p style={{ color: '#e2e8f0', fontSize: '0.8rem', margin: '4px 0 0' }}>Stars: <strong>{rawStar.toLocaleString()}</strong> ⭐</p>
       <p style={{ color: '#6ee7b7', fontSize: '0.8rem', margin: '2px 0 0' }}>Forks: <strong>{rawFork.toLocaleString()}</strong> 🍴</p>
+      <p style={{ color: '#a78bfa', fontSize: '0.75rem', margin: '2px 0 0' }}>👥 Contributors: {data.contributors}</p>
+      <p style={{ color: '#38bdf8', fontSize: '0.75rem', margin: '2px 0 0' }}>👁️ Watchers: {data.watchers.toLocaleString()} (Ratio: {Math.round(data.watchRatio * 100)}%)</p>
     </div>
   );
 };
@@ -96,24 +99,29 @@ export default function App() {
   // UI状態
   const [activeTab, setActiveTab] = useState('charts');
   const [selectedRepo, setSelectedRepo] = useState(null);
-  const [scatterMaxStars, setScatterMaxStars] = useState(30000);
   const [issueMaxCount, setIssueMaxCount] = useState(500);
   const [showGlobal, setShowGlobal] = useState(true);
 
   // グラフ用データ (すべて React 側であらかじめ Math.log10 化して流す)
+  // X軸のズームフィルタは廃止され、常に全データが対数スケールに描画されます。
   const scatterData = useMemo(() => {
-    let list = filteredRepos;
-    if (scatterMaxStars !== Infinity) list = list.filter(r => r.metrics.stargazers < scatterMaxStars);
-    return list.slice(0, 200).map(r => ({
-      name: r.meta.name,
-      star: Math.log10(Math.max(1, r.metrics.stargazers)),
-      fork: Math.log10(Math.max(1, r.metrics.forks)),
-      rawStar: r.metrics.stargazers,
-      rawFork: r.metrics.forks,
-      lang: r.meta.primary_language || 'Unknown',
-      rawRepo: r
-    }));
-  }, [filteredRepos, scatterMaxStars]);
+    return filteredRepos.slice(0, 200).map(r => {
+      const star = Math.max(1, r.metrics.stargazers);
+      const watchers = r.metrics.watchers || 0;
+      return {
+        name: r.meta.name,
+        star: Math.log10(star),
+        fork: Math.log10(Math.max(1, r.metrics.forks)),
+        rawStar: r.metrics.stargazers,
+        rawFork: r.metrics.forks,
+        contributors: r.metrics.contributors || 1,
+        watchers: watchers,
+        watchRatio: watchers / star,
+        lang: r.meta.primary_language || 'Unknown',
+        rawRepo: r
+      };
+    });
+  }, [filteredRepos]);
 
   const pieData = useMemo(() => {
     const counts = {};
@@ -136,15 +144,14 @@ export default function App() {
       gfi: Math.log10(Math.max(1, r.metrics.good_first_issues || 0)),
       rawIssues: r.metrics.open_issues,
       rawGfi: r.metrics.good_first_issues || 0,
+      contributors: r.metrics.contributors || 1,
       lang: r.meta.primary_language || 'Unknown',
       rawRepo: r
     }));
   }, [filteredRepos, issueMaxCount]);
 
   const prScatterData = useMemo(() => {
-    let list = filteredRepos;
-    if (scatterMaxStars !== Infinity) list = list.filter(r => r.metrics.stargazers < scatterMaxStars);
-    return list.slice(0, 200).map(r => ({
+    return filteredRepos.slice(0, 200).map(r => ({
       name: r.meta.name,
       star: Math.log10(Math.max(1, r.metrics.stargazers)),
       pr: Math.log10(Math.max(1, r.metrics.open_pull_requests || 0)),
@@ -154,7 +161,7 @@ export default function App() {
       lang: r.meta.primary_language || 'Unknown',
       rawRepo: r
     }));
-  }, [filteredRepos, scatterMaxStars]);
+  }, [filteredRepos]);
 
   const handleScatterClick = (data) => {
     const repo = data?.payload?.rawRepo || data?.rawRepo;
@@ -207,8 +214,6 @@ export default function App() {
         ) : (
           <DashboardCharts
             scatterData={scatterData}
-            scatterMaxStars={scatterMaxStars}
-            setScatterMaxStars={setScatterMaxStars}
             issueMaxCount={issueMaxCount}
             setIssueMaxCount={setIssueMaxCount}
             selectedLabel={selectedLabel}

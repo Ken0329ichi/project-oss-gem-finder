@@ -13,7 +13,8 @@ export default function IssueActiveScatterChart({
   selectedRepo,
   handleScatterClick,
   colors,
-  IssueTooltip
+  IssueTooltip,
+  bubbleMode
 }) {
   const isEmpty = issueScatterData.length === 0;
 
@@ -24,22 +25,38 @@ export default function IssueActiveScatterChart({
   // 軸の表示ドメイン限界を計算
   const xDomain = useMemo(() => {
     if (isEmpty) return [0, 4];
-    const maxVal = Math.max(...issueScatterData.map(d => d.open_issues));
-    return [0, Math.ceil(maxVal)];
+    return ['dataMin', 'auto'];
   }, [issueScatterData, isEmpty]);
 
   const yDomain = useMemo(() => {
     if (isEmpty) return [0, 3];
-    const maxVal = Math.max(...issueScatterData.map(d => d.gfi));
-    return [0, Math.ceil(maxVal)];
+    return ['dataMin', 'auto'];
   }, [issueScatterData, isEmpty]);
+
+  // 厳密な対数 Ticks の配列
+  const xTicks = useMemo(() => [
+    0, // 1
+    1, // 10
+    Math.log10(50),
+    2, // 100
+    Math.log10(500),
+    3, // 1000
+    4  // 10000
+  ], []);
+
+  const yTicks = useMemo(() => [
+    0, // 1
+    1, // 10
+    2, // 100
+    3  // 1000
+  ], []);
 
   return (
     <div className="chart-box glass">
       <div className="chart-box-header">
         <div>
           <h3>📊 Open Issues vs Good First Issues (GFI Active Plot)</h3>
-          <p className="chart-sub">Click on any dot to view repository details. Repositories in the upper-left have higher ratios of beginner-friendly tasks relative to total issues.</p>
+          <p className="chart-sub">Repositories in the upper-left have higher ratios of beginner-friendly tasks relative to total issues.</p>
         </div>
       </div>
       <div className="chart-wrapper" style={{ position: 'relative' }}>
@@ -52,16 +69,17 @@ export default function IssueActiveScatterChart({
           <>
             <ResponsiveContainer width="100%" height={350}>
               <ScatterChart
-                key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}`}
+                key={`issue-scatter-${selectedLabel}-${selectedCountry}-${selectedLicense}-${selectedLang}-${gfiOnly}-${issueMaxCount}-${bubbleMode}`}
                 margin={{ top: 20, right: 30, bottom: 30, left: 40 }}
               >
-                {/* 🚀 標準線形軸に tickFormatter で綺麗に対数表記する */}
+                {/* 🚀 標準線形軸に tickFormatter と ticks で厳密に対数表記する */}
                 <XAxis 
                   type="number" 
                   dataKey="open_issues" 
                   name="Open Issues" 
                   unit="⚠️" 
                   domain={xDomain} 
+                  ticks={xTicks}
                   tickFormatter={logTickFormatter} 
                   stroke="#9ca3af" 
                 />
@@ -71,13 +89,13 @@ export default function IssueActiveScatterChart({
                   name="Good First Issues" 
                   unit="🌱" 
                   domain={yDomain} 
+                  ticks={yTicks}
                   tickFormatter={logTickFormatter} 
                   stroke="#9ca3af" 
                 />
                 <ZAxis type="category" dataKey="name" name="Repository" />
                 
                 {!selectedRepo && <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<IssueTooltip />} />}
-
                 <Scatter 
                   name="Repositories" 
                   data={issueScatterData} 
@@ -85,13 +103,19 @@ export default function IssueActiveScatterChart({
                   style={{ cursor: 'pointer' }}
                   line={false}
                 >
-                  {issueScatterData.map((entry, index) => (
-                    <Cell 
-                      key={`cell-${index}`} 
-                      fill={colors[index % colors.length]} 
-                      r={3} /* 半径3px固定 */
-                    />
-                  ))}
+                  {issueScatterData.map((entry, index) => {
+                    const radius = bubbleMode 
+                      ? Math.min(8, 3 + (entry.contributors || 1) / 15) 
+                      : 3;
+                    return (
+                      <Cell 
+                        key={`cell-${index}`} 
+                        fill={colors[index % colors.length]} 
+                        fillOpacity={0.75}
+                        r={radius}
+                      />
+                    );
+                  })}
                 </Scatter>
               </ScatterChart>
             </ResponsiveContainer>

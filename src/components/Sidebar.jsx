@@ -98,30 +98,19 @@ export default function Sidebar({
           />
         </div>
 
-        {/* 下段: フッター（最下部固定） */}
+        {/* 下段: ドネーション・権利表記 */}
         <div className="sidebar-footer">
-          <div className="sidebar-footer-meta">
-            <span className="footer-version">Dataset: {formatUTC(updatedAt)}</span>
-            <div className="footer-links-row">
-              <a
-                href="https://creativecommons.org/licenses/by/4.0/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-license-link"
-              >
-                CC BY 4.0
-              </a>
-              <span className="footer-divider">/</span>
-              <span className="footer-publisher">ken0329</span>
-            </div>
-            <a
-              href="https://github.com/sponsors/Ken0329ichi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="donation-link"
-            >
-              💖 Support on GitHub Sponsors
-            </a>
+          <a
+            href="https://github.com/sponsors/ken0329"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sponsor-link-btn"
+          >
+            ❤️ Support on GitHub Sponsors
+          </a>
+          <div className="footer-meta-info">
+            <p>Dataset: {updatedAt ? formatUTC(updatedAt) : 'Loading...'}</p>
+            <p>CC BY 4.0 / ken0329</p>
           </div>
         </div>
       </aside>
