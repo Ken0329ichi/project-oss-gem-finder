@@ -1733,3 +1733,6 @@ didi/DoKit
 linlinjava/litemall
 ReactiveX/RxAndroid
 YunaiV/yudao-cloud
+
+# --- Automatically discovered new targets ---
+go-kit/kit
