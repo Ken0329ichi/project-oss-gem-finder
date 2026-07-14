@@ -150,10 +150,10 @@ export default function GemPlotChart({
                 stroke="rgba(16, 185, 129, 0.2)" 
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
                 label={{ 
-                  value: '⭐ STARGAZERS / COGNITIVE VOL (認知度)', 
+                  value: '⭐ STARGAZERS / COGNITIVE VOL (AWARENESS)', 
                   position: 'insideBottom', 
                   offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Outfit', sans-serif", textTransform: 'uppercase' } 
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase' } 
                 }}
               />
               <YAxis 
@@ -167,11 +167,11 @@ export default function GemPlotChart({
                 stroke="rgba(16, 185, 129, 0.2)" 
                 tick={{ fontSize: '10px', fontFamily: "'Share Tech Mono', 'Outfit', monospace", fill: '#9ca3af' }}
                 label={{ 
-                  value: '🍴 FORKS / PRACTICAL DEV (現場熱量)', 
+                  value: '🍴 FORKS / PRACTICAL DEV (ADOPTION)', 
                   angle: -90, 
                   position: 'insideLeft', 
                   offset: -25, 
-                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Outfit', sans-serif", textTransform: 'uppercase', textAnchor: 'middle' } 
+                  style: { fontSize: '10px', fill: '#9ca3af', opacity: 0.5, letterSpacing: '0.05em', fontFamily: "'Share Tech Mono', 'Outfit', monospace", textTransform: 'uppercase', textAnchor: 'middle' } 
                 }}
               />
               
