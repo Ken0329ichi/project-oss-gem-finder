@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid } from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { logTickFormatter } from '../../utils/formatters';
 
 export default function GemPlotChart({
@@ -188,25 +188,27 @@ export default function GemPlotChart({
                 onClick={handleScatterClick}
                 style={{ cursor: 'pointer' }}
                 line={false}
-              >
-                {scatterData.map((entry, index) => {
-                  const style = getDotStyle(entry, index);
-                  // Bubble Mode ON時は contributors数に応じて半径を 3px 〜 16px の間で平方根スケールにより動的変化
-                  // const radius = bubbleMode
-                  //   ? Math.min(16, 3 + Math.sqrt(entry.contributors || 1) * 0.65)
-                  //   : 3;
+                shape={(props) => {
+                  const { cx, cy, payload, index } = props;
+                  const style = getDotStyle(payload, index ?? 0);
                   const radius = bubbleMode
-                    ? Math.min(45, 3 + Math.sqrt(Math.max(0, (entry.contributors || 1) - 1)) * 2.1)
+                    ? Math.min(45, 3 + Math.sqrt(Math.max(0, (payload.contributors || 1) - 1)) * 2.1)
                     : 3;
                   return (
-                    <Cell
-                      key={`cell-${index}`}
+                    <circle
+                      cx={cx}
+                      cy={cy}
                       r={radius}
-                      {...style}
+                      fill={style.fill}
+                      fillOpacity={style.fillOpacity}
+                      stroke={style.stroke}
+                      strokeWidth={style.strokeWidth}
+                      filter={style.filter}
+                      style={{ cursor: 'pointer' }}
                     />
                   );
-                })}
-              </Scatter>
+                }}
+              />
             </ScatterChart>
           </ResponsiveContainer>
         )}
