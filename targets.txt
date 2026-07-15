@@ -1736,3 +1736,7 @@ YunaiV/yudao-cloud
 
 # --- Automatically discovered new targets ---
 go-kit/kit
+
+# --- Automatically discovered new targets ---
+JustVugg/colibri
+LibChecker/LibChecker
