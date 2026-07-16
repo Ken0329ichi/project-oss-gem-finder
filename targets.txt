@@ -1740,3 +1740,9 @@ go-kit/kit
 # --- Automatically discovered new targets ---
 JustVugg/colibri
 LibChecker/LibChecker
+
+# --- Automatically discovered new targets ---
+microsoft/BitNet
+lysine-dev/okhttp
+lysine-dev/okio
+conceptadev/fvm
