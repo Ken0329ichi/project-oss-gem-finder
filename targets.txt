@@ -1746,3 +1746,6 @@ microsoft/BitNet
 lysine-dev/okhttp
 lysine-dev/okio
 conceptadev/fvm
+
+# --- Automatically discovered new targets ---
+lysine-dev/retrofit
