@@ -13,6 +13,8 @@ jobs:
       # 1. リポジトリをチェックアウト
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 履歴を完全に取得してエラー防止
 
       # 2. Node.js 24 をセットアップ（パッケージキャッシュ付き）
       - name: Setup Node
@@ -38,4 +40,5 @@ jobs:
           branch: main
           folder: dist
           clean: true
+          single-commit: true # 1コミットにまとめて強制上書きデプロイ
 
