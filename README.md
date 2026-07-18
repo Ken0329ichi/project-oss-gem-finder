@@ -16,7 +16,7 @@ The repository metrics database stored in `data/data.json` is licensed under the
 #### How to Attribute
 If you use, modify, or redistribute the data contained in `data/data.json`, you must provide appropriate credit to the creator:
 - **Creator**: ken0329
-- **Link**: [https://github.com/Ken0329ichi/project-oss-gem-finder](https://github.com/Ken0329ichi/project-oss-gem-finder) (または公開したGitHub PagesのURL)
+- **Link**: [https://github.com/Ken0329ichi/project-oss-gem-finder](https://github.com/Ken0329ichi/project-oss-gem-finder) (or the URL of the published GitHub Pages)
 - **License Text**: [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)
 
 ---
