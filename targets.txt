@@ -1749,3 +1749,6 @@ conceptadev/fvm
 
 # --- Automatically discovered new targets ---
 lysine-dev/retrofit
+
+# --- Automatically discovered new targets ---
+payloadcms/payload
