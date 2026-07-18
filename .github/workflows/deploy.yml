@@ -1,25 +1,13 @@
 name: Deploy Frontend to GitHub Pages
 
 on:
-  workflow_dispatch: # 手動デプロイのみ（GitHub ActionsタブのRun workflowボタンで実行）
-    # ローカル検証完了後、GitHub Pages を有効化してから手動実行すること
+  workflow_dispatch: # 手動デプロイのみ
 
-# Pagesデプロイのための書き込み権限とOIDCトークン取得権限を付与
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# デプロイジョブの衝突を防ぐため、1つのデプロイ処理のみをキューに残す
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: write
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       # 1. リポジトリをチェックアウト
@@ -37,21 +25,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4. Viteビルド ＆ HTMLインデックス生成 ＆ Pagefindインデックス構築を実行
+      # 4. Viteビルド ＆ HTMLインデックス生成 ＆ Pagefindインデックス構築 ＆ ライセンスコピーを実行
       - name: Build and Index
         run: npm run build
 
-      # 5. GitHub Pages 向けのインフラ初期設定
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      # 6. ビルド成果物 (dist) を Pages にアップロード
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      # 5. パブリックリポジトリの main ブランチへ dist の中身を自動デプロイ
+      - name: Deploy to Public Repository
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: './dist'
+          token: ${{ secrets.PUBLIC_DEPLOY_TOKEN }}
+          repository-name: Ken0329ichi/project-oss-gem-finder
+          branch: main
+          folder: dist
+          clean: true
 
-      # 7. デプロイの実行
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

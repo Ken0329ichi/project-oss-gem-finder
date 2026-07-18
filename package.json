@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/build-indices.js && npx pagefind --site dist",
+    "build": "vite build && node scripts/build-indices.js && npx pagefind --site dist && node scripts/copy-assets.js",
     "preview": "vite preview"
   },
   "dependencies": {
